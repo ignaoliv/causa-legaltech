@@ -232,6 +232,70 @@ h1.hero-title em {
   max-width: 120px;
 }
 
+/* ── BRIEF SECTION ──────────────────────────── */
+.brief-section {
+  padding: 72px 0;
+  border-top: 1px solid var(--border);
+}
+.brief-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  align-items: start;
+}
+.brief-left {
+  padding-right: 72px;
+}
+.brief-right {
+  border-left: 1px solid var(--border);
+  padding-left: 72px;
+}
+.brief-intro {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--ink-soft);
+  line-height: 1.78;
+  margin-bottom: 18px;
+}
+.brief-intro + .brief-intro {
+  margin-bottom: 0;
+}
+.brief-artifacts {
+  list-style: none;
+  padding: 0;
+}
+.brief-artifacts li {
+  padding: 13px 0;
+  border-bottom: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: 168px 1fr;
+  gap: 16px;
+  align-items: baseline;
+}
+.brief-artifacts li:first-child { border-top: 1px solid var(--border); }
+.artifact-name {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+}
+.artifact-name em {
+  display: block;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--ink-muted);
+  font-size: 11px;
+  letter-spacing: 0;
+  margin-top: 1px;
+}
+.artifact-desc {
+  font-size: 12.5px;
+  font-weight: 300;
+  color: var(--ink-muted);
+  line-height: 1.55;
+}
+
 /* ── DOCUMENTS ───────────────────────────────── */
 .docs-section {
   padding: 56px 0 0;
@@ -427,6 +491,10 @@ footer {
   .hero-grid { grid-template-columns: 1fr; gap: 40px; }
   .hero-right { padding-bottom: 0; }
   h1.hero-title { font-size: 44px; }
+  .brief-grid { grid-template-columns: 1fr; }
+  .brief-left { padding-right: 0; margin-bottom: 48px; }
+  .brief-right { border-left: none; padding-left: 0; border-top: 1px solid var(--border); padding-top: 48px; }
+  .brief-artifacts li { grid-template-columns: 1fr; gap: 4px; }
   .stats-bar-inner { flex-wrap: wrap; gap: 16px; }
   .stat-item { padding: 0 24px 0 0; }
   .stat-item + .stat-item { border-left: none; padding-left: 0; }
@@ -512,6 +580,62 @@ footer {
     </div>
   </div>
 </div>
+
+<!-- ─── BRIEF ────────────────────────────────────────────────────── -->
+<section class="brief-section">
+  <div class="container">
+    <div class="brief-grid">
+
+      <div class="brief-left">
+        <div class="section-label" style="margin-bottom:22px">Sobre el proyecto</div>
+        <p class="brief-intro">
+          Causa es un ejercicio de diseño de producto para el mercado legal argentino.
+          El punto de partida es una brecha evidente: más de 180.000 abogados matriculados,
+          la mayoría trabajando con software desactualizado o sin sistema centralizado,
+          y ninguna plataforma cloud que integre gestión de causas, seguimiento judicial
+          automático e inteligencia artificial en un solo lugar.
+        </p>
+        <p class="brief-intro">
+          Esta documentación cubre el proceso completo: desde el relevamiento competitivo
+          del mercado hasta la especificación detallada del producto, el diseño centrado
+          en el usuario y la proyección financiera. No es una presentación de ventas
+          — es la hoja de ruta operativa de un producto que todavía no existe.
+        </p>
+      </div>
+
+      <div class="brief-right">
+        <div class="section-label" style="margin-bottom:22px">Qué encontrás en cada documento</div>
+        <ul class="brief-artifacts">
+          <li>
+            <div class="artifact-name">Análisis de mercado</div>
+            <div class="artifact-desc">Relevamiento de las plataformas existentes en Argentina: precios, funcionalidades, posicionamiento y un FODA del ecosistema.</div>
+          </li>
+          <li>
+            <div class="artifact-name">PRD<em>Product Requirements Document</em></div>
+            <div class="artifact-desc">El documento que define qué construir, para quién, con qué prioridades y bajo qué métricas se mide el éxito del producto.</div>
+          </li>
+          <li>
+            <div class="artifact-name">Empathy Maps</div>
+            <div class="artifact-desc">Representación de lo que piensan, sienten, ven y escuchan los tres perfiles de usuario — el decisor, el usuario técnico y el escéptico.</div>
+          </li>
+          <li>
+            <div class="artifact-name">Journey Map</div>
+            <div class="artifact-desc">El recorrido completo del usuario: desde que identifica el problema hasta que adopta la plataforma y la recomienda a sus colegas.</div>
+          </li>
+          <li>
+            <div class="artifact-name">Business Model Canvas</div>
+            <div class="artifact-desc">Propuesta de valor, segmentos, canales, socios clave, actividades y fuentes de ingreso organizados en un solo marco.</div>
+          </li>
+          <li>
+            <div class="artifact-name">P&amp;L<em>Proyección financiera</em></div>
+            <div class="artifact-desc">Stack de servicios con costos por fase, evolución mensual de ingresos y gastos, break-even y economía unitaria (LTV, CAC, margen).</div>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
 
 <!-- ─── DOCUMENTS ────────────────────────────────────────────────── -->
 <section class="docs-section" id="documentos">
