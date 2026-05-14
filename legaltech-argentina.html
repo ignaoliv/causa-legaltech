@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Legal Tech Argentina — Research de plataformas para abogados</title>
+<style>
+  :root{
+    --navy:#10213f; --navy2:#1c3357; --indigo:#2d4a7c;
+    --gold:#c8a24a; --gold-soft:#f3e7c8;
+    --bg:#f4f5f7; --card:#ffffff; --ink:#1f2733; --muted:#5e6b7e;
+    --line:#e3e7ee; --good:#1f8a52; --bad:#c0392b; --warn:#b9821a;
+    --shadow:0 2px 8px rgba(16,33,63,.06),0 8px 24px rgba(16,33,63,.06);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased}
+  a{color:var(--indigo)}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+
+  /* Header */
+  header{background:linear-gradient(135deg,var(--navy),var(--indigo));color:#fff;padding:38px 0 30px}
+  header .wrap{display:flex;flex-direction:column;gap:6px}
+  .eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:700}
+  header h1{font-size:32px;line-height:1.2;font-weight:800}
+  header p.sub{color:#c5d0e2;font-size:15px;max-width:760px;margin-top:4px}
+  .meta{margin-top:14px;font-size:12.5px;color:#9fb0cc;display:flex;gap:18px;flex-wrap:wrap}
+  .meta b{color:#dfe7f3}
+
+  /* Nav */
+  nav{position:sticky;top:0;z-index:30;background:var(--navy);box-shadow:0 2px 12px rgba(0,0,0,.18)}
+  nav .wrap{display:flex;gap:4px;overflow-x:auto}
+  nav button{background:none;border:none;color:#aab8d0;font-size:14px;font-weight:600;
+    padding:14px 16px;cursor:pointer;white-space:nowrap;border-bottom:3px solid transparent;transition:.15s}
+  nav button:hover{color:#fff}
+  nav button.active{color:#fff;border-bottom-color:var(--gold)}
+
+  main{padding:32px 0 70px}
+  .tab{display:none;animation:fade .25s ease}
+  .tab.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+  h2.section{font-size:22px;font-weight:800;color:var(--navy);margin:6px 0 4px;
+    display:flex;align-items:center;gap:10px}
+  h2.section::before{content:"";width:5px;height:22px;background:var(--gold);border-radius:3px;display:inline-block}
+  .lead{color:var(--muted);font-size:15px;margin-bottom:22px;max-width:860px}
+  h3.sub{font-size:16px;font-weight:700;color:var(--navy2);margin:30px 0 12px}
+
+  /* Stat cards */
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin:18px 0 8px}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 18px;box-shadow:var(--shadow)}
+  .stat .num{font-size:28px;font-weight:800;color:var(--navy)}
+  .stat .lab{font-size:13px;color:var(--muted);margin-top:2px}
+  .stat .tag{font-size:11px;color:var(--gold);font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+
+  /* Generic cards */
+  .grid{display:grid;gap:16px}
+  .g2{grid-template-columns:repeat(auto-fit,minmax(330px,1fr))}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:var(--shadow)}
+  .card h4{font-size:16px;color:var(--navy);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+  .card ul{margin:6px 0 0 18px}
+  .card li{font-size:14px;margin:4px 0}
+  .pill{display:inline-block;font-size:11px;font-weight:700;padding:3px 9px;border-radius:999px;
+    background:var(--gold-soft);color:#8a6d1f;letter-spacing:.02em}
+  .pill.blue{background:#e4ecfa;color:#2d4a7c}
+  .pill.green{background:#e0f2e8;color:#1f8a52}
+  .pill.red{background:#fae3e0;color:#c0392b}
+  .pill.gray{background:#eceff3;color:#5e6b7e}
+
+  /* Platform cards */
+  .filters{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 20px}
+  .filters button{background:var(--card);border:1px solid var(--line);border-radius:999px;
+    padding:7px 15px;font-size:13px;font-weight:600;color:var(--muted);cursor:pointer;transition:.15s}
+  .filters button:hover{border-color:var(--indigo);color:var(--indigo)}
+  .filters button.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+  .pcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px}
+  .pcard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;
+    box-shadow:var(--shadow);transition:.18s;border-top:4px solid var(--indigo)}
+  .pcard:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(16,33,63,.13)}
+  .pcard.cat-ia{border-top-color:var(--gold)}
+  .pcard .ph{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+  .pcard .pname{font-size:17px;font-weight:800;color:var(--navy)}
+  .pcard .ptype{font-size:12px;color:var(--muted);font-weight:600}
+  .pcard .price{font-size:14px;font-weight:700;color:var(--navy2);margin:10px 0 6px;
+    background:#f6f7f9;border-radius:8px;padding:7px 10px}
+  .pcard .tags{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}
+  .pcard .desc{font-size:13.5px;color:var(--muted);margin-top:6px}
+  .pcard .row{display:flex;gap:6px;font-size:12.5px;margin-top:8px;flex-wrap:wrap}
+  .kv{font-size:12.5px;margin-top:8px}
+  .kv b{color:var(--navy2)}
+  .sw{display:flex;gap:14px;margin-top:10px;font-size:12px;color:var(--muted)}
+  .sw span::before{margin-right:4px}
+  .yes::before{content:"●";color:var(--good)}
+  .no::before{content:"●";color:#c9ccd2}
+
+  /* Table */
+  .tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);background:var(--card)}
+  table{border-collapse:collapse;width:100%;font-size:13.5px;min-width:760px}
+  thead th{background:var(--navy);color:#fff;text-align:left;padding:12px 14px;font-weight:700;
+    cursor:pointer;user-select:none;white-space:nowrap;position:relative}
+  thead th:hover{background:var(--navy2)}
+  thead th .arr{opacity:.45;font-size:10px;margin-left:4px}
+  tbody td{padding:11px 14px;border-bottom:1px solid var(--line)}
+  tbody tr:last-child td{border-bottom:none}
+  tbody tr:hover{background:#f8f9fb}
+  td.name{font-weight:700;color:var(--navy)}
+  .searchbox{margin:6px 0 14px}
+  .searchbox input{width:100%;max-width:340px;padding:10px 14px;border:1px solid var(--line);
+    border-radius:10px;font-size:14px}
+  .searchbox input:focus{outline:none;border-color:var(--indigo)}
+
+  /* Bar chart */
+  .bars{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;box-shadow:var(--shadow)}
+  .bar{margin:13px 0}
+  .bar .bl{display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px}
+  .bar .bl b{color:var(--navy)}
+  .bar .bl span{color:var(--muted);font-weight:600}
+  .track{background:#eef0f4;border-radius:7px;height:22px;overflow:hidden}
+  .fill{height:100%;border-radius:7px;background:linear-gradient(90deg,var(--indigo),var(--navy2));
+    display:flex;align-items:center;justify-content:flex-end;padding-right:8px;color:#fff;
+    font-size:11px;font-weight:700;transition:width .9s ease}
+  .fill.gold{background:linear-gradient(90deg,var(--gold),#a8842f)}
+  .fill.sm{justify-content:flex-start;padding-left:8px;color:var(--navy);background:#dfe5ef}
+
+  .note{background:#fff8e8;border:1px solid #ecd9a6;border-radius:12px;padding:14px 16px;
+    font-size:13.5px;color:#7a5f1c;margin:16px 0;display:flex;gap:10px}
+  .note b{color:#5f4a10}
+  .note::before{content:"⚠";font-size:16px}
+
+  .callout{background:linear-gradient(135deg,var(--navy),var(--indigo));color:#fff;border-radius:14px;
+    padding:22px 24px;margin:20px 0}
+  .callout h4{color:var(--gold);font-size:14px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}
+  .callout p{font-size:15px;color:#e6ecf6}
+
+  ol.recs{counter-reset:r;list-style:none;margin:10px 0}
+  ol.recs li{position:relative;padding:12px 14px 12px 50px;background:var(--card);border:1px solid var(--line);
+    border-radius:12px;margin-bottom:10px;font-size:14px;box-shadow:var(--shadow)}
+  ol.recs li::before{counter-increment:r;content:counter(r);position:absolute;left:14px;top:12px;
+    width:24px;height:24px;background:var(--gold);color:#fff;border-radius:7px;font-weight:800;
+    display:flex;align-items:center;justify-content:center;font-size:13px}
+  ol.recs li b{color:var(--navy)}
+  .qw{border-left:4px solid var(--good)}
+  .st{border-left:4px solid var(--indigo)}
+
+  /* FODA quadrants */
+  .foda{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:18px 0}
+  .foda .q{border-radius:14px;padding:20px;box-shadow:var(--shadow);border:1px solid var(--line)}
+  .foda .q h4{font-size:15px;font-weight:800;margin-bottom:4px;display:flex;align-items:center;gap:8px}
+  .foda .q .qsub{font-size:11.5px;color:var(--muted);margin-bottom:10px;font-weight:600}
+  .foda .q ul{margin-left:17px}
+  .foda .q li{font-size:13px;margin:6px 0}
+  .foda .f{background:#eaf3ee;border-color:#bcdcc8} .foda .f h4{color:var(--good)}
+  .foda .o{background:#e9eefb;border-color:#c2cff0} .foda .o h4{color:var(--indigo)}
+  .foda .d{background:#fdf0e7;border-color:#f0d3bf} .foda .d h4{color:var(--warn)}
+  .foda .a{background:#fae9e7;border-color:#e8c0b9} .foda .a h4{color:var(--bad)}
+  .tows{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin-top:12px}
+  .tows .t{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;box-shadow:var(--shadow)}
+  .tows .t .code{font-size:11px;font-weight:800;letter-spacing:.06em;color:var(--gold)}
+  .tows .t h5{font-size:13.5px;color:var(--navy);margin:3px 0 5px}
+  .tows .t p{font-size:13px;color:var(--muted)}
+
+  /* News timeline */
+  .timeline{position:relative;margin:20px 0;padding-left:28px}
+  .timeline::before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:var(--line)}
+  .tl{position:relative;margin-bottom:16px;background:var(--card);border:1px solid var(--line);
+    border-radius:12px;padding:14px 16px;box-shadow:var(--shadow)}
+  .tl::before{content:"";position:absolute;left:-25px;top:18px;width:12px;height:12px;border-radius:50%;
+    background:var(--gold);border:3px solid #fff;box-shadow:0 0 0 1px var(--line)}
+  .tl .d{font-size:11px;font-weight:800;color:var(--gold);text-transform:uppercase;letter-spacing:.06em}
+  .tl h4{font-size:14.5px;color:var(--navy);margin:3px 0 4px}
+  .tl p{font-size:13px;color:var(--muted)}
+  .cohorts{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin:10px 0}
+  .cohort{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;
+    box-shadow:var(--shadow);border-top:4px solid var(--indigo)}
+  .cohort h4{font-size:15px;color:var(--navy)}
+  .cohort .age{font-size:12px;color:var(--gold);font-weight:800;letter-spacing:.04em}
+  .cohort ul{margin:8px 0 0 16px}
+  .cohort li{font-size:12.5px;margin:5px 0;color:var(--muted)}
+  .cohort li b{color:var(--navy2)}
+
+  footer{border-top:1px solid var(--line);padding:26px 0 50px;color:var(--muted);font-size:12.5px}
+  footer h4{color:var(--navy);font-size:13px;margin-bottom:8px}
+  footer ul{margin-left:18px}
+  footer li{margin:3px 0}
+  .disc{background:#eef0f4;border-radius:10px;padding:12px 14px;font-size:12px;color:var(--muted);margin-top:18px}
+
+  @media(max-width:640px){
+    header h1{font-size:25px}
+    .pcards{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="eyebrow">Brief competitivo · Research de mercado</div>
+    <h1>Legal Tech en Argentina</h1>
+    <p class="sub">Plataformas y software para abogados: precios, funcionalidades, integraciones y tracción de mercado · demografía de la abogacía argentina · noticias y tendencias · FODA del sector.</p>
+    <div class="meta">
+      <span>📅 Investigación: <b>mayo 2026</b></span>
+      <span>🔍 <b>10</b> plataformas relevadas</span>
+      <span>⚖️ <b>148.306</b> abogados matriculados en el país</span>
+      <span>📊 Incluye FODA + matriz TOWS</span>
+      <span>📌 Research de mercado — no constituye asesoramiento legal</span>
+    </div>
+  </div>
+</header>
+
+<nav>
+  <div class="wrap">
+    <button class="active" data-tab="resumen">Resumen</button>
+    <button data-tab="plataformas">Plataformas</button>
+    <button data-tab="comparador">Comparador</button>
+    <button data-tab="mercado">Mercado de abogados</button>
+    <button data-tab="noticias">Noticias &amp; tendencias</button>
+    <button data-tab="foda">FODA</button>
+    <button data-tab="oportunidades">Recomendaciones</button>
+  </div>
+</nav>
+
+<main>
+<div class="wrap">
+
+  <!-- ===================== RESUMEN ===================== -->
+  <section class="tab active" id="resumen">
+    <h2 class="section">Resumen ejecutivo</h2>
+    <p class="lead">El mercado argentino de software jurídico está partido en dos categorías que suelen confundirse:
+      <b>sistemas de gestión integral de expedientes</b> (el "ERP del estudio") y
+      <b>herramientas de IA para investigación jurídica</b> (complementos, no reemplazan la gestión).
+      El líder histórico, Lex-Doctor, domina por base instalada pero es escritorio/Windows y sin IA.
+      Una camada de players cloud + IA le disputa el terreno.</p>
+
+    <div class="stats">
+      <div class="stat"><div class="tag">No-consumo</div><div class="num">69%</div><div class="lab">de los abogados aún usa escritorio, papel o Excel</div></div>
+      <div class="stat"><div class="tag">Líder histórico</div><div class="num">+36 años</div><div class="lab">Lex-Doctor — mayor base instalada del país</div></div>
+      <div class="stat"><div class="tag">Mercado</div><div class="num">148.306</div><div class="lab">abogados matriculados a nivel nacional</div></div>
+      <div class="stat"><div class="tag">Concentración</div><div class="num">~40%</div><div class="lab">de los abogados están en CABA (un solo padrón)</div></div>
+    </div>
+
+    <div class="callout">
+      <h4>Takeaway principal</h4>
+      <p>La mayor oportunidad no es robarle clientes a los competidores: es el <b>69% del mercado todavía no digitalizado</b>.
+      La mayor amenaza es la velocidad de la IA — quien no la incorpore de forma nativa queda obsoleto rápido.</p>
+    </div>
+
+    <h3 class="sub">El panorama en una mirada</h3>
+    <div class="grid g2">
+      <div class="card">
+        <h4>🏛️ Gestión integral de expedientes</h4>
+        <p style="font-size:13.5px;color:var(--muted)">El "sistema operativo" del estudio: expedientes, plazos, escritos, integración con PJN/MEV, facturación.</p>
+        <ul>
+          <li><b>Lex-Doctor</b> — incumbente, escritorio, licencia perpetua</li>
+          <li><b>MetaJurídico</b> — el más consolidado de los modernos (~1.400 estudios)</li>
+          <li><b>LITIS</b> — cloud, precios transparentes</li>
+          <li><b>Veredicta</b> — cloud + IA, el retador (en beta)</li>
+          <li><b>IUSNET · OpenLex · Estudio360</b> — cloud, alcance acotado</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>🤖 IA / investigación jurídica</h4>
+        <p style="font-size:13.5px;color:var(--muted)">Complementos: búsqueda de jurisprudencia, generación de escritos, análisis. No gestionan el estudio.</p>
+        <ul>
+          <li><b>Argus Legal</b> — IA cordobesa, +260.000 fallos certificados, 8.700 abogados</li>
+          <li><b>Lexius</b> — +130.000 textos, multipaís (AR/CL/PE)</li>
+          <li><b>Juztina</b> — IA conversacional, cobertura LatAm</li>
+        </ul>
+        <p style="font-size:12.5px;color:var(--muted);margin-top:10px">Hoy hay un <b>trade-off</b>: los fuertes en integración judicial son débiles en IA, y viceversa. Nadie cubre bien las dos puntas.</p>
+      </div>
+    </div>
+
+    <div class="note"><div><b>Sobre nombres consultados:</b> "Lexlink", "IusDoc", "JusGov" y "Casey" no aparecieron en el relevamiento del mercado argentino — pueden ser productos muy de nicho, discontinuados, o conocidos con otro nombre.</div></div>
+  </section>
+
+  <!-- ===================== PLATAFORMAS ===================== -->
+  <section class="tab" id="plataformas">
+    <h2 class="section">Plataformas en detalle</h2>
+    <p class="lead">Diez plataformas relevadas. Usá los filtros para segmentar por categoría, tipo de despliegue o capacidades de IA.</p>
+
+    <div class="filters" id="pfilters">
+      <button class="active" data-f="all">Todas (10)</button>
+      <button data-f="gestion">Gestión integral</button>
+      <button data-f="ia">IA / investigación</button>
+      <button data-f="cloud">Cloud</button>
+      <button data-f="desktop">Escritorio</button>
+      <button data-f="conia">Con IA</button>
+    </div>
+
+    <div class="pcards" id="pcards"></div>
+  </section>
+
+  <!-- ===================== COMPARADOR ===================== -->
+  <section class="tab" id="comparador">
+    <h2 class="section">Comparador</h2>
+    <p class="lead">Tabla ordenable — clic en cualquier encabezado para ordenar. Buscá por nombre o característica.</p>
+
+    <div class="searchbox"><input type="text" id="tsearch" placeholder="🔍 Buscar plataforma o característica…"></div>
+
+    <div class="tablewrap">
+      <table id="ctable">
+        <thead>
+          <tr>
+            <th data-k="name">Plataforma <span class="arr">▲▼</span></th>
+            <th data-k="cat">Categoría <span class="arr">▲▼</span></th>
+            <th data-k="tipo">Tipo <span class="arr">▲▼</span></th>
+            <th data-k="precio">Precio <span class="arr">▲▼</span></th>
+            <th data-k="ia">IA <span class="arr">▲▼</span></th>
+            <th data-k="integ">Integración judicial <span class="arr">▲▼</span></th>
+            <th data-k="wpp">WhatsApp <span class="arr">▲▼</span></th>
+            <th data-k="traccion">Tracción <span class="arr">▲▼</span></th>
+          </tr>
+        </thead>
+        <tbody id="ctbody"></tbody>
+      </table>
+    </div>
+
+    <h3 class="sub">Posicionamiento de precios (referencia mensual estimada)</h3>
+    <p class="lead" style="margin-bottom:12px">Comparativa orientativa. Lex-Doctor y MetaJurídico tienen modelos distintos (licencia perpetua / desde) — se muestran como referencia visual, no como equivalencia directa.</p>
+    <div class="bars" id="pricebars"></div>
+
+    <div class="note"><div><b>Nota de precios:</b> varias plataformas no publican tarifas ("a consultar"). Lex-Doctor es licencia perpetua (no mensual). Veredicta cotiza en USD. Las cifras son las relevadas a mayo 2026 y pueden variar.</div></div>
+  </section>
+
+  <!-- ===================== MERCADO ===================== -->
+  <section class="tab" id="mercado">
+    <h2 class="section">El mercado de abogados en Argentina</h2>
+    <p class="lead">Cuántos abogados hay, dónde están y qué se sabe (y qué no) sobre su composición por edad.
+      Datos del relevamiento de profesionales matriculados del INDEC y de colegios provinciales.</p>
+
+    <div class="stats">
+      <div class="stat"><div class="tag">Total país</div><div class="num">148.306</div><div class="lab">abogados matriculados — 2ª profesión del país (17,3%)</div></div>
+      <div class="stat"><div class="tag">Densidad</div><div class="num">1 c/260</div><div class="lab">habitantes — más de 300 abogados c/100.000 hab</div></div>
+      <div class="stat"><div class="tag">CABA</div><div class="num">59.529</div><div class="lab">matriculados en el CPACF — ~40% del total nacional</div></div>
+      <div class="stat"><div class="tag">Concentración</div><div class="num">&gt;2.300</div><div class="lab">abogados c/100.000 hab en CABA — la más alta del país</div></div>
+    </div>
+
+    <h3 class="sub">Distribución por región / jurisdicción</h3>
+    <div class="bars" id="regionbars"></div>
+    <div class="note"><div><b>Atención metodológica:</b> Argentina no tiene un padrón nacional unificado. La matrícula es federal y la Provincia de Buenos Aires sola se divide en <b>18 colegios departamentales</b>. Solo CABA tiene cifra consolidada y pública clara. El resto son estimaciones de distinta antigüedad y no del todo comparables entre sí.</div></div>
+
+    <h3 class="sub">Densidad: provincias extremas</h3>
+    <div class="grid g2">
+      <div class="card" style="border-top:4px solid var(--good)">
+        <h4>🔝 San Juan — mayor densidad</h4>
+        <p style="font-size:14px;color:var(--muted)"><b style="color:var(--navy);font-size:20px">519</b> abogados por cada 100.000 habitantes. La provincia con más abogados por habitante del país.</p>
+      </div>
+      <div class="card" style="border-top:4px solid var(--bad)">
+        <h4>🔻 Jujuy — menor densidad</h4>
+        <p style="font-size:14px;color:var(--muted)"><b style="color:var(--navy);font-size:20px">169</b> abogados por cada 100.000 habitantes. La provincia con menos abogados por habitante.</p>
+      </div>
+    </div>
+
+    <h3 class="sub">Segmentación por edad — análisis en profundidad</h3>
+    <div class="note"><div><b>No existe un censo público de la abogacía argentina segmentado por edad.</b> Lo confirmamos tras relevar INDEC, CPACF, COLPROBA y cajas forenses: ninguno publica la pirámide etaria de la matrícula. Las razones son estructurales — matrícula federal y fragmentada en decenas de colegios, sin un organismo que consolide y publique la demografía profesional. Lo que sigue combina los <b>proxies medibles</b> que sí existen con un <b>análisis cualitativo por cohorte</b>.</div></div>
+
+    <div class="stats">
+      <div class="stat"><div class="tag">Pipeline / inflow</div><div class="num">~140.000</div><div class="lab">estudiantes de abogacía en 44 universidades — la carrera con más alumnos del país (~13% de la matrícula universitaria)</div></div>
+      <div class="stat"><div class="tag">Recambio</div><div class="num">59%</div><div class="lab">de los graduados en Derecho 2011–2020 son mujeres: el recambio generacional es femenino</div></div>
+      <div class="stat"><div class="tag">Núcleo histórico</div><div class="num">53,6%</div><div class="lab">de los matriculados 2009–2013 eran varones: la cohorte de más edad es de mayoría masculina</div></div>
+      <div class="stat"><div class="tag">Umbral "pasivo"</div><div class="num">75 años</div><div class="lab">edad desde la que los colegios distinguen al matriculado como "pasivo" — el único corte etario que sí registran</div></div>
+    </div>
+
+    <h3 class="sub">Proxy 1 — La feminización como indicador de edad</h3>
+    <p class="lead">La composición de género de cada cohorte funciona como proxy de su edad: las generaciones recientes son mayoritariamente femeninas y las históricas mayoritariamente masculinas. La línea de quiebre se ubica alrededor de 2013–2015.</p>
+    <div class="bars" id="genderbars"></div>
+
+    <h3 class="sub">Proxy 2 — El embudo universitario</h3>
+    <p class="lead">~140.000 personas estudian abogacía hoy en 44 universidades (23 nacionales, 21 privadas) — es la carrera más numerosa del país. Esto anticipa un <b>inflow sostenido de profesionales sub-30</b>. Pero hay registros de que "se reciben cada vez menos abogados" en términos relativos y de un corrimiento del ejercicio independiente hacia la relación de dependencia: el embudo es ancho arriba, pero la conversión a ejercicio independiente se está angostando.</p>
+
+    <h3 class="sub">Perfil por cohorte generacional</h3>
+    <p class="lead">Perfiles <b>cualitativos</b> — no son porcentajes censales (ese dato no existe), sino la caracterización de cada segmento a partir de lo documentado sobre género, postura tecnológica y modo de ejercicio.</p>
+    <div class="cohorts">
+      <div class="cohort">
+        <div class="age">COHORTE JOVEN</div>
+        <h4>Sub-35 · "Nativos de la IA"</h4>
+        <ul>
+          <li><b>Composición:</b> mayoría mujeres; entran más a relación de dependencia o estudios medianos.</li>
+          <li><b>Tecnología:</b> sin infraestructura heredada; adoptan cloud + IA sin fricción.</li>
+          <li><b>Compra:</b> bajo poder adquisitivo individual, pero alta influencia si el estudio decide.</li>
+          <li><b>Implicancia legal tech:</b> target de <b>freemium</b> y planes por usuario.</li>
+        </ul>
+      </div>
+      <div class="cohort" style="border-top-color:var(--gold)">
+        <div class="age">COHORTE PUENTE</div>
+        <h4>35–50 · "La generación puente"</h4>
+        <ul>
+          <li><b>Composición:</b> cohorte mixta, en transición de género.</li>
+          <li><b>Tecnología:</b> pragmáticos — conviven con Lex-Doctor y prueban lo nuevo si ven ROI claro.</li>
+          <li><b>Compra:</b> suelen ser <b>quienes deciden</b> la compra en estudios chicos y medianos.</li>
+          <li><b>Implicancia legal tech:</b> el verdadero decisor comercial — venderles ROI y migración asistida.</li>
+        </ul>
+      </div>
+      <div class="cohort" style="border-top-color:var(--navy2)">
+        <div class="age">NÚCLEO HISTÓRICO</div>
+        <h4>+50 · "El núcleo independiente"</h4>
+        <ul>
+          <li><b>Composición:</b> mayoría varones; ejercicio independiente tradicional.</li>
+          <li><b>Tecnología:</b> base instalada de Lex-Doctor y grueso del 69% no digitalizado; menor uso activo de IA.</li>
+          <li><b>Matiz clave:</b> la barrera es de <b>oportunidad de capacitación</b>, no de capacidad.</li>
+          <li><b>Implicancia legal tech:</b> defendible por incumbentes; conquistable con onboarding asistido y soporte humano.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="sub">La brecha generacional que la IA está ensanchando</h3>
+    <div class="grid g2">
+      <div class="card">
+        <h4>🔍 Qué dice el debate</h4>
+        <ul>
+          <li>Los abogados de mayor edad presentan <b>menor uso activo</b> de IA y herramientas digitales avanzadas que las cohortes jóvenes.</li>
+          <li>Los jóvenes tienen ventaja de adaptación, pero <b>menos experiencia sustantiva</b>; los seniors, lo inverso.</li>
+          <li>El planteo de fondo: la brecha real no sería de edad, sino de <b>acceso a la capacitación</b>. Si la formación en IA se ofrece primero a los jóvenes, la tecnología puede profundizar una discriminación etaria preexistente.</li>
+        </ul>
+      </div>
+      <div class="card" style="border-top:4px solid var(--bad)">
+        <h4>⚖️ Dos escenarios</h4>
+        <ul>
+          <li><b>Óptimo:</b> seniors que aportan juicio profesional maduro + juniors que dominan las herramientas digitales, trabajando integrados.</li>
+          <li><b>Distópico:</b> una segmentación donde los seniors quedan relegados a funciones ceremoniales mientras los juniors asistidos por IA capturan el trabajo sustantivo.</li>
+          <li>Para un proveedor de legal tech, el producto que <b>integra ambas cohortes</b> (IA potente + curva de aprendizaje suave + soporte humano) es el que captura todo el estudio, no media oficina.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout">
+      <h4>Takeaway sobre edad</h4>
+      <p>Sin un censo etario, la pregunta comercial correcta no es "cuántos abogados hay de cada edad", sino <b>"quién decide la compra"</b>. En los estudios chicos y medianos —el grueso del mercado— ese rol lo ocupa la cohorte <b>35–50</b>: pragmática, sensible al ROI y con autoridad de gasto. La cohorte joven es el usuario; la madura, el guardián de la base instalada; la del medio, el comprador.</p>
+    </div>
+  </section>
+
+  <!-- ===================== NOTICIAS ===================== -->
+  <section class="tab" id="noticias">
+    <h2 class="section">Noticias &amp; tendencias</h2>
+    <p class="lead">Los movimientos que están redefiniendo el legal tech argentino: adopción institucional, salto de la IA en estudios y departamentos legales, y hacia dónde va el mercado 2026–2030.</p>
+
+    <div class="stats">
+      <div class="stat"><div class="tag">Salto de adopción</div><div class="num">11% → 75%</div><div class="lab">uso de IA en departamentos legales corporativos en solo 2 años (Reporte Marval 2025)</div></div>
+      <div class="stat"><div class="tag">Productividad</div><div class="num">~10 hs</div><div class="lab">semanales que ahorran los abogados que adoptan herramientas de IA</div></div>
+      <div class="stat"><div class="tag">El espejismo</div><div class="num">67%</div><div class="lab">de los usuarios desconfía de la precisión de los resultados de la IA</div></div>
+      <div class="stat"><div class="tag">Mercado regional</div><div class="num">~11%</div><div class="lab">crecimiento anual del mercado legal tech en la región</div></div>
+    </div>
+
+    <h3 class="sub">Línea de tiempo</h3>
+    <div class="timeline" id="newstl"></div>
+
+    <h3 class="sub">Qué herramientas de IA usan los equipos legales</h3>
+    <p class="lead" style="margin-bottom:12px">Dato revelador: las herramientas más usadas son <b>genéricas</b> (ChatGPT, Copilot), no legal tech especializado. El software jurídico con IA todavía tiene baja penetración — es amenaza y oportunidad a la vez.</p>
+    <div class="bars" id="toolbars"></div>
+
+    <h3 class="sub">Para qué se usa la IA en el trabajo legal</h3>
+    <div class="bars" id="usebars"></div>
+
+    <h3 class="sub">Tendencias clave 2026–2030</h3>
+    <div class="grid g2">
+      <div class="card"><h4>🤖 De responder a operar</h4><p style="font-size:13.5px;color:var(--muted)">La IA deja de "responder textos" y empieza a operar procesos completos: agentes autónomos que interpretan documentos, ejecutan tareas encadenadas y aprenden flujos jurídicos específicos.</p></div>
+      <div class="card"><h4>🏗️ De features a fundaciones</h4><p style="font-size:13.5px;color:var(--muted)">El legaltech entra en "madurez operativa". Ganan los que construyen bases sólidas de automatización confiable, decisiones defendibles y cumplimiento escalable — no los que acumulan features.</p></div>
+      <div class="card"><h4>🔒 Ciberseguridad no negociable</h4><p style="font-size:13.5px;color:var(--muted)">Tras los incidentes del sector, la seguridad pasó de "deseable" a requisito de entrada y argumento de venta central.</p></div>
+      <div class="card"><h4>📚 El dato como foso</h4><p style="font-size:13.5px;color:var(--muted)">La ventaja competitiva se corre hacia los datos propietarios: jurisprudencia certificada, fallos verificados, integración judicial profunda. La IA es commodity; el dato confiable, no.</p></div>
+    </div>
+
+    <div class="note"><div><b>El "espejismo digital":</b> 3 de cada 4 abogados usan IA pero 2 de cada 3 desconfían de los resultados. El cuello de botella ya no es la adopción — es la <b>confianza</b>. El producto ganador será el que resuelva verificabilidad, citas a fuente y revisión humana, no el que tenga más IA.</div></div>
+  </section>
+
+  <!-- ===================== FODA ===================== -->
+  <section class="tab" id="foda">
+    <h2 class="section">FODA del mercado legal tech argentino</h2>
+    <p class="lead">Análisis FODA del mercado argentino como terreno para un proveedor de legal tech (nuevo entrante o player en expansión). <b>Fortalezas y Debilidades</b> describen las condiciones internas del mercado-país; <b>Oportunidades y Amenazas</b>, las fuerzas externas del entorno.</p>
+
+    <div class="foda">
+      <div class="q f">
+        <h4>💪 Fortalezas</h4>
+        <div class="qsub">Condiciones favorables del mercado argentino</div>
+        <ul>
+          <li>Mercado grande y profesionalizado: <b>148.306 abogados</b>, 2ª profesión del país, ~140.000 estudiantes en el pipeline.</li>
+          <li>Alta concentración geográfica: <b>~40% en CABA</b>, en un único padrón — go-to-market eficiente.</li>
+          <li>Adopción de IA <b>ya validada</b>: en departamentos legales corporativos pasó de 11% a 75% en dos años.</li>
+          <li>Dolor concreto y medible: la integración judicial es "no negociable" y el ahorro de horas es cuantificable (hasta 10 hs/semana).</li>
+          <li>Infraestructura judicial digital existente (PJN, MEV, EJE) sobre la cual integrarse.</li>
+          <li>Marco institucional incipiente que legitima la categoría: PJN con asistente de IA propio, CPACF con guías de uso de IA.</li>
+        </ul>
+      </div>
+      <div class="q o">
+        <h4>🚀 Oportunidades</h4>
+        <div class="qsub">Espacios abiertos en el entorno</div>
+        <ul>
+          <li><b>69% del mercado aún no digitalizado</b> — enorme espacio de no-consumo por capturar.</li>
+          <li>Nadie integra bien <b>gestión + integración judicial + IA nativa</b>: hueco de producto claro.</li>
+          <li>Verticalización por fuero subexplotada: laboral lo tomó MetaJurídico; familia, previsional, daños y penal siguen abiertos.</li>
+          <li>Opacidad de precios del sector: transparentar tarifas es un diferenciador inmediato.</li>
+          <li>La IA generativa concentra el <b>48% de la intención de nueva inversión</b> de los operadores jurídicos.</li>
+          <li>Recambio generacional pro-tecnología: cohortes jóvenes, mayoría mujeres, nativas digitales.</li>
+          <li>Modelos multipaís (Lexius opera en AR/CL/PE) prueban que el producto escala regionalmente.</li>
+        </ul>
+      </div>
+      <div class="q d">
+        <h4>⚠️ Debilidades</h4>
+        <div class="qsub">Limitaciones estructurales del terreno</div>
+        <ul>
+          <li><b>68%</b> de los estudios/departamentos no tiene presupuesto asignado a legal tech.</li>
+          <li><b>69%</b> no accede a bases de datos jurídicas especializadas — el "piso" tecnológico es bajo.</li>
+          <li>Macro inestable: ingresos en pesos vs. costos en dólares; poder de compra volátil.</li>
+          <li>Brecha de capacitación: 21% no recibió ninguna formación en IA en el último año.</li>
+          <li>Desconfianza alta: 67% duda de la precisión de la IA — frena la conversión.</li>
+          <li>Fragmentación institucional: decenas de colegios y sistemas judiciales heterogéneos por provincia → integración costosa.</li>
+        </ul>
+      </div>
+      <div class="q a">
+        <h4>🌩️ Amenazas</h4>
+        <div class="qsub">Riesgos externos del entorno</div>
+        <ul>
+          <li>Velocidad de la IA: los agentes autónomos cambian el producto base cada 6–12 meses.</li>
+          <li>Incumbente con base instalada masiva (<b>Lex-Doctor</b>) y alto costo de cambio.</li>
+          <li>Big tech genérico (ChatGPT, Copilot) como sustituto "suficiente" — el competidor no es solo otro legal tech.</li>
+          <li><b>Feature parity</b> en IA de investigación (Argus/Lexius/Juztina): guerra de precios y consolidación a la vista.</li>
+          <li>Dependencia regulatoria: un cambio en PJN/MEV/EJE impacta a todos a la vez.</li>
+          <li>Riesgo reputacional/ético: errores de IA en expedientes, prompt injection, responsabilidad profesional.</li>
+          <li>Un incidente de ciberseguridad puede frenar la adopción de toda la categoría.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="sub">Cruce estratégico (matriz TOWS)</h3>
+    <p class="lead" style="margin-bottom:8px">Qué hacer con el FODA: cruzar cuadrantes para derivar movimientos concretos.</p>
+    <div class="tows">
+      <div class="t"><div class="code">FO · OFENSIVA</div><h5>Atacar el hueco de producto</h5><p>Usar la concentración en CABA + la adopción de IA ya validada para lanzar lo que nadie tiene: gestión + integración judicial + IA nativa, primero en el mercado más denso.</p></div>
+      <div class="t"><div class="code">FA · DEFENSIVA</div><h5>La integración judicial como foso</h5><p>Frente al big tech genérico, la integración profunda con PJN/MEV/EJE es la barrera que ChatGPT no puede cruzar. Convertirla en el núcleo del producto, no en un add-on.</p></div>
+      <div class="t"><div class="code">DO · REORIENTACIÓN</div><h5>Freemium contra la falta de presupuesto</h5><p>El 68% sin presupuesto + el 69% no digitalizado se atacan con un freemium real y migración asistida desde Excel/Lex-Doctor, bajando el costo de cambio a casi cero.</p></div>
+      <div class="t"><div class="code">DA · SUPERVIVENCIA</div><h5>Confianza como producto</h5><p>Mitigar la desconfianza (67%) y el riesgo ético con IA explicable, citas a fuente verificables y revisión humana incorporada. Vender confiabilidad, no "más IA".</p></div>
+    </div>
+  </section>
+
+  <!-- ===================== RECOMENDACIONES ===================== -->
+  <section class="tab" id="oportunidades">
+    <h2 class="section">Recomendaciones</h2>
+    <p class="lead">Recomendaciones accionables — según uses este research para elegir una herramienta para tu estudio o para posicionar un producto en el mercado.</p>
+
+    <h3 class="sub">Si es para elegir herramienta para un estudio</h3>
+    <div class="grid g2">
+      <div class="card"><h4>Estudio tradicional (infra Windows)</h4><p style="font-size:14px;color:var(--muted)">Lex-Doctor o MetaJurídico — base instalada, estabilidad, integración judicial amplia.</p></div>
+      <div class="card"><h4>Estudio moderno (quiere cloud + IA)</h4><p style="font-size:14px;color:var(--muted)">Veredicta (probar el plan gratuito) + Argus o Lexius como complemento de investigación.</p></div>
+      <div class="card"><h4>Laboralista</h4><p style="font-size:14px;color:var(--muted)">MetaJurídico por las calculadoras de indemnización y la integración con SRT.</p></div>
+      <div class="card"><h4>Solo investigación jurídica</h4><p style="font-size:14px;color:var(--muted)">Argus (jurisprudencia certificada AR) o Lexius (multipaís, más funciones de output).</p></div>
+    </div>
+
+    <h3 class="sub">Si es para entrar al mercado / posicionar un producto</h3>
+    <ol class="recs">
+      <li class="qw"><b>Quick win:</b> publicar precios claros — la opacidad del sector es una debilidad explotable.</li>
+      <li class="qw"><b>Quick win:</b> ofrecer migración asistida desde Lex-Doctor / Excel para bajar el costo de cambio.</li>
+      <li class="st"><b>Estratégico:</b> cerrar la brecha gestión + integración judicial + IA nativa en un solo producto.</li>
+      <li class="st"><b>Estratégico:</b> verticalizar por fuero en lugar de competir genérico.</li>
+      <li class="st"><b>Estratégico:</b> apuntar al 69% no digitalizado con freemium — no pelear solo por los ya digitalizados.</li>
+    </ol>
+  </section>
+
+  <footer>
+    <h4>Fuentes</h4>
+    <ul>
+      <li>Lex-Doctor — sitio oficial y lista de precios AR (vigente 1-may-2026)</li>
+      <li>Veredicta — comparativas "8 mejores software de gestión legal 2026" y "software legal con IA"</li>
+      <li>MetaJurídico, LITIS, IUSNET, Estudio360, Lexius — sitios oficiales</li>
+      <li>Argus Legal — sitio oficial y nota de iProUp ("ya la usan 8.700 abogados")</li>
+      <li>EEST1 / Intramed — relevamiento INDEC de profesionales matriculados</li>
+      <li>San Juan al Mundo — densidad de abogados por provincia</li>
+      <li>CPACF, COLPROBA, CASI, Colegio de Abogados de Córdoba, Colegio de la Abogacía de Santa Fe, Colegio de Abogados de Mendoza — datos de matrícula</li>
+      <li>La Nación, UNLPam — feminización de la profesión jurídica</li>
+      <li>PAGBAM — "Hoja de ruta 2026 para abogados y estudios jurídicos"</li>
+      <li>Marval O'Farrell Mairal — Reporte sobre Departamentos Legales 2025 (adopción de IA, herramientas, usos)</li>
+      <li>Abogados.com.ar — "El espejismo digital" y "La brecha generacional que la IA está ensanchando en la abogacía argentina"</li>
+      <li>Argentina.gob.ar — Asistente Virtual de IA del PJN (Resolución 1486/2025); itconnect.lat — IA y Derecho en Argentina (sistema Prometea, UBA/MPF CABA)</li>
+      <li>LawAndTrends — "Tendencias de Legaltech 2026–2030"; UTDT — asistente de IA para el derecho argentino</li>
+    </ul>
+    <div class="disc">
+      <b>Aclaración:</b> Esta página es un research de mercado con fines informativos, elaborado en mayo de 2026 a partir de fuentes públicas.
+      No constituye asesoramiento legal ni una recomendación de compra. Los datos de matrícula provienen de fuentes de distinta antigüedad y metodología,
+      y no son del todo comparables entre sí. Verificá precios y cifras directamente con cada proveedor o colegio antes de tomar decisiones.
+    </div>
+  </footer>
+
+</div>
+</main>
+
+<script>
+/* ---------- DATA ---------- */
+const platforms = [
+  {name:"Lex-Doctor", cat:"Gestión integral", catKey:"gestion", tipo:"Escritorio", tipoKey:"desktop",
+   precio:"Licencia perpetua (~$491.000 ARS, LD11 nuevos usuarios)", precioNum:0, ia:false, iaTxt:"No",
+   integ:"PJN", integScore:1, wpp:false, traccion:"Mayor base instalada del país (+36 años)", tracScore:5,
+   desc:"El incumbente histórico. Robusto y estable, pero solo Windows, interfaz antigua y sin automatizaciones modernas.",
+   publico:"Abogados tradicionales, estudios chicos a grandes, sector público."},
+  {name:"MetaJurídico", cat:"Gestión integral", catKey:"gestion", tipo:"App / Cloud", tipoKey:"cloud",
+   precio:"Desde $9.999 ARS/mes", precioNum:9999, ia:true, iaTxt:"Parcial (chatbot Justi AI)",
+   integ:"PJN, MEV, EJE, IOL, IURIX, SRT (8 sistemas)", integScore:6, wpp:true,
+   traccion:"~1.400 estudios · ~1.800 abogados · 75k+ expedientes · 4,9/5", tracScore:4,
+   desc:"El más consolidado de los modernos. Calculadoras laborales, firma electrónica, facturación ARCA, MCP con Claude IA.",
+   publico:"Laboralistas, familia, civil/comercial, estudios multi-abogado."},
+  {name:"LITIS", cat:"Gestión integral", catKey:"gestion", tipo:"Cloud", tipoKey:"cloud",
+   precio:"$16.800–$43.900 ARS/mes", precioNum:30350, ia:false, iaTxt:"No",
+   integ:"PJN, MEV", integScore:2, wpp:false, traccion:"Alianza con CPACF", tracScore:2,
+   desc:"Cloud con precios transparentes y publicados. Gestión de tareas integrada, acceso multi-dispositivo.",
+   publico:"Estudios medianos con presupuesto definido."},
+  {name:"Veredicta", cat:"Gestión + IA", catKey:"gestion", tipo:"Cloud", tipoKey:"cloud",
+   precio:"Gratis + Pro USD 20/usuario/mes", precioNum:21000, ia:true, iaTxt:"Sí (búsqueda + escritos)",
+   integ:"PJN (sin caídas), MEV", integScore:2, wpp:true, traccion:"En acceso anticipado", tracScore:1,
+   desc:"El retador cloud + IA. Búsqueda semántica de jurisprudencia, escritos con IA, colaboración en tiempo real. En desarrollo activo.",
+   publico:"Abogados independientes y estudios que buscan herramientas modernas."},
+  {name:"IUSNET", cat:"Gestión integral", catKey:"gestion", tipo:"Cloud", tipoKey:"cloud",
+   precio:"Freemium", precioNum:0, ia:false, iaTxt:"No",
+   integ:"PJN", integScore:1, wpp:false, traccion:"En operación desde 2012", tracScore:2,
+   desc:"Plataforma cloud creada por abogados e ingenieros. Modelo freemium, básico pero accesible.",
+   publico:"Estudios que prefieren soluciones construidas por abogados."},
+  {name:"OpenLex", cat:"Gestión integral", catKey:"gestion", tipo:"Cloud", tipoKey:"cloud",
+   precio:"A consultar", precioNum:null, ia:false, iaTxt:"No",
+   integ:"PJN", integScore:1, wpp:false, traccion:"—", tracScore:1,
+   desc:"Cloud con foco en seguimiento de causas. Funcionalidad limitada, sin IA ni automatizaciones.",
+   publico:"Abogados enfocados en seguimiento de causas."},
+  {name:"Estudio360", cat:"Gestión integral", catKey:"gestion", tipo:"Cloud", tipoKey:"cloud",
+   precio:"Prueba gratis 30 días", precioNum:null, ia:false, iaTxt:"No",
+   integ:"s/d", integScore:0, wpp:false, traccion:"—", tracScore:1,
+   desc:"Cloud para organizar expedientes, tareas y plazos. Prueba de 30 días sin tarjeta.",
+   publico:"Estudios que arrancan su digitalización."},
+  {name:"Argus Legal", cat:"IA / investigación", catKey:"ia", tipo:"Cloud", tipoKey:"cloud",
+   precio:"Por volumen mensual (Base / Pro / Max)", precioNum:null, ia:true, iaTxt:"Sí (núcleo del producto)",
+   integ:"No (no PJN/MEV)", integScore:0, wpp:true,
+   traccion:"8.700 abogados · +750 estudios", tracScore:3,
+   desc:"IA cordobesa entrenada exclusivamente para derecho argentino. +260.000 fallos certificados SAIJ + CSJN. Genera escritos en minutos.",
+   publico:"Abogados que necesitan jurisprudencia certificada y redacción asistida."},
+  {name:"Lexius", cat:"IA / investigación", catKey:"ia", tipo:"Cloud", tipoKey:"cloud",
+   precio:"Precios locales por país · prueba 4 días", precioNum:null, ia:true, iaTxt:"Sí (núcleo del producto)",
+   integ:"No (no PJN/MEV)", integScore:0, wpp:false,
+   traccion:"Opera en Argentina, Chile y Perú", tracScore:3,
+   desc:"+130.000 textos legales, actualización cada 24 h. Resúmenes, borradores, transcripción multimedia, generación de PPT y video podcast legal.",
+   publico:"Complemento especializado en investigación jurisprudencial."},
+  {name:"Juztina", cat:"IA / investigación", catKey:"ia", tipo:"Cloud", tipoKey:"cloud",
+   precio:"A consultar", precioNum:null, ia:true, iaTxt:"Sí (núcleo del producto)",
+   integ:"No (no PJN/MEV)", integScore:0, wpp:false,
+   traccion:"Cobertura latinoamericana", tracScore:2,
+   desc:"IA conversacional especializada en jurisprudencia, normativa y doctrina. Herramienta de investigación, no de gestión.",
+   publico:"Abogados que necesitan investigación jurídica con IA."}
+];
+
+const regions = [
+  {label:"CABA (CPACF)", val:59529, note:"~40% del país · cifra consolidada", gold:true},
+  {label:"Prov. de Santa Fe", val:29000, note:"estimación — varios colegios", gold:false},
+  {label:"CASI · San Isidro (PBA)", val:11000, note:"dato 2021 · 1 de 18 colegios de PBA", gold:false},
+  {label:"Colegio de Córdoba (capital)", val:10500, note:"sin contar colegios del interior", gold:false},
+  {label:"Mendoza · 1ª circunscripción", val:2769, note:"padrón electoral — parcial / referencial", gold:false}
+];
+
+const genderData = [
+  {label:"Graduados en Derecho 2011–2020 — mujeres", val:59, cls:"gold"},
+  {label:"Matriculados recientes CASI (~últimos 4 años) — mujeres", val:53.5, cls:"gold"},
+  {label:"Matriculados 2009–2013 — varones", val:53.6, cls:""}
+];
+
+/* ---------- TABS ---------- */
+document.querySelectorAll('nav button').forEach(b=>{
+  b.addEventListener('click',()=>{
+    document.querySelectorAll('nav button').forEach(x=>x.classList.remove('active'));
+    document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    document.getElementById(b.dataset.tab).classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+});
+
+/* ---------- PLATFORM CARDS ---------- */
+function renderCards(filter){
+  const wrap=document.getElementById('pcards');
+  wrap.innerHTML='';
+  platforms.filter(p=>{
+    if(filter==='all')return true;
+    if(filter==='gestion')return p.catKey==='gestion';
+    if(filter==='ia')return p.catKey==='ia';
+    if(filter==='cloud')return p.tipoKey==='cloud';
+    if(filter==='desktop')return p.tipoKey==='desktop';
+    if(filter==='conia')return p.ia;
+    return true;
+  }).forEach(p=>{
+    const el=document.createElement('div');
+    el.className='pcard'+(p.catKey==='ia'?' cat-ia':'');
+    el.innerHTML=`
+      <div class="ph">
+        <div><div class="pname">${p.name}</div><div class="ptype">${p.tipo}</div></div>
+        <span class="pill ${p.catKey==='ia'?'':'blue'}">${p.cat}</span>
+      </div>
+      <div class="price">💲 ${p.precio}</div>
+      <div class="tags">
+        <span class="pill ${p.ia?'green':'gray'}">IA: ${p.iaTxt}</span>
+        <span class="pill ${p.integScore>0?'blue':'gray'}">${p.integ}</span>
+        ${p.wpp?'<span class="pill green">WhatsApp</span>':'<span class="pill gray">Sin WhatsApp</span>'}
+      </div>
+      <div class="desc">${p.desc}</div>
+      <div class="kv"><b>Público objetivo:</b> ${p.publico}</div>
+      <div class="kv"><b>Tracción:</b> ${p.traccion}</div>
+    `;
+    wrap.appendChild(el);
+  });
+}
+renderCards('all');
+document.querySelectorAll('#pfilters button').forEach(b=>{
+  b.addEventListener('click',()=>{
+    document.querySelectorAll('#pfilters button').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    renderCards(b.dataset.f);
+  });
+});
+
+/* ---------- TABLE ---------- */
+let sortKey='name', sortAsc=true;
+function renderTable(){
+  const q=document.getElementById('tsearch').value.toLowerCase();
+  const tb=document.getElementById('ctbody');
+  let rows=platforms.slice().filter(p=>{
+    return (p.name+p.cat+p.tipo+p.precio+p.iaTxt+p.integ+p.traccion).toLowerCase().includes(q);
+  });
+  rows.sort((a,b)=>{
+    let va=a[sortKey], vb=b[sortKey];
+    if(sortKey==='precio'){va=a.precioNum??-1;vb=b.precioNum??-1;}
+    if(sortKey==='ia'){va=a.ia?1:0;vb=b.ia?1:0;}
+    if(sortKey==='wpp'){va=a.wpp?1:0;vb=b.wpp?1:0;}
+    if(sortKey==='integ'){va=a.integScore;vb=b.integScore;}
+    if(sortKey==='traccion'){va=a.tracScore;vb=b.tracScore;}
+    if(typeof va==='string'){return sortAsc?va.localeCompare(vb):vb.localeCompare(va);}
+    return sortAsc?va-vb:vb-va;
+  });
+  tb.innerHTML=rows.map(p=>`
+    <tr>
+      <td class="name">${p.name}</td>
+      <td><span class="pill ${p.catKey==='ia'?'':'blue'}">${p.cat}</span></td>
+      <td>${p.tipo}</td>
+      <td>${p.precio}</td>
+      <td>${p.ia?'<span class="pill green">'+p.iaTxt+'</span>':'<span class="pill gray">No</span>'}</td>
+      <td>${p.integScore>0?p.integ:'<span class="pill gray">'+p.integ+'</span>'}</td>
+      <td>${p.wpp?'<span class="pill green">Sí</span>':'<span class="pill gray">No</span>'}</td>
+      <td>${p.traccion}</td>
+    </tr>`).join('');
+}
+document.querySelectorAll('#ctable thead th').forEach(th=>{
+  th.addEventListener('click',()=>{
+    const k=th.dataset.k;
+    if(sortKey===k){sortAsc=!sortAsc;}else{sortKey=k;sortAsc=true;}
+    renderTable();
+  });
+});
+document.getElementById('tsearch').addEventListener('input',renderTable);
+renderTable();
+
+/* ---------- PRICE BARS ---------- */
+(function(){
+  const data=[
+    {n:"MetaJurídico",t:"Desde $9.999 ARS/mes",v:9999},
+    {n:"LITIS",t:"$16.800–43.900 ARS/mes (prom. ~$30.350)",v:30350},
+    {n:"Veredicta Pro",t:"USD 20/usuario/mes (~$21.000 ARS)",v:21000},
+    {n:"IUSNET",t:"Freemium (entrada $0)",v:0},
+    {n:"Argus / Lexius / Juztina",t:"Por volumen / a consultar",v:null},
+    {n:"Lex-Doctor",t:"Licencia perpetua (~$491.000 ARS, pago único)",v:null}
+  ];
+  const max=Math.max(...data.filter(d=>d.v!=null).map(d=>d.v));
+  document.getElementById('pricebars').innerHTML=data.map(d=>{
+    const known=d.v!=null;
+    const w=known?(d.v===0?6:Math.max(8,d.v/max*100)):100;
+    return `<div class="bar">
+      <div class="bl"><b>${d.n}</b><span>${d.t}</span></div>
+      <div class="track"><div class="fill ${known?'':'sm'}" style="width:${w}%">${known&&d.v>0?'$'+d.v.toLocaleString('es-AR'):(known?'Freemium':'Modelo distinto')}</div></div>
+    </div>`;
+  }).join('');
+})();
+
+/* ---------- REGION BARS ---------- */
+(function(){
+  const max=Math.max(...regions.map(r=>r.val));
+  document.getElementById('regionbars').innerHTML=regions.map(r=>{
+    const w=Math.max(7,r.val/max*100);
+    return `<div class="bar">
+      <div class="bl"><b>${r.label}</b><span>${r.note}</span></div>
+      <div class="track"><div class="fill ${r.gold?'gold':''}" style="width:${w}%">${r.val.toLocaleString('es-AR')}</div></div>
+    </div>`;
+  }).join('') +
+  `<div style="font-size:12px;color:var(--muted);margin-top:14px;border-top:1px solid var(--line);padding-top:12px">
+    <b>Total nacional: 148.306 abogados matriculados.</b> CABA concentra ~40%; el ~60% restante se reparte entre 23 provincias
+    sin un padrón unificado. Las barras mezclan jurisdicciones de distinto nivel (provincia / colegio departamental) — leer como orden de magnitud, no como ranking exacto.
+  </div>`;
+})();
+
+/* ---------- GENDER / AGE PROXY BARS ---------- */
+(function(){
+  document.getElementById('genderbars').innerHTML=
+  `<div style="font-size:13px;color:var(--muted);margin-bottom:10px">
+    La feminización de la abogacía funciona como <b>proxy de edad</b>: las cohortes recientes son mayoritariamente femeninas, las históricas mayoritariamente masculinas.
+  </div>`+
+  genderData.map(g=>{
+    return `<div class="bar">
+      <div class="bl"><b>${g.label}</b><span>${g.val}%</span></div>
+      <div class="track"><div class="fill ${g.cls}" style="width:${g.val}%">${g.val}%</div></div>
+    </div>`;
+  }).join('');
+})();
+
+/* ---------- NEWS TIMELINE ---------- */
+const newsData = [
+  {date:"Febrero 2025", title:"El PJN lanza su Asistente Virtual de IA",
+   body:"El Poder Judicial de la Nación incorpora un asistente de IA (Resolución 1486/2025), basado en GPT-4.1-nano. Primer hito de adopción institucional de IA en la Justicia nacional."},
+  {date:"2025", title:"El CPACF publica guías de uso de IA para abogados",
+   body:"El Colegio Público de la Abogacía de la Capital Federal establece un marco ético para el uso de IA en la profesión — señal de institucionalización de la categoría."},
+  {date:"2025", title:"La adopción de IA en áreas legales corporativas salta de 11% a 75%",
+   body:"El Reporte sobre Departamentos Legales (Marval, 2025) documenta un crecimiento de 7x en dos años. Usos top: revisión de documentos (63%), investigación jurídica (57%), análisis de contratos (57%)."},
+  {date:"2025", title:"\"Espejismo digital\": se usa IA pero no se confía en ella",
+   body:"3 de cada 4 abogados usan IA, pero 2 de cada 3 desconfían de la precisión de los resultados. El cuello de botella se corre de la adopción a la confianza."},
+  {date:"2025", title:"Prometea: la IA pública que acelera la Justicia",
+   body:"El sistema Prometea (UBA / Ministerio Público Fiscal de CABA) redujo los tiempos de amparos habitacionales de 190 a 42 días, con 96% de efectividad."},
+  {date:"2026", title:"El legaltech entra en \"fase de madurez operativa\" (2026–2030)",
+   body:"El sector pasa de experimentar features a construir bases confiables de automatización. La IA generativa concentra el 48% de la intención de nueva inversión de los operadores jurídicos."},
+  {date:"En curso", title:"Se lanza el 2º Estudio de Innovación de la Industria Legal LatAm 2026",
+   body:"Abogado Digital releva el estado de la transformación digital y la adopción tecnológica en la industria legal latinoamericana."},
+  {date:"En curso", title:"La UTDT desarrolla un asistente de IA para el derecho argentino",
+   body:"Un equipo de investigación de la Universidad Torcuato Di Tella trabaja en un asistente de IA especializado en práctica legal local — señal de I+D académico en el sector."}
+];
+document.getElementById('newstl').innerHTML = newsData.map(n=>`
+  <div class="tl">
+    <div class="d">${n.date}</div>
+    <h4>${n.title}</h4>
+    <p>${n.body}</p>
+  </div>`).join('');
+
+/* ---------- TOOLS USED BARS ---------- */
+const toolData = [
+  {label:"ChatGPT", val:62, cls:""},
+  {label:"Microsoft Copilot", val:60, cls:""},
+  {label:"Gemini", val:30, cls:""},
+  {label:"Harvey (legal tech especializado)", val:7, cls:"gold"},
+  {label:"Co-Counsel · Thomson Reuters (legal tech)", val:4, cls:"gold"}
+];
+document.getElementById('toolbars').innerHTML = toolData.map(t=>`
+  <div class="bar">
+    <div class="bl"><b>${t.label}</b><span>${t.val}%</span></div>
+    <div class="track"><div class="fill ${t.cls}" style="width:${Math.max(5,t.val)}%">${t.val}%</div></div>
+  </div>`).join('') +
+  `<div style="font-size:12px;color:var(--muted);margin-top:12px;border-top:1px solid var(--line);padding-top:10px">
+    Fuente: Reporte sobre Departamentos Legales (Marval, 2025). El legal tech especializado (en dorado) todavía pierde frente a las herramientas genéricas.
+  </div>`;
+
+/* ---------- USES OF AI BARS ---------- */
+const useData = [
+  {label:"Revisión de documentos", val:63},
+  {label:"Investigación jurídica", val:57},
+  {label:"Análisis de contratos", val:57},
+  {label:"Respuesta a consultas", val:54},
+  {label:"Automatización de tareas repetitivas", val:45},
+  {label:"Predicción de resultados litigiosos", val:1}
+];
+document.getElementById('usebars').innerHTML = useData.map(u=>`
+  <div class="bar">
+    <div class="bl"><b>${u.label}</b><span>${u.val}%</span></div>
+    <div class="track"><div class="fill" style="width:${Math.max(4,u.val)}%">${u.val}%</div></div>
+  </div>`).join('') +
+  `<div style="font-size:12px;color:var(--muted);margin-top:12px;border-top:1px solid var(--line);padding-top:10px">
+    La IA se usa para tareas de apoyo, no para decidir: predecir resultados litigiosos sigue en apenas 1%. El criterio profesional no se delega.
+  </div>`;
+</script>
+</body>
+</html>

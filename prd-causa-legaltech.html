@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PRD · Causa — Plataforma de gestión legal con IA nativa</title>
+<style>
+  :root{
+    --navy:#10213f; --navy2:#1c3357; --indigo:#2d4a7c;
+    --gold:#c8a24a; --gold-soft:#f3e7c8;
+    --bg:#f4f5f7; --card:#ffffff; --ink:#1f2733; --muted:#5e6b7e;
+    --line:#e3e7ee; --good:#1f8a52; --bad:#c0392b; --warn:#b9821a;
+    --shadow:0 2px 8px rgba(16,33,63,.06),0 8px 24px rgba(16,33,63,.06);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased}
+  a{color:var(--indigo)}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+
+  header{background:linear-gradient(135deg,var(--navy),var(--indigo));color:#fff;padding:38px 0 30px}
+  header .wrap{display:flex;flex-direction:column;gap:6px}
+  .eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:700}
+  header h1{font-size:34px;line-height:1.15;font-weight:800}
+  header h1 span{color:var(--gold)}
+  header p.sub{color:#c5d0e2;font-size:15px;max-width:780px;margin-top:6px}
+  .meta{margin-top:14px;font-size:12.5px;color:#9fb0cc;display:flex;gap:18px;flex-wrap:wrap}
+  .meta b{color:#dfe7f3}
+
+  nav{position:sticky;top:0;z-index:30;background:var(--navy);box-shadow:0 2px 12px rgba(0,0,0,.18)}
+  nav .wrap{display:flex;gap:2px;overflow-x:auto}
+  nav button{background:none;border:none;color:#aab8d0;font-size:13.5px;font-weight:600;
+    padding:14px 14px;cursor:pointer;white-space:nowrap;border-bottom:3px solid transparent;transition:.15s}
+  nav button:hover{color:#fff}
+  nav button.active{color:#fff;border-bottom-color:var(--gold)}
+
+  main{padding:32px 0 70px}
+  .tab{display:none;animation:fade .25s ease}
+  .tab.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+  h2.section{font-size:22px;font-weight:800;color:var(--navy);margin:6px 0 4px;display:flex;align-items:center;gap:10px}
+  h2.section::before{content:"";width:5px;height:22px;background:var(--gold);border-radius:3px;display:inline-block}
+  .lead{color:var(--muted);font-size:15px;margin-bottom:22px;max-width:880px}
+  h3.sub{font-size:16px;font-weight:700;color:var(--navy2);margin:30px 0 12px}
+
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:18px 0 8px}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:var(--shadow)}
+  .stat .num{font-size:25px;font-weight:800;color:var(--navy)}
+  .stat .lab{font-size:13px;color:var(--muted);margin-top:2px}
+  .stat .tag{font-size:11px;color:var(--gold);font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+
+  .grid{display:grid;gap:16px}
+  .g2{grid-template-columns:repeat(auto-fit,minmax(330px,1fr))}
+  .g3{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:var(--shadow)}
+  .card h4{font-size:16px;color:var(--navy);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+  .card ul{margin:6px 0 0 18px}
+  .card li{font-size:14px;margin:5px 0}
+  .card p{font-size:14px;color:var(--muted)}
+
+  .pill{display:inline-block;font-size:11px;font-weight:700;padding:3px 9px;border-radius:999px;
+    background:var(--gold-soft);color:#8a6d1f;letter-spacing:.02em}
+  .pill.blue{background:#e4ecfa;color:#2d4a7c}
+  .pill.green{background:#e0f2e8;color:#1f8a52}
+  .pill.red{background:#fae3e0;color:#c0392b}
+  .pill.gray{background:#eceff3;color:#5e6b7e}
+
+  .hero-box{background:linear-gradient(135deg,var(--navy),var(--indigo));color:#fff;border-radius:16px;
+    padding:26px 28px;margin:8px 0 22px}
+  .hero-box .vlabel{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:700}
+  .hero-box .vstmt{font-size:18px;line-height:1.5;margin-top:8px;color:#eef2f8}
+  .hero-box .vstmt b{color:#fff}
+  .hero-box .oneliner{margin-top:14px;font-size:14px;color:#aebfd9;border-top:1px solid rgba(255,255,255,.15);padding-top:12px}
+
+  .callout{background:#fff8e8;border:1px solid #ecd9a6;border-radius:14px;padding:18px 20px;margin:18px 0}
+  .callout h4{color:#8a6d1f;font-size:13px;text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px}
+  .callout p{font-size:14.5px;color:#6f5818}
+  .callout p b{color:#5f4a10}
+
+  .note{background:#eef0f4;border:1px solid var(--line);border-radius:12px;padding:13px 16px;
+    font-size:13px;color:var(--muted);margin:16px 0}
+  .note b{color:var(--navy2)}
+
+  /* persona */
+  .personas{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:16px}
+  .persona{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;
+    box-shadow:var(--shadow);border-top:4px solid var(--indigo)}
+  .persona.primary{border-top-color:var(--gold)}
+  .persona .pavatar{font-size:30px}
+  .persona .pname{font-size:16px;font-weight:800;color:var(--navy);margin-top:4px}
+  .persona .prole{font-size:12.5px;color:var(--muted);font-weight:600}
+  .persona .pcohort{display:inline-block;margin-top:6px;font-size:10.5px;font-weight:800;
+    letter-spacing:.05em;color:var(--gold);text-transform:uppercase}
+  .persona dl{margin-top:10px}
+  .persona dt{font-size:11px;font-weight:800;color:var(--navy2);text-transform:uppercase;letter-spacing:.04em;margin-top:9px}
+  .persona dd{font-size:12.5px;color:var(--muted);margin-top:2px}
+
+  /* requirements */
+  .filters{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 18px}
+  .filters button{background:var(--card);border:1px solid var(--line);border-radius:999px;
+    padding:7px 15px;font-size:13px;font-weight:600;color:var(--muted);cursor:pointer;transition:.15s}
+  .filters button:hover{border-color:var(--indigo);color:var(--indigo)}
+  .filters button.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+  .modcards{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:16px}
+  .modcard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:var(--shadow)}
+  .modcard .mh{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:6px}
+  .modcard .mname{font-size:15px;font-weight:800;color:var(--navy)}
+  .modcard .req{display:flex;gap:9px;align-items:flex-start;padding:8px 0;border-top:1px solid var(--line);font-size:13px}
+  .modcard .req:first-of-type{border-top:none}
+  .prio{flex-shrink:0;font-size:10px;font-weight:800;padding:2px 7px;border-radius:6px;letter-spacing:.03em;margin-top:1px}
+  .prio.P0{background:#dceee3;color:#176b40}
+  .prio.P1{background:#e4ecfa;color:#2d4a7c}
+  .prio.P2{background:#eceff3;color:#5e6b7e}
+  .prio.NO{background:#fae3e0;color:#c0392b}
+
+  /* scope two-col */
+  .scope{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:14px 0}
+  .scope .s{border-radius:14px;padding:20px;box-shadow:var(--shadow);border:1px solid var(--line)}
+  .scope .yes{background:#eaf3ee;border-color:#bcdcc8}
+  .scope .no{background:#fae9e7;border-color:#e8c0b9}
+  .scope .s h4{font-size:15px;font-weight:800;margin-bottom:8px}
+  .scope .yes h4{color:var(--good)} .scope .no h4{color:var(--bad)}
+  .scope .s ul{margin-left:17px}
+  .scope .s li{font-size:13px;margin:6px 0}
+  @media(max-width:640px){.scope{grid-template-columns:1fr}}
+
+  /* timeline / roadmap */
+  .timeline{position:relative;margin:18px 0;padding-left:28px}
+  .timeline::before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:var(--line)}
+  .tl{position:relative;margin-bottom:16px;background:var(--card);border:1px solid var(--line);
+    border-radius:12px;padding:15px 17px;box-shadow:var(--shadow)}
+  .tl::before{content:"";position:absolute;left:-25px;top:19px;width:12px;height:12px;border-radius:50%;
+    background:var(--gold);border:3px solid #fff;box-shadow:0 0 0 1px var(--line)}
+  .tl .ph{font-size:11px;font-weight:800;color:var(--gold);text-transform:uppercase;letter-spacing:.06em}
+  .tl h4{font-size:15px;color:var(--navy);margin:3px 0 5px}
+  .tl p{font-size:13px;color:var(--muted)}
+  .tl .ttag{font-size:11px;color:var(--muted);font-weight:700;float:right}
+
+  table{border-collapse:collapse;width:100%;font-size:13px;background:var(--card);min-width:560px}
+  .tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow)}
+  thead th{background:var(--navy);color:#fff;text-align:left;padding:11px 13px;font-weight:700}
+  tbody td{padding:10px 13px;border-bottom:1px solid var(--line);vertical-align:top}
+  tbody tr:last-child td{border-bottom:none}
+  tbody tr:hover{background:#f8f9fb}
+
+  ol.recs{counter-reset:r;list-style:none;margin:10px 0}
+  ol.recs li{position:relative;padding:12px 14px 12px 50px;background:var(--card);border:1px solid var(--line);
+    border-radius:12px;margin-bottom:10px;font-size:14px;box-shadow:var(--shadow)}
+  ol.recs li::before{counter-increment:r;content:counter(r);position:absolute;left:14px;top:12px;
+    width:24px;height:24px;background:var(--gold);color:#fff;border-radius:7px;font-weight:800;
+    display:flex;align-items:center;justify-content:center;font-size:13px}
+  ol.recs li b{color:var(--navy)}
+
+  .kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-top:8px}
+  .kpi .k{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:15px;box-shadow:var(--shadow);border-left:4px solid var(--indigo)}
+  .kpi .k .kt{font-size:12px;font-weight:800;color:var(--navy)}
+  .kpi .k .kv{font-size:13px;color:var(--muted);margin-top:3px}
+
+  footer{border-top:1px solid var(--line);padding:24px 0 50px;color:var(--muted);font-size:12.5px}
+  footer h4{color:var(--navy);font-size:13px;margin-bottom:8px}
+  .disc{background:#eef0f4;border-radius:10px;padding:12px 14px;font-size:12px;color:var(--muted);margin-top:14px}
+
+  @media(max-width:640px){header h1{font-size:26px}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="eyebrow">Product Requirements Document · v0.1 · borrador</div>
+    <h1><span>Causa</span> — Plataforma de gestión legal con IA nativa</h1>
+    <p class="sub">El sistema operativo del estudio jurídico moderno: gestión de expedientes, integración judicial e IA generativa verificable, en la nube. PRD basado en el research de mercado de Legal Tech Argentina (mayo 2026).</p>
+    <div class="meta">
+      <span>📅 <b>Mayo 2026</b></span>
+      <span>🎯 Estrategia: <b>horizontal</b> (gestión + IA, todos los fueros)</span>
+      <span>📍 Mercado: <b>Argentina</b> · wedge CABA</span>
+      <span>⚠️ "Causa" es un nombre de trabajo, no definitivo</span>
+    </div>
+  </div>
+</header>
+
+<nav>
+  <div class="wrap">
+    <button class="active" data-tab="resumen">Resumen</button>
+    <button data-tab="problema">Problema &amp; oportunidad</button>
+    <button data-tab="usuarios">Usuarios objetivo</button>
+    <button data-tab="objetivos">Objetivos &amp; métricas</button>
+    <button data-tab="requisitos">Alcance &amp; requisitos</button>
+    <button data-tab="pricing">Pricing &amp; negocio</button>
+    <button data-tab="roadmap">Roadmap &amp; GTM</button>
+    <button data-tab="riesgos">Riesgos &amp; decisiones</button>
+  </div>
+</nav>
+
+<main>
+<div class="wrap">
+
+  <!-- ===== RESUMEN ===== -->
+  <section class="tab active" id="resumen">
+    <h2 class="section">Resumen ejecutivo</h2>
+    <p class="lead">Causa es una plataforma cloud de gestión legal para estudios jurídicos argentinos que unifica, por primera vez en un solo producto, las tres cosas que hoy el abogado tiene separadas: <b>gestión de expedientes</b>, <b>integración con los sistemas judiciales</b> (PJN/MEV/EJE) e <b>IA generativa verificable</b>.</p>
+
+    <div class="hero-box">
+      <div class="vlabel">Statement de posicionamiento</div>
+      <div class="vstmt">Para <b>estudios jurídicos chicos y medianos de Argentina</b>, Causa es la <b>plataforma de gestión legal en la nube</b> que unifica expedientes, integración judicial e IA generativa verificable en un solo lugar — porque hoy ningún producto combina las tres, y obliga al abogado a saltar entre Lex-Doctor, planillas de Excel y ChatGPT.</div>
+      <div class="oneliner"><b>One-liner:</b> El sistema operativo del estudio jurídico moderno — gestión + tribunales + IA, en la nube.</div>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="tag">El problema</div><div class="num">3 productos</div><div class="lab">el abogado salta entre gestión + Excel + ChatGPT porque ninguno hace las 3 cosas</div></div>
+      <div class="stat"><div class="tag">El mercado</div><div class="num">148.306</div><div class="lab">abogados matriculados; 69% aún sin digitalizar — espacio de no-consumo</div></div>
+      <div class="stat"><div class="tag">El timing</div><div class="num">11% → 75%</div><div class="lab">adopción de IA en áreas legales en 2 años — la categoría ya está validada</div></div>
+      <div class="stat"><div class="tag">El foso</div><div class="num">PJN / MEV</div><div class="lab">la integración judicial es lo que ChatGPT no puede replicar</div></div>
+    </div>
+
+    <h3 class="sub">La tesis en cuatro puntos</h3>
+    <div class="grid g2">
+      <div class="card"><h4>1 · Hay un hueco de producto real</h4><p>Los fuertes en integración judicial (Lex-Doctor, MetaJurídico) son débiles en IA. Los fuertes en IA (Argus, Lexius) no integran ni gestionan. Nadie cubre las tres puntas.</p></div>
+      <div class="card"><h4>2 · El incumbente es vulnerable</h4><p>Lex-Doctor lidera por inercia: escritorio, solo Windows, sin IA. Una plataforma cloud + IA con migración asistida puede erosionar su base.</p></div>
+      <div class="card"><h4>3 · El competidor real es genérico</h4><p>ChatGPT (62%) y Copilot (60%) le ganan al legal tech especializado. Pero no ven el PJN ni el expediente: sus respuestas no son verificables y el 67% desconfía.</p></div>
+      <div class="card"><h4>4 · El momento "ajá" es claro</h4><p>La primera notificación judicial sincronizada automáticamente. Si llegamos ahí en menos de 24 hs desde el alta, el estudio se queda.</p></div>
+    </div>
+
+    <div class="callout">
+      <h4>Apuesta central</h4>
+      <p>Construir el producto que <b>nadie tiene</b>: gestión integral + integración judicial profunda + IA nativa y verificable, con modelo <b>freemium</b> y precios públicos. El foso no es la IA (es commodity) — es <b>la integración judicial + el contexto del expediente + la confianza</b>.</p>
+    </div>
+  </section>
+
+  <!-- ===== PROBLEMA ===== -->
+  <section class="tab" id="problema">
+    <h2 class="section">Problema &amp; oportunidad</h2>
+    <p class="lead">El diagnóstico sale directo del research de mercado. Tres problemas encadenados y una ventana de timing que no va a durar.</p>
+
+    <h3 class="sub">El problema</h3>
+    <div class="grid g2">
+      <div class="card" style="border-left:4px solid var(--bad)">
+        <h4>🧩 Fragmentación del workflow</h4>
+        <p>El abogado argentino hace su trabajo con tres herramientas que no se hablan: un sistema de gestión (Lex-Doctor o planilla), el navegador para entrar al PJN/MEV, y ChatGPT para investigar y redactar. Copia y pega entre las tres, todo el día.</p>
+      </div>
+      <div class="card" style="border-left:4px solid var(--bad)">
+        <h4>🤖 IA potente pero a ciegas</h4>
+        <p>Las herramientas de IA más usadas son genéricas — no conocen el expediente ni los tribunales argentinos. Por eso el 67% desconfía de los resultados: la IA responde, pero no puede citar la fuente ni ver la causa real.</p>
+      </div>
+      <div class="card" style="border-left:4px solid var(--bad)">
+        <h4>🖥️ El líder quedó viejo</h4>
+        <p>Lex-Doctor domina por base instalada, pero es de escritorio, solo Windows, sin IA y con interfaz anticuada. Mantiene a sus clientes por costo de cambio, no por valor.</p>
+      </div>
+      <div class="card" style="border-left:4px solid var(--bad)">
+        <h4>💸 Mercado opaco y subdigitalizado</h4>
+        <p>El 69% sigue en escritorio, papel o Excel. El 68% no tiene presupuesto asignado a legal tech. Y la mayoría de los proveedores ni siquiera publica precios.</p>
+      </div>
+    </div>
+
+    <h3 class="sub">La oportunidad</h3>
+    <div class="grid g3">
+      <div class="card"><h4>🕳️ Hueco de producto</h4><p>Integrar gestión + tribunales + IA nativa en un solo lugar. Hoy no existe.</p></div>
+      <div class="card"><h4>🌊 No-consumo masivo</h4><p>69% del mercado sin digitalizar: el rival a vencer es el Excel, no otro software.</p></div>
+      <div class="card"><h4>📍 Mercado concentrado</h4><p>~40% de los abogados en CABA, en un solo padrón: go-to-market eficiente.</p></div>
+      <div class="card"><h4>🔍 Transparencia como cuña</h4><p>Publicar precios y ofrecer freemium en un sector opaco es diferenciación inmediata.</p></div>
+      <div class="card"><h4>👩‍⚖️ Recambio pro-tech</h4><p>Las cohortes jóvenes (mayoría mujeres, nativas digitales) entran sin ataduras a Lex-Doctor.</p></div>
+      <div class="card"><h4>🌎 Escala regional</h4><p>El mercado legal tech regional crece ~11% anual; el modelo es replicable a Chile/Perú/Uruguay.</p></div>
+    </div>
+
+    <div class="callout">
+      <h4>Por qué ahora (y no antes)</h4>
+      <p>La adopción de IA en áreas legales saltó de <b>11% a 75% en dos años</b>. El PJN ya tiene su propio asistente de IA y el CPACF publicó guías de uso: la categoría está <b>institucionalmente legitimada</b>. La IA generativa concentra el <b>48% de la intención de nueva inversión</b> de los operadores jurídicos. La ventana está abierta — pero la consolidación del segmento de IA ya empezó.</p>
+    </div>
+  </section>
+
+  <!-- ===== USUARIOS ===== -->
+  <section class="tab" id="usuarios">
+    <h2 class="section">Usuarios objetivo</h2>
+    <p class="lead">El research dejó una conclusión clara sobre la demografía: sin censo etario público, la pregunta correcta no es "cuántos abogados hay de cada edad" sino <b>"quién decide la compra"</b>. El PRD se estructura alrededor de eso.</p>
+
+    <div class="card" style="margin-bottom:20px">
+      <h4>🎯 Perfil de cliente ideal (ICP)</h4>
+      <p>Estudios jurídicos de <b>2 a 15 abogados</b> en Argentina, multifuero, con foco inicial en <b>CABA y GBA</b>. Ya digitalizados parcialmente (usan algún sistema + Excel + IA genérica) o en proceso de digitalizarse. Sensibles al costo, con dolor concreto en el seguimiento de causas y la redacción.</p>
+    </div>
+
+    <h3 class="sub">Personas</h3>
+    <div class="personas">
+      <div class="persona primary">
+        <div class="pavatar">👩‍⚖️</div>
+        <div class="pname">Dra. Soledad, 43</div>
+        <div class="prole">Socia de un estudio mediano (8 abogados)</div>
+        <div class="pcohort">Cohorte 35–50 · LA COMPRADORA</div>
+        <dl>
+          <dt>Qué quiere</dt><dd>Ahorro de tiempo medible para su equipo y que la herramienta se adopte sin fricción ni capacitación larga.</dd>
+          <dt>Qué la frustra hoy</dt><dd>Pagar Lex-Doctor y aun así tener al equipo en Excel y ChatGPT. Enterarse tarde de una notificación.</dd>
+          <dt>Rol en la compra</dt><dd><b>Decisora.</b> Tiene autoridad de gasto y evalúa ROI. Es a quien hay que convencer.</dd>
+        </dl>
+      </div>
+      <div class="persona">
+        <div class="pavatar">🧑‍💻</div>
+        <div class="pname">Mateo, 29</div>
+        <div class="prole">Abogado junior / en relación de dependencia</div>
+        <div class="pcohort">Sub-35 · EL USUARIO INTENSIVO</div>
+        <dl>
+          <dt>Qué quiere</dt><dd>Buscar jurisprudencia y armar escritos rápido, desde el celular, sin pelearse con la herramienta.</dd>
+          <dt>Qué lo frustra hoy</dt><dd>Software feo y lento. Si la herramienta no está a la altura, vuelve a ChatGPT.</dd>
+          <dt>Rol en la compra</dt><dd><b>Usuario y prescriptor.</b> No decide, pero su uso diario (o su abandono) define la renovación. Motor del freemium bottom-up.</dd>
+        </dl>
+      </div>
+      <div class="persona">
+        <div class="pavatar">👨‍⚖️</div>
+        <div class="pname">Dr. Jorge, 58</div>
+        <div class="prole">Abogado independiente tradicional</div>
+        <div class="pcohort">+50 · EL ESCÉPTICO</div>
+        <dl>
+          <dt>Qué quiere</dt><dd>Que las cosas sigan funcionando. Valora el soporte humano y la estabilidad por sobre las features.</dd>
+          <dt>Qué lo frustra hoy</dt><dd>Desconfía de la nube y de la IA. Migrar le da miedo: "y si pierdo todo".</dd>
+          <dt>Rol en la compra</dt><dd><b>No es target inicial, pero no hay que perderlo.</b> Se conquista con onboarding asistido, migración sin riesgo y soporte humano real.</dd>
+        </dl>
+      </div>
+      <div class="persona">
+        <div class="pavatar">🧑</div>
+        <div class="pname">El cliente del estudio</div>
+        <div class="prole">Persona o empresa con una causa</div>
+        <div class="pcohort">USUARIO INDIRECTO</div>
+        <dl>
+          <dt>Qué quiere</dt><dd>Saber en qué anda su caso sin tener que llamar al estudio.</dd>
+          <dt>Rol en la compra</dt><dd><b>No paga, pero es parte de la propuesta de valor.</b> El portal de cliente y los updates por WhatsApp son un argumento de venta para Soledad.</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="callout">
+      <h4>Implicancia de diseño</h4>
+      <p>El producto tiene que servir a tres relojes distintos: <b>potencia</b> para Mateo, <b>ROI demostrable</b> para Soledad y <b>curva de aprendizaje suave + confianza</b> para Jorge. El producto que integra a las tres cohortes captura el estudio entero; el que solo enamora a los jóvenes, captura media oficina.</p>
+    </div>
+  </section>
+
+  <!-- ===== OBJETIVOS ===== -->
+  <section class="tab" id="objetivos">
+    <h2 class="section">Objetivos &amp; métricas de éxito</h2>
+    <p class="lead">Qué significa "ganar" en los primeros 12 meses post-lanzamiento, y cómo lo medimos.</p>
+
+    <div class="hero-box">
+      <div class="vlabel">North Star Metric</div>
+      <div class="vstmt"><b>Expedientes activos gestionados semanalmente en la plataforma.</b></div>
+      <div class="oneliner">Mide valor real entregado — no usuarios registrados ni features lanzadas. Si el expediente vive en Causa, el estudio depende de Causa.</div>
+    </div>
+
+    <h3 class="sub">Objetivos a 12 meses</h3>
+    <div class="grid g2">
+      <div class="card"><h4>O1 · Validar product-market fit</h4><p><b>400 estudios pagos</b> / ~1.500 abogados activos. Señal de que el producto resuelve un dolor real y repetible.</p></div>
+      <div class="card"><h4>O2 · Probar el motor freemium</h4><p><b>8.000 usuarios en plan free</b> y <b>≥15% de conversión</b> free→pago. Valida la estrategia de capturar el no-consumo.</p></div>
+      <div class="card"><h4>O3 · Demostrar el ROI</h4><p>Usuarios reportan <b>≥5 hs/semana ahorradas</b> y <b>NPS ≥ 45</b>. El producto tiene que probar su valor, no solo afirmarlo.</p></div>
+      <div class="card"><h4>O4 · Consolidar el foso</h4><p><b>90% de los expedientes</b> con sincronización judicial activa. La integración es lo que hace que el producto no sea reemplazable por ChatGPT.</p></div>
+    </div>
+
+    <h3 class="sub">KPIs operativos</h3>
+    <div class="kpi">
+      <div class="k"><div class="kt">Activación</div><div class="kv">Primer expediente sincronizado en &lt; 24 hs desde el alta</div></div>
+      <div class="k"><div class="kt">Retención (logo)</div><div class="kv">≥ 95% mensual en planes pagos</div></div>
+      <div class="k"><div class="kt">Engagement</div><div class="kv">DAU/MAU ≥ 35%</div></div>
+      <div class="k"><div class="kt">Confianza en la IA</div><div class="kv">≥ 80% de las respuestas de IA con cita a fuente abierta por el usuario</div></div>
+      <div class="k"><div class="kt">Eficiencia comercial</div><div class="kv">CAC recuperable en &lt; 6 meses (plan Pro); LTV/CAC &gt; 3</div></div>
+      <div class="k"><div class="kt">Salud de soporte</div><div class="kv">CSAT de soporte ≥ 90% — clave para no perder a la cohorte +50</div></div>
+    </div>
+
+    <div class="note"><b>Anti-métricas (lo que NO perseguimos):</b> cantidad de features de IA lanzadas, usuarios registrados sin actividad, descargas. El research mostró que "más IA" no gana — gana la confiabilidad y la integración.</div>
+  </section>
+
+  <!-- ===== REQUISITOS ===== -->
+  <section class="tab" id="requisitos">
+    <h2 class="section">Alcance &amp; requisitos</h2>
+    <p class="lead">Qué entra en el MVP, qué queda afuera, y el detalle funcional por módulo con prioridades. <b>P0</b> = MVP / lanzable · <b>P1</b> = post-lanzamiento cercano · <b>P2</b> = más adelante · <b>NO</b> = fuera de alcance deliberado.</p>
+
+    <h3 class="sub">Alcance del MVP</h3>
+    <div class="scope">
+      <div class="s yes">
+        <h4>✅ Qué SÍ entra en el MVP</h4>
+        <ul>
+          <li>Gestión de expedientes (CRUD, estados, partes, plazos, agenda, documentos)</li>
+          <li>Integración judicial PJN + MEV (sincronización, notificaciones, alertas)</li>
+          <li>Asistente de IA: búsqueda de jurisprudencia con cita verificable + generación de escritos</li>
+          <li>Editor de escritos con modelos dinámicos</li>
+          <li>Multiusuario con roles y permisos</li>
+          <li>App web responsive + notificaciones</li>
+          <li>Onboarding: importador desde Excel + migración asistida desde Lex-Doctor</li>
+          <li>Plan free funcional + checkout de plan pago con precios públicos</li>
+        </ul>
+      </div>
+      <div class="s no">
+        <h4>🚫 Qué NO entra (todavía)</h4>
+        <ul>
+          <li>Facturación / liquidaciones / honorarios → V1.1</li>
+          <li>Integraciones provinciales EJE / IURIX / IOL → V1.x</li>
+          <li>Portal de cliente + bot de WhatsApp → V1.1</li>
+          <li>App móvil nativa → web responsive primero</li>
+          <li>Calculadoras por fuero → V2</li>
+          <li>API pública / marketplace → V2</li>
+          <li><b>Predicción de resultados litigiosos → NO.</b> Solo 1% de uso real y altísimo riesgo reputacional</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="sub">Requisitos funcionales por módulo</h3>
+    <div class="filters" id="rfilters">
+      <button class="active" data-f="all">Todos</button>
+      <button data-f="P0">Solo MVP (P0)</button>
+      <button data-f="P1">P1</button>
+      <button data-f="P2">P2</button>
+      <button data-f="NO">Fuera de alcance</button>
+    </div>
+    <div class="modcards" id="modcards"></div>
+
+    <h3 class="sub">Requisitos no funcionales</h3>
+    <div class="grid g3">
+      <div class="card"><h4>🔒 Seguridad</h4><p>Cifrado en tránsito y en reposo, MFA, logs de auditoría, backups. Cumplimiento de la Ley 25.326 de Protección de Datos Personales. SOC 2 como objetivo. <b>Es P0, no una feature.</b></p></div>
+      <div class="card"><h4>⏱️ Disponibilidad</h4><p>SLA 99,9%. La integración judicial debe <b>degradar con gracia</b>: si el PJN se cae, Causa sigue funcionando.</p></div>
+      <div class="card"><h4>⚡ Performance</h4><p>Carga &lt; 2 s. Sincronización judicial &lt; 5 min desde que aparece el movimiento.</p></div>
+      <div class="card"><h4>🧠 Confiabilidad de la IA</h4><p>RAG sobre corpus verificado — sin alucinación de fallos. Toda salida con trazabilidad a fuente. Revisión humana obligatoria antes de presentar.</p></div>
+      <div class="card"><h4>📈 Escalabilidad</h4><p>Arquitectura multi-tenant cloud, con i18n y multi-jurisdicción desde el diseño, preparada para expansión regional.</p></div>
+      <div class="card"><h4>🎓 Usabilidad &amp; cumplimiento</h4><p>Curva de aprendizaje suave (para no perder al +50). Alineación con las guías de uso de IA del CPACF.</p></div>
+    </div>
+  </section>
+
+  <!-- ===== PRICING ===== -->
+  <section class="tab" id="pricing">
+    <h2 class="section">Pricing &amp; modelo de negocio</h2>
+    <p class="lead">El pricing implementa dos conclusiones del FODA: <b>freemium contra la falta de presupuesto</b> (68% no tiene partida para legal tech) y <b>transparencia como cuña</b> (el sector esconde precios). Todos los precios, públicos en el sitio.</p>
+
+    <div class="grid g2">
+      <div class="card" style="border-top:4px solid var(--muted)">
+        <h4>Free <span class="pill gray">adquisición</span></h4>
+        <p><b>$0</b> — 1 usuario · hasta 10 expedientes activos · sincronización PJN · IA limitada (cuota mensual de consultas).</p>
+        <p style="margin-top:8px"><b>Objetivo:</b> capturar el no-consumo y al usuario sub-35. Motor de crecimiento bottom-up.</p>
+      </div>
+      <div class="card" style="border-top:4px solid var(--gold)">
+        <h4>Pro <span class="pill">caballito de batalla</span></h4>
+        <p>Precio por usuario/mes — expedientes ilimitados · IA completa · integración PJN + MEV · modelos · soporte.</p>
+        <p style="margin-top:8px"><b>Objetivo:</b> el plan del estudio chico y mediano. El grueso del revenue.</p>
+      </div>
+      <div class="card" style="border-top:4px solid var(--indigo)">
+        <h4>Estudio <span class="pill blue">expansión</span></h4>
+        <p>Por usuario con descuento por volumen — roles avanzados · portal de cliente · facturación · onboarding asistido · soporte prioritario.</p>
+        <p style="margin-top:8px"><b>Objetivo:</b> subir el ARPA en estudios que crecen dentro de la plataforma.</p>
+      </div>
+      <div class="card" style="border-top:4px solid var(--navy)">
+        <h4>Enterprise <span class="pill blue">a medida</span></h4>
+        <p>Estudios grandes y departamentos legales — SSO · API · integraciones a medida · SLA dedicado.</p>
+        <p style="margin-top:8px"><b>Objetivo:</b> cuentas grandes; cotización USD y contrato anual.</p>
+      </div>
+    </div>
+
+    <h3 class="sub">Principios de pricing</h3>
+    <div class="grid g3">
+      <div class="card"><h4>Precios públicos</h4><p>Todo el pricing visible en el sitio. En un sector opaco, es confianza y diferenciación.</p></div>
+      <div class="card"><h4>Cobro en ARS ajustable</h4><p>Para el mercado local, con cláusula de ajuste. Opción USD para Enterprise. Mitiga el riesgo macro.</p></div>
+      <div class="card"><h4>Migración gratis</h4><p>El onboarding asistido desde Lex-Doctor/Excel no se cobra: es la palanca para bajar el costo de cambio a cero.</p></div>
+    </div>
+
+    <div class="callout">
+      <h4>Unit economics objetivo</h4>
+      <p>CAC del plan Pro recuperable en <b>&lt; 6 meses</b>; <b>LTV/CAC &gt; 3</b>. El free no es caridad: es un canal de adquisición de bajo CAC que el usuario sub-35 trae al estudio. La conversión free→Pro objetivo es ≥ 15%.</p>
+    </div>
+  </section>
+
+  <!-- ===== ROADMAP ===== -->
+  <section class="tab" id="roadmap">
+    <h2 class="section">Roadmap &amp; go-to-market</h2>
+    <p class="lead">Cinco fases, de discovery a escala regional. El GTM es deliberadamente concentrado: ganar CABA antes de salir a buscar el resto.</p>
+
+    <h3 class="sub">Roadmap de producto</h3>
+    <div class="timeline">
+      <div class="tl"><span class="ttag">M0–M2</span><div class="ph">Fase 0</div><h4>Discovery &amp; diseño</h4><p>~30 entrevistas con estudios objetivo, validación de pricing, diseño UX, definición de arquitectura y de la estrategia de integración judicial.</p></div>
+      <div class="tl"><span class="ttag">M3–M6</span><div class="ph">Fase 1</div><h4>MVP / beta cerrada</h4><p>Módulos P0. 20–30 estudios beta en CABA. Foco obsesivo en la activación: la primera notificación judicial sincronizada en &lt; 24 hs.</p></div>
+      <div class="tl"><span class="ttag">M7–M9</span><div class="ph">Fase 2</div><h4>Lanzamiento público</h4><p>Free abierto, pricing público, GTM en CABA. Se incorporan módulos P1: portal de cliente, WhatsApp y facturación.</p></div>
+      <div class="tl"><span class="ttag">M10–M18</span><div class="ph">Fase 3</div><h4>Expansión</h4><p>Integraciones provinciales (EJE/IURIX/IOL), calculadoras por fuero, expansión a GBA e interior, API.</p></div>
+      <div class="tl"><span class="ttag">M18+</span><div class="ph">Fase 4</div><h4>Escala regional</h4><p>Multipaís (Chile, Perú, Uruguay) aprovechando la arquitectura multi-jurisdicción. Marketplace de integraciones.</p></div>
+    </div>
+
+    <h3 class="sub">Estrategia go-to-market</h3>
+    <div class="grid g2">
+      <div class="card"><h4>📍 Wedge geográfico</h4><p>CABA primero — ~40% del mercado en un solo padrón de altísima densidad. Después GBA, después interior. No dispersarse.</p></div>
+      <div class="card"><h4>🎯 Comprador objetivo</h4><p>La socia/o de 35–50 de estudios de 2–15 abogados. Mensaje: "Dejá de saltar entre Lex-Doctor, Excel y ChatGPT".</p></div>
+      <div class="card"><h4>📣 Canales</h4><p>Contenido SEO (el sector tiene información pobre), alianzas con colegios (CPACF, CASI), referidos, demos y eventos del sector.</p></div>
+      <div class="card"><h4>🌱 Motor bottom-up</h4><p>El plan free como adquisición: el junior lo prueba y lo trae al estudio. El equipo de ventas trabaja sobre cuentas free activas.</p></div>
+    </div>
+
+    <h3 class="sub">Criterios de salida de cada fase</h3>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Fase</th><th>No se avanza hasta…</th></tr></thead>
+        <tbody>
+          <tr><td><b>0 → 1</b></td><td>Pricing validado con ≥ 20 estudios y arquitectura de integración judicial probada técnicamente</td></tr>
+          <tr><td><b>1 → 2</b></td><td>≥ 70% de los estudios beta activados (expediente sincronizado) y NPS de beta ≥ 40</td></tr>
+          <tr><td><b>2 → 3</b></td><td>Señal de PMF: ≥ 150 estudios pagos, retención mensual ≥ 95%, conversión free→pago ≥ 12%</td></tr>
+          <tr><td><b>3 → 4</b></td><td>Operación rentable a nivel contribución en Argentina y playbook de GTM replicable documentado</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===== RIESGOS ===== -->
+  <section class="tab" id="riesgos">
+    <h2 class="section">Riesgos &amp; decisiones pendientes</h2>
+    <p class="lead">Los riesgos salen del FODA del research. Cada uno con su mitigación incorporada al producto o al GTM.</p>
+
+    <h3 class="sub">Matriz de riesgos</h3>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Riesgo</th><th>Origen</th><th>Mitigación</th></tr></thead>
+        <tbody>
+          <tr><td>Big tech genérico "suficiente" (ChatGPT/Copilot)</td><td><span class="pill red">Amenaza</span></td><td>El foso es la integración judicial + el contexto del expediente: ChatGPT no ve el PJN ni la causa</td></tr>
+          <tr><td>Lex-Doctor defiende su base instalada</td><td><span class="pill red">Amenaza</span></td><td>Migración asistida gratis; no competir por precio, competir por experiencia y movilidad</td></tr>
+          <tr><td>Desconfianza en la IA (67% de los usuarios)</td><td><span class="pill">Debilidad</span></td><td>IA 100% citable, RAG sobre corpus verificado, revisión humana, sin predicción de sentencias</td></tr>
+          <tr><td>Falta de presupuesto para legal tech (68%)</td><td><span class="pill">Debilidad</span></td><td>Freemium real + precios en ARS + ROI demostrable (horas ahorradas medibles)</td></tr>
+          <tr><td>Dependencia de PJN/MEV/EJE</td><td><span class="pill red">Amenaza</span></td><td>Degradación con gracia, monitoreo activo, múltiples fuentes; la app nunca se bloquea si cae un sistema</td></tr>
+          <tr><td>Commoditización / velocidad de la IA</td><td><span class="pill red">Amenaza</span></td><td>El valor está en el dato y la integración, no en el modelo; capa de modelo intercambiable</td></tr>
+          <tr><td>Incidente de ciberseguridad</td><td><span class="pill red">Amenaza</span></td><td>Seguridad como P0 desde el día uno; cumplimiento Ley 25.326; auditorías y objetivo SOC 2</td></tr>
+          <tr><td>Inestabilidad macro / devaluación</td><td><span class="pill">Debilidad</span></td><td>Pricing en ARS con ajuste, costos de infraestructura optimizados, opción USD para Enterprise</td></tr>
+          <tr><td>Riesgo regulatorio del scraping judicial</td><td><span class="pill red">Amenaza</span></td><td>Uso de credenciales del propio abogado; migrar a APIs oficiales apenas existan; asesoría legal del enfoque</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="sub">Decisiones pendientes (open questions)</h3>
+    <ol class="recs">
+      <li><b>Corpus de jurisprudencia:</b> ¿construir uno propio o licenciar? SAIJ es público; los fallos certificados pueden requerir acuerdos. Define el costo del foso.</li>
+      <li><b>Arquitectura de IA:</b> ¿modelo propio fine-tuneado o API de terceros (Claude/GPT) con RAG? Recomendación inicial: API + RAG sobre corpus verificado — más rápido y barato de validar.</li>
+      <li><b>Hosting:</b> ¿datos en Argentina por percepción de seguridad y cumplimiento, o cloud regional? Impacta costo y mensaje de venta al escéptico.</li>
+      <li><b>Integración judicial:</b> ¿credenciales del usuario (RPA/scraping) mientras no haya APIs oficiales? Es el mayor riesgo regulatorio del producto — requiere opinión legal antes del MVP.</li>
+      <li><b>Límite del plan free:</b> definir el corte exacto (¿10 expedientes? ¿5?) que maximice adquisición sin canibalizar Pro.</li>
+      <li><b>Canal de lanzamiento:</b> ¿alianza con un colegio (CASI, CPACF) como canal, o ir directo? Acelera distribución pero condiciona el roadmap.</li>
+    </ol>
+
+    <div class="callout">
+      <h4>Próximo paso</h4>
+      <p>Cerrar las 6 decisiones pendientes en la <b>Fase 0</b>. Las dos críticas para arrancar: la <b>arquitectura de integración judicial</b> (riesgo regulatorio) y el <b>corpus de jurisprudencia</b> (costo del foso). Sin esas dos resueltas, el MVP no debería empezar a construirse.</p>
+    </div>
+  </section>
+
+  <footer>
+    <h4>Sobre este documento</h4>
+    <div class="disc">
+      PRD v0.1 — borrador de trabajo, mayo 2026. Producto y nombre ("Causa") tentativos. Elaborado a partir del research de mercado <i>Legal Tech en Argentina</i> (plataformas, demografía de la abogacía, noticias y FODA del sector).
+      Las cifras de mercado provienen de fuentes públicas de distinta antigüedad y metodología. Este documento es una hipótesis de producto para discusión interna — no constituye un compromiso de roadmap ni asesoramiento legal sobre la viabilidad regulatoria de la integración judicial, que debe validarse con asesoría especializada.
+    </div>
+  </footer>
+
+</div>
+</main>
+
+<script>
+/* tabs */
+document.querySelectorAll('nav button').forEach(b=>{
+  b.addEventListener('click',()=>{
+    document.querySelectorAll('nav button').forEach(x=>x.classList.remove('active'));
+    document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    document.getElementById(b.dataset.tab).classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+});
+
+/* requirements */
+const modules = [
+  {n:"1 · Gestión de expedientes", icon:"📁", reqs:[
+    {p:"P0", t:"Alta y edición de expedientes: carátula, fuero, jurisdicción, partes, objeto"},
+    {p:"P0", t:"Estados configurables y línea de tiempo del expediente"},
+    {p:"P0", t:"Agenda de plazos y audiencias con alertas"},
+    {p:"P0", t:"Carga y organización de documentos por expediente"},
+    {p:"P0", t:"Buscador global de expedientes, partes y documentos"}
+  ]},
+  {n:"2 · Integración judicial", icon:"⚖️", tag:"EL FOSO", reqs:[
+    {p:"P0", t:"Sincronización automática con PJN y MEV con credenciales del abogado"},
+    {p:"P0", t:"Descarga e indexado de notificaciones electrónicas"},
+    {p:"P0", t:"Resumen diario de movimientos (mail + in-app)"},
+    {p:"P0", t:"Alertas configurables por expediente"},
+    {p:"P1", t:"Integración con EJE, IURIX, IOL y sistemas provinciales"}
+  ]},
+  {n:"3 · Asistente de IA", icon:"🤖", tag:"EL DIFERENCIAL", reqs:[
+    {p:"P0", t:"Búsqueda de jurisprudencia y normativa en lenguaje natural, siempre con cita a fuente verificable y link"},
+    {p:"P0", t:"Generación de escritos asistida sobre los modelos del estudio"},
+    {p:"P0", t:"Resumen de expedientes y documentos largos"},
+    {p:"P0", t:"Chat contextual sobre un expediente (la IA accede al expediente real)"},
+    {p:"P1", t:"Transcripción de audiencias y redacción de comunicaciones al cliente"},
+    {p:"NO", t:"Predicción de resultados litigiosos — fuera de alcance deliberado (1% de uso real, alto riesgo reputacional)"}
+  ]},
+  {n:"4 · Editor y modelos", icon:"📝", reqs:[
+    {p:"P0", t:"Editor de texto con variables dinámicas"},
+    {p:"P0", t:"Biblioteca de modelos del estudio + modelos base por fuero"},
+    {p:"P1", t:"Versionado de documentos"}
+  ]},
+  {n:"5 · Colaboración y equipo", icon:"👥", reqs:[
+    {p:"P0", t:"Roles y permisos (socio, asociado, paralegal, vista cliente)"},
+    {p:"P0", t:"Asignación de expedientes y tareas"},
+    {p:"P1", t:"Comentarios y menciones internas"}
+  ]},
+  {n:"6 · Onboarding y migración", icon:"🚀", reqs:[
+    {p:"P0", t:"Importador desde Excel / CSV"},
+    {p:"P0", t:"Asistente de migración desde Lex-Doctor"},
+    {p:"P0", t:"Setup guiado hasta la primera sincronización judicial"}
+  ]},
+  {n:"7 · Cliente y comunicación", icon:"💬", reqs:[
+    {p:"P1", t:"Portal de autogestión para el cliente del estudio"},
+    {p:"P1", t:"Updates y recordatorios por WhatsApp"}
+  ]},
+  {n:"8 · Facturación", icon:"💲", reqs:[
+    {p:"P1", t:"Honorarios y liquidaciones"},
+    {p:"P1", t:"Facturación electrónica ARCA"},
+    {p:"P2", t:"Reportes de rentabilidad por expediente"}
+  ]}
+];
+function renderModules(filter){
+  const wrap=document.getElementById('modcards');
+  wrap.innerHTML='';
+  modules.forEach(m=>{
+    const reqs=filter==='all'?m.reqs:m.reqs.filter(r=>r.p===filter);
+    if(reqs.length===0)return;
+    const el=document.createElement('div');
+    el.className='modcard';
+    el.innerHTML=`
+      <div class="mh">
+        <span class="mname">${m.icon} ${m.n}</span>
+        ${m.tag?`<span class="pill">${m.tag}</span>`:''}
+      </div>
+      ${reqs.map(r=>`<div class="req"><span class="prio ${r.p}">${r.p}</span><span>${r.t}</span></div>`).join('')}
+    `;
+    wrap.appendChild(el);
+  });
+}
+renderModules('all');
+document.querySelectorAll('#rfilters button').forEach(b=>{
+  b.addEventListener('click',()=>{
+    document.querySelectorAll('#rfilters button').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    renderModules(b.dataset.f);
+  });
+});
+</script>
+</body>
+</html>
