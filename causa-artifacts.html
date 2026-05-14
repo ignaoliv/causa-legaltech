@@ -191,6 +191,61 @@
     text-decoration:none;font-weight:600;margin-bottom:18px;padding:6px 12px;
     border:1px solid var(--line);border-radius:8px;background:var(--card);transition:.15s}
   .nav-back:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+
+  /* ─── P&L ─── */
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin:18px 0 24px}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:var(--shadow)}
+  .stat .num{font-size:26px;font-weight:800;color:var(--navy)}
+  .stat .num.good{color:var(--good)} .stat .num.bad{color:var(--bad)} .stat .num.warn{color:var(--warn)}
+  .stat .lab{font-size:13px;color:var(--muted);margin-top:2px}
+  .stat .tag{font-size:10px;color:var(--gold);font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
+
+  .fin-table{width:100%;border-collapse:collapse;font-size:13px;margin:4px 0 24px;box-shadow:var(--shadow);border-radius:12px;overflow:hidden}
+  .fin-table th{background:var(--navy);color:#fff;padding:10px 14px;text-align:right;font-size:12px;font-weight:700;white-space:nowrap}
+  .fin-table th:first-child{text-align:left;border-radius:12px 0 0 0}
+  .fin-table th:last-child{border-radius:0 12px 0 0}
+  .fin-table td{padding:9px 14px;border-bottom:1px solid var(--line);text-align:right;background:var(--card);white-space:nowrap}
+  .fin-table td:first-child{text-align:left;font-weight:600;color:var(--navy2)}
+  .fin-table tr:last-child td{border-bottom:none}
+  .fin-table tr:last-child td:first-child{border-radius:0 0 0 12px}
+  .fin-table tr:last-child td:last-child{border-radius:0 0 12px 0}
+  .fin-table .total td{background:#f0f4ff;font-weight:700;color:var(--navy);border-top:2px solid var(--indigo)}
+  .fin-table .gross td{background:#f0fff6;font-weight:700;color:var(--good);border-top:2px solid var(--good)}
+  .fin-table .ebitda td{font-weight:800;font-size:14px;border-top:2px solid var(--navy)}
+  .fin-table .section-head td{background:var(--navy2);color:#fff;font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.06em;padding:7px 14px;text-align:left}
+  .fin-table .section-head td:first-child{font-size:11px}
+  .fin-table .alt td{background:#fafbfc}
+  .good-val{color:var(--good);font-weight:700}
+  .bad-val{color:var(--bad);font-weight:700}
+  .muted-val{color:var(--muted)}
+
+  .service-badge{display:inline-block;font-size:10px;font-weight:700;padding:2px 7px;border-radius:6px;margin-left:6px}
+  .badge-vercel{background:#0a0a0a;color:#fff}
+  .badge-var{background:#fff0e8;color:#b9521a}
+  .badge-pct{background:#e8f0ff;color:#2d4a7c}
+
+  .be-chart{display:grid;gap:8px;margin:16px 0}
+  .be-row{display:grid;grid-template-columns:80px 1fr 1fr 90px;gap:8px;align-items:center;font-size:13px}
+  .be-row.head{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
+  .be-bar-wrap{background:#f0f4ff;border-radius:6px;height:24px;position:relative;overflow:hidden}
+  .be-bar{height:100%;border-radius:6px;display:flex;align-items:center;padding:0 8px;font-size:11px;font-weight:700;color:#fff;transition:.3s;white-space:nowrap;overflow:hidden;min-width:2px}
+  .bar-mrr{background:linear-gradient(90deg,#1f8a52,#34d399)}
+  .bar-cost{background:linear-gradient(90deg,#c0392b,#f87171)}
+  .bar-be{background:linear-gradient(90deg,#b9821a,#fbbf24)}
+  .be-status{font-size:11px;font-weight:700;padding:3px 8px;border-radius:6px;text-align:center}
+  .be-status.loss{background:#fae3e0;color:#c0392b}
+  .be-status.win{background:#e0f2e8;color:#1f8a52}
+  .be-status.near{background:#fff8e8;color:#b9821a}
+
+  .g2-annual{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:8px 0 24px}
+  .annual-card{background:var(--card);border:1.5px solid var(--line);border-radius:16px;padding:22px;box-shadow:var(--shadow)}
+  .annual-card h4{font-size:16px;font-weight:800;color:var(--navy);margin-bottom:16px;display:flex;justify-content:space-between;align-items:center}
+  .annual-card .year-tag{font-size:11px;font-weight:700;padding:3px 9px;border-radius:8px}
+  .annual-row{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid var(--line);font-size:14px}
+  .annual-row:last-child{border-bottom:none;font-weight:800;font-size:15px;color:var(--navy);padding-top:10px}
+  .annual-row .label{color:var(--muted)}
+  .annual-row .val{font-weight:600}
+  @media(max-width:680px){.g2-annual{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -213,6 +268,7 @@
     <button class="active" data-tab="empathy">🧠 Empathy Map</button>
     <button data-tab="journey">🗺️ Journey Map</button>
     <button data-tab="canvas">📐 Business Model Canvas</button>
+    <button data-tab="pnl">💰 P&amp;L</button>
   </div>
 </nav>
 
@@ -448,6 +504,375 @@
       <div style="font-size:13.5px;color:#6f5818"><b>2. IA como diferenciador real.</b> La IA con citas verificables genera confianza y uso recurrente en abogados (no solo curiosidad).</div>
       <div style="font-size:13.5px;color:#6f5818"><b>3. Integraciones como moat.</b> La barrera técnica de mantener sync con PJN/MEV/EJE protege de la competencia por 18–24 meses.</div>
       <div style="font-size:13.5px;color:#6f5818"><b>4. Freemium convierte.</b> Los usuarios free con ≥15% de conversión a Pro son captados por el límite de causas, no por paywalls agresivos.</div>
+    </div>
+  </div>
+
+</div>
+<!-- ═══════════════════ TAB: P&L ═══════════════════ -->
+<div class="tab" id="tab-pnl">
+
+  <a href="index.html" class="nav-back">← Volver al inicio</a>
+
+  <h2 class="section">P&amp;L — Proyección financiera</h2>
+  <p class="lead">Modelo económico de Causa: ingresos, costos de infraestructura (incluyendo Vercel, Supabase, IA API), payroll y camino al break-even. Expresado en <strong>USD</strong> — salarios en ARS/USD al tipo de cambio vigente, servicios SaaS en USD.</p>
+
+  <!-- KPIs rápidos -->
+  <div class="stats">
+    <div class="stat">
+      <div class="tag">Break-even</div>
+      <div class="num warn">~M15</div>
+      <div class="lab">con capital inicial de $80k USD</div>
+    </div>
+    <div class="stat">
+      <div class="tag">MRR objetivo Y1</div>
+      <div class="num">$22k</div>
+      <div class="lab">400 estudios pagos · M12</div>
+    </div>
+    <div class="stat">
+      <div class="tag">Margen bruto objetivo</div>
+      <div class="num good">92%</div>
+      <div class="lab">SaaS con AI a escala (M12+)</div>
+    </div>
+    <div class="stat">
+      <div class="tag">LTV / CAC</div>
+      <div class="num good">7.4×</div>
+      <div class="lab">Payback en ~3 meses</div>
+    </div>
+    <div class="stat">
+      <div class="tag">Seed capital necesario</div>
+      <div class="num bad">~$80k</div>
+      <div class="lab">burn total hasta break-even</div>
+    </div>
+    <div class="stat">
+      <div class="tag">EBITDA M18</div>
+      <div class="num good">+$8.5k</div>
+      <div class="lab">primer mes de surplus sostenido</div>
+    </div>
+  </div>
+
+  <!-- Stack de servicios -->
+  <h3 class="sub">📦 Stack de servicios e infraestructura</h3>
+  <div style="overflow-x:auto;margin-bottom:8px">
+  <table class="fin-table">
+    <thead>
+      <tr>
+        <th style="text-align:left;min-width:160px">Servicio</th>
+        <th style="text-align:left">Propósito</th>
+        <th>Modelo</th>
+        <th>M0–M3</th>
+        <th>M4–M6</th>
+        <th>M7–M12</th>
+        <th>M13–M18+</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Vercel</strong> <span class="service-badge badge-vercel">hosting</span></td>
+        <td>Frontend + CDN + Edge</td>
+        <td><span class="service-badge" style="background:#f0f4ff;color:#2d4a7c">Pro → Team</span></td>
+        <td>$20</td><td>$40</td><td>$80</td><td>$160</td>
+      </tr>
+      <tr class="alt">
+        <td><strong>Supabase</strong></td>
+        <td>PostgreSQL + Auth + Storage</td>
+        <td><span class="service-badge" style="background:#f0f4ff;color:#2d4a7c">Pro → Scale</span></td>
+        <td>$25</td><td>$25</td><td>$100</td><td>$150</td>
+      </tr>
+      <tr>
+        <td><strong>Anthropic API</strong></td>
+        <td>LLM para asistente IA + RAG</td>
+        <td><span class="service-badge badge-var">pay/token</span></td>
+        <td>$20</td><td>$300</td><td>$840</td><td>$1,680</td>
+      </tr>
+      <tr class="alt">
+        <td><strong>Stripe</strong></td>
+        <td>Pagos y suscripciones</td>
+        <td><span class="service-badge badge-pct">2.9% + $0.30</span></td>
+        <td>$0</td><td>$96</td><td>$638</td><td>$1,276</td>
+      </tr>
+      <tr>
+        <td><strong>Resend</strong></td>
+        <td>Email transaccional</td>
+        <td><span class="service-badge" style="background:#f0f4ff;color:#2d4a7c">Pro</span></td>
+        <td>$0</td><td>$20</td><td>$20</td><td>$40</td>
+      </tr>
+      <tr class="alt">
+        <td><strong>Sentry</strong></td>
+        <td>Error tracking</td>
+        <td><span class="service-badge" style="background:#e8f8ee;color:#1f8a52">Free → Team</span></td>
+        <td>$0</td><td>$0</td><td>$26</td><td>$26</td>
+      </tr>
+      <tr>
+        <td><strong>PostHog</strong></td>
+        <td>Product analytics</td>
+        <td><span class="service-badge" style="background:#e8f8ee;color:#1f8a52">Free → Scale</span></td>
+        <td>$0</td><td>$0</td><td>$0</td><td>$450</td>
+      </tr>
+      <tr class="alt">
+        <td><strong>GitHub</strong></td>
+        <td>Repos + CI/CD Actions</td>
+        <td><span class="service-badge" style="background:#f5f0ff;color:#6d4ab8">Team</span></td>
+        <td>$0</td><td>$12</td><td>$20</td><td>$32</td>
+      </tr>
+      <tr>
+        <td><strong>Cloudflare</strong></td>
+        <td>DNS + protección DDoS + WAF</td>
+        <td><span class="service-badge" style="background:#e8f8ee;color:#1f8a52">Free</span></td>
+        <td>$0</td><td>$0</td><td>$0</td><td>$0</td>
+      </tr>
+      <tr class="alt">
+        <td><strong>Linear</strong></td>
+        <td>Gestión de producto</td>
+        <td><span class="service-badge" style="background:#f5f0ff;color:#6d4ab8">Standard</span></td>
+        <td>$24</td><td>$24</td><td>$40</td><td>$56</td>
+      </tr>
+      <tr>
+        <td><strong>Intercom</strong></td>
+        <td>Soporte al cliente</td>
+        <td><span class="service-badge" style="background:#f0f4ff;color:#2d4a7c">Starter</span></td>
+        <td>$0</td><td>$74</td><td>$74</td><td>$74</td>
+      </tr>
+      <tr class="alt">
+        <td><strong>1Password</strong></td>
+        <td>Seguridad del equipo</td>
+        <td><span class="service-badge" style="background:#f5f0ff;color:#6d4ab8">Teams</span></td>
+        <td>$12</td><td>$12</td><td>$20</td><td>$28</td>
+      </tr>
+      <tr>
+        <td><strong>Dominio .law / .com.ar</strong></td>
+        <td>Identidad de marca</td>
+        <td><span class="service-badge" style="background:#e8f8ee;color:#1f8a52">Anual</span></td>
+        <td>$2</td><td>$2</td><td>$2</td><td>$2</td>
+      </tr>
+      <tr class="total">
+        <td>Total infraestructura / mes</td>
+        <td></td><td></td>
+        <td><strong>$103</strong></td>
+        <td><strong>$605</strong></td>
+        <td><strong>$1,860</strong></td>
+        <td><strong>$3,974</strong></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <p style="font-size:12px;color:var(--muted);margin:-12px 0 20px">* Stripe incluido en COGS como % del MRR. AI API crece con usuarios activos (~$0.70/usuario/mes a escala con prompt caching).</p>
+
+  <!-- P&L Mensual -->
+  <h3 class="sub">📊 Proyección P&amp;L mensual — snapshots clave (USD)</h3>
+  <div style="overflow-x:auto">
+  <table class="fin-table">
+    <thead>
+      <tr>
+        <th style="text-align:left;min-width:200px">Línea</th>
+        <th>M0 <small style="font-weight:400;color:#aab8d0">(pre)</small></th>
+        <th>M3</th>
+        <th>M6</th>
+        <th>M9</th>
+        <th>M12</th>
+        <th>M18</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- MÉTRICAS OPERATIVAS -->
+      <tr class="section-head"><td colspan="7">Métricas operativas</td></tr>
+      <tr><td>Estudios pagos</td><td class="muted-val">0</td><td>15</td><td>60</td><td>180</td><td>400</td><td>800</td></tr>
+      <tr class="alt"><td>Usuarios activos (free + paid)</td><td class="muted-val">50</td><td>245</td><td>980</td><td>2,540</td><td>5,200</td><td>8,400</td></tr>
+      <tr><td>Headcount</td><td class="muted-val">3</td><td>3</td><td>5</td><td>7</td><td>9</td><td>12</td></tr>
+
+      <!-- INGRESOS -->
+      <tr class="section-head"><td colspan="7">Ingresos</td></tr>
+      <tr><td><strong>MRR</strong></td>
+        <td class="muted-val">$0</td><td>$825</td><td>$3,300</td><td>$9,900</td><td>$22,000</td><td>$44,000</td></tr>
+
+      <!-- COGS -->
+      <tr class="section-head"><td colspan="7">COGS — Costo del servicio</td></tr>
+      <tr><td>Vercel (hosting + CDN)</td>
+        <td>$20</td><td>$20</td><td>$40</td><td>$80</td><td>$100</td><td>$160</td></tr>
+      <tr class="alt"><td>Supabase (DB + Auth)</td>
+        <td>$25</td><td>$25</td><td>$50</td><td>$75</td><td>$100</td><td>$150</td></tr>
+      <tr><td>Anthropic API (IA)</td>
+        <td>$20</td><td>$75</td><td>$300</td><td>$700</td><td>$840</td><td>$1,680</td></tr>
+      <tr class="alt"><td>Email — Resend</td>
+        <td>$0</td><td>$0</td><td>$20</td><td>$20</td><td>$20</td><td>$40</td></tr>
+      <tr><td>Pagos — Stripe (2.9% MRR)</td>
+        <td>$0</td><td>$24</td><td>$96</td><td>$287</td><td>$638</td><td>$1,276</td></tr>
+      <tr class="total"><td>Total COGS</td>
+        <td>$65</td><td>$144</td><td>$506</td><td>$1,162</td><td>$1,698</td><td>$3,306</td></tr>
+      <tr class="gross"><td>Margen Bruto</td>
+        <td class="muted-val">—</td>
+        <td class="good-val">82%</td>
+        <td class="good-val">85%</td>
+        <td class="good-val">88%</td>
+        <td class="good-val">92%</td>
+        <td class="good-val">93%</td></tr>
+
+      <!-- OPEX -->
+      <tr class="section-head"><td colspan="7">OPEX — Gastos operativos</td></tr>
+      <tr><td>Payroll (equipo en ARS/USD)</td>
+        <td>$4,000</td><td>$4,000</td><td>$7,500</td><td>$13,500</td><td>$19,000</td><td>$27,500</td></tr>
+      <tr class="alt"><td>Marketing &amp; eventos (Colegios, SEO)</td>
+        <td>$300</td><td>$300</td><td>$800</td><td>$1,500</td><td>$2,500</td><td>$4,000</td></tr>
+      <tr><td>Herramientas &amp; admin (Linear, Sentry, etc.)</td>
+        <td>$50</td><td>$50</td><td>$150</td><td>$200</td><td>$200</td><td>$700</td></tr>
+      <tr class="total"><td>Total OPEX</td>
+        <td>$4,350</td><td>$4,350</td><td>$8,450</td><td>$15,200</td><td>$21,700</td><td>$32,200</td></tr>
+
+      <!-- EBITDA -->
+      <tr class="ebitda">
+        <td>EBITDA mensual</td>
+        <td class="bad-val">($4,415)</td>
+        <td class="bad-val">($3,813)</td>
+        <td class="bad-val">($6,656)</td>
+        <td class="bad-val">($7,624)</td>
+        <td class="bad-val">($1,398)</td>
+        <td class="good-val">+$8,494</td>
+      </tr>
+      <tr class="alt"><td style="font-size:12px;color:var(--muted)">Burn / surplus mensual</td>
+        <td style="font-size:12px;color:var(--bad)">$4,415</td>
+        <td style="font-size:12px;color:var(--bad)">$3,813</td>
+        <td style="font-size:12px;color:var(--bad)">$6,656</td>
+        <td style="font-size:12px;color:var(--bad)">$7,624</td>
+        <td style="font-size:12px;color:var(--bad)">$1,398</td>
+        <td style="font-size:12px;color:var(--good)">+$8,494</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <!-- Resumen anual -->
+  <h3 class="sub">📅 Resumen anual — Y1 vs Y2</h3>
+  <div class="g2-annual">
+    <div class="annual-card">
+      <h4>Año 1 <span class="year-tag" style="background:#fae3e0;color:#c0392b">En construcción</span></h4>
+      <div class="annual-row"><span class="label">Revenue total</span><span class="val">$82,390</span></div>
+      <div class="annual-row"><span class="label">COGS total</span><span class="val bad-val">($7,200)</span></div>
+      <div class="annual-row"><span class="label">Gross Profit</span><span class="val good-val">$75,190 (91%)</span></div>
+      <div class="annual-row"><span class="label">Payroll total</span><span class="val">($111,000)</span></div>
+      <div class="annual-row"><span class="label">Marketing total</span><span class="val">($14,400)</span></div>
+      <div class="annual-row"><span class="label">G&amp;A (tools)</span><span class="val">($1,320)</span></div>
+      <div class="annual-row"><span class="label bad-val">EBITDA Y1</span><span class="val bad-val">($51,530)</span></div>
+    </div>
+    <div class="annual-card">
+      <h4>Año 2 <span class="year-tag" style="background:#e0f2e8;color:#1f8a52">Break-even + surplus</span></h4>
+      <div class="annual-row"><span class="label">Revenue total</span><span class="val">$540,000</span></div>
+      <div class="annual-row"><span class="label">COGS total</span><span class="val bad-val">($38,400)</span></div>
+      <div class="annual-row"><span class="label">Gross Profit</span><span class="val good-val">$501,600 (93%)</span></div>
+      <div class="annual-row"><span class="label">Payroll total</span><span class="val">($384,000)</span></div>
+      <div class="annual-row"><span class="label">Marketing total</span><span class="val">($60,000)</span></div>
+      <div class="annual-row"><span class="label">G&amp;A (tools)</span><span class="val">($9,600)</span></div>
+      <div class="annual-row"><span class="label good-val">EBITDA Y2</span><span class="val good-val">+$48,000</span></div>
+    </div>
+  </div>
+
+  <!-- Economía unitaria -->
+  <h3 class="sub">📐 Economía unitaria</h3>
+  <div class="stats">
+    <div class="stat">
+      <div class="tag">ARPS</div>
+      <div class="num">$55</div>
+      <div class="lab">Average Revenue Per Study / mes</div>
+    </div>
+    <div class="stat">
+      <div class="tag">COGS / estudio</div>
+      <div class="num">$4.13</div>
+      <div class="lab">a escala (M18, 800 estudios)</div>
+    </div>
+    <div class="stat">
+      <div class="tag">LTV (24 meses)</div>
+      <div class="num good">$1,320</div>
+      <div class="lab">retención 95% anual · 24 meses avg</div>
+    </div>
+    <div class="stat">
+      <div class="tag">CAC</div>
+      <div class="num">~$178</div>
+      <div class="lab">blended (marketing + CS time)</div>
+    </div>
+    <div class="stat">
+      <div class="tag">LTV / CAC</div>
+      <div class="num good">7.4×</div>
+      <div class="lab">target SaaS saludable es &gt;3×</div>
+    </div>
+    <div class="stat">
+      <div class="tag">Payback period</div>
+      <div class="num good">3.2 meses</div>
+      <div class="lab">desde adquisición hasta recupero</div>
+    </div>
+  </div>
+
+  <!-- Break-even chart -->
+  <h3 class="sub">📈 Camino al break-even</h3>
+  <div class="card" style="margin-bottom:24px">
+    <div style="font-size:13px;color:var(--muted);margin-bottom:16px">MRR vs. Costos totales (COGS + OPEX) por período — escala proporcional al máximo (M18 = $47,306)</div>
+    <div class="be-chart">
+      <div class="be-row head">
+        <div>Período</div>
+        <div>MRR</div>
+        <div>Costos totales</div>
+        <div>Estado</div>
+      </div>
+      <!-- M0 -->
+      <div class="be-row">
+        <div style="font-weight:700;color:var(--navy2)">M0</div>
+        <div class="be-bar-wrap"><div class="be-bar bar-mrr" style="width:0%">$0</div></div>
+        <div class="be-bar-wrap"><div class="be-bar bar-cost" style="width:9.3%">$4,415</div></div>
+        <div class="be-status loss">Burn $4.4k</div>
+      </div>
+      <!-- M3 -->
+      <div class="be-row">
+        <div style="font-weight:700;color:var(--navy2)">M3</div>
+        <div class="be-bar-wrap"><div class="be-bar bar-mrr" style="width:1.7%">$825</div></div>
+        <div class="be-bar-wrap"><div class="be-bar bar-cost" style="width:9.2%">$4,494</div></div>
+        <div class="be-status loss">Burn $3.8k</div>
+      </div>
+      <!-- M6 -->
+      <div class="be-row">
+        <div style="font-weight:700;color:var(--navy2)">M6</div>
+        <div class="be-bar-wrap"><div class="be-bar bar-mrr" style="width:7%">$3,300</div></div>
+        <div class="be-bar-wrap"><div class="be-bar bar-cost" style="width:18.9%">$8,956</div></div>
+        <div class="be-status loss">Burn $5.7k</div>
+      </div>
+      <!-- M9 -->
+      <div class="be-row">
+        <div style="font-weight:700;color:var(--navy2)">M9</div>
+        <div class="be-bar-wrap"><div class="be-bar bar-mrr" style="width:20.9%">$9,900</div></div>
+        <div class="be-bar-wrap"><div class="be-bar bar-cost" style="width:34.5%">$16,362</div></div>
+        <div class="be-status loss">Burn $6.5k</div>
+      </div>
+      <!-- M12 -->
+      <div class="be-row">
+        <div style="font-weight:700;color:var(--navy2)">M12</div>
+        <div class="be-bar-wrap"><div class="be-bar bar-mrr" style="width:46.5%">$22,000</div></div>
+        <div class="be-bar-wrap"><div class="be-bar bar-cost" style="width:49.5%">$23,398</div></div>
+        <div class="be-status near">Burn $1.4k</div>
+      </div>
+      <!-- M15 (break-even) -->
+      <div class="be-row">
+        <div style="font-weight:700;color:var(--warn)">M15 ✦</div>
+        <div class="be-bar-wrap"><div class="be-bar bar-be" style="width:71.9%">$34,000</div></div>
+        <div class="be-bar-wrap"><div class="be-bar bar-be" style="width:71.9%">$34,000</div></div>
+        <div class="be-status near">Break-even</div>
+      </div>
+      <!-- M18 -->
+      <div class="be-row">
+        <div style="font-weight:700;color:var(--good)">M18</div>
+        <div class="be-bar-wrap"><div class="be-bar bar-mrr" style="width:93%">$44,000</div></div>
+        <div class="be-bar-wrap"><div class="be-bar bar-cost" style="width:75.3%">$35,506</div></div>
+        <div class="be-status win">+$8.5k</div>
+      </div>
+    </div>
+    <div style="margin-top:12px;font-size:12px;color:var(--muted)">✦ Break-even estimado: ~M15 cuando MRR cruza ~$34k (≈620 estudios pagos). Capital total requerido: <strong>≈$80k USD</strong> de inversión seed.</div>
+  </div>
+
+  <!-- Supuestos -->
+  <div style="background:#fff8e8;border:1px solid #ecd9a6;border-radius:14px;padding:18px 22px">
+    <h4 style="color:#8a6d1f;font-size:13px;text-transform:uppercase;letter-spacing:.07em;margin-bottom:12px">📝 Supuestos del modelo</h4>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px">
+      <div style="font-size:13px;color:#6f5818"><b>Tipo de cambio.</b> Payroll en ARS equivalente a ~$1,500–$3,500 USD/persona según seniority (junio 2025). Sensible a devaluación.</div>
+      <div style="font-size:13px;color:#6f5818"><b>Vercel.</b> Plan Pro a $20/mes (1 seat) en MVP. Escala a Team ($20/usuario) con el crecimiento del equipo técnico. No incluye overage de bandwidth.</div>
+      <div style="font-size:13px;color:#6f5818"><b>AI API.</b> ~$0.70/usuario activo/mes promedio con prompt caching (Anthropic). Crece linealmente con usuarios; estimado conservador para uso legal moderado.</div>
+      <div style="font-size:13px;color:#6f5818"><b>ARPS.</b> $55/mes promedio blended (70% Pro, 25% Estudio, 5% Enterprise). No incluye potencial de precio en ARS para mitigar resistencia.</div>
+      <div style="font-size:13px;color:#6f5818"><b>Churn.</b> 5% anual (logo retention 95%). Supuesto optimista justificado por integraciones judiciales como moat y alto switching cost.</div>
+      <div style="font-size:13px;color:#6f5818"><b>CAC.</b> $178/estudio blended (marketing inbound + referidos + eventos en Colegios). No incluye un equipo de ventas outbound antes de M12.</div>
     </div>
   </div>
 
