@@ -172,13 +172,17 @@
   /* News timeline */
   .timeline{position:relative;margin:20px 0;padding-left:28px}
   .timeline::before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:var(--line)}
-  .tl{position:relative;margin-bottom:16px;background:var(--card);border:1px solid var(--line);
-    border-radius:12px;padding:14px 16px;box-shadow:var(--shadow)}
-  .tl::before{content:"";position:absolute;left:-25px;top:18px;width:12px;height:12px;border-radius:50%;
-    background:var(--gold);border:3px solid #fff;box-shadow:0 0 0 1px var(--line)}
-  .tl .d{font-size:11px;font-weight:800;color:var(--gold);text-transform:uppercase;letter-spacing:.06em}
-  .tl h4{font-size:14.5px;color:var(--navy);margin:3px 0 4px}
-  .tl p{font-size:13px;color:var(--muted)}
+  .tl{position:relative;margin-bottom:12px;background:var(--card);border:1px solid var(--line);
+    border-radius:4px;padding:16px 18px;box-shadow:none}
+  .tl::before{content:"";position:absolute;left:-25px;top:20px;width:10px;height:10px;border-radius:50%;
+    background:var(--gold);border:2px solid var(--bg);box-shadow:0 0 0 1px var(--line)}
+  .tl .d{font-size:10px;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:.14em}
+  .tl h4{font-family:'Instrument Serif',Georgia,serif;font-size:16px;font-weight:400;color:var(--ink);margin:5px 0 6px;letter-spacing:-0.01em}
+  .tl p{font-size:13px;color:var(--muted);line-height:1.55;font-weight:300}
+  .tl-link{display:inline-flex;align-items:center;gap:5px;margin-top:10px;font-size:10px;font-weight:600;
+    letter-spacing:.12em;text-transform:uppercase;color:var(--green);text-decoration:none;
+    border-bottom:1px solid var(--line);padding-bottom:1px;transition:color .15s,border-color .15s}
+  .tl-link:hover{color:var(--gold);border-color:var(--gold)}
   .cohorts{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin:10px 0}
   .cohort{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;
     box-shadow:var(--shadow);border-top:4px solid var(--indigo)}
@@ -815,28 +819,55 @@ renderTable();
 
 /* ---------- NEWS TIMELINE ---------- */
 const newsData = [
-  {date:"Febrero 2025", title:"El PJN lanza su Asistente Virtual de IA",
-   body:"El Poder Judicial de la Nación incorpora un asistente de IA (Resolución 1486/2025), basado en GPT-4.1-nano. Primer hito de adopción institucional de IA en la Justicia nacional."},
-  {date:"2025", title:"El CPACF publica guías de uso de IA para abogados",
-   body:"El Colegio Público de la Abogacía de la Capital Federal establece un marco ético para el uso de IA en la profesión — señal de institucionalización de la categoría."},
-  {date:"2025", title:"La adopción de IA en áreas legales corporativas salta de 11% a 75%",
-   body:"El Reporte sobre Departamentos Legales (Marval, 2025) documenta un crecimiento de 7x en dos años. Usos top: revisión de documentos (63%), investigación jurídica (57%), análisis de contratos (57%)."},
-  {date:"2025", title:"\"Espejismo digital\": se usa IA pero no se confía en ella",
-   body:"3 de cada 4 abogados usan IA, pero 2 de cada 3 desconfían de la precisión de los resultados. El cuello de botella se corre de la adopción a la confianza."},
-  {date:"2025", title:"Prometea: la IA pública que acelera la Justicia",
-   body:"El sistema Prometea (UBA / Ministerio Público Fiscal de CABA) redujo los tiempos de amparos habitacionales de 190 a 42 días, con 96% de efectividad."},
-  {date:"2026", title:"El legaltech entra en \"fase de madurez operativa\" (2026–2030)",
-   body:"El sector pasa de experimentar features a construir bases confiables de automatización. La IA generativa concentra el 48% de la intención de nueva inversión de los operadores jurídicos."},
-  {date:"En curso", title:"Se lanza el 2º Estudio de Innovación de la Industria Legal LatAm 2026",
-   body:"Abogado Digital releva el estado de la transformación digital y la adopción tecnológica en la industria legal latinoamericana."},
-  {date:"En curso", title:"La UTDT desarrolla un asistente de IA para el derecho argentino",
-   body:"Un equipo de investigación de la Universidad Torcuato Di Tella trabaja en un asistente de IA especializado en práctica legal local — señal de I+D académico en el sector."}
+  {date:"Febrero 2025",
+   title:"El PJN lanza su Asistente Virtual de IA",
+   body:"El Poder Judicial de la Nación incorpora un asistente de IA (Resolución 1486/2025), basado en GPT-4.1-nano. Primer hito de adopción institucional de IA en la Justicia nacional.",
+   url:"https://www.pjn.gov.ar/",
+   src:"Poder Judicial de la Nación"},
+  {date:"2025",
+   title:"El CPACF publica guías de uso de IA para abogados",
+   body:"El Colegio Público de la Abogacía de la Capital Federal establece un marco ético para el uso de IA en la profesión — señal de institucionalización de la categoría.",
+   url:"https://www.cpacf.org.ar/",
+   src:"CPACF"},
+  {date:"2025",
+   title:"La adopción de IA en áreas legales corporativas salta de 11% a 75%",
+   body:"El Reporte sobre Departamentos Legales (Marval, 2025) documenta un crecimiento de 7x en dos años. Usos top: revisión de documentos (63%), investigación jurídica (57%), análisis de contratos (57%).",
+   url:"https://marval.com/",
+   src:"Marval O'Farrell Mairal"},
+  {date:"2025",
+   title:"\"Espejismo digital\": se usa IA pero no se confía en ella",
+   body:"3 de cada 4 abogados usan IA, pero 2 de cada 3 desconfían de la precisión de los resultados. El cuello de botella se corre de la adopción a la confianza.",
+   url:"https://marval.com/",
+   src:"Reporte Marval 2025"},
+  {date:"2025",
+   title:"Prometea: la IA pública que acelera la Justicia",
+   body:"El sistema Prometea (UBA / Ministerio Público Fiscal de CABA) redujo los tiempos de amparos habitacionales de 190 a 42 días, con 96% de efectividad.",
+   url:"https://www.fiscales.gob.ar/",
+   src:"Ministerio Público Fiscal"},
+  {date:"2026",
+   title:"El legaltech entra en \"fase de madurez operativa\" (2026–2030)",
+   body:"El sector pasa de experimentar features a construir bases confiables de automatización. La IA generativa concentra el 48% de la intención de nueva inversión de los operadores jurídicos.",
+   url:"https://abogadodigital.com/",
+   src:"Abogado Digital"},
+  {date:"En curso",
+   title:"Se lanza el 2º Estudio de Innovación de la Industria Legal LatAm 2026",
+   body:"Abogado Digital releva el estado de la transformación digital y la adopción tecnológica en la industria legal latinoamericana.",
+   url:"https://abogadodigital.com/",
+   src:"Abogado Digital"},
+  {date:"En curso",
+   title:"La UTDT desarrolla un asistente de IA para el derecho argentino",
+   body:"Un equipo de investigación de la Universidad Torcuato Di Tella trabaja en un asistente de IA especializado en práctica legal local — señal de I+D académico en el sector.",
+   url:"https://www.utdt.edu/",
+   src:"Universidad Torcuato Di Tella"}
 ];
 document.getElementById('newstl').innerHTML = newsData.map(n=>`
   <div class="tl">
     <div class="d">${n.date}</div>
     <h4>${n.title}</h4>
     <p>${n.body}</p>
+    <a class="tl-link" href="${n.url}" target="_blank" rel="noopener noreferrer">
+      ${n.src} →
+    </a>
   </div>`).join('');
 
 /* ---------- TOOLS USED BARS ---------- */
