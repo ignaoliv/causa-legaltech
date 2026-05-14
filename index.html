@@ -11,7 +11,7 @@
   .logo { font-size: 42px; font-weight: 800; letter-spacing: -1px; margin-bottom: 8px; }
   .logo span { color: #c9a84c; }
   .tagline { color: #94a3b8; font-size: 16px; margin-bottom: 56px; }
-  .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .cards { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
   .card { background: #111827; border: 1px solid #1e293b; border-radius: 16px; padding: 32px 24px; text-decoration: none; color: inherit; transition: all 0.2s; display: block; text-align: left; }
   .card:hover { border-color: #c9a84c; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(201,168,76,0.15); }
   .card-icon { font-size: 32px; margin-bottom: 16px; }
@@ -19,7 +19,7 @@
   .card-desc { font-size: 13px; color: #64748b; line-height: 1.5; }
   .card-tag { display: inline-block; margin-top: 16px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; color: #c9a84c; }
   .footer { margin-top: 48px; font-size: 12px; color: #334155; }
-  @media (max-width: 500px) { .cards { grid-template-columns: 1fr; } }
+  @media (max-width: 700px) { .cards { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -39,6 +39,12 @@
       <div class="card-title">PRD del producto</div>
       <div class="card-desc">Product Requirements Document para Causa: usuarios objetivo, roadmap, métricas y estrategia de go-to-market.</div>
       <div class="card-tag">Ver PRD →</div>
+    </a>
+    <a class="card" href="/causa-artifacts.html">
+      <div class="card-icon">🧠</div>
+      <div class="card-title">Artifacts estratégicos</div>
+      <div class="card-desc">Empathy Map por persona, Journey Map con curva emocional y Business Model Canvas de Causa.</div>
+      <div class="card-tag">Ver artifacts →</div>
     </a>
   </div>
 

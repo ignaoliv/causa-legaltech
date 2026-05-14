@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Causa · Artifacts Estratégicos</title>
+<style>
+  :root{
+    --navy:#10213f; --navy2:#1c3357; --indigo:#2d4a7c;
+    --gold:#c8a24a; --gold-soft:#f3e7c8;
+    --bg:#f4f5f7; --card:#ffffff; --ink:#1f2733; --muted:#5e6b7e;
+    --line:#e3e7ee; --good:#1f8a52; --bad:#c0392b; --warn:#b9821a;
+    --shadow:0 2px 8px rgba(16,33,63,.06),0 8px 24px rgba(16,33,63,.06);
+    --purple:#6d4ab8; --teal:#0e7a6a; --rose:#b5294e;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 22px}
+
+  header{background:linear-gradient(135deg,var(--navy),var(--indigo));color:#fff;padding:38px 0 30px}
+  header .wrap{display:flex;flex-direction:column;gap:6px}
+  .eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:700}
+  header h1{font-size:34px;line-height:1.15;font-weight:800}
+  header h1 span{color:var(--gold)}
+  header p.sub{color:#c5d0e2;font-size:15px;max-width:780px;margin-top:6px}
+  .meta{margin-top:14px;font-size:12.5px;color:#9fb0cc;display:flex;gap:18px;flex-wrap:wrap}
+  .meta b{color:#dfe7f3}
+
+  nav{position:sticky;top:0;z-index:30;background:var(--navy);box-shadow:0 2px 12px rgba(0,0,0,.18)}
+  nav .wrap{display:flex;gap:2px;overflow-x:auto}
+  nav button{background:none;border:none;color:#aab8d0;font-size:13.5px;font-weight:600;
+    padding:14px 16px;cursor:pointer;white-space:nowrap;border-bottom:3px solid transparent;transition:.15s}
+  nav button:hover{color:#fff}
+  nav button.active{color:#fff;border-bottom-color:var(--gold)}
+
+  main{padding:32px 0 70px}
+  .tab{display:none;animation:fade .25s ease}
+  .tab.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+  h2.section{font-size:22px;font-weight:800;color:var(--navy);margin:6px 0 4px;display:flex;align-items:center;gap:10px}
+  h2.section::before{content:"";width:5px;height:22px;background:var(--gold);border-radius:3px;display:inline-block}
+  .lead{color:var(--muted);font-size:15px;margin-bottom:22px;max-width:900px}
+  h3.sub{font-size:15px;font-weight:700;color:var(--navy2);margin:28px 0 12px;text-transform:uppercase;letter-spacing:.05em}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:var(--shadow)}
+  .pill{display:inline-block;font-size:11px;font-weight:700;padding:3px 9px;border-radius:999px;
+    background:var(--gold-soft);color:#8a6d1f;letter-spacing:.02em}
+
+  /* ─── EMPATHY MAP ─── */
+  .persona-toggle{display:flex;gap:10px;margin-bottom:24px;flex-wrap:wrap}
+  .ptab{background:var(--card);border:2px solid var(--line);border-radius:12px;padding:10px 18px;
+    cursor:pointer;font-size:14px;font-weight:600;color:var(--muted);transition:.15s;display:flex;align-items:center;gap:10px}
+  .ptab:hover{border-color:var(--navy2);color:var(--navy)}
+  .ptab.active{border-color:var(--gold);background:var(--gold-soft);color:var(--navy)}
+  .ptab .avatar{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    font-size:16px;flex-shrink:0}
+
+  .em-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto auto;gap:14px;margin-top:8px}
+  .em-cell{background:var(--card);border:1.5px solid var(--line);border-radius:16px;padding:20px 22px;
+    box-shadow:var(--shadow);transition:.2s}
+  .em-cell:hover{border-color:var(--indigo);box-shadow:0 4px 20px rgba(45,74,124,.12)}
+  .em-cell .em-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+    margin-bottom:12px;display:flex;align-items:center;gap:7px}
+  .em-cell .em-icon{font-size:20px}
+  .em-cell ul{margin-left:16px}
+  .em-cell li{font-size:13.5px;color:var(--ink);margin:5px 0;line-height:1.45}
+  .em-center{grid-column:1/-1;background:linear-gradient(135deg,var(--navy),var(--indigo));
+    border-radius:16px;padding:22px 28px;color:#fff;display:flex;align-items:center;gap:22px}
+  .em-center .big-avatar{width:64px;height:64px;border-radius:50%;background:var(--gold);
+    display:flex;align-items:center;justify-content:center;font-size:30px;flex-shrink:0}
+  .em-center .info h3{font-size:20px;font-weight:800;color:#fff}
+  .em-center .info p{font-size:14px;color:#aebfd9;margin-top:3px}
+  .em-center .chips{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+  .em-center .chip{font-size:11px;font-weight:700;padding:3px 10px;border-radius:999px;
+    border:1px solid rgba(200,162,74,.5);color:var(--gold)}
+
+  .em-pains .em-label{color:var(--bad)}
+  .em-gains .em-label{color:var(--good)}
+  .em-think .em-label{color:var(--purple)}
+  .em-see .em-label{color:var(--teal)}
+  .em-hear .em-label{color:var(--indigo)}
+  .em-say .em-label{color:var(--warn)}
+
+  .em-pains{border-color:#f5c6c3;background:#fffafa}
+  .em-gains{border-color:#b8e4ca;background:#f5fef8}
+  .em-think{border-color:#d4c0f5;background:#faf8ff}
+  .em-see{border-color:#b0ddd9;background:#f5fefd}
+  .em-hear{border-color:#c0cfe8;background:#f6f8fd}
+  .em-say{border-color:#f5e0a8;background:#fefcf4}
+
+  /* ─── JOURNEY MAP ─── */
+  .journey-wrap{overflow-x:auto;padding-bottom:12px}
+  .journey-grid{display:grid;grid-template-columns:repeat(7,1fr);min-width:1060px;gap:0}
+
+  .j-head{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:14px 12px;
+    text-align:center;font-size:12px;font-weight:700;border-right:1px solid rgba(255,255,255,.1)}
+  .j-head:first-child{border-radius:12px 0 0 0}
+  .j-head:last-child{border-radius:0 12px 0 0;border-right:none}
+  .j-head .stage-num{font-size:10px;color:var(--gold);font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:3px}
+  .j-head .stage-name{font-size:13px;font-weight:800}
+  .j-head .stage-icon{font-size:22px;margin-bottom:6px}
+
+  .j-row{display:contents}
+  .j-cell{padding:13px 12px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);
+    font-size:13px;background:var(--card);vertical-align:top}
+  .j-cell:last-child{border-right:none}
+  .j-cell.row-label{background:var(--navy);color:#fff;font-size:11px;font-weight:700;text-transform:uppercase;
+    letter-spacing:.08em;padding:10px 12px;display:flex;align-items:center;grid-column:1/-1;border-right:none;
+    border-bottom:1px solid rgba(255,255,255,.15)}
+  .j-cell ul{margin-left:14px}
+  .j-cell li{margin:4px 0;line-height:1.4;font-size:12.5px}
+  .j-cell .tp{display:inline-block;font-size:11px;background:#e4ecfa;color:var(--indigo);
+    border-radius:6px;padding:2px 7px;margin:2px 2px 0 0;font-weight:600}
+  .j-cell .thought{font-style:italic;color:var(--muted);font-size:12.5px;line-height:1.45;
+    border-left:3px solid var(--gold);padding-left:8px;margin:2px 0}
+  .j-cell .opp{display:flex;align-items:flex-start;gap:5px;font-size:12px;margin:4px 0;color:var(--good)}
+  .j-cell .pain-item{display:flex;align-items:flex-start;gap:5px;font-size:12px;margin:4px 0;color:var(--bad)}
+
+  .emotion-row{background:var(--card);border-bottom:1px solid var(--line);padding:0}
+  .emotion-chart-wrap{grid-column:1/-1;padding:0 0 2px 0;background:var(--card);border-bottom:2px solid var(--line)}
+
+  .emo-bar{height:52px;display:flex;align-items:center;justify-content:center;font-size:18px;
+    position:relative;transition:.2s}
+  .emo-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-top:3px;text-align:center}
+
+  /* ─── BUSINESS MODEL CANVAS ─── */
+  .bmc-grid{display:grid;gap:12px;grid-template-areas:
+    "partners activities value cr segments"
+    "partners resources  value channels segments"
+    "cost     cost       cost  revenue    revenue";
+    grid-template-columns:1fr 1fr 1.2fr 1fr 1fr;
+    grid-template-rows:auto auto auto;
+    min-width:900px}
+  .bmc-wrap{overflow-x:auto;padding-bottom:8px}
+  .bmc-cell{border-radius:14px;padding:18px 16px;border:1.5px solid var(--line);box-shadow:var(--shadow)}
+  .bmc-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px;
+    display:flex;align-items:center;gap:6px}
+  .bmc-label .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+  .bmc-cell h4{font-size:15px;font-weight:800;margin-bottom:10px}
+  .bmc-cell ul{margin-left:16px}
+  .bmc-cell li{font-size:13px;margin:5px 0;line-height:1.4}
+  .bmc-cell li b{color:var(--navy)}
+  .bmc-cell .tag{font-size:11px;font-weight:700;display:inline-block;padding:2px 8px;border-radius:6px;margin:2px 2px 0 0}
+
+  .bmc-partners{grid-area:partners;background:#f0f4ff;border-color:#c0cfe8}
+  .bmc-partners .dot{background:var(--indigo)}
+  .bmc-partners .bmc-label{color:var(--indigo)}
+
+  .bmc-activities{grid-area:activities;background:#f5f0ff;border-color:#d4c0f5}
+  .bmc-activities .dot{background:var(--purple)}
+  .bmc-activities .bmc-label{color:var(--purple)}
+
+  .bmc-resources{grid-area:resources;background:#f5f0ff;border-color:#d4c0f5}
+  .bmc-resources .dot{background:var(--purple)}
+  .bmc-resources .bmc-label{color:var(--purple)}
+
+  .bmc-value{grid-area:value;background:#fffbf0;border-color:#ecd9a6;border-width:2px}
+  .bmc-value .dot{background:var(--gold)}
+  .bmc-value .bmc-label{color:#8a6d1f}
+
+  .bmc-cr{grid-area:cr;background:#f0fff6;border-color:#b8e4ca}
+  .bmc-cr .dot{background:var(--good)}
+  .bmc-cr .bmc-label{color:var(--good)}
+
+  .bmc-channels{grid-area:channels;background:#f0fff6;border-color:#b8e4ca}
+  .bmc-channels .dot{background:var(--good)}
+  .bmc-channels .bmc-label{color:var(--good)}
+
+  .bmc-segments{grid-area:segments;background:#fff4f0;border-color:#f5c6c3}
+  .bmc-segments .dot{background:var(--bad)}
+  .bmc-segments .bmc-label{color:var(--bad)}
+
+  .bmc-cost{grid-area:cost;background:#fff8f0;border-color:#f5ddc0}
+  .bmc-cost .dot{background:var(--warn)}
+  .bmc-cost .bmc-label{color:var(--warn)}
+  .bmc-cost .inner{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+
+  .bmc-revenue{grid-area:revenue;background:#f0fef5;border-color:#a8dfc0}
+  .bmc-revenue .dot{background:#0e7a4a}
+  .bmc-revenue .bmc-label{color:#0e7a4a}
+  .bmc-revenue .inner{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+
+  .revenue-tier{background:var(--card);border-radius:10px;padding:12px 14px;border:1px solid var(--line)}
+  .revenue-tier .tier-name{font-size:13px;font-weight:800;color:var(--navy)}
+  .revenue-tier .tier-price{font-size:17px;font-weight:800;color:var(--good);margin:4px 0}
+  .revenue-tier .tier-desc{font-size:12px;color:var(--muted)}
+
+  .nav-back{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--indigo);
+    text-decoration:none;font-weight:600;margin-bottom:18px;padding:6px 12px;
+    border:1px solid var(--line);border-radius:8px;background:var(--card);transition:.15s}
+  .nav-back:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <span class="eyebrow">Causa · LegalTech Argentina</span>
+    <h1>Artifacts <span>Estratégicos</span></h1>
+    <p class="sub">Empathy Map · Journey Map · Business Model Canvas — visión centrada en el usuario y modelo de negocio de Causa.</p>
+    <div class="meta">
+      <span><b>Producto:</b> Causa — gestión legal + IA nativa</span>
+      <span><b>Mercado:</b> Argentina (CABA first)</span>
+      <span><b>Fecha:</b> Mayo 2025</span>
+    </div>
+  </div>
+</header>
+
+<nav>
+  <div class="wrap">
+    <button class="active" data-tab="empathy">🧠 Empathy Map</button>
+    <button data-tab="journey">🗺️ Journey Map</button>
+    <button data-tab="canvas">📐 Business Model Canvas</button>
+  </div>
+</nav>
+
+<main>
+<div class="wrap">
+
+<!-- ═══════════════════ TAB: EMPATHY MAP ═══════════════════ -->
+<div class="tab active" id="tab-empathy">
+
+  <a href="index.html" class="nav-back">← Volver al inicio</a>
+
+  <h2 class="section">Empathy Map</h2>
+  <p class="lead">¿Qué piensa, siente, ve, escucha, dice y hace cada persona clave? El Empathy Map profundiza en la experiencia subjetiva de cada usuario para informar decisiones de diseño y comunicación.</p>
+
+  <div class="persona-toggle" id="persona-toggle">
+    <div class="ptab active" data-persona="soledad">
+      <div class="avatar" style="background:#e8f0fb">👩‍💼</div>
+      <div>
+        <div style="font-size:13px;font-weight:700;color:var(--navy)">Dra. Soledad</div>
+        <div style="font-size:11px;color:var(--muted)">43 · Socia · Decisora</div>
+      </div>
+    </div>
+    <div class="ptab" data-persona="mateo">
+      <div class="avatar" style="background:#eef4e4">👨‍💻</div>
+      <div>
+        <div style="font-size:13px;font-weight:700;color:var(--navy)">Mateo</div>
+        <div style="font-size:11px;color:var(--muted)">29 · Asociado · Prescriptor</div>
+      </div>
+    </div>
+    <div class="ptab" data-persona="jorge">
+      <div class="avatar" style="background:#f5f0e8">👨‍⚖️</div>
+      <div>
+        <div style="font-size:13px;font-weight:700;color:var(--navy)">Dr. Jorge</div>
+        <div style="font-size:11px;color:var(--muted)">58 · Socio senior · Escéptico</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="em-grid" id="empathy-map">
+    <!-- Filled by JS -->
+  </div>
+
+</div>
+
+<!-- ═══════════════════ TAB: JOURNEY MAP ═══════════════════ -->
+<div class="tab" id="tab-journey">
+
+  <a href="index.html" class="nav-back">← Volver al inicio</a>
+
+  <h2 class="section">User Journey Map</h2>
+  <p class="lead">El recorrido completo de <strong>Dra. Soledad</strong> (decisora, socia de 43 años) desde que siente la frustración con el sistema actual hasta que recomienda Causa a otros estudios. Incluye emociones, acciones, touchpoints, dolores y oportunidades en cada etapa.</p>
+
+  <div class="journey-wrap">
+    <div id="journey-grid" class="journey-grid"></div>
+  </div>
+
+</div>
+
+<!-- ═══════════════════ TAB: BUSINESS MODEL CANVAS ═══════════════════ -->
+<div class="tab" id="tab-canvas">
+
+  <a href="index.html" class="nav-back">← Volver al inicio</a>
+
+  <h2 class="section">Business Model Canvas</h2>
+  <p class="lead">El modelo de negocio de Causa según el framework de Osterwalder. Freemium cloud-first con moat basado en integraciones judiciales y corpus legal curado.</p>
+
+  <div class="bmc-wrap">
+    <div class="bmc-grid">
+
+      <!-- SOCIOS CLAVE -->
+      <div class="bmc-cell bmc-partners">
+        <div class="bmc-label"><div class="dot"></div> Socios Clave</div>
+        <ul>
+          <li><b>Poder Judicial Nacional</b> — homologación e integración oficial</li>
+          <li><b>SAIJ / Ministerio de Justicia</b> — corpus normativo</li>
+          <li><b>CSJN</b> — jurisprudencia certificada</li>
+          <li><b>Proveedores LLM</b> — Anthropic / OpenAI (API)</li>
+          <li><b>Colegios de Abogados</b> — canal de distribución y legitimidad</li>
+          <li><b>Estudios early adopters</b> — co-diseño y testimonios</li>
+          <li><b>Proveedores cloud</b> — AWS / GCP Argentina (soberanía de datos)</li>
+        </ul>
+      </div>
+
+      <!-- ACTIVIDADES CLAVE -->
+      <div class="bmc-cell bmc-activities">
+        <div class="bmc-label"><div class="dot"></div> Actividades Clave</div>
+        <ul>
+          <li>Desarrollo y mantenimiento de <b>integraciones judiciales</b> (PJN, MEV, EJE)</li>
+          <li>Curación y actualización del <b>corpus legal</b> (RAG)</li>
+          <li>Desarrollo de <b>modelos de IA</b> con citación verificable</li>
+          <li><b>Onboarding y migración</b> desde Lex-Doctor</li>
+          <li>Adquisición de usuarios via <b>contenido y comunidad</b></li>
+          <li>Customer success y <b>retención</b> (NPS ≥45)</li>
+        </ul>
+      </div>
+
+      <!-- PROPUESTA DE VALOR -->
+      <div class="bmc-cell bmc-value">
+        <div class="bmc-label"><div class="dot"></div> Propuesta de Valor</div>
+        <ul>
+          <li>📋 <b>Gestión completa</b> de causas, plazos y equipos en la nube</li>
+          <li>⚖️ <b>Sync judicial</b> automático con PJN/MEV/EJE — sin trabajo manual</li>
+          <li>🤖 <b>IA con citas verificables</b> — investigación y redacción auditables</li>
+          <li>📱 <b>Acceso desde cualquier lugar</b> — sin servidor local</li>
+          <li>🔒 <b>Datos seguros en Argentina</b> — cumplimiento PDPA</li>
+          <li>🚀 <b>Freemium con migración guiada</b> — cero fricción de entrada</li>
+        </ul>
+      </div>
+
+      <!-- RELACIONES CON CLIENTES -->
+      <div class="bmc-cell bmc-cr">
+        <div class="bmc-label"><div class="dot"></div> Relaciones con Clientes</div>
+        <ul>
+          <li><b>Freemium self-service</b> con onboarding automático</li>
+          <li><b>In-app help</b> y tooltips contextuales</li>
+          <li>Comunidad de usuarios <b>(Slack / Discord)</b></li>
+          <li>Soporte por chat para planes Pro+</li>
+          <li><b>Customer Success Manager</b> para Estudio y Enterprise</li>
+          <li>Webinars de capacitación mensuales</li>
+          <li>NPS tracking trimestral</li>
+        </ul>
+      </div>
+
+      <!-- SEGMENTOS DE CLIENTES -->
+      <div class="bmc-cell bmc-segments">
+        <div class="bmc-label"><div class="dot"></div> Segmentos de Clientes</div>
+        <ul>
+          <li><b>ICP:</b> Estudios de 2–15 abogados en CABA</li>
+          <li>Abogados independientes tech-savvy (prescriptores)</li>
+          <li>Migrantes de <b>Lex-Doctor</b> (perpetual → cloud)</li>
+          <li>Estudios en expansión que necesitan colaboración remota</li>
+          <li><b>Cohorte clave:</b> 35–50 años (decisores), con prescriptores sub-35</li>
+        </ul>
+        <div style="margin-top:12px">
+          <span class="tag" style="background:#fae3e0;color:#c0392b">No ICP</span>
+          <span style="font-size:12px;color:var(--muted)"> Grandes estudios enterprise (>50 abog.) y juzgados públicos en MVP</span>
+        </div>
+      </div>
+
+      <!-- RECURSOS CLAVE -->
+      <div class="bmc-cell bmc-resources">
+        <div class="bmc-label"><div class="dot"></div> Recursos Clave</div>
+        <ul>
+          <li><b>Corpus legal curado</b> + pipeline RAG (moat)</li>
+          <li>Integraciones PJN/MEV/EJE (moat técnico)</li>
+          <li>Equipo de ingeniería <b>(fullstack + AI/ML)</b></li>
+          <li>Base de usuarios activos como red de referidos</li>
+          <li>Datos propios de comportamiento (mejora continua del modelo)</li>
+          <li>Marca y reputación en la comunidad legal</li>
+        </ul>
+      </div>
+
+      <!-- CANALES -->
+      <div class="bmc-cell bmc-channels">
+        <div class="bmc-label"><div class="dot"></div> Canales</div>
+        <ul>
+          <li><b>SEO + Blog legal</b> (contenido jurídico útil → tráfico orgánico)</li>
+          <li>Boca a boca entre abogados</li>
+          <li>Eventos y <b>colegios de abogados</b></li>
+          <li>LinkedIn y YouTube (demos, tutoriales)</li>
+          <li><b>Referidos</b> con incentivo (mes gratis por colegas)</li>
+          <li>Alianzas con universidades de derecho</li>
+        </ul>
+      </div>
+
+      <!-- ESTRUCTURA DE COSTOS -->
+      <div class="bmc-cell bmc-cost">
+        <div class="bmc-label"><div class="dot"></div> Estructura de Costos</div>
+        <div class="inner">
+          <div>
+            <div style="font-size:12px;font-weight:700;color:var(--navy2);margin-bottom:8px">Costos fijos</div>
+            <ul>
+              <li>Equipo de producto e ingeniería</li>
+              <li>Infraestructura cloud (AWS/GCP)</li>
+              <li>Licencias APIs de LLM (OpenAI/Anthropic)</li>
+              <li>Oficina y operaciones</li>
+            </ul>
+          </div>
+          <div>
+            <div style="font-size:12px;font-weight:700;color:var(--navy2);margin-bottom:8px">Costos variables</div>
+            <ul>
+              <li>Tokens de IA (por uso de usuario)</li>
+              <li>Mantenimiento integraciones judiciales</li>
+              <li>Curación del corpus legal</li>
+              <li>Customer acquisition (paid + events)</li>
+            </ul>
+          </div>
+          <div>
+            <div style="font-size:12px;font-weight:700;color:var(--navy2);margin-bottom:8px">Economía unitaria target</div>
+            <ul>
+              <li>LTV/CAC <b>≥ 3x</b></li>
+              <li>Payback period <b>≤ 12 meses</b></li>
+              <li>Logo churn <b>≤ 5%</b> anual</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- FUENTES DE INGRESO -->
+      <div class="bmc-cell bmc-revenue">
+        <div class="bmc-label"><div class="dot"></div> Fuentes de Ingresos</div>
+        <div class="inner">
+          <div class="revenue-tier">
+            <div class="tier-name">Free</div>
+            <div class="tier-price">$0</div>
+            <div class="tier-desc">1 usuario · 10 causas · onboarding y adquisición</div>
+          </div>
+          <div class="revenue-tier">
+            <div class="tier-name">Pro</div>
+            <div class="tier-price">$ por usuario/mes</div>
+            <div class="tier-desc">Ilimitado + IA completa + sync judicial + soporte</div>
+          </div>
+          <div class="revenue-tier">
+            <div class="tier-name">Estudio</div>
+            <div class="tier-price">Descuento volumen</div>
+            <div class="tier-desc">Pack usuarios + portal cliente + facturación unificada</div>
+          </div>
+          <div class="revenue-tier">
+            <div class="tier-name">Enterprise</div>
+            <div class="tier-price">Contrato anual</div>
+            <div class="tier-desc">SSO + API + SLA dedicado + onboarding premium</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div style="margin-top:28px;background:#fff8e8;border:1px solid #ecd9a6;border-radius:14px;padding:18px 22px">
+    <h4 style="color:#8a6d1f;font-size:13px;text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px">💡 Hipótesis críticas a validar</h4>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px">
+      <div style="font-size:13.5px;color:#6f5818"><b>1. Disposición a pagar.</b> Los estudios de 2–15 abogados pagarán suscripción cloud si hay migración guiada desde Lex-Doctor.</div>
+      <div style="font-size:13.5px;color:#6f5818"><b>2. IA como diferenciador real.</b> La IA con citas verificables genera confianza y uso recurrente en abogados (no solo curiosidad).</div>
+      <div style="font-size:13.5px;color:#6f5818"><b>3. Integraciones como moat.</b> La barrera técnica de mantener sync con PJN/MEV/EJE protege de la competencia por 18–24 meses.</div>
+      <div style="font-size:13.5px;color:#6f5818"><b>4. Freemium convierte.</b> Los usuarios free con ≥15% de conversión a Pro son captados por el límite de causas, no por paywalls agresivos.</div>
+    </div>
+  </div>
+
+</div>
+<!-- fin tabs -->
+
+</div>
+</main>
+
+<script>
+// ─── DATA ────────────────────────────────────────────────────────────────────
+
+const personas = {
+  soledad: {
+    name: "Dra. Soledad",
+    role: "Socia · Decisora · 43 años · Buenos Aires",
+    emoji: "👩‍💼",
+    chips: ["Buyer principal", "35–50 cohorte", "Estudio 4 abogados"],
+    think: [
+      '"Si fallo un vencimiento, pierdo el caso y la reputación"',
+      '"La tecnología debería simplificarme la vida, no complicarla más"',
+      '"¿Vale la pena el costo y la fricción de migrar todo?"',
+      'Orgullo de dirigir un estudio moderno y eficiente',
+      'Ansiedad silenciosa por los procesos manuales de su equipo',
+    ],
+    see: [
+      'Colegas que siguen con Excel y carpetas físicas',
+      'Algunos estudios que migraron a la nube y lo cuentan en el bar del colegio',
+      'Propuestas de software que prometen mucho y entregan poco',
+      'Empleados jóvenes que adoptan tecnología mucho más rápido que ella',
+      'Notificaciones del PJN que se pierden o llegan tarde',
+    ],
+    hear: [
+      'Recomendaciones de colegas en eventos del Colegio de Abogados',
+      'Quejas de su equipo sobre Lex-Doctor y los cortes de servidor',
+      'Propuestas de vendedores de software (muchas, sin demo real)',
+      'Noticias sobre IA en la justicia en medios generalistas',
+      'Advertencias sobre caídas del servidor local de Lex-Doctor',
+    ],
+    say: [
+      '"Necesito algo que funcione sin tener que aprenderlo todo de cero"',
+      'Revisa expedientes a las 23hs desde el celular',
+      'Delega la gestión de plazos pero pide reportes diarios',
+      'Abandona demos si son complejos de configurar',
+      'Recomienda herramientas a colegas cuando algo realmente le funciona',
+    ],
+    pains: [
+      'Miedo a perder un vencimiento por error humano o sistema caído',
+      'Pérdida de tiempo en tareas administrativas y operativas',
+      'Costo y fricción de migrar años de datos históricos',
+      'Dependencia de un servidor local que se cae en momentos críticos',
+      'Falta de visibilidad del trabajo del equipo en tiempo real',
+    ],
+    gains: [
+      'Más tiempo para trabajo estratégico y atención de clientes',
+      'Tranquilidad: los vencimientos nunca se pasan por olvido',
+      'Equipo coordinado sin necesidad de micromanagement',
+      'Acceso a sus expedientes desde cualquier lugar y dispositivo',
+      'Posicionarse como un estudio moderno frente a clientes',
+    ],
+  },
+  mateo: {
+    name: "Mateo",
+    role: "Asociado Junior · Prescriptor · 29 años · Buenos Aires",
+    emoji: "👨‍💻",
+    chips: ["Prescriptor", "Sub-35 cohorte", "Nativo digital"],
+    think: [
+      '"Este sistema es de la época de mis padres, es ridículo"',
+      '"Podría hacer el doble de trabajo si tuviera herramientas decentes"',
+      '"Quiero impresionar a los socios con mi eficiencia"',
+      'Entusiasmo por la IA como asistente de investigación legal',
+      'Frustración de ver tiempo perdido en tareas mecánicas que podría automatizar',
+    ],
+    see: [
+      'Apps modernas que usan sus amigos en fintech y startups',
+      'Procesos arcaicos dentro del estudio que nadie cuestiona',
+      'LinkedIn y YouTube con casos de uso de IA en derecho (internacional)',
+      'Peers en otros estudios con herramientas más modernas',
+      'ChatGPT en su celular que usa personalmente pero no puede usar oficialmente',
+    ],
+    hear: [
+      '"Así siempre se hizo" de parte de los socios senior',
+      'Tech Twitter y comunidades sobre LLMs aplicados al trabajo legal',
+      'Colegas en otros estudios que ya usan IA para investigación',
+      'Podcasts sobre innovación y productividad',
+      'Socios que dicen que la IA "no es confiable para el derecho"',
+    ],
+    say: [
+      '"Hay herramientas que podrían ahorrarnos horas de trabajo semanal"',
+      'Propone mejoras tecnológicas pero se frena ante la resistencia de los socios',
+      'Usa ChatGPT personalmente aunque no está integrado ni es auditable',
+      'Documenta ineficiencias buscando argumentos para proponer cambios',
+      'Ayuda a colegas con tecnología informalmente',
+    ],
+    pains: [
+      'Herramientas que no se integran entre sí, información duplicada',
+      'No puede usar IA "oficialmente" sin perder trazabilidad',
+      'Frustración de ver procesos que claramente se pueden automatizar',
+      'Sentir que el estudio no aprovecha su potencial técnico',
+      'Tener que convencer a socios que no quieren saber de tecnología',
+    ],
+    gains: [
+      'Una herramienta que integre IA de forma legítima y auditable',
+      'Eficiencia visible que lo posicione bien frente a los socios',
+      'Menos trabajo mecánico, más trabajo intelectual de alto valor',
+      'Orgullo de trabajar en un estudio con herramientas modernas',
+      'Ser el referente tech del equipo y escalar más rápido',
+    ],
+  },
+  jorge: {
+    name: "Dr. Jorge",
+    role: "Socio Senior · Escéptico · 58 años · Buenos Aires",
+    emoji: "👨‍⚖️",
+    chips: ["Blocker/veto", "+50 cohorte", "30 años en el foro"],
+    think: [
+      '"Con Lex-Doctor nunca perdí un expediente en 20 años"',
+      '"La IA puede cometer errores graves en derecho, la responsabilidad es mía"',
+      '"Si funciona bien para qué cambiar, el riesgo es mío"',
+      'Desconfianza profunda de la nube para datos de clientes sensibles',
+      '"Los jóvenes van demasiado rápido sin entender las consecuencias"',
+    ],
+    see: [
+      'Casos donde la tecnología falló en momentos críticos',
+      'Abogados jóvenes que confían ciegamente en la tecnología',
+      'Noticias sobre hackeos y filtraciones de datos sensibles',
+      'Colegas de su generación que siguen trabajando igual que siempre',
+      'Clientes que exigen absoluta confidencialidad',
+    ],
+    hear: [
+      'Socia más joven (Soledad) que presiona por el cambio tecnológico',
+      'Clientes que preguntan si el estudio usa tecnología moderna',
+      'Noticias sobre errores de IA en contextos legales internacionales',
+      'Vendedores de software que prometen sin garantías',
+      'Referencias de estudios que ya migraron (positivas y negativas)',
+    ],
+    say: [
+      '"Necesito ver cómo lo usan otros estudios de confianza primero"',
+      'Pide referencias concretas antes de cualquier decisión',
+      'Aprueba cambios solo si hay garantías claras y período de prueba',
+      'Exige que los sistemas trabajen en paralelo durante la transición',
+      '"¿Dónde quedan los datos? ¿Quién tiene acceso?"',
+    ],
+    pains: [
+      'Miedo a perder el control y visibilidad sobre sus casos',
+      'Riesgo de confidencialidad de los datos de clientes en la nube',
+      'Curva de aprendizaje alta para él mismo y su secretaria',
+      'Dependencia de un proveedor externo (lock-in)',
+      'No tener garantía de que el sistema nunca falle en un momento crítico',
+    ],
+    gains: [
+      'Mantener control total con mejor visibilidad que ahora',
+      'Garantía de confidencialidad y seguridad jurídica',
+      'Poder decir que su estudio es moderno sin perder su reputación',
+      'Prueba clara de que la herramienta es más confiable que lo que tiene',
+      'Que el cambio ocurra sin interrumpir su trabajo diario',
+    ],
+  },
+};
+
+const journeyStages = [
+  {
+    num: "01", name: "Trigger", icon: "😤",
+    actions: ["Pierde un plazo por error en el calendario compartido", "Servidor de Lex-Doctor cae el día de un vencimiento", "El equipo trabaja con 3 herramientas sin sincronía"],
+    touchpoints: [],
+    thought: "«Esto no puede seguir así. No puedo depender de un servidor que se cae justo cuando más lo necesito.»",
+    emotion: 2, emoLabel: "😤 Muy frustrada",
+    pains: ["Pérdida de plazo = riesgo reputacional grave", "Descordinación del equipo sin sistema central"],
+    opps: ["Capturar intent de búsqueda: 'mejor software para abogados'", "SEO sobre 'alternativas a Lex-Doctor'"],
+  },
+  {
+    num: "02", name: "Awareness", icon: "🔍",
+    actions: ["Googlea 'software gestión causas Argentina'", "Pregunta en el grupo de WhatsApp del Colegio de Abogados", "Ve un post de LinkedIn sobre IA legal"],
+    touchpoints: ["SEO orgánico", "Referido de colega", "LinkedIn ad"],
+    thought: "«Hay varias opciones pero no sé cuál se adapta a cómo trabajamos nosotros. Necesito algo probado en Argentina.»",
+    emotion: 4, emoLabel: "🤔 Curiosa pero escéptica",
+    pains: ["Demasiadas opciones sin diferenciadores claros", "Desconfianza ante promesas sin prueba"],
+    opps: ["Contenido comparativo: Causa vs. Lex-Doctor", "Testimonio de colega real en landing page", "Prueba gratuita sin tarjeta"],
+  },
+  {
+    num: "03", name: "Evaluación", icon: "⚖️",
+    actions: ["Se registra en el free tier", "Importa 2-3 causas de prueba", "Muestra el sistema a Mateo (asociado)", "Lee las reseñas en foros de abogados"],
+    touchpoints: ["Landing page", "Demo en video", "Free tier", "Onboarding email"],
+    thought: "«Esto se ve bien, pero si hay que migrar todo el historial y el equipo no lo adopta, no sirve de nada.»",
+    emotion: 5, emoLabel: "🙂 Cautelosamente optimista",
+    pains: ["Miedo a migración compleja", "Duda sobre la adopción del equipo (y de Jorge)", "¿Qué pasa con los datos históricos de Lex-Doctor?"],
+    opps: ["Herramienta de importación de Lex-Doctor con 1 click", "Sesión de demo personalizada", "ROI calculator en la landing"],
+  },
+  {
+    num: "04", name: "Decisión", icon: "✅",
+    actions: ["Presenta Causa al Dr. Jorge (con resistencia)", "Solicita cotización para el equipo de 4", "Negocia período de migración con soporte", "Activa plan Pro para el estudio"],
+    touchpoints: ["Sesión de CS personalizada", "Propuesta comercial", "Soporte de migración", "Call de onboarding"],
+    thought: "«Jorge pidió 3 meses en paralelo con Lex-Doctor. No era lo que quería pero es la única forma de que acepte.»",
+    emotion: 5, emoLabel: "😬 Comprometida pero tensa",
+    pains: ["Consenso interno difícil (Jorge el escéptico)", "Costo de correr dos sistemas en paralelo", "Tiempo del equipo para la migración"],
+    opps: ["Pack de migración guiada incluido en el plan Estudio", "Plantilla de comunicación interna para el equipo", "Garantía de devolución primeros 30 días"],
+  },
+  {
+    num: "05", name: "Onboarding", icon: "🚀",
+    actions: ["Migra las causas activas con asistente de Causa", "Configura roles y permisos del equipo", "Primera semana con sistema doble (Causa + Lex-Doctor)", "Mateo se convierte en el campeón interno"],
+    touchpoints: ["Wizard de migración", "Videos de onboarding", "Chat de soporte", "Check-in de CS a los 7 días"],
+    thought: "«Mateo lo aprendió en un día. El problema es convencer a Jorge y a su secretaria de 60 años de que lo usen.»",
+    emotion: 4, emoLabel: "😰 Aliviada/estresada a la vez",
+    pains: ["Resistencia de usuarios mayores del equipo", "Datos históricos no completos en la migración inicial", "Doble trabajo durante la transición"],
+    opps: ["Modo 'acompañamiento' para usuarios senior (tutoriales step-by-step)", "Migración progresiva por área práctica", "Primer hito: sincronizar todos los vencimientos de la próxima semana"],
+  },
+  {
+    num: "06", name: "Hábito", icon: "⚡",
+    actions: ["Revisa el dashboard de causas cada mañana", "Usa el asistente de IA para investigar precedentes", "El equipo abandona Lex-Doctor de forma natural", "Incorpora el portal de cliente para un cliente corporativo"],
+    touchpoints: ["Dashboard diario", "Asistente IA", "Notificaciones de vencimiento", "App móvil"],
+    thought: "«No entiendo cómo hacíamos antes. Las notificaciones automáticas del tribunal me salvaron la semana pasada.»",
+    emotion: 8, emoLabel: "😊 Genuinamente satisfecha",
+    pains: ["Algunos expedientes muy viejos sin digitalizar todavía", "La IA a veces sugiere jurisprudencia que hay que verificar"],
+    opps: ["Feature: resumen semanal de actividad del estudio", "Upsell: plan Enterprise para portal de clientes avanzado", "Programa de beta testers para nuevas funcionalidades"],
+  },
+  {
+    num: "07", name: "Advocacy", icon: "🏆",
+    actions: ["Recomienda Causa en el Colegio de Abogados de CABA", "Responde mensajes de colegas que le preguntan qué software usa", "Participa en un webinar de Causa como caso de éxito", "Refiere 2 estudios más durante el primer año"],
+    touchpoints: ["Programa de referidos", "Webinar / evento", "Case study publicado", "NPS survey"],
+    thought: "«En el Colegio me preguntaron qué software uso. Fue la primera vez que pude recomendar algo con convicción.»",
+    emotion: 9, emoLabel: "🌟 Embajadora orgullosa",
+    pains: ["Quiere funcionalidades que todavía no existen (predicción de fallos)", "A veces el soporte tarda más de lo que quisiera"],
+    opps: ["Programa de referidos con incentivo real (mes gratis por referido)", "Co-crear case study y video testimonio", "Advisory board de usuarios para roadmap"],
+  },
+];
+
+// ─── RENDER FUNCTIONS ──────────────────────────────────────────────────────────
+
+function renderEmpathyMap(personaKey) {
+  const p = personas[personaKey];
+  const grid = document.getElementById('empathy-map');
+  const li = arr => arr.map(t => `<li>${t}</li>`).join('');
+
+  grid.innerHTML = `
+    <div class="em-center" style="order:-1">
+      <div class="big-avatar">${p.emoji}</div>
+      <div class="info">
+        <h3>${p.name}</h3>
+        <p>${p.role}</p>
+        <div class="chips">${p.chips.map(c=>`<span class="chip">${c}</span>`).join('')}</div>
+      </div>
+    </div>
+    <div class="em-cell em-think">
+      <div class="em-label"><span class="em-icon">💭</span>Piensa & Siente</div>
+      <ul>${li(p.think)}</ul>
+    </div>
+    <div class="em-cell em-see">
+      <div class="em-label"><span class="em-icon">👁️</span>Ve</div>
+      <ul>${li(p.see)}</ul>
+    </div>
+    <div class="em-cell em-say">
+      <div class="em-label"><span class="em-icon">💬</span>Dice & Hace</div>
+      <ul>${li(p.say)}</ul>
+    </div>
+    <div class="em-cell em-hear">
+      <div class="em-label"><span class="em-icon">👂</span>Escucha</div>
+      <ul>${li(p.hear)}</ul>
+    </div>
+    <div class="em-cell em-pains">
+      <div class="em-label"><span class="em-icon">😣</span>Dolores</div>
+      <ul>${li(p.pains)}</ul>
+    </div>
+    <div class="em-cell em-gains">
+      <div class="em-label"><span class="em-icon">🎯</span>Ganancias</div>
+      <ul>${li(p.gains)}</ul>
+    </div>
+  `;
+}
+
+function renderJourneyMap() {
+  const grid = document.getElementById('journey-grid');
+  const n = journeyStages.length;
+
+  // Headers
+  const headers = journeyStages.map((s,i) => `
+    <div class="j-head" style="border-radius:${i===0?'12px 0 0 0':i===n-1?'0 12px 0 0':'0'}">
+      <div class="stage-icon">${s.icon}</div>
+      <div class="stage-num">Etapa ${s.num}</div>
+      <div class="stage-name">${s.name}</div>
+    </div>`).join('');
+
+  // Emotion curve row (SVG)
+  const W = 1060, H = 90, padX = 75;
+  const step = (W - padX*2) / (n - 1);
+  const toY = v => H - 12 - ((v-1)/9) * (H - 28);
+  const pts = journeyStages.map((s, i) => [padX + i*step, toY(s.emotion)]);
+  const pathD = pts.map((p,i) => {
+    if (i===0) return `M ${p[0]} ${p[1]}`;
+    const prev = pts[i-1];
+    const cx1 = prev[0] + (p[0]-prev[0])*0.4;
+    const cx2 = p[0] - (p[0]-prev[0])*0.4;
+    return `C ${cx1} ${prev[1]}, ${cx2} ${p[1]}, ${p[0]} ${p[1]}`;
+  }).join(' ');
+  const areaD = `${pathD} L ${pts[n-1][0]} ${H} L ${pts[0][0]} ${H} Z`;
+
+  const colors = journeyStages.map(s => s.emotion <= 3 ? '#ef4444' : s.emotion <= 5 ? '#f59e0b' : '#22c55e');
+
+  const svgDots = pts.map((p,i) => `
+    <circle cx="${p[0]}" cy="${p[1]}" r="6" fill="${colors[i]}" stroke="white" stroke-width="2"/>
+    <text x="${p[0]}" y="${p[1]-10}" text-anchor="middle" font-size="11" fill="${colors[i]}" font-weight="700">${journeyStages[i].emoLabel.split(' ')[0]}</text>
+  `).join('');
+
+  const emotionRow = `
+    <div style="grid-column:1/-1;background:#fff;border-bottom:2px solid var(--line);padding:8px 0">
+      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);padding:0 12px 6px">Curva emocional</div>
+      <svg width="100%" viewBox="0 0 ${W} ${H}" style="display:block">
+        <defs>
+          <linearGradient id="emotionGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#22c55e" stop-opacity="0.15"/>
+            <stop offset="100%" stop-color="#22c55e" stop-opacity="0.02"/>
+          </linearGradient>
+        </defs>
+        <path d="${areaD}" fill="url(#emotionGrad)"/>
+        <path d="${pathD}" fill="none" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4 3"/>
+        ${svgDots}
+        <text x="14" y="${toY(9)+4}" font-size="10" fill="#22c55e" font-weight="700">😊 Alto</text>
+        <text x="14" y="${toY(1)+4}" font-size="10" fill="#ef4444" font-weight="700">😤 Bajo</text>
+      </svg>
+    </div>`;
+
+  const makeRow = (label, cellFn) => {
+    const labelCell = `<div style="grid-column:1/-1;background:var(--navy);color:#fff;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:8px 14px;border-bottom:1px solid rgba(255,255,255,.12)">${label}</div>`;
+    const cells = journeyStages.map(cellFn).join('');
+    return labelCell + cells;
+  };
+
+  const rows = [
+    makeRow('🎬 Acciones del usuario', s => `<div class="j-cell"><ul>${s.actions.map(a=>`<li>${a}</li>`).join('')}</ul></div>`),
+    makeRow('📱 Touchpoints con Causa', s => `<div class="j-cell">${s.touchpoints.length ? s.touchpoints.map(t=>`<span class="tp">${t}</span>`).join('') : '<span style="color:var(--muted);font-size:12px">—</span>'}</div>`),
+    makeRow('💭 Pensamiento clave', s => `<div class="j-cell"><div class="thought">${s.thought}</div></div>`),
+    emotionRow,
+    makeRow('😣 Dolores', s => `<div class="j-cell" style="background:#fffafa">${s.pains.map(p=>`<div class="pain-item"><span>❌</span><span>${p}</span></div>`).join('')}</div>`),
+    makeRow('💡 Oportunidades para Causa', s => `<div class="j-cell" style="background:#f5fef8">${s.opps.map(o=>`<div class="opp"><span>✦</span><span>${o}</span></div>`).join('')}</div>`),
+  ];
+
+  grid.innerHTML = headers + rows.join('');
+}
+
+// ─── INTERACTIONS ──────────────────────────────────────────────────────────────
+
+document.querySelectorAll('nav button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+  });
+});
+
+document.querySelectorAll('.ptab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.ptab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    renderEmpathyMap(tab.dataset.persona);
+  });
+});
+
+renderEmpathyMap('soledad');
+renderJourneyMap();
+</script>
+</body>
+</html>
