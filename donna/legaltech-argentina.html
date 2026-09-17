@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="/donna/favicon.png">
 <title>Legal Tech Argentina — Research de plataformas para abogados</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,7 +39,7 @@
   .meta{margin-top:14px;font-size:11.5px;color:var(--muted);display:flex;gap:18px;flex-wrap:wrap}
   .meta b{color:var(--ink);font-weight:600}
 
-  nav{position:sticky;top:0;z-index:30;background:var(--bg);border-bottom:1px solid var(--line);box-shadow:none}
+  nav{position:sticky;top:60px;z-index:30;background:var(--bg);border-bottom:1px solid var(--line);box-shadow:none}
   nav .wrap{display:flex;gap:0;overflow-x:auto}
   nav button{background:none;border:none;color:var(--muted);font-family:'IBM Plex Sans',sans-serif;font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
     padding:13px 18px;cursor:pointer;white-space:nowrap;border-bottom:2px solid transparent;transition:.15s}
@@ -198,18 +199,51 @@
   footer li{margin:3px 0}
   .disc{background:#eef0f4;border-radius:10px;padding:12px 14px;font-size:12px;color:var(--muted);margin-top:18px}
 
+  /* ── POSITIONING MAP ──────────────────────────── */
+  .pmap-wrap{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:24px;margin:22px 0}
+  .pmap-title{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:4px;text-transform:uppercase;letter-spacing:.05em}
+  .pmap-sub{font-size:12.5px;color:var(--muted);margin-bottom:18px}
+  /* ── PRICE RANGE CHART ─────────────────────────── */
+  .prange-wrap{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:24px;margin:22px 0}
+  .prange-title{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:4px;text-transform:uppercase;letter-spacing:.05em}
+  .prange-sub{font-size:12.5px;color:var(--muted);margin-bottom:18px}
+  .prange-row{display:grid;grid-template-columns:130px 1fr 100px;align-items:center;gap:12px;margin-bottom:10px}
+  .prange-name{font-size:12.5px;font-weight:700;color:var(--navy);white-space:nowrap}
+  .prange-track{height:14px;background:#eef0f4;border-radius:3px;position:relative;overflow:visible}
+  .prange-bar{height:14px;border-radius:3px;position:absolute;top:0}
+  .prange-val{font-size:11.5px;color:var(--muted);font-weight:600;text-align:right;white-space:nowrap}
+
   @media(max-width:640px){
     header h1{font-size:25px}
     .pcards{grid-template-columns:1fr}
   }
+/* ── TOPMENU ─────────────────────────────────────── */
+.topmenu{background:#0F2F2E;border-bottom:2px solid #B08D57;position:sticky;top:0;z-index:200;box-shadow:0 2px 16px rgba(15,47,46,0.18)}
+.tm-inner{max-width:1200px;margin:0 auto;padding:0 40px;display:flex;align-items:center;height:60px;gap:0}
+.tm-brand{font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:17px;color:#F7F4EF;text-decoration:none;letter-spacing:-0.01em;flex-shrink:0;margin-right:28px}
+.tm-brand sup{font-family:'IBM Plex Sans',sans-serif;font-style:normal;font-size:8px;color:#B08D57;font-weight:700;letter-spacing:.08em;vertical-align:super}
+.tm-sep{width:1px;height:20px;background:rgba(248,244,239,0.2);margin-right:24px;flex-shrink:0}
+.tm-nav{display:flex;height:60px;flex:1}
+.tm-a{font-size:10.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(248,244,239,0.5);padding:0 16px;display:flex;align-items:center;height:60px;border-bottom:2px solid transparent;transition:all .15s;text-decoration:none;white-space:nowrap}
+.tm-a:hover{color:#F7F4EF}
+.tm-a.tm-on{color:#F7F4EF;border-bottom-color:#B08D57}
+.tm-mail{font-size:10px;font-weight:500;letter-spacing:.08em;color:rgba(248,244,239,0.45);margin-left:auto;padding-left:20px;border-left:1px solid rgba(248,244,239,0.15);text-decoration:none;white-space:nowrap;transition:color .15s;flex-shrink:0}
+.tm-mail:hover{color:#B08D57}
+@media(max-width:700px){.tm-inner{padding:0 20px}.tm-a{padding:0 10px}.tm-mail{display:none}}
 </style>
 </head>
 <body>
 
-<div class="site-bar">
-  <div class="wrap">
-    <a href="/" class="brand">Causa</a>
-    <a href="/" class="back">← Volver al inicio</a>
+<div class="topmenu">
+  <div class="tm-inner">
+    <a href="/donna/index.html" class="tm-brand">Causa<sup>®</sup></a>
+    <div class="tm-sep"></div>
+    <nav class="tm-nav">
+      <a href="/donna/legaltech-argentina.html" class="tm-a tm-on">Mercado</a>
+      <a href="/donna/prd-fuero-legaltech.html" class="tm-a">PRD</a>
+      <a href="/donna/fuero-artifacts.html" class="tm-a">Artifacts</a>
+    </nav>
+    <a href="mailto:dji.olivieri@gmail.com" class="tm-mail">dji.olivieri@gmail.com →</a>
   </div>
 </div>
 
@@ -263,6 +297,106 @@
       <h4>Takeaway principal</h4>
       <p>La mayor oportunidad no es robarle clientes a los competidores: es el <b>69% del mercado todavía no digitalizado</b>.
       La mayor amenaza es la velocidad de la IA — quien no la incorpore de forma nativa queda obsoleto rápido.</p>
+    </div>
+
+    <h3 class="sub">Mapa de posicionamiento competitivo</h3>
+    <div class="pmap-wrap">
+      <div class="pmap-title">Precio mensual vs. profundidad funcional</div>
+      <div class="pmap-sub">Cada círculo es una plataforma. El cuadrante inferior derecho — accesible y completo — está vacío.</div>
+      <svg viewBox="0 0 580 360" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;max-height:340px">
+        <rect x="60" y="20" width="220" height="155" fill="rgba(15,47,46,0.025)"/>
+        <rect x="280" y="20" width="270" height="155" fill="rgba(15,47,46,0.02)"/>
+        <rect x="60" y="175" width="220" height="155" fill="rgba(15,47,46,0.01)"/>
+        <rect x="280" y="175" width="270" height="155" fill="rgba(176,141,87,0.07)"/>
+        <line x1="60" y1="330" x2="560" y2="330" stroke="#D8D1C7" stroke-width="1.5"/>
+        <line x1="60" y1="330" x2="60" y2="12" stroke="#D8D1C7" stroke-width="1.5"/>
+        <polygon points="557,324 557,336 566,330" fill="#D8D1C7"/>
+        <polygon points="54,16 66,16 60,8" fill="#D8D1C7"/>
+        <line x1="280" y1="12" x2="280" y2="330" stroke="#D8D1C7" stroke-width="0.8" stroke-dasharray="4,4"/>
+        <line x1="60" y1="175" x2="560" y2="175" stroke="#D8D1C7" stroke-width="0.8" stroke-dasharray="4,4"/>
+        <text x="310" y="348" font-family="IBM Plex Sans,sans-serif" font-size="9" fill="#8A8480" letter-spacing="1.2">FUNCIONALIDADES →</text>
+        <text x="44" y="175" font-family="IBM Plex Sans,sans-serif" font-size="9" fill="#8A8480" letter-spacing="1.2" text-anchor="middle" transform="rotate(-90,44,175)">PRECIO →</text>
+        <text x="170" y="38" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="7" fill="#C8C0B8" letter-spacing="1">CARO / BÁSICO</text>
+        <text x="415" y="38" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="7" fill="#C8C0B8" letter-spacing="1">CARO / COMPLETO</text>
+        <text x="170" y="322" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="7" fill="#C8C0B8" letter-spacing="1">ACCESIBLE / BÁSICO</text>
+        <text x="415" y="322" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="7" fill="#B08D57" letter-spacing="1" font-weight="700">ACCESIBLE / COMPLETO</text>
+        <!-- Lex Doctor -->
+        <circle cx="165" cy="82" r="26" fill="rgba(15,47,46,0.08)" stroke="#0F2F2E" stroke-width="1.5"/>
+        <text x="165" y="77" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="9" font-weight="700" fill="#0F2F2E">Lex Doctor</text>
+        <text x="165" y="89" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="7.5" fill="#6B6560">Desktop · $5.5k+</text>
+        <!-- MetaJurídico -->
+        <circle cx="360" cy="97" r="24" fill="rgba(15,47,46,0.07)" stroke="#0F2F2E" stroke-width="1.5"/>
+        <text x="360" y="98" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="9" font-weight="700" fill="#0F2F2E" dominant-baseline="middle">MetaJurídico</text>
+        <!-- LITIS -->
+        <circle cx="325" cy="228" r="19" fill="rgba(15,47,46,0.05)" stroke="#0F2F2E" stroke-width="1.5"/>
+        <text x="325" y="229" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="8.5" font-weight="700" fill="#0F2F2E" dominant-baseline="middle">LITIS</text>
+        <!-- Argus Legal -->
+        <circle cx="455" cy="68" r="21" fill="rgba(176,141,87,0.12)" stroke="#B08D57" stroke-width="1.5"/>
+        <text x="455" y="69" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="8.5" font-weight="700" fill="#8a6d1f" dominant-baseline="middle">Argus Legal</text>
+        <!-- Lexius -->
+        <circle cx="508" cy="95" r="17" fill="rgba(176,141,87,0.1)" stroke="#B08D57" stroke-width="1.5"/>
+        <text x="508" y="96" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="8" font-weight="700" fill="#8a6d1f" dominant-baseline="middle">Lexius</text>
+        <!-- Veredicta -->
+        <circle cx="415" cy="133" r="17" fill="rgba(15,47,46,0.05)" stroke="#0F2F2E" stroke-width="1.5" stroke-dasharray="3,2"/>
+        <text x="415" y="134" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="8" font-weight="700" fill="#0F2F2E" dominant-baseline="middle">Veredicta</text>
+        <!-- No-software -->
+        <circle cx="100" cy="265" r="30" fill="rgba(200,192,184,0.1)" stroke="#C8C0B8" stroke-width="1"/>
+        <text x="100" y="260" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="7.5" fill="#8A8480">No-software</text>
+        <text x="100" y="272" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="7" fill="#8A8480">69% mercado</text>
+        <!-- Causa (vacío) -->
+        <circle cx="475" cy="258" r="35" fill="rgba(176,141,87,0.08)" stroke="#B08D57" stroke-width="2" stroke-dasharray="6,3"/>
+        <text x="475" y="251" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="11" font-weight="700" fill="#B08D57">Causa</text>
+        <text x="475" y="265" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="8" fill="#8a6d1f" letter-spacing="0.06em">EL VACÍO</text>
+        <text x="475" y="278" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="7" fill="#8A8480">$65k/usuario</text>
+      </svg>
+    </div>
+
+    <h3 class="sub">Rangos de precio por plataforma</h3>
+    <div class="prange-wrap">
+      <div class="prange-title">Precio mensual estimado (plan base, 1–5 usuarios)</div>
+      <div class="prange-sub">En ARS. Precios relevados mayo 2026. Las barras muestran el rango mínimo–máximo publicado.</div>
+      <div class="prange-row">
+        <div class="prange-name">Lex Doctor</div>
+        <div class="prange-track">
+          <div class="prange-bar" style="left:0%;width:52%;background:linear-gradient(90deg,#0F2F2E,#1a4a48)"></div>
+        </div>
+        <div class="prange-val">$5.5k–$12k</div>
+      </div>
+      <div class="prange-row">
+        <div class="prange-name">MetaJurídico</div>
+        <div class="prange-track">
+          <div class="prange-bar" style="left:10%;width:38%;background:linear-gradient(90deg,#1a4a48,#2a6a68)"></div>
+        </div>
+        <div class="prange-val">$6k–$15k</div>
+      </div>
+      <div class="prange-row">
+        <div class="prange-name">LITIS</div>
+        <div class="prange-track">
+          <div class="prange-bar" style="left:5%;width:28%;background:linear-gradient(90deg,#1a4a48,#2a6a68)"></div>
+        </div>
+        <div class="prange-val">$4k–$9k</div>
+      </div>
+      <div class="prange-row">
+        <div class="prange-name">Argus Legal</div>
+        <div class="prange-track">
+          <div class="prange-bar" style="left:8%;width:24%;background:linear-gradient(90deg,#B08D57,#a8842f)"></div>
+        </div>
+        <div class="prange-val">$5k–$12k</div>
+      </div>
+      <div class="prange-row">
+        <div class="prange-name">Lexius</div>
+        <div class="prange-track">
+          <div class="prange-bar" style="left:6%;width:18%;background:linear-gradient(90deg,#B08D57,#a8842f)"></div>
+        </div>
+        <div class="prange-val">$4k–$8k</div>
+      </div>
+      <div class="prange-row">
+        <div class="prange-name" style="color:#B08D57;font-weight:700">Causa (target)</div>
+        <div class="prange-track" style="background:#fdf5e7">
+          <div class="prange-bar" style="left:12%;width:8%;background:#B08D57;border:1.5px dashed #8a6d1f"></div>
+        </div>
+        <div class="prange-val" style="color:#B08D57;font-weight:700">$65k/usuario</div>
+      </div>
     </div>
 
     <h3 class="sub">El panorama en una mirada</h3>
@@ -455,7 +589,7 @@
     <p class="lead">Los movimientos que están redefiniendo el legal tech argentino: adopción institucional, salto de la IA en estudios y departamentos legales, y hacia dónde va el mercado 2026–2030.</p>
 
     <div class="stats">
-      <div class="stat"><div class="tag">Salto de adopción</div><div class="num">11% → 75%</div><div class="lab">uso de IA en departamentos legales corporativos en solo 2 años (Reporte Marval 2025)</div></div>
+      <div class="stat"><div class="tag">Salto de adopción</div><div class="num">11% → 75%</div><div class="lab">uso de IA en departamentos legales corporativos en solo 2 años (Reporte Marval 2026)</div></div>
       <div class="stat"><div class="tag">Productividad</div><div class="num">~10 hs</div><div class="lab">semanales que ahorran los abogados que adoptan herramientas de IA</div></div>
       <div class="stat"><div class="tag">El espejismo</div><div class="num">67%</div><div class="lab">de los usuarios desconfía de la precisión de los resultados de la IA</div></div>
       <div class="stat"><div class="tag">Mercado regional</div><div class="num">~11%</div><div class="lab">crecimiento anual del mercado legal tech en la región</div></div>
@@ -585,9 +719,9 @@
       <li>CPACF, COLPROBA, CASI, Colegio de Abogados de Córdoba, Colegio de la Abogacía de Santa Fe, Colegio de Abogados de Mendoza — datos de matrícula</li>
       <li>La Nación, UNLPam — feminización de la profesión jurídica</li>
       <li>PAGBAM — "Hoja de ruta 2026 para abogados y estudios jurídicos"</li>
-      <li>Marval O'Farrell Mairal — Reporte sobre Departamentos Legales 2025 (adopción de IA, herramientas, usos)</li>
+      <li>Marval O'Farrell Mairal — Reporte sobre Departamentos Legales 2026 (adopción de IA, herramientas, usos)</li>
       <li>Abogados.com.ar — "El espejismo digital" y "La brecha generacional que la IA está ensanchando en la abogacía argentina"</li>
-      <li>Argentina.gob.ar — Asistente Virtual de IA del PJN (Resolución 1486/2025); itconnect.lat — IA y Derecho en Argentina (sistema Prometea, UBA/MPF CABA)</li>
+      <li>Argentina.gob.ar — Asistente Virtual de IA del PJN (Resolución 1486/2026); itconnect.lat — IA y Derecho en Argentina (sistema Prometea, UBA/MPF CABA)</li>
       <li>LawAndTrends — "Tendencias de Legaltech 2026–2030"; UTDT — asistente de IA para el derecho argentino</li>
     </ul>
     <div class="disc">
@@ -819,27 +953,27 @@ renderTable();
 
 /* ---------- NEWS TIMELINE ---------- */
 const newsData = [
-  {date:"Febrero 2025",
+  {date:"Febrero 2026",
    title:"El PJN lanza su Asistente Virtual de IA",
-   body:"El Poder Judicial de la Nación incorpora un asistente de IA (Resolución 1486/2025), basado en GPT-4.1-nano. Primer hito de adopción institucional de IA en la Justicia nacional.",
+   body:"El Poder Judicial de la Nación incorpora un asistente de IA (Resolución 1486/2026), basado en GPT-4.1-nano. Primer hito de adopción institucional de IA en la Justicia nacional.",
    url:"https://www.pjn.gov.ar/",
    src:"Poder Judicial de la Nación"},
-  {date:"2025",
+  {date:"2026",
    title:"El CPACF publica guías de uso de IA para abogados",
    body:"El Colegio Público de la Abogacía de la Capital Federal establece un marco ético para el uso de IA en la profesión — señal de institucionalización de la categoría.",
    url:"https://www.cpacf.org.ar/",
    src:"CPACF"},
-  {date:"2025",
+  {date:"2026",
    title:"La adopción de IA en áreas legales corporativas salta de 11% a 75%",
-   body:"El Reporte sobre Departamentos Legales (Marval, 2025) documenta un crecimiento de 7x en dos años. Usos top: revisión de documentos (63%), investigación jurídica (57%), análisis de contratos (57%).",
+   body:"El Reporte sobre Departamentos Legales (Marval, 2026) documenta un crecimiento de 7x en dos años. Usos top: revisión de documentos (63%), investigación jurídica (57%), análisis de contratos (57%).",
    url:"https://marval.com/",
    src:"Marval O'Farrell Mairal"},
-  {date:"2025",
+  {date:"2026",
    title:"\"Espejismo digital\": se usa IA pero no se confía en ella",
    body:"3 de cada 4 abogados usan IA, pero 2 de cada 3 desconfían de la precisión de los resultados. El cuello de botella se corre de la adopción a la confianza.",
    url:"https://marval.com/",
-   src:"Reporte Marval 2025"},
-  {date:"2025",
+   src:"Reporte Marval 2026"},
+  {date:"2026",
    title:"Prometea: la IA pública que acelera la Justicia",
    body:"El sistema Prometea (UBA / Ministerio Público Fiscal de CABA) redujo los tiempos de amparos habitacionales de 190 a 42 días, con 96% de efectividad.",
    url:"https://www.fiscales.gob.ar/",
@@ -884,7 +1018,7 @@ document.getElementById('toolbars').innerHTML = toolData.map(t=>`
     <div class="track"><div class="fill ${t.cls}" style="width:${Math.max(5,t.val)}%">${t.val}%</div></div>
   </div>`).join('') +
   `<div style="font-size:12px;color:var(--muted);margin-top:12px;border-top:1px solid var(--line);padding-top:10px">
-    Fuente: Reporte sobre Departamentos Legales (Marval, 2025). El legal tech especializado (en dorado) todavía pierde frente a las herramientas genéricas.
+    Fuente: Reporte sobre Departamentos Legales (Marval, 2026). El legal tech especializado (en dorado) todavía pierde frente a las herramientas genéricas.
   </div>`;
 
 /* ---------- USES OF AI BARS ---------- */
