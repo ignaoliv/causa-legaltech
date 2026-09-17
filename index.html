@@ -173,6 +173,12 @@ img{display:block;max-width:100%}
 }
 .marco span{font-family:var(--sans);font-size:11px;letter-spacing:.06em}
 .marco strong{font-family:var(--sans);font-size:12px;font-weight:600;color:var(--gris-claro)}
+.foto{aspect-ratio:16/9;overflow:hidden;background:var(--crema);border:1px solid var(--regla)}
+.foto img{width:100%;height:100%;object-fit:cover;display:block}
+.tarjeta .foto{aspect-ratio:3/2;margin-bottom:11px}
+.nota-col .foto{margin-bottom:10px}
+.credito a,.pie-tarjeta a{color:inherit}
+.credito a:hover,.pie-tarjeta a:hover{text-decoration:underline}
 .epigrafe{font-family:var(--sans);font-size:11px;color:var(--gris-tenue);line-height:1.4;margin-top:7px}
 
 /* viñetas relacionadas */
@@ -592,56 +598,10 @@ table.tabla tbody tr:hover td{background:var(--crema)}
   <section class="portada" id="portada">
 
     <!-- COLUMNA A -->
-    <div class="col-a">
-      <article>
-        <div class="figura">
-          <div class="marco">
-            <strong>Foto de apertura</strong>
-            <span>1600 × 900</span>
-          </div>
-          <p class="epigrafe">Epígrafe de la imagen principal, con crédito del fotógrafo o de la agencia.</p>
-        </div>
-        <span class="kicker original">Nota original</span>
-        <h1 class="titular-principal"><a href="#">El fallo que obliga a declarar cuándo escribió la máquina</a></h1>
-        <p class="bajada">Una sala comercial devolvió un escrito por citas inexistentes y fijó un estándar: quien firma, responde. Qué cambia en la práctica diaria y qué habría que agregar al control de calidad de un estudio chico.</p>
-        <div class="credito">
-          <span class="autor">Por la Redacción de FUERO</span>
-          <span>7 min de lectura</span>
-          <span>Hace 2 horas</span>
-        </div>
-
-        <ul class="relacionadas">
-          <li><a href="#">Qué dicen los tres antecedentes que cita la sala</a></li>
-          <li><a href="#">Cómo verificar una cita en dos minutos antes de presentar</a></li>
-          <li><a href="#">Los colegios profesionales, entre la sanción y la capacitación</a></li>
-        </ul>
-      </article>
-    </div>
+    <div class="col-a" id="colA"></div>
 
     <!-- COLUMNA B -->
-    <div class="col-b">
-      <article class="nota-col">
-        <div class="figura"><div class="marco"><strong>Imagen</strong><span>800 × 450</span></div></div>
-        <span class="kicker">Poder Judicial</span>
-        <h3><a href="#">El PJN amplía el asistente virtual a tres fueros más</a></h3>
-        <p>La prueba piloto pasa de responder consultas generales a buscar dentro del expediente. Los primeros usuarios describen un ahorro real, y también dos límites.</p>
-        <div class="credito"><span>vía abogados.com.ar</span><span>4 min</span></div>
-      </article>
-
-      <article class="nota-col">
-        <span class="kicker">Regulación</span>
-        <h3><a href="#">La CNV define el registro de proveedores de servicios cripto para diciembre</a></h3>
-        <p>Qué obligaciones caen sobre el asesor legal del exchange y cuáles sobre el cliente.</p>
-        <div class="credito"><span>vía Boletín Oficial</span><span>6 min</span></div>
-      </article>
-
-      <article class="nota-col">
-        <span class="kicker original">Nota original</span>
-        <h3><a href="#">Cuánto cuesta hoy automatizar el control de plazos</a></h3>
-        <p>Probamos cinco herramientas durante un mes. Ninguna hizo exactamente lo que promete su sitio.</p>
-        <div class="credito"><span class="autor">Redacción FUERO</span><span>9 min</span></div>
-      </article>
-    </div>
+    <div class="col-b" id="colB"></div>
 
     <!-- COLUMNA C -->
     <aside class="col-c">
@@ -913,57 +873,110 @@ table.tabla tbody tr:hover td{background:var(--crema)}
 
 <script>
 /* ---------------- DATOS ---------------- */
-const notas = [
-  {t:"La Corte bonaerense unifica el cómputo de plazos en el portal", d:"La acordada elimina la doble vía entre presentación electrónica y mesa física. Rige desde el primer día hábil de septiembre.", tema:"derecho", origen:"curado", kicker:"Procedimiento", fuente:"vía SCBA", min:4},
-  {t:"Probamos seis asistentes de IA con un escrito real", d:"Les dimos la misma demanda y comparamos qué encontró cada uno. Dos inventaron jurisprudencia; uno detectó un error de cómputo.", tema:"ia", origen:"original", kicker:"Nota original", fuente:"Redacción FUERO", min:9},
-  {t:"Firma digital: qué cambia para el estudio que todavía imprime", d:"El nuevo régimen de conservación documental y los tres puntos a revisar antes de fin de año.", tema:"derecho", origen:"curado", kicker:"Normativa", fuente:"vía Boletín Oficial", min:5},
-  {t:"El mercado legaltech argentino sumó cuatro jugadores en un año", d:"Quién entró, con qué precio y a qué segmento apunta cada uno. El cuadrante accesible sigue casi vacío.", tema:"tech", origen:"original", kicker:"Nota original", fuente:"Redacción FUERO", min:11},
-  {t:"Cripto y sucesiones: el problema de la llave que nadie encuentra", d:"Tres casos recientes muestran que el planeamiento sucesorio todavía no incorporó los activos digitales.", tema:"cripto", origen:"curado", kicker:"Sucesiones", fuente:"vía La Ley", min:6},
-  {t:"Los grandes laboratorios de IA aceleran sus productos para legales", d:"Anuncios de integración con repositorios documentales. Qué implica para los proveedores locales.", tema:"ia", origen:"curado", kicker:"Industria", fuente:"vía artificiallawyer.com", min:3},
-  {t:"Cómo quedó el índice de actualización de honorarios en agosto", d:"La tabla mes a mes, la comparación interanual y el efecto sobre las regulaciones pendientes.", tema:"derecho", origen:"original", kicker:"Nota original", fuente:"Redacción FUERO", min:4},
-  {t:"Un juzgado rechazó una pericia informática por cadena de custodia", d:"El fallo detalla qué se esperaba del acta de secuestro del dispositivo. Lectura obligatoria para penalistas.", tema:"derecho", origen:"curado", kicker:"Fallos", fuente:"vía Diario Judicial", min:5},
-  {t:"El costo real de migrar un estudio de diez abogados a la nube", d:"Hablamos con tres estudios que lo hicieron. Ninguno terminó en el plazo que había estimado.", tema:"tech", origen:"original", kicker:"Nota original", fuente:"Redacción FUERO", min:8},
-  {t:"Stablecoins en contratos comerciales: cláusulas que ya se usan", d:"Modelos de cláusula de pago, ajuste y resolución que aparecen en operaciones locales.", tema:"cripto", origen:"curado", kicker:"Contratos", fuente:"vía Erreius", min:7},
-  {t:"Las universidades suman inteligencia artificial al grado", d:"UBA, UNLP y UNR anunciaron materias específicas. Qué se enseña y qué falta.", tema:"ia", origen:"curado", kicker:"Formación", fuente:"vía medios", min:4},
-  {t:"Notificaciones electrónicas: el error de configuración más común", d:"Revisamos consultas de matriculados y aparece siempre el mismo punto. Se resuelve en dos minutos.", tema:"tech", origen:"original", kicker:"Nota original", fuente:"Redacción FUERO", min:3}
-];
-
-const ultimas = [
-  {h:"Hace 12 min", t:"Feriado judicial: confirman asueto para el viernes"},
-  {h:"Hace 48 min", t:"Se cae el portal del PJN por mantenimiento no anunciado"},
-  {h:"Hace 1 h", t:"ARCA publica el nuevo régimen informativo de billeteras virtuales"},
-  {h:"Hace 2 h", t:"Rechazan un escrito con citas generadas por IA"},
-  {h:"Hace 3 h", t:"El CPACF abre la inscripción a la diplomatura en legaltech"},
-  {h:"Hace 4 h", t:"Suben los montos mínimos para juicios ejecutivos"}
-];
-
-/* ---------------- LO ÚLTIMO ---------------- */
-document.getElementById('ultimas').innerHTML = ultimas.map(u =>
-  `<li><span class="sello-hora">${u.h}</span><a href="#">${u.t}</a></li>`
-).join('');
-
-/* ---------------- REJILLA ---------------- */
+let notas = [];
 const rejilla = document.getElementById('rejilla');
 const iconoGuardar = '<svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-5-6 5V3z"/></svg>';
+const MESES = ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+const DIAS = ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
+const MESES_LARGO = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
 
-rejilla.innerHTML = notas.map((n,i) => `
-  <article class="tarjeta" data-tema="${n.tema}" data-origen="${n.origen}"
-           data-texto="${(n.t+' '+n.d+' '+n.fuente+' '+n.kicker).toLowerCase()}">
-    <div class="marco"><strong>Imagen</strong><span>600 × 400</span></div>
-    <span class="kicker ${n.origen === 'original' ? 'original' : ''}">${n.kicker}</span>
-    <h3><a href="#">${n.t}</a></h3>
-    <p>${n.d}</p>
-    <div class="pie-tarjeta">
-      <span>${n.fuente}</span>
-      <span>${n.min} min</span>
-      <button class="guardar" data-i="${i}" aria-pressed="false" aria-label="Guardar nota">${iconoGuardar}Guardar</button>
-    </div>
-  </article>
-`).join('') + `
-  <div class="sin-resultados" id="sinResultados" style="display:none">
-    <p>No encontramos notas con ese criterio</p>
-    <span>Probá con otro término o volvé a "Todo".</span>
-  </div>`;
+const hoy = new Date();
+document.querySelector('header .fecha').textContent =
+  `${DIAS[hoy.getDay()]} ${hoy.getDate()} de ${MESES_LARGO[hoy.getMonth()]} de ${hoy.getFullYear()}`;
+
+function fechaCorta(iso){
+  const d = new Date(iso + 'T12:00:00');
+  return `${d.getDate()} ${MESES[d.getMonth()]}`;
+}
+function fechaRelativa(iso){
+  const dias = Math.round((hoy - new Date(iso + 'T12:00:00')) / 86400000);
+  if (dias <= 0) return 'Hoy';
+  if (dias === 1) return 'Ayer';
+  if (dias < 7) return `Hace ${dias} días`;
+  return fechaCorta(iso);
+}
+function esc(x){ return String(x).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;'); }
+function figura(n, clase){
+  if (n.img) return `<div class="foto ${clase||''}"><img src="${esc(n.img)}" alt="" loading="lazy"></div>`;
+  return `<div class="marco"><strong>Sin imagen</strong></div>`;
+}
+function link(n, texto){ return `<a href="${esc(n.url)}" target="_blank" rel="noopener">${esc(texto)}</a>`; }
+
+function pintarPortada(){
+  const principal = notas.find(n => n.destacada) || notas[0];
+  const secundarias = notas.filter(n => n !== principal && n.portada).slice(0,3);
+  const relacionadas = notas.filter(n => n !== principal && !secundarias.includes(n) && n.tema === principal.tema).slice(0,3);
+
+  document.getElementById('colA').innerHTML = `
+    <article>
+      <div class="figura">
+        ${figura(principal)}
+        ${principal.epigrafe || principal.credito ? `<p class="epigrafe">${esc(principal.epigrafe || '')} ${principal.credito ? 'Foto: ' + esc(principal.credito) : ''}</p>` : ''}
+      </div>
+      <span class="kicker ${principal.origen === 'original' ? 'original' : ''}">${esc(principal.kicker)}</span>
+      <h1 class="titular-principal">${link(principal, principal.t)}</h1>
+      <p class="bajada">${esc(principal.d)}</p>
+      <div class="credito">
+        <span class="autor">${esc(principal.fuente)}</span>
+        <span>${principal.min} min de lectura</span>
+        <span>${fechaRelativa(principal.fecha)}</span>
+      </div>
+      ${relacionadas.length ? `<ul class="relacionadas">${relacionadas.map(r => `<li>${link(r, r.t)}</li>`).join('')}</ul>` : ''}
+    </article>`;
+
+  document.getElementById('colB').innerHTML = secundarias.map((n,i) => `
+    <article class="nota-col">
+      ${i === 0 ? `<div class="figura">${figura(n)}</div>` : ''}
+      <span class="kicker ${n.origen === 'original' ? 'original' : ''}">${esc(n.kicker)}</span>
+      <h3>${link(n, n.t)}</h3>
+      <p>${esc(n.d)}</p>
+      <div class="credito"><span>${esc(n.fuente)}</span><span>${n.min} min</span><span>${fechaRelativa(n.fecha)}</span></div>
+    </article>`).join('');
+}
+
+function pintarUltimas(){
+  const ultimas = [...notas].sort((a,b) => b.fecha.localeCompare(a.fecha)).slice(0,6);
+  document.getElementById('ultimas').innerHTML = ultimas.map(u =>
+    `<li><span class="sello-hora">${fechaCorta(u.fecha)}</span>${link(u, u.t)}</li>`
+  ).join('');
+}
+
+function pintarRejilla(){
+  rejilla.innerHTML = notas.map((n,i) => `
+    <article class="tarjeta" data-tema="${n.tema}" data-origen="${n.origen}"
+             data-texto="${esc((n.t+' '+n.d+' '+n.fuente+' '+n.kicker).toLowerCase())}">
+      ${figura(n)}
+      <span class="kicker ${n.origen === 'original' ? 'original' : ''}">${esc(n.kicker)}</span>
+      <h3>${link(n, n.t)}</h3>
+      <p>${esc(n.d)}</p>
+      <div class="pie-tarjeta">
+        <span>${esc(n.fuente)}</span>
+        <span>${fechaCorta(n.fecha)}</span>
+        <span>${n.min} min</span>
+        <button class="guardar" data-i="${i}" aria-pressed="false" aria-label="Guardar nota">${iconoGuardar}Guardar</button>
+      </div>
+    </article>
+  `).join('') + `
+    <div class="sin-resultados" id="sinResultados" style="display:none">
+      <p>No encontramos notas con ese criterio</p>
+      <span>Probá con otro término o volvé a "Todo".</span>
+    </div>`;
+}
+
+fetch('/noticias.json?v=' + Date.now()).then(r => r.json()).then(data => {
+  notas = (data.notas || []).map(n => ({
+    t:n.titulo, d:n.bajada, url:n.url, fuente:n.fuente, fecha:n.fecha, tema:n.tema,
+    origen:n.origen || 'curado', kicker:n.kicker, min:n.min || 4, img:n.imagen || null,
+    credito:n.credito_imagen || '', epigrafe:n.epigrafe || '', destacada:!!n.destacada, portada:!!n.portada
+  })).sort((a,b) => b.fecha.localeCompare(a.fecha));
+  if (!notas.some(n => n.origen === 'original')){
+    document.querySelectorAll('.filtro[data-origen], .div-filtro').forEach(el => el.style.display = 'none');
+  }
+  pintarPortada(); pintarUltimas(); pintarRejilla(); aplicar();
+}).catch(err => {
+  console.error('No se pudo cargar noticias.json', err);
+  rejilla.innerHTML = '<div class="sin-resultados"><p>No pudimos cargar las noticias</p><span>Probá recargar la página.</span></div>';
+});
 
 /* ---------------- FILTROS ---------------- */
 let temaActivo = 'todo', origenActivo = null;
@@ -980,7 +993,7 @@ function aplicar(){
     el.classList.toggle('oculta', !ok);
     if (ok) visibles++;
   });
-  document.getElementById('sinResultados').style.display = visibles ? 'none' : 'block';
+  const sr = document.getElementById('sinResultados'); if (sr) sr.style.display = visibles ? 'none' : 'block';
   conteo.textContent = visibles + (visibles === 1 ? ' nota' : ' notas');
 }
 
