@@ -1,11 +1,6 @@
 {
   "redirects": [
     {
-      "source": "/index.html",
-      "destination": "/donna/",
-      "permanent": true
-    },
-    {
       "source": "/historia.html",
       "destination": "/donna/historia.html",
       "permanent": true
