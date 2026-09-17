@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FOJA — Derecho, IA y tecnología</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --fondo:#ffffff;
+  --tinta:#121212;
+  --gris:#363636;
+  --gris-claro:#5a5a5a;
+  --gris-tenue:#8b8b8b;
+  --regla:#e2e2e2;
+  --regla-media:#c7c7c7;
+  --crema:#f7f7f5;
+  --vivo:#d0021b;
+  --enlace:#326891;
+
+  --serif:'Newsreader', Georgia, 'Times New Roman', serif;
+  --sans:'Libre Franklin', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--fondo);
+  color:var(--tinta);
+  font-family:var(--serif);
+  font-size:17px;
+  line-height:1.45;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+:focus-visible{outline:2px solid var(--enlace);outline-offset:2px}
+img{display:block;max-width:100%}
+
+.contenedor{max-width:1200px;margin:0 auto;padding:0 20px}
+
+/* ============ MASTHEAD ============ */
+.cabecera{background:var(--fondo);border-bottom:1px solid var(--regla)}
+.masthead{
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  align-items:center;
+  padding:14px 0 12px;
+  gap:16px;
+}
+.masthead-izq,.masthead-der{display:flex;align-items:center;gap:14px}
+.masthead-der{justify-content:flex-end}
+
+.icono-btn{
+  display:flex;align-items:center;gap:6px;
+  font-family:var(--sans);font-size:11px;font-weight:600;
+  letter-spacing:.04em;color:var(--gris);
+}
+.icono-btn:hover{color:var(--tinta)}
+.icono-btn svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.8}
+
+.fecha{
+  font-family:var(--sans);font-size:11px;color:var(--gris-claro);
+  padding-left:14px;border-left:1px solid var(--regla);
+}
+
+.wordmark{
+  font-family:var(--serif);
+  font-weight:700;
+  font-size:44px;
+  letter-spacing:.16em;
+  line-height:1;
+  text-align:center;
+  text-indent:.16em;
+}
+.wordmark small{
+  display:block;
+  font-family:var(--sans);
+  font-size:8.5px;
+  font-weight:600;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  color:var(--gris-tenue);
+  margin-top:5px;
+  text-indent:.28em;
+}
+
+.btn-linea{
+  font-family:var(--sans);font-size:11px;font-weight:600;
+  border:1px solid var(--regla-media);padding:7px 13px;color:var(--gris);
+  transition:border-color .15s,color .15s;
+}
+.btn-linea:hover{border-color:var(--tinta);color:var(--tinta)}
+.btn-lleno{
+  font-family:var(--sans);font-size:11px;font-weight:700;
+  background:var(--enlace);color:#fff;padding:8px 15px;
+  transition:background .15s;
+}
+.btn-lleno:hover{background:#274f6f}
+
+/* ============ NAV SECCIONES ============ */
+.nav{
+  border-top:1px solid var(--regla);
+  border-bottom:1px solid var(--tinta);
+  display:flex;justify-content:center;align-items:center;gap:0;
+  overflow-x:auto;scrollbar-width:none;
+}
+.nav::-webkit-scrollbar{display:none}
+.nav a{
+  font-family:var(--sans);font-size:12.5px;font-weight:500;
+  padding:11px 15px;white-space:nowrap;color:var(--tinta);
+  border-bottom:3px solid transparent;
+  transition:border-color .15s;
+}
+.nav a:hover{border-bottom-color:var(--tinta)}
+.nav a.vivo{color:var(--vivo);font-weight:700;display:flex;align-items:center;gap:6px}
+.punto{width:7px;height:7px;border-radius:50%;background:var(--vivo);animation:latir 1.8s infinite}
+@keyframes latir{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* ============ REGLAS Y RÓTULOS ============ */
+.regla-seccion{
+  border-top:1px solid var(--tinta);
+  display:flex;align-items:baseline;justify-content:space-between;
+  padding:10px 0 14px;margin-top:26px;
+}
+.regla-seccion h2{
+  font-family:var(--sans);font-size:13px;font-weight:700;
+  letter-spacing:.05em;text-transform:uppercase;
+}
+.regla-seccion a{font-family:var(--sans);font-size:11.5px;color:var(--enlace);font-weight:500}
+.regla-seccion a:hover{text-decoration:underline}
+
+.kicker{
+  font-family:var(--sans);font-size:10.5px;font-weight:700;
+  letter-spacing:.09em;text-transform:uppercase;color:var(--gris-claro);
+  display:block;margin-bottom:7px;
+}
+.kicker.rojo{color:var(--vivo)}
+.kicker.original{color:var(--tinta)}
+
+/* ============ PORTADA ============ */
+.portada{
+  display:grid;
+  grid-template-columns:minmax(0,1.55fr) minmax(0,1fr) 300px;
+  gap:0 26px;
+  padding-top:22px;
+}
+.col-b{padding:0 26px;border-left:1px solid var(--regla);border-right:1px solid var(--regla)}
+.col-c{padding-left:0}
+
+/* nota principal */
+.titular-principal{
+  font-family:var(--serif);font-weight:700;
+  font-size:clamp(32px,4.4vw,50px);
+  line-height:1.03;letter-spacing:-.015em;
+  margin-bottom:14px;
+}
+.titular-principal a:hover{color:var(--gris)}
+.bajada{font-size:18px;line-height:1.44;color:var(--gris);margin-bottom:14px}
+.credito{
+  font-family:var(--sans);font-size:11px;color:var(--gris-tenue);
+  display:flex;flex-wrap:wrap;gap:12px;align-items:center;
+}
+.credito .autor{color:var(--gris);font-weight:600}
+
+.figura{margin-bottom:16px}
+.marco{
+  background:var(--crema);border:1px solid var(--regla);
+  aspect-ratio:16/9;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:6px;color:var(--gris-tenue);
+}
+.marco span{font-family:var(--sans);font-size:11px;letter-spacing:.06em}
+.marco strong{font-family:var(--sans);font-size:12px;font-weight:600;color:var(--gris-claro)}
+.epigrafe{font-family:var(--sans);font-size:11px;color:var(--gris-tenue);line-height:1.4;margin-top:7px}
+
+/* viñetas relacionadas */
+.relacionadas{border-top:1px solid var(--regla);margin-top:18px;padding-top:14px}
+.relacionadas li{
+  list-style:none;position:relative;padding-left:15px;margin-bottom:9px;
+  font-family:var(--sans);font-size:13.5px;font-weight:500;line-height:1.35;
+}
+.relacionadas li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;background:var(--tinta);border-radius:50%}
+.relacionadas a:hover{text-decoration:underline}
+
+/* notas de columna B */
+.nota-col{padding-bottom:18px;margin-bottom:18px;border-bottom:1px solid var(--regla)}
+.nota-col:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.nota-col h3{
+  font-family:var(--serif);font-weight:600;font-size:22px;
+  line-height:1.14;letter-spacing:-.01em;margin-bottom:8px;
+}
+.nota-col h3 a:hover{color:var(--gris)}
+.nota-col p{font-size:15.5px;color:var(--gris);line-height:1.42;margin-bottom:9px}
+
+/* columna C: lo último */
+.ultimo-caja{border-top:3px solid var(--tinta);padding-top:12px}
+.ultimo-caja > h4{
+  font-family:var(--sans);font-size:12px;font-weight:800;
+  letter-spacing:.05em;text-transform:uppercase;margin-bottom:12px;
+  display:flex;align-items:center;gap:7px;
+}
+.ultimo-caja li{
+  list-style:none;padding:11px 0;border-bottom:1px solid var(--regla);
+}
+.ultimo-caja li:last-child{border-bottom:none}
+.sello-hora{
+  font-family:var(--sans);font-size:10px;font-weight:700;
+  letter-spacing:.06em;color:var(--vivo);display:block;margin-bottom:4px;
+}
+.ultimo-caja a{font-family:var(--sans);font-size:13.5px;font-weight:500;line-height:1.32}
+.ultimo-caja a:hover{text-decoration:underline}
+.ver-todo{
+  font-family:var(--sans);font-size:11.5px;font-weight:600;color:var(--enlace);
+  display:block;padding-top:12px;border-top:1px solid var(--tinta);margin-top:4px;
+}
+
+/* ============ PUBLICIDAD ============ */
+.publicidad{
+  border-top:1px solid var(--regla);border-bottom:1px solid var(--regla);
+  padding:14px 0 18px;margin:30px 0;text-align:center;
+}
+.pub-rotulo{
+  font-family:var(--sans);font-size:9px;font-weight:600;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--gris-tenue);
+  margin-bottom:12px;
+}
+.pub-caja{
+  background:var(--crema);border:1px solid var(--regla);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;
+  margin:0 auto;max-width:970px;min-height:110px;color:var(--gris-tenue);
+}
+.pub-caja strong{font-family:var(--sans);font-size:13px;font-weight:600;color:var(--gris-claro)}
+.pub-caja span{font-family:var(--sans);font-size:10.5px;letter-spacing:.06em}
+.pub-nota{font-family:var(--sans);font-size:10px;color:var(--gris-tenue);margin-top:10px}
+
+.pub-lateral{margin-top:26px;padding-top:14px;border-top:1px solid var(--regla)}
+.pub-lateral .pub-caja{min-height:520px;max-width:300px}
+.pegado{position:sticky;top:20px}
+
+/* ============ FILTROS ============ */
+.filtros{
+  display:flex;flex-wrap:wrap;align-items:center;gap:7px;
+  padding:0 0 16px;
+}
+.filtro{
+  font-family:var(--sans);font-size:12px;font-weight:500;
+  padding:6px 13px;border:1px solid var(--regla-media);border-radius:100px;
+  color:var(--gris);transition:all .15s;
+}
+.filtro:hover{border-color:var(--tinta);color:var(--tinta)}
+.filtro[aria-pressed="true"]{background:var(--tinta);color:#fff;border-color:var(--tinta)}
+.div-filtro{width:1px;height:20px;background:var(--regla);margin:0 5px}
+.buscar-caja{margin-left:auto;display:flex;align-items:center;gap:8px}
+.buscar-caja input{
+  font-family:var(--sans);font-size:12.5px;
+  border:none;border-bottom:1px solid var(--regla-media);
+  padding:6px 2px;width:210px;background:transparent;color:var(--tinta);
+}
+.buscar-caja input:focus{border-bottom-color:var(--tinta);outline:none}
+.conteo{font-family:var(--sans);font-size:11px;color:var(--gris-tenue)}
+
+/* ============ REJILLA DE SECCIÓN ============ */
+.rejilla{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:0;
+}
+.tarjeta{
+  padding:0 20px 22px;
+  border-right:1px solid var(--regla);
+  border-bottom:1px solid var(--regla);
+}
+.tarjeta:nth-child(4n){border-right:none;padding-right:0}
+.tarjeta:nth-child(4n+1){padding-left:0}
+.tarjeta.oculta{display:none}
+.tarjeta .marco{aspect-ratio:3/2;margin-bottom:11px}
+.tarjeta h3{
+  font-family:var(--serif);font-weight:600;font-size:19px;
+  line-height:1.17;letter-spacing:-.01em;margin-bottom:7px;
+}
+.tarjeta h3 a:hover{color:var(--gris)}
+.tarjeta p{font-size:14.5px;color:var(--gris);line-height:1.4;margin-bottom:9px}
+.pie-tarjeta{
+  font-family:var(--sans);font-size:10.5px;color:var(--gris-tenue);
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+}
+.guardar{
+  font-family:var(--sans);font-size:10.5px;font-weight:600;color:var(--gris-tenue);
+  display:flex;align-items:center;gap:5px;transition:color .15s;
+}
+.guardar svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2}
+.guardar:hover{color:var(--tinta)}
+.guardar[aria-pressed="true"]{color:var(--enlace)}
+.guardar[aria-pressed="true"] svg{fill:currentColor}
+
+.sin-resultados{padding:50px 0;text-align:center;grid-column:1/-1}
+.sin-resultados p{font-family:var(--serif);font-size:22px;font-weight:600;margin-bottom:6px}
+.sin-resultados span{font-family:var(--sans);font-size:13px;color:var(--gris-claro)}
+
+/* ============ BOLETÍN ============ */
+.boletin{
+  border:1px solid var(--tinta);
+  margin:34px 0;padding:30px 34px;
+  display:grid;grid-template-columns:1fr 340px;gap:40px;align-items:center;
+}
+.boletin .kicker{color:var(--gris-claro)}
+.boletin h2{font-family:var(--serif);font-weight:700;font-size:30px;line-height:1.06;letter-spacing:-.015em;margin-bottom:10px}
+.boletin p{font-size:16px;color:var(--gris);line-height:1.45;max-width:48ch}
+.boletin-form{display:flex;flex-direction:column;gap:9px}
+.boletin-form label{font-family:var(--sans);font-size:11px;font-weight:600;color:var(--gris)}
+.boletin-form input{
+  font-family:var(--sans);font-size:13.5px;
+  border:1px solid var(--regla-media);padding:12px 13px;background:#fff;color:var(--tinta);
+}
+.boletin-form input:focus{border-color:var(--tinta);outline:none}
+.boletin-form button{
+  font-family:var(--sans);font-size:12.5px;font-weight:700;
+  background:var(--tinta);color:#fff;padding:13px;transition:background .15s;
+}
+.boletin-form button:hover{background:var(--enlace)}
+.legal{font-family:var(--sans);font-size:10.5px;color:var(--gris-tenue);line-height:1.5}
+.legal a{color:var(--enlace);text-decoration:underline}
+.boletin-ok{
+  font-family:var(--sans);font-size:13px;line-height:1.55;
+  border:1px solid var(--tinta);background:var(--crema);padding:16px;
+}
+.sponsor-linea{
+  margin-top:16px;padding-top:13px;border-top:1px solid var(--regla);
+  display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+  font-family:var(--sans);font-size:10px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--gris-tenue);
+}
+.sponsor-hueco{border:1px dashed var(--regla-media);padding:8px 16px;letter-spacing:.05em;text-transform:none;font-size:11px}
+
+/* ============ MURO ============ */
+.muro{margin:34px 0;border-top:1px solid var(--tinta);padding-top:20px}
+.muro-nota{position:relative;max-height:320px;overflow:hidden;max-width:720px;margin:0 auto}
+.muro-nota::after{
+  content:'';position:absolute;left:0;right:0;bottom:0;height:180px;
+  background:linear-gradient(rgba(255,255,255,0),#fff 82%);
+}
+.muro-nota h2{
+  font-family:var(--serif);font-weight:700;font-size:clamp(26px,3.4vw,38px);
+  line-height:1.06;letter-spacing:-.018em;margin:6px 0 14px;
+}
+.muro-nota p{font-size:18px;line-height:1.6;color:var(--tinta);margin-bottom:14px}
+.muro-puerta{
+  max-width:720px;margin:0 auto;text-align:center;
+  border-top:1px solid var(--regla);padding-top:26px;
+}
+.muro-puerta h4{font-family:var(--sans);font-size:19px;font-weight:700;margin-bottom:8px}
+.muro-puerta > p{font-family:var(--sans);font-size:14px;color:var(--gris);max-width:46ch;margin:0 auto 18px}
+.precio{font-family:var(--serif);font-size:34px;font-weight:700;letter-spacing:-.02em}
+.precio small{font-family:var(--sans);font-size:12px;font-weight:500;color:var(--gris-tenue);display:block;margin-top:4px}
+.muro-puerta .btn-lleno{display:inline-block;margin:18px 0 12px;padding:13px 34px;font-size:12.5px}
+.ya-soy{font-family:var(--sans);font-size:12px;color:var(--gris-claro)}
+.ya-soy a{color:var(--enlace);text-decoration:underline}
+
+/* ============ MEDIDOR ============ */
+.medidor{
+  position:fixed;left:0;right:0;bottom:0;z-index:70;
+  background:var(--crema);border-top:1px solid var(--tinta);
+  padding:12px 20px;
+  display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;
+  transform:translateY(100%);transition:transform .4s cubic-bezier(.2,.7,.3,1);
+}
+.medidor.visible{transform:translateY(0)}
+.medidor p{font-family:var(--sans);font-size:13px;color:var(--gris)}
+.medidor p b{color:var(--tinta)}
+.medidor .btn-lleno{padding:9px 20px}
+.medidor-cerrar{font-family:var(--sans);font-size:18px;color:var(--gris-tenue);line-height:1}
+
+/* ============ PIE ============ */
+.pie{border-top:1px solid var(--tinta);margin-top:40px;padding:30px 0 90px}
+.pie-wordmark{font-family:var(--serif);font-weight:700;font-size:26px;letter-spacing:.14em;margin-bottom:22px}
+.pie-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px}
+.pie h5{font-family:var(--sans);font-size:11.5px;font-weight:700;margin-bottom:11px}
+.pie li{list-style:none;font-family:var(--sans);font-size:12px;color:var(--gris-claro);line-height:2.1}
+.pie a:hover{text-decoration:underline}
+.pie-legal{
+  border-top:1px solid var(--regla);margin-top:26px;padding-top:16px;
+  font-family:var(--sans);font-size:11px;color:var(--gris-tenue);
+  display:flex;gap:20px;flex-wrap:wrap;
+}
+
+/* ============ PANEL ============ */
+.panel{
+  position:fixed;top:0;right:0;bottom:0;width:min(390px,92vw);z-index:90;
+  background:#fff;border-left:1px solid var(--tinta);padding:24px;overflow-y:auto;
+  transform:translateX(100%);transition:transform .3s cubic-bezier(.2,.7,.3,1);
+}
+.panel.abierto{transform:translateX(0)}
+.panel-cab{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--tinta);padding-bottom:12px;margin-bottom:16px}
+.panel-cab h4{font-family:var(--sans);font-size:14px;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
+.panel-cab button{font-family:var(--sans);font-size:12px;color:var(--gris-claro)}
+.panel li{list-style:none;padding:13px 0;border-bottom:1px solid var(--regla);font-family:var(--serif);font-size:17px;font-weight:500;line-height:1.22}
+.panel li em{display:block;font-family:var(--sans);font-size:10.5px;font-style:normal;color:var(--gris-tenue);margin-top:5px}
+.panel-vacio{font-family:var(--sans);font-size:13px;color:var(--gris-claro);line-height:1.7}
+.velo{position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:80;opacity:0;pointer-events:none;transition:opacity .3s}
+.velo.visible{opacity:1;pointer-events:auto}
+
+/* ============ SECCIONES DE DATOS ============ */
+.datos{margin:34px 0}
+.datos-intro{max-width:62ch;margin-bottom:20px}
+.datos-intro h2{font-family:var(--serif);font-weight:700;font-size:clamp(26px,3.2vw,36px);line-height:1.05;letter-spacing:-.018em;margin-bottom:10px}
+.datos-intro p{font-size:17px;color:var(--gris);line-height:1.5}
+
+.tabs{
+  display:flex;gap:0;border-bottom:1px solid var(--tinta);
+  margin-bottom:20px;overflow-x:auto;scrollbar-width:none;
+}
+.tabs::-webkit-scrollbar{display:none}
+.tab{
+  font-family:var(--sans);font-size:12.5px;font-weight:600;
+  padding:10px 16px;white-space:nowrap;color:var(--gris-claro);
+  border-bottom:3px solid transparent;margin-bottom:-1px;transition:all .15s;
+}
+.tab:hover{color:var(--tinta)}
+.tab[aria-selected="true"]{color:var(--tinta);border-bottom-color:var(--tinta)}
+
+.kpis{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+  border-bottom:1px solid var(--regla);margin-bottom:22px;
+}
+.kpi{padding:4px 22px 20px;border-right:1px solid var(--regla)}
+.kpi:first-child{padding-left:0}
+.kpi:last-child{border-right:none;padding-right:0}
+.kpi .cifra{
+  font-family:var(--serif);font-weight:700;font-size:38px;
+  letter-spacing:-.03em;line-height:1;margin-bottom:6px;
+}
+.kpi .rot{font-family:var(--sans);font-size:11.5px;font-weight:600;color:var(--gris);line-height:1.35;margin-bottom:5px}
+.kpi .var{font-family:var(--sans);font-size:11px;color:var(--gris-tenue)}
+.sube{color:#1a7a3e;font-weight:600}
+.baja{color:var(--vivo);font-weight:600}
+
+table.tabla{width:100%;border-collapse:collapse;font-family:var(--sans)}
+table.tabla th{
+  font-size:10.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--gris-tenue);text-align:right;padding:0 0 9px;border-bottom:1px solid var(--tinta);
+}
+table.tabla th:first-child{text-align:left}
+table.tabla td{
+  font-size:14px;padding:12px 0;border-bottom:1px solid var(--regla);
+  text-align:right;color:var(--gris);vertical-align:middle;
+}
+table.tabla td:first-child{text-align:left;font-weight:600;color:var(--tinta);font-size:14.5px}
+table.tabla tbody tr:hover td{background:var(--crema)}
+.celda-barra{width:32%;padding-left:22px!important}
+.barra-fondo{background:var(--regla);height:9px;position:relative}
+.barra{background:var(--tinta);height:9px;width:0;transition:width .7s cubic-bezier(.2,.7,.3,1)}
+.barra.suave{background:var(--gris-tenue)}
+.pila{display:flex;height:9px;width:100%}
+.pila i{display:block;height:9px;width:0;transition:width .7s cubic-bezier(.2,.7,.3,1)}
+.pila i:nth-child(1){background:var(--tinta)}
+.pila i:nth-child(2){background:#7a7a7a}
+.pila i:nth-child(3){background:var(--regla-media)}
+
+.leyenda{
+  display:flex;gap:18px;flex-wrap:wrap;
+  font-family:var(--sans);font-size:11px;color:var(--gris-claro);
+  padding:14px 0 0;
+}
+.leyenda span{display:flex;align-items:center;gap:6px}
+.leyenda b{width:11px;height:11px;display:block}
+.l1{background:var(--tinta)}.l2{background:#7a7a7a}.l3{background:var(--regla-media)}
+
+.nota-fuente{
+  font-family:var(--sans);font-size:10.5px;color:var(--gris-tenue);
+  line-height:1.6;padding-top:14px;border-top:1px solid var(--regla);margin-top:18px;
+}
+.nota-fuente b{color:var(--gris-claro)}
+
+/* ---- ranking ---- */
+.ranking li{
+  list-style:none;display:grid;
+  grid-template-columns:34px minmax(0,1fr) 90px 26%;
+  gap:16px;align-items:center;
+  padding:13px 0;border-bottom:1px solid var(--regla);
+}
+.ranking li:hover{background:var(--crema)}
+.puesto{font-family:var(--serif);font-weight:700;font-size:22px;color:var(--regla-media);text-align:right;letter-spacing:-.02em}
+.ranking li:nth-child(-n+3) .puesto{color:var(--tinta)}
+.nombre{font-family:var(--sans);font-size:14.5px;font-weight:600;line-height:1.25}
+.nombre em{display:block;font-style:normal;font-size:11.5px;font-weight:400;color:var(--gris-tenue);margin-top:3px}
+.monto{font-family:var(--serif);font-size:19px;font-weight:600;text-align:right;letter-spacing:-.02em;white-space:nowrap}
+.monto small{display:block;font-family:var(--sans);font-size:10px;font-weight:500;color:var(--gris-tenue);letter-spacing:0;margin-top:2px}
+
+.dos-col{display:grid;grid-template-columns:1fr 1fr;gap:0 40px}
+.dos-col > div:first-child{padding-right:40px;border-right:1px solid var(--regla)}
+
+.contexto{
+  background:var(--crema);border-top:1px solid var(--tinta);
+  padding:20px 24px;margin:22px 0 0;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:26px;
+}
+.contexto div{font-family:var(--sans);font-size:12.5px;color:var(--gris);line-height:1.5}
+.contexto b{
+  display:block;font-family:var(--serif);font-size:27px;font-weight:700;
+  letter-spacing:-.025em;color:var(--tinta);margin-bottom:5px;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:1020px){
+  .portada{grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:0 24px}
+  .col-b{border-right:none;padding-right:0}
+  .col-c{grid-column:1/-1;border-top:1px solid var(--tinta);margin-top:24px;padding-top:20px}
+  .ultimo-caja{border-top:none;padding-top:0}
+  .pub-lateral .pub-caja{min-height:120px;max-width:none}
+  .pegado{position:static}
+  .rejilla{grid-template-columns:repeat(2,1fr)}
+  .tarjeta:nth-child(4n){border-right:1px solid var(--regla);padding-right:20px}
+  .tarjeta:nth-child(2n){border-right:none;padding-right:0}
+  .tarjeta:nth-child(4n+1){padding-left:20px}
+  .tarjeta:nth-child(2n+1){padding-left:0}
+  .boletin{grid-template-columns:1fr;gap:24px;padding:24px}
+  .pie-grid{grid-template-columns:repeat(2,1fr)}
+  .kpis{grid-template-columns:repeat(2,1fr)}
+  .kpi{padding:14px 18px 16px!important;border-bottom:1px solid var(--regla)}
+  .kpi:nth-child(2n){border-right:none;padding-right:0!important}
+  .kpi:nth-child(2n+1){padding-left:0!important}
+  .dos-col{grid-template-columns:1fr;gap:0}
+  .dos-col > div:first-child{padding-right:0;border-right:none;border-bottom:1px solid var(--tinta);padding-bottom:26px;margin-bottom:26px}
+  .contexto{grid-template-columns:1fr;gap:18px}
+}
+@media (max-width:680px){
+  .masthead{grid-template-columns:auto 1fr auto;gap:10px}
+  .fecha{display:none}
+  .wordmark{font-size:30px}
+  .masthead-der .btn-linea{display:none}
+  .portada{grid-template-columns:1fr}
+  .col-b{border-left:none;padding-left:0;border-top:1px solid var(--tinta);margin-top:24px;padding-top:20px}
+  .col-c{margin-top:20px}
+  .rejilla{grid-template-columns:1fr}
+  .tarjeta{padding:0 0 20px!important;border-right:none!important}
+  .buscar-caja{margin-left:0;width:100%;padding-top:6px}
+  .buscar-caja input{width:100%}
+  .muro-nota{max-height:280px}
+  .pie-grid{grid-template-columns:1fr}
+  .celda-barra{display:none}
+  table.tabla th:nth-child(3),table.tabla td:nth-child(3){display:none}
+  .ranking li{grid-template-columns:28px minmax(0,1fr) auto;gap:12px}
+  .ranking .celda-barra{display:none}
+  .kpi .cifra{font-size:31px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ CABECERA ============ -->
+<header class="cabecera">
+  <div class="contenedor">
+    <div class="masthead">
+      <div class="masthead-izq">
+        <button class="icono-btn" aria-label="Abrir menú">
+          <svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+        <button class="icono-btn" aria-label="Buscar">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+          Buscar
+        </button>
+        <span class="fecha">Martes 25 de agosto de 2026</span>
+      </div>
+      <div class="wordmark">FOJA<small>Derecho · IA · Tecnología</small></div>
+      <div class="masthead-der">
+        <button class="btn-linea" id="btnGuardadas">Guardadas <span id="contadorGuardadas">0</span></button>
+        <a href="#muro" class="btn-lleno">Suscribirme</a>
+        <a href="#" class="btn-linea">Ingresar</a>
+      </div>
+    </div>
+    <nav class="nav" aria-label="Secciones">
+      <a href="#portada">Portada</a>
+      <a href="#seccion" data-nav="derecho">Derecho</a>
+      <a href="#seccion" data-nav="ia">Inteligencia artificial</a>
+      <a href="#seccion" data-nav="tech">Tecnología</a>
+      <a href="#seccion" data-nav="cripto">Cripto</a>
+      <a href="#mapa">Mapa judicial</a>
+      <a href="#dinero">Inversión</a>
+      <a href="#boletin">Boletines</a>
+      <a href="#" class="vivo"><span class="punto"></span>En vivo</a>
+    </nav>
+  </div>
+</header>
+
+<div class="contenedor">
+
+  <!-- ============ PORTADA ============ -->
+  <section class="portada" id="portada">
+
+    <!-- COLUMNA A -->
+    <div class="col-a">
+      <article>
+        <div class="figura">
+          <div class="marco">
+            <strong>Foto de apertura</strong>
+            <span>1600 × 900</span>
+          </div>
+          <p class="epigrafe">Epígrafe de la imagen principal, con crédito del fotógrafo o de la agencia.</p>
+        </div>
+        <span class="kicker original">Nota original</span>
+        <h1 class="titular-principal"><a href="#">El fallo que obliga a declarar cuándo escribió la máquina</a></h1>
+        <p class="bajada">Una sala comercial devolvió un escrito por citas inexistentes y fijó un estándar: quien firma, responde. Qué cambia en la práctica diaria y qué habría que agregar al control de calidad de un estudio chico.</p>
+        <div class="credito">
+          <span class="autor">Por la Redacción de FOJA</span>
+          <span>7 min de lectura</span>
+          <span>Hace 2 horas</span>
+        </div>
+
+        <ul class="relacionadas">
+          <li><a href="#">Qué dicen los tres antecedentes que cita la sala</a></li>
+          <li><a href="#">Cómo verificar una cita en dos minutos antes de presentar</a></li>
+          <li><a href="#">Los colegios profesionales, entre la sanción y la capacitación</a></li>
+        </ul>
+      </article>
+    </div>
+
+    <!-- COLUMNA B -->
+    <div class="col-b">
+      <article class="nota-col">
+        <div class="figura"><div class="marco"><strong>Imagen</strong><span>800 × 450</span></div></div>
+        <span class="kicker">Poder Judicial</span>
+        <h3><a href="#">El PJN amplía el asistente virtual a tres fueros más</a></h3>
+        <p>La prueba piloto pasa de responder consultas generales a buscar dentro del expediente. Los primeros usuarios describen un ahorro real, y también dos límites.</p>
+        <div class="credito"><span>vía abogados.com.ar</span><span>4 min</span></div>
+      </article>
+
+      <article class="nota-col">
+        <span class="kicker">Regulación</span>
+        <h3><a href="#">La CNV define el registro de proveedores de servicios cripto para diciembre</a></h3>
+        <p>Qué obligaciones caen sobre el asesor legal del exchange y cuáles sobre el cliente.</p>
+        <div class="credito"><span>vía Boletín Oficial</span><span>6 min</span></div>
+      </article>
+
+      <article class="nota-col">
+        <span class="kicker original">Nota original</span>
+        <h3><a href="#">Cuánto cuesta hoy automatizar el control de plazos</a></h3>
+        <p>Probamos cinco herramientas durante un mes. Ninguna hizo exactamente lo que promete su sitio.</p>
+        <div class="credito"><span class="autor">Redacción FOJA</span><span>9 min</span></div>
+      </article>
+    </div>
+
+    <!-- COLUMNA C -->
+    <aside class="col-c">
+      <div class="pegado">
+        <div class="ultimo-caja">
+          <h4><span class="punto"></span>Lo último</h4>
+          <ul id="ultimas"></ul>
+          <a href="#" class="ver-todo">Ver toda la cobertura →</a>
+        </div>
+
+        <div class="pub-lateral">
+          <div class="pub-rotulo">Publicidad</div>
+          <div class="pub-caja">
+            <strong>Media page</strong>
+            <span>300 × 600 · venta directa</span>
+          </div>
+          <p class="pub-nota">Único slot de la columna. Se fija al scroll, no se expande ni se recarga.</p>
+        </div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- ============ PUBLICIDAD HORIZONTAL ============ -->
+  <div class="publicidad">
+    <div class="pub-rotulo">Publicidad</div>
+    <div class="pub-caja">
+      <strong>Leaderboard</strong>
+      <span>970 × 250 · venta directa</span>
+    </div>
+    <p class="pub-nota">Un solo corte por página, entre bloques editoriales. Nunca por encima del titular principal.</p>
+  </div>
+
+  <!-- ============ SECCIÓN CON FILTROS ============ -->
+  <section id="seccion">
+    <div class="regla-seccion">
+      <h2>Más noticias</h2>
+      <a href="#">Ver el archivo completo →</a>
+    </div>
+
+    <div class="filtros" role="group" aria-label="Filtrar notas">
+      <button class="filtro" data-tema="todo" aria-pressed="true">Todo</button>
+      <button class="filtro" data-tema="derecho" aria-pressed="false">Derecho</button>
+      <button class="filtro" data-tema="ia" aria-pressed="false">IA</button>
+      <button class="filtro" data-tema="tech" aria-pressed="false">Tecnología</button>
+      <button class="filtro" data-tema="cripto" aria-pressed="false">Cripto</button>
+      <span class="div-filtro"></span>
+      <button class="filtro" data-origen="original" aria-pressed="false">Originales</button>
+      <button class="filtro" data-origen="curado" aria-pressed="false">Curadas</button>
+      <div class="buscar-caja">
+        <input type="search" id="buscador" placeholder="Buscar en esta sección…" aria-label="Buscar notas">
+        <span class="conteo" id="conteo"></span>
+      </div>
+    </div>
+
+    <div class="rejilla" id="rejilla"></div>
+  </section>
+
+  <!-- ============ MAPA JUDICIAL ============ -->
+  <section class="datos" id="mapa">
+    <div class="regla-seccion">
+      <h2>El mapa judicial</h2>
+      <a href="#">Metodología y descarga de datos →</a>
+    </div>
+
+    <div class="datos-intro">
+      <h2>Cuánto tarda, dónde se traba y quién resuelve</h2>
+      <p>Movimiento de causas por fuero, jurisdicción e instancia. Se actualiza con cada publicación oficial de estadísticas.</p>
+    </div>
+
+    <div class="tabs" role="tablist" aria-label="Jurisdicción">
+      <button class="tab" role="tab" data-jur="nacion" aria-selected="true">Justicia Nacional y Federal</button>
+      <button class="tab" role="tab" data-jur="pba" aria-selected="false">Provincia de Buenos Aires</button>
+      <button class="tab" role="tab" data-jur="caba" aria-selected="false">CABA</button>
+      <button class="tab" role="tab" data-jur="cordoba" aria-selected="false">Córdoba</button>
+      <button class="tab" role="tab" data-jur="santafe" aria-selected="false">Santa Fe</button>
+    </div>
+
+    <div class="kpis" id="kpis"></div>
+
+    <table class="tabla">
+      <thead>
+        <tr>
+          <th>Fuero</th>
+          <th>Iniciadas</th>
+          <th>Resueltas</th>
+          <th>Pendientes</th>
+          <th>Duración media</th>
+          <th class="celda-barra" style="text-align:left">Tasa de resolución</th>
+        </tr>
+      </thead>
+      <tbody id="cuerpoFueros"></tbody>
+    </table>
+
+    <div class="regla-seccion" style="margin-top:34px">
+      <h2>Dónde está el expediente</h2>
+      <a href="#">Ver serie histórica →</a>
+    </div>
+
+    <table class="tabla">
+      <thead>
+        <tr>
+          <th>Fuero</th>
+          <th>1.ª instancia</th>
+          <th>Cámara</th>
+          <th>Corte</th>
+          <th class="celda-barra" style="text-align:left">Distribución por instancia</th>
+        </tr>
+      </thead>
+      <tbody id="cuerpoInstancias"></tbody>
+    </table>
+
+    <div class="leyenda">
+      <span><b class="l1"></b>Primera instancia</span>
+      <span><b class="l2"></b>Cámara de apelaciones</span>
+      <span><b class="l3"></b>Corte o superior tribunal</span>
+    </div>
+
+    <p class="nota-fuente">
+      <b>Datos ilustrativos.</b> Las cifras de esta sección son de muestra y están a la espera de conexión con las fuentes oficiales:
+      Estadísticas de la Corte Suprema de Justicia de la Nación, Consejo de la Magistratura, Junta Federal de Cortes y Superiores Tribunales (JuFeJus),
+      SCBA y los superiores tribunales provinciales. Ninguna cifra publicada acá debe usarse como referencia hasta que esa conexión exista.
+    </p>
+  </section>
+
+  <!-- ============ PUBLICIDAD ============ -->
+  <div class="publicidad">
+    <div class="pub-rotulo">Publicidad</div>
+    <div class="pub-caja">
+      <strong>Billboard</strong>
+      <span>970 × 250 · venta directa</span>
+    </div>
+    <p class="pub-nota">Corte entre bloques de datos. Es el inventario con mejor precio: audiencia calificada y contexto de negocios.</p>
+  </div>
+
+  <!-- ============ EL DINERO DEL LEGALTECH ============ -->
+  <section class="datos" id="dinero">
+    <div class="regla-seccion">
+      <h2>El dinero del legaltech</h2>
+      <a href="#">Cómo armamos estos rankings →</a>
+    </div>
+
+    <div class="datos-intro">
+      <h2>Quién vale cuánto y quién está firmando los cheques</h2>
+      <p>Dos tableros que seguimos mes a mes: las compañías de tecnología legal ordenadas por última valuación conocida, y los fondos que más aparecen en las rondas del sector.</p>
+    </div>
+
+    <div class="tabs" role="tablist" aria-label="Ranking">
+      <button class="tab" role="tab" data-rank="startups" aria-selected="true">Startups por valuación</button>
+      <button class="tab" role="tab" data-rank="fondos" aria-selected="false">Fondos más activos</button>
+    </div>
+
+    <ul class="ranking" id="ranking"></ul>
+
+    <div class="contexto">
+      <div><b>US$ 4.300 M</b>Financiamiento global del sector en 2025, un 54 % más que los US$ 2.800 M de 2024.</div>
+      <div><b>28,3 %</b>Crecimiento anual proyectado del software legal con IA hasta 2030, de US$ 3.110 M a US$ 10.820 M.</div>
+      <div><b>US$ 11.700 M</b>Capital acumulado por compañías legaltech de Estados Unidos, el país que más concentra inversión del sector.</div>
+    </div>
+
+    <p class="nota-fuente" id="notaRanking"></p>
+  </section>
+
+  <!-- ============ BOLETÍN ============ -->
+  <section class="boletin" id="boletin">
+    <div>
+      <span class="kicker">Boletín · de lunes a viernes</span>
+      <h2>El resumen de las 8, en tu casilla</h2>
+      <p>Cinco cosas que pasaron ayer en derecho, inteligencia artificial y tecnología, leídas y ordenadas por la redacción. Llega antes de que abra la mesa de entradas.</p>
+      <div class="sponsor-linea">
+        <span>Con el apoyo de</span>
+        <span class="sponsor-hueco">Espacio de sponsor · uno por edición, en texto</span>
+      </div>
+    </div>
+    <div class="boletin-form" id="formBoletin">
+      <label for="correo">Tu correo</label>
+      <input type="email" id="correo" placeholder="vos@correo.com">
+      <input type="text" id="fuero" placeholder="Fuero o especialidad (opcional)" aria-label="Fuero o especialidad">
+      <button id="btnBoletin">Recibir el boletín</button>
+      <p class="legal">Al suscribirte aceptás los <a href="#">términos</a> y la <a href="#">política de privacidad</a>. Te podés dar de baja desde cualquier envío.</p>
+    </div>
+  </section>
+
+  <!-- ============ MURO BLANDO ============ -->
+  <section class="muro" id="muro">
+    <div class="muro-nota">
+      <span class="kicker">Investigación · exclusivo para suscriptores</span>
+      <h2>Radiografía del gasto en software de 40 estudios chicos</h2>
+      <p>Durante seis semanas pedimos a cuarenta estudios de entre uno y quince abogados que nos abrieran su planilla de gastos tecnológicos. El resultado desarma dos ideas muy instaladas: que el estudio chico no invierte, y que lo que invierte se va en software de gestión.</p>
+      <p>El gasto promedio mensual por abogado resultó más alto de lo esperado, pero está fragmentado en siete servicios distintos que nadie unificó nunca. Almacenamiento, firma digital, videollamada, un CRM que se usa a medias, dos suscripciones de IA en cuentas personales y una licencia de gestión que en la mitad de los casos quedó sin migrar desde el escritorio.</p>
+      <p>Cuando pedimos que ordenaran esos gastos por utilidad percibida, la licencia de gestión —el ítem más caro— quedó sexta.</p>
+    </div>
+    <div class="muro-puerta">
+      <h4>Seguí leyendo con una suscripción</h4>
+      <p>Las investigaciones, el informe mensual de mercado y el archivo completo, sin publicidad. Cancelás cuando quieras.</p>
+      <div class="precio">$X.XXX<small>por mes · precio a definir</small></div>
+      <a href="#" class="btn-lleno">Suscribirme</a>
+      <p class="ya-soy">¿Ya sos suscriptor? <a href="#">Ingresá</a>.</p>
+    </div>
+  </section>
+
+  <!-- ============ PIE ============ -->
+  <footer class="pie">
+    <div class="pie-wordmark">FOJA</div>
+    <div class="pie-grid">
+      <div>
+        <h5>Secciones</h5>
+        <ul>
+          <li><a href="#">Derecho</a></li>
+          <li><a href="#">Inteligencia artificial</a></li>
+          <li><a href="#">Tecnología</a></li>
+          <li><a href="#">Cripto y regulación</a></li>
+          <li><a href="#">Fallos comentados</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Suscripción</h5>
+        <ul>
+          <li><a href="#">Planes y precios</a></li>
+          <li><a href="#">Suscripción para estudios</a></li>
+          <li><a href="#">Boletines</a></li>
+          <li><a href="#">Regalar una suscripción</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>El medio</h5>
+        <ul>
+          <li><a href="#">Quiénes somos</a></li>
+          <li><a href="#">Cómo elegimos qué publicar</a></li>
+          <li><a href="#">Correcciones</a></li>
+          <li><a href="#">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Anunciantes</h5>
+        <ul>
+          <li><a href="#">Anunciar en FOJA</a></li>
+          <li><a href="#">Formatos y tarifas</a></li>
+          <li><a href="#">Contenido patrocinado</a></li>
+          <li><a href="#">Auspiciar el boletín</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="pie-legal">
+      <span>© 2026 FOJA</span>
+      <a href="#">Términos</a>
+      <a href="#">Privacidad</a>
+      <a href="#">Cookies</a>
+      <span>Buenos Aires · Argentina</span>
+    </div>
+  </footer>
+</div>
+
+<!-- ============ MEDIDOR ============ -->
+<div class="medidor" id="medidor">
+  <p>Estás leyendo la nota <b>2 de 3</b> gratis este mes.</p>
+  <a href="#muro" class="btn-lleno">Ver planes</a>
+  <button class="medidor-cerrar" id="cerrarMedidor" aria-label="Cerrar aviso">✕</button>
+</div>
+
+<!-- ============ PANEL GUARDADAS ============ -->
+<div class="velo" id="velo"></div>
+<aside class="panel" id="panel" role="dialog" aria-label="Notas guardadas">
+  <div class="panel-cab">
+    <h4>Guardadas</h4>
+    <button id="cerrarPanel">Cerrar ✕</button>
+  </div>
+  <div id="contenidoPanel"></div>
+</aside>
+
+<script>
+/* ---------------- DATOS ---------------- */
+const notas = [
+  {t:"La Corte bonaerense unifica el cómputo de plazos en el portal", d:"La acordada elimina la doble vía entre presentación electrónica y mesa física. Rige desde el primer día hábil de septiembre.", tema:"derecho", origen:"curado", kicker:"Procedimiento", fuente:"vía SCBA", min:4},
+  {t:"Probamos seis asistentes de IA con un escrito real", d:"Les dimos la misma demanda y comparamos qué encontró cada uno. Dos inventaron jurisprudencia; uno detectó un error de cómputo.", tema:"ia", origen:"original", kicker:"Nota original", fuente:"Redacción FOJA", min:9},
+  {t:"Firma digital: qué cambia para el estudio que todavía imprime", d:"El nuevo régimen de conservación documental y los tres puntos a revisar antes de fin de año.", tema:"derecho", origen:"curado", kicker:"Normativa", fuente:"vía Boletín Oficial", min:5},
+  {t:"El mercado legaltech argentino sumó cuatro jugadores en un año", d:"Quién entró, con qué precio y a qué segmento apunta cada uno. El cuadrante accesible sigue casi vacío.", tema:"tech", origen:"original", kicker:"Nota original", fuente:"Redacción FOJA", min:11},
+  {t:"Cripto y sucesiones: el problema de la llave que nadie encuentra", d:"Tres casos recientes muestran que el planeamiento sucesorio todavía no incorporó los activos digitales.", tema:"cripto", origen:"curado", kicker:"Sucesiones", fuente:"vía La Ley", min:6},
+  {t:"Los grandes laboratorios de IA aceleran sus productos para legales", d:"Anuncios de integración con repositorios documentales. Qué implica para los proveedores locales.", tema:"ia", origen:"curado", kicker:"Industria", fuente:"vía artificiallawyer.com", min:3},
+  {t:"Cómo quedó el índice de actualización de honorarios en agosto", d:"La tabla mes a mes, la comparación interanual y el efecto sobre las regulaciones pendientes.", tema:"derecho", origen:"original", kicker:"Nota original", fuente:"Redacción FOJA", min:4},
+  {t:"Un juzgado rechazó una pericia informática por cadena de custodia", d:"El fallo detalla qué se esperaba del acta de secuestro del dispositivo. Lectura obligatoria para penalistas.", tema:"derecho", origen:"curado", kicker:"Fallos", fuente:"vía Diario Judicial", min:5},
+  {t:"El costo real de migrar un estudio de diez abogados a la nube", d:"Hablamos con tres estudios que lo hicieron. Ninguno terminó en el plazo que había estimado.", tema:"tech", origen:"original", kicker:"Nota original", fuente:"Redacción FOJA", min:8},
+  {t:"Stablecoins en contratos comerciales: cláusulas que ya se usan", d:"Modelos de cláusula de pago, ajuste y resolución que aparecen en operaciones locales.", tema:"cripto", origen:"curado", kicker:"Contratos", fuente:"vía Erreius", min:7},
+  {t:"Las universidades suman inteligencia artificial al grado", d:"UBA, UNLP y UNR anunciaron materias específicas. Qué se enseña y qué falta.", tema:"ia", origen:"curado", kicker:"Formación", fuente:"vía medios", min:4},
+  {t:"Notificaciones electrónicas: el error de configuración más común", d:"Revisamos consultas de matriculados y aparece siempre el mismo punto. Se resuelve en dos minutos.", tema:"tech", origen:"original", kicker:"Nota original", fuente:"Redacción FOJA", min:3}
+];
+
+const ultimas = [
+  {h:"Hace 12 min", t:"Feriado judicial: confirman asueto para el viernes"},
+  {h:"Hace 48 min", t:"Se cae el portal del PJN por mantenimiento no anunciado"},
+  {h:"Hace 1 h", t:"ARCA publica el nuevo régimen informativo de billeteras virtuales"},
+  {h:"Hace 2 h", t:"Rechazan un escrito con citas generadas por IA"},
+  {h:"Hace 3 h", t:"El CPACF abre la inscripción a la diplomatura en legaltech"},
+  {h:"Hace 4 h", t:"Suben los montos mínimos para juicios ejecutivos"}
+];
+
+/* ---------------- LO ÚLTIMO ---------------- */
+document.getElementById('ultimas').innerHTML = ultimas.map(u =>
+  `<li><span class="sello-hora">${u.h}</span><a href="#">${u.t}</a></li>`
+).join('');
+
+/* ---------------- REJILLA ---------------- */
+const rejilla = document.getElementById('rejilla');
+const iconoGuardar = '<svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-5-6 5V3z"/></svg>';
+
+rejilla.innerHTML = notas.map((n,i) => `
+  <article class="tarjeta" data-tema="${n.tema}" data-origen="${n.origen}"
+           data-texto="${(n.t+' '+n.d+' '+n.fuente+' '+n.kicker).toLowerCase()}">
+    <div class="marco"><strong>Imagen</strong><span>600 × 400</span></div>
+    <span class="kicker ${n.origen === 'original' ? 'original' : ''}">${n.kicker}</span>
+    <h3><a href="#">${n.t}</a></h3>
+    <p>${n.d}</p>
+    <div class="pie-tarjeta">
+      <span>${n.fuente}</span>
+      <span>${n.min} min</span>
+      <button class="guardar" data-i="${i}" aria-pressed="false" aria-label="Guardar nota">${iconoGuardar}Guardar</button>
+    </div>
+  </article>
+`).join('') + `
+  <div class="sin-resultados" id="sinResultados" style="display:none">
+    <p>No encontramos notas con ese criterio</p>
+    <span>Probá con otro término o volvé a "Todo".</span>
+  </div>`;
+
+/* ---------------- FILTROS ---------------- */
+let temaActivo = 'todo', origenActivo = null;
+const buscador = document.getElementById('buscador');
+const conteo = document.getElementById('conteo');
+
+function aplicar(){
+  const q = buscador.value.trim().toLowerCase();
+  let visibles = 0;
+  document.querySelectorAll('.tarjeta').forEach(el => {
+    const ok = (temaActivo === 'todo' || el.dataset.tema === temaActivo)
+            && (!origenActivo || el.dataset.origen === origenActivo)
+            && (!q || el.dataset.texto.includes(q));
+    el.classList.toggle('oculta', !ok);
+    if (ok) visibles++;
+  });
+  document.getElementById('sinResultados').style.display = visibles ? 'none' : 'block';
+  conteo.textContent = visibles + (visibles === 1 ? ' nota' : ' notas');
+}
+
+document.querySelectorAll('.filtro').forEach(b => {
+  b.addEventListener('click', () => {
+    if (b.dataset.tema){
+      temaActivo = b.dataset.tema;
+      document.querySelectorAll('.filtro[data-tema]').forEach(x => x.setAttribute('aria-pressed', x === b));
+    } else {
+      const ya = b.getAttribute('aria-pressed') === 'true';
+      origenActivo = ya ? null : b.dataset.origen;
+      document.querySelectorAll('.filtro[data-origen]').forEach(x => x.setAttribute('aria-pressed', !ya && x === b));
+    }
+    aplicar();
+  });
+});
+buscador.addEventListener('input', aplicar);
+document.querySelectorAll('[data-nav]').forEach(a => a.addEventListener('click', () => {
+  const b = document.querySelector(`.filtro[data-tema="${a.dataset.nav}"]`);
+  if (b) b.click();
+}));
+aplicar();
+
+/* ---------------- GUARDAR ---------------- */
+const guardadas = new Set();
+const contador = document.getElementById('contadorGuardadas');
+
+rejilla.addEventListener('click', e => {
+  const b = e.target.closest('.guardar');
+  if (!b) return;
+  const i = Number(b.dataset.i);
+  const activo = b.getAttribute('aria-pressed') === 'true';
+  if (activo){ guardadas.delete(i); b.setAttribute('aria-pressed','false'); b.innerHTML = iconoGuardar + 'Guardar'; }
+  else { guardadas.add(i); b.setAttribute('aria-pressed','true'); b.innerHTML = iconoGuardar + 'Guardada'; }
+  contador.textContent = guardadas.size;
+  pintarPanel();
+});
+
+function pintarPanel(){
+  const c = document.getElementById('contenidoPanel');
+  if (!guardadas.size){
+    c.innerHTML = '<p class="panel-vacio">Todavía no guardaste ninguna nota.<br><br>Tocá el marcador en cualquier tarjeta y queda acá para leerla después.</p>';
+    return;
+  }
+  c.innerHTML = '<ul>' + [...guardadas].map(i =>
+    `<li>${notas[i].t}<em>${notas[i].min} min · ${notas[i].fuente}</em></li>`).join('') + '</ul>';
+}
+pintarPanel();
+
+const panel = document.getElementById('panel'), velo = document.getElementById('velo');
+function abrir(v){ panel.classList.toggle('abierto', v); velo.classList.toggle('visible', v); }
+document.getElementById('btnGuardadas').addEventListener('click', () => abrir(true));
+document.getElementById('cerrarPanel').addEventListener('click', () => abrir(false));
+velo.addEventListener('click', () => abrir(false));
+document.addEventListener('keydown', e => { if (e.key === 'Escape') abrir(false); });
+
+/* ---------------- BOLETÍN ---------------- */
+document.getElementById('btnBoletin').addEventListener('click', () => {
+  const correo = document.getElementById('correo').value.trim();
+  const campo = document.getElementById('correo');
+  if (!correo.includes('@')){
+    campo.style.borderColor = '#d0021b';
+    campo.placeholder = 'Falta un correo válido';
+    campo.value = '';
+    return;
+  }
+  document.getElementById('formBoletin').innerHTML =
+    `<div class="boletin-ok"><b>Listo.</b><br>Mañana a las 8 llega la primera edición a ${correo}. Podés darte de baja desde cualquier envío.</div>`;
+});
+
+/* ================= MAPA JUDICIAL ================= */
+/* DATOS DE MUESTRA — reemplazar por el feed de estadísticas oficiales */
+const jurisdicciones = {
+  nacion:{
+    kpis:[
+      {c:"412.800", r:"Causas iniciadas en el año", v:"+6,2 % interanual", t:"sube"},
+      {c:"11,4", r:"Meses de duración media hasta sentencia", v:"−0,8 mes contra el año pasado", t:"sube"},
+      {c:"87 %", r:"Tasa de resolución sobre lo iniciado", v:"+3 puntos", t:"sube"},
+      {c:"96 %", r:"Expedientes tramitados en formato digital", v:"+11 puntos", t:"sube"}
+    ],
+    fueros:[
+      {f:"Civil", i:118400, r:104200, p:52100, d:"14,2 meses"},
+      {f:"Comercial", i:74600, r:69800, p:31400, d:"12,8 meses"},
+      {f:"Laboral", i:68900, r:57300, p:44700, d:"19,6 meses"},
+      {f:"Penal", i:83200, r:76100, p:28900, d:"9,4 meses"},
+      {f:"Contencioso administrativo federal", i:41300, r:33900, p:37200, d:"22,1 meses"},
+      {f:"Seguridad social", i:26400, r:21700, p:29800, d:"25,3 meses"}
+    ],
+    instancias:[
+      {f:"Civil", a:78, b:18, c:4},
+      {f:"Comercial", a:74, b:22, c:4},
+      {f:"Laboral", a:66, b:28, c:6},
+      {f:"Penal", a:81, b:16, c:3},
+      {f:"Contencioso administrativo federal", a:61, b:30, c:9},
+      {f:"Seguridad social", a:57, b:31, c:12}
+    ]
+  },
+  pba:{
+    kpis:[
+      {c:"388.100", r:"Causas iniciadas en el año", v:"+4,8 % interanual", t:"sube"},
+      {c:"13,7", r:"Meses de duración media hasta sentencia", v:"+0,4 mes contra el año pasado", t:"baja"},
+      {c:"82 %", r:"Tasa de resolución sobre lo iniciado", v:"−1 punto", t:"baja"},
+      {c:"99 %", r:"Expedientes tramitados en formato digital", v:"+2 puntos", t:"sube"}
+    ],
+    fueros:[
+      {f:"Civil y Comercial", i:142700, r:118300, p:71600, d:"16,4 meses"},
+      {f:"Laboral", i:71200, r:56400, p:58900, d:"21,8 meses"},
+      {f:"Familia", i:64800, r:59100, p:26300, d:"8,9 meses"},
+      {f:"Penal", i:69400, r:61200, p:33100, d:"11,7 meses"},
+      {f:"Contencioso administrativo", i:24300, r:17800, p:26400, d:"27,5 meses"},
+      {f:"Paz letrada", i:15700, r:14900, p:5200, d:"6,2 meses"}
+    ],
+    instancias:[
+      {f:"Civil y Comercial", a:76, b:20, c:4},
+      {f:"Laboral", a:63, b:30, c:7},
+      {f:"Familia", a:84, b:14, c:2},
+      {f:"Penal", a:79, b:17, c:4},
+      {f:"Contencioso administrativo", a:58, b:33, c:9},
+      {f:"Paz letrada", a:91, b:8, c:1}
+    ]
+  },
+  caba:{
+    kpis:[
+      {c:"96.400", r:"Causas iniciadas en el año", v:"+9,1 % interanual", t:"sube"},
+      {c:"9,8", r:"Meses de duración media hasta sentencia", v:"−1,2 meses contra el año pasado", t:"sube"},
+      {c:"91 %", r:"Tasa de resolución sobre lo iniciado", v:"+5 puntos", t:"sube"},
+      {c:"100 %", r:"Expedientes tramitados en formato digital", v:"sin cambios", t:""}
+    ],
+    fueros:[
+      {f:"Contencioso, administrativo y tributario", i:38600, r:35100, p:14200, d:"11,3 meses"},
+      {f:"Penal, contravencional y de faltas", i:44700, r:41900, p:12800, d:"7,6 meses"},
+      {f:"Consumo", i:13100, r:12400, p:3900, d:"5,8 meses"}
+    ],
+    instancias:[
+      {f:"Contencioso, administrativo y tributario", a:69, b:25, c:6},
+      {f:"Penal, contravencional y de faltas", a:83, b:14, c:3},
+      {f:"Consumo", a:88, b:11, c:1}
+    ]
+  },
+  cordoba:{
+    kpis:[
+      {c:"131.900", r:"Causas iniciadas en el año", v:"+3,4 % interanual", t:"sube"},
+      {c:"12,1", r:"Meses de duración media hasta sentencia", v:"−0,3 mes contra el año pasado", t:"sube"},
+      {c:"85 %", r:"Tasa de resolución sobre lo iniciado", v:"+2 puntos", t:"sube"},
+      {c:"94 %", r:"Expedientes tramitados en formato digital", v:"+7 puntos", t:"sube"}
+    ],
+    fueros:[
+      {f:"Civil y Comercial", i:52300, r:46800, p:21400, d:"14,7 meses"},
+      {f:"Laboral", i:27600, r:22100, p:19800, d:"18,9 meses"},
+      {f:"Familia", i:24900, r:23600, p:8100, d:"7,4 meses"},
+      {f:"Penal", i:27100, r:24300, p:10600, d:"10,2 meses"}
+    ],
+    instancias:[
+      {f:"Civil y Comercial", a:77, b:19, c:4},
+      {f:"Laboral", a:65, b:29, c:6},
+      {f:"Familia", a:86, b:12, c:2},
+      {f:"Penal", a:80, b:17, c:3}
+    ]
+  },
+  santafe:{
+    kpis:[
+      {c:"104.200", r:"Causas iniciadas en el año", v:"+5,6 % interanual", t:"sube"},
+      {c:"13,2", r:"Meses de duración media hasta sentencia", v:"+0,2 mes contra el año pasado", t:"baja"},
+      {c:"83 %", r:"Tasa de resolución sobre lo iniciado", v:"sin cambios", t:""},
+      {c:"89 %", r:"Expedientes tramitados en formato digital", v:"+14 puntos", t:"sube"}
+    ],
+    fueros:[
+      {f:"Civil y Comercial", i:41800, r:36200, p:18700, d:"15,9 meses"},
+      {f:"Laboral", i:23400, r:18900, p:17300, d:"20,4 meses"},
+      {f:"Familia", i:21600, r:20400, p:7200, d:"8,1 meses"},
+      {f:"Penal", i:17400, r:15800, p:6900, d:"10,8 meses"}
+    ],
+    instancias:[
+      {f:"Civil y Comercial", a:75, b:21, c:4},
+      {f:"Laboral", a:64, b:30, c:6},
+      {f:"Familia", a:85, b:13, c:2},
+      {f:"Penal", a:78, b:19, c:3}
+    ]
+  }
+};
+
+const nf = new Intl.NumberFormat('es-AR');
+
+function pintarJurisdiccion(clave){
+  const d = jurisdicciones[clave];
+
+  document.getElementById('kpis').innerHTML = d.kpis.map(k => `
+    <div class="kpi">
+      <div class="cifra">${k.c}</div>
+      <div class="rot">${k.r}</div>
+      <div class="var ${k.t}">${k.v}</div>
+    </div>`).join('');
+
+  const maxTasa = 100;
+  document.getElementById('cuerpoFueros').innerHTML = d.fueros.map(f => {
+    const tasa = Math.round(f.r / f.i * 100);
+    return `<tr>
+      <td>${f.f}</td>
+      <td>${nf.format(f.i)}</td>
+      <td>${nf.format(f.r)}</td>
+      <td>${nf.format(f.p)}</td>
+      <td>${f.d}</td>
+      <td class="celda-barra">
+        <div class="barra-fondo"><div class="barra" data-w="${tasa / maxTasa * 100}"></div></div>
+        <span style="font-size:11px;color:var(--gris-tenue);display:block;margin-top:4px">${tasa} %</span>
+      </td>
+    </tr>`;
+  }).join('');
+
+  document.getElementById('cuerpoInstancias').innerHTML = d.instancias.map(f => `
+    <tr>
+      <td>${f.f}</td>
+      <td>${f.a} %</td>
+      <td>${f.b} %</td>
+      <td>${f.c} %</td>
+      <td class="celda-barra">
+        <div class="pila"><i data-w="${f.a}"></i><i data-w="${f.b}"></i><i data-w="${f.c}"></i></div>
+      </td>
+    </tr>`).join('');
+
+  requestAnimationFrame(() => {
+    document.querySelectorAll('#mapa [data-w]').forEach(b => b.style.width = b.dataset.w + '%');
+  });
+}
+
+document.querySelectorAll('[data-jur]').forEach(t => {
+  t.addEventListener('click', () => {
+    document.querySelectorAll('[data-jur]').forEach(x => x.setAttribute('aria-selected', x === t));
+    pintarJurisdiccion(t.dataset.jur);
+  });
+});
+pintarJurisdiccion('nacion');
+
+/* ================= RANKINGS ================= */
+const startups = [
+  {n:"Harvey", d:"Asistente de IA para grandes estudios · San Francisco", v:11000, e:"mar 2026", nota:"En conversaciones por US$ 15.500 M"},
+  {n:"Legora", d:"Espacio de trabajo colaborativo con IA · Estocolmo", v:5600, e:"abr 2026", nota:"Superó los US$ 100 M de ARR en su tercer año"},
+  {n:"Clio", d:"Gestión de estudios, facturación y pagos · Vancouver", v:5000, e:"nov 2025", nota:"Tras la compra de vLex; hay reportes que la ubican en US$ 3.000 M"},
+  {n:"Relativity", d:"eDiscovery y revisión documental · Chicago", v:3600, e:"2021", nota:"Última valuación conocida, sin actualizar"},
+  {n:"Ironclad", d:"Gestión del ciclo de vida de contratos · San Francisco", v:3200, e:"2022", nota:"Cifra sin revisar desde la ronda de 2022"},
+  {n:"Filevine", d:"Gestión de casos para litigio · Salt Lake City", v:3000, e:"sep 2025", nota:"Valuación estimada, no confirmada por la compañía"},
+  {n:"EvenUp", d:"Documentación de daños en litigio civil · San Francisco", v:2000, e:"oct 2025", nota:"Piso declarado: más de US$ 2.000 M"},
+  {n:"Eve", d:"IA para estudios de parte actora · San Francisco", v:1000, e:"sep 2025", nota:"Piso declarado: más de US$ 1.000 M"}
+];
+
+const fondos = [
+  {n:"The LegalTech Fund", d:"Único fondo dedicado en exclusiva a tecnología legal", v:"US$ 110 M", e:"Fondo II · nov 2025", nota:"Cuadruplicó el tamaño de su primer fondo"},
+  {n:"Sequoia Capital", d:"Multietapa · Estados Unidos", v:"Harvey", e:"Colideró la ronda de US$ 11.000 M", nota:"Junto al fondo soberano GIC de Singapur"},
+  {n:"Accel", d:"Multietapa · Estados Unidos y Europa", v:"Legora", e:"Lideró la Serie D de US$ 550 M", nota:"Marzo de 2026"},
+  {n:"Bessemer Venture Partners", d:"Multietapa · Estados Unidos", v:"Legora", e:"Participó en la Serie D", nota:"Inversor recurrente del sector"},
+  {n:"Menlo Ventures", d:"Multietapa · Estados Unidos", v:"Eve · EvenUp", e:"Dos compañías del ranking", nota:"Enfocado en flujos de trabajo de litigio"},
+  {n:"Andreessen Horowitz", d:"Multietapa · Estados Unidos", v:"Eve", e:"Lideró la Serie A de US$ 47 M", nota:"Uno de los nombres más activos del sector"},
+  {n:"General Catalyst", d:"Multietapa · Estados Unidos", v:"Legora", e:"Participó en la Serie D", nota:""},
+  {n:"Kleiner Perkins", d:"Multietapa · Estados Unidos", v:"Harvey", e:"Inversor recurrente", nota:""},
+  {n:"Bain Capital Ventures", d:"Multietapa · Estados Unidos", v:"EvenUp", e:"Lideró la Serie D de US$ 135 M", nota:""},
+  {n:"Insight Partners", d:"Etapa de crecimiento · Estados Unidos", v:"Cartera amplia", e:"Más de 1.200 compañías", nota:"Activo en software empresarial y legaltech"}
+];
+
+const notaStartups = `<b>Fuentes:</b> TechCrunch, Artificial Lawyer, New Market Pitch y reportes de prensa especializada, con datos públicos hasta julio de 2026.
+  Las valuaciones corresponden a la última ronda informada y no son comparables entre sí: algunas son de 2021 o 2022 y no se actualizaron desde entonces.
+  Varias compañías no publican su valuación, por lo que parte de las cifras son estimaciones cruzadas entre fuentes y pueden diferir según el medio que las informe.`;
+
+const notaFondos = `<b>Fuentes:</b> New Market Pitch, Crunchbase News y anuncios de las propias compañías, con datos públicos hasta julio de 2026.
+  El orden refleja frecuencia de aparición en rondas del sector y peso de las operaciones lideradas, no capital bajo administración.
+  No es una recomendación de inversión ni una evaluación del desempeño de ningún fondo.`;
+
+function pintarRanking(cual){
+  const lista = document.getElementById('ranking');
+  if (cual === 'startups'){
+    const tope = startups[0].v;
+    lista.innerHTML = startups.map((s,i) => `
+      <li>
+        <span class="puesto">${i+1}</span>
+        <span class="nombre">${s.n}<em>${s.d}</em></span>
+        <span class="monto">US$ ${nf.format(s.v)} M<small>${s.e}</small></span>
+        <span class="celda-barra">
+          <div class="barra-fondo"><div class="barra" data-w="${s.v/tope*100}"></div></div>
+          <span style="font-family:var(--sans);font-size:10.5px;color:var(--gris-tenue);display:block;margin-top:5px;line-height:1.35">${s.nota}</span>
+        </span>
+      </li>`).join('');
+    document.getElementById('notaRanking').innerHTML = notaStartups;
+  } else {
+    lista.innerHTML = fondos.map((f,i) => `
+      <li>
+        <span class="puesto">${i+1}</span>
+        <span class="nombre">${f.n}<em>${f.d}</em></span>
+        <span class="monto" style="font-size:15px">${f.v}<small>${f.e}</small></span>
+        <span class="celda-barra">
+          <span style="font-family:var(--sans);font-size:10.5px;color:var(--gris-tenue);line-height:1.35">${f.nota}</span>
+        </span>
+      </li>`).join('');
+    document.getElementById('notaRanking').innerHTML = notaFondos;
+  }
+  requestAnimationFrame(() => {
+    document.querySelectorAll('#ranking [data-w]').forEach(b => b.style.width = b.dataset.w + '%');
+  });
+}
+
+document.querySelectorAll('[data-rank]').forEach(t => {
+  t.addEventListener('click', () => {
+    document.querySelectorAll('[data-rank]').forEach(x => x.setAttribute('aria-selected', x === t));
+    pintarRanking(t.dataset.rank);
+  });
+});
+pintarRanking('startups');
+
+/* ---------------- MEDIDOR ---------------- */
+const medidor = document.getElementById('medidor');
+let mostrado = false;
+window.addEventListener('scroll', () => {
+  if (!mostrado && window.scrollY > 900){ medidor.classList.add('visible'); mostrado = true; }
+}, {passive:true});
+document.getElementById('cerrarMedidor').addEventListener('click', () => medidor.classList.remove('visible'));
+</script>
+</body>
+</html>
