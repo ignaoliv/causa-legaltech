@@ -1,5 +1,10 @@
 {
   "redirects": [
-    { "source": "/", "destination": "/donna/", "permanent": false }
+    { "source": "/", "destination": "/donna/", "permanent": false },
+    { "source": "/index.html", "destination": "/donna/", "permanent": true },
+    { "source": "/historia.html", "destination": "/donna/historia.html", "permanent": true },
+    { "source": "/legaltech-argentina.html", "destination": "/donna/legaltech-argentina.html", "permanent": true },
+    { "source": "/prd-fuero-legaltech.html", "destination": "/donna/prd-fuero-legaltech.html", "permanent": true },
+    { "source": "/fuero-artifacts.html", "destination": "/donna/fuero-artifacts.html", "permanent": true }
   ]
 }
