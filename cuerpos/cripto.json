@@ -1,0 +1,283 @@
+[
+ {
+  "id": "damnificados-de-libra-llevan-a-casacion-su-pelea-por-ser-que",
+  "titulo": "Los inversores de $LIBRA van a Casación por su rol de querellantes",
+  "bajada": "Cinco damnificados recurrieron el fallo que los dejó afuera de la causa por el token que promocionó Javier Milei. En el fondo se discute qué prueba debe aportar la víctima de una criptoestafa.",
+  "meta_description": "Los damnificados de $LIBRA recurrieron a Casación para ser querellantes: qué prueba exige la Justicia a la víctima de una criptoestafa y cómo armarla.",
+  "sumario": [
+   "Los cinco inversores excluidos presentaron recursos ante la Cámara Federal de Casación Penal para recuperar el rol de parte querellante.",
+   "La Sala I entendió que asumieron el riesgo del activo y que sin verificación de identidad no acreditaron la titularidad de sus billeteras.",
+   "Sin querella admitida, la causa queda impulsada solo por el fiscal Eduardo Taiano y el damnificado pierde el control de la prueba."
+  ],
+  "cuerpo_html": "<p>Los cinco inversores que se consideran damnificados por el token $LIBRA presentaron el 16 de septiembre recursos de casación para volver a ser querellantes en la causa federal. La jugada importa más allá de este expediente. Lo que está en discusión es qué tiene que probar una persona que perdió plata con un criptoactivo para que la Justicia argentina la reconozca como víctima.</p>\n<p>Alan Vega, Braian Emanuel Quintero, Matías Alejandro Paris, Juan Patricio Marchetto y Martín Romeo habían sido apartados el 3 de julio por el juez federal Marcelo Martínez de Giorgi. La Sala I de la Cámara Federal porteña, integrada por Pablo Bertuzzi y Mariano Llorens, confirmó esa exclusión el 4 de septiembre. Ahora piden que la Cámara Federal de Casación Penal revise el criterio. Varios de ellos están patrocinados por el diputado Juan Grabois y por el abogado Nicolás Oszust. Según informó Infobae, los recursos buscan recuperar la facultad de controlar la prueba y de proponer medidas de investigación.</p>\n<h2>El estándar probatorio que fijó la Cámara</h2>\n<p>El eje del fallo confirmatorio es la ausencia de engaño acreditado. Para la Sala I, los inversores asumieron de manera voluntaria el riesgo de operar con un activo volátil y sin regulación específica. No alcanzó con demostrar la pérdida patrimonial. Había que demostrar la maniobra concreta que los indujo a comprar.</p>\n<p>El segundo obstáculo es el que más debería preocupar a quien litiga. Las billeteras usadas sobre la red Solana no tenían procesos de verificación de identidad. Sin ese registro, el tribunal entendió que no quedaba acreditada la titularidad de las cuentas desde las que se hicieron las compras. Uno de los recurrentes, Martín Romeo, había acompañado actas notariales que certificaban su acceso a billeteras Phantom y Lemon con transacciones registradas. No fue suficiente.</p>\n<p>Grabois calificó la decisión como <strong>\"prematura y contradictoria\"</strong> y sostuvo que el tribunal equiparó \"erróneamente el riesgo de una inversión con un plan delictivo pre-programado\". El planteo de los recursos es que el análisis sobre la existencia del ardid corresponde al juicio y no a la etapa de admisión de la querella. Suman un dato incómodo para el tribunal: en marzo de 2025 la Sala II de la misma Cámara los había reconocido como parte.</p>\n<h2>Qué cambia en la práctica profesional</h2>\n<p>Si asesora a alguien que perdió dinero con un token, el fallo marca la carpeta que hay que armar antes de presentarse. Primero, la trazabilidad de la titularidad. Conviene privilegiar la prueba que viene de un proveedor con verificación de identidad, porque el registro del exchange es el respaldo más sólido de que la billetera es del cliente. Segundo, la prueba del engaño concreto. La caída de la cotización no es un ardid. Hay que documentar la pieza de promoción específica que motivó la compra, con fecha y hora, y la secuencia entre ese mensaje y la orden.</p>\n<p>La advertencia al cliente tiene que ser directa. Haber comprado un token porque una figura pública lo mencionó no genera, por sí solo, derecho a querellar. La prueba se construye antes y no después del reclamo. Capturas fechadas, acta notarial sobre el dispositivo, extractos del proveedor de servicios de activos virtuales, correos de confirmación y los identificadores de cada transacción en la cadena. Todo eso se junta el mismo día del hecho, no seis meses más tarde.</p>\n<p>También conviene explicar el costo procesal de quedar afuera. Sin querella admitida, el damnificado no controla la prueba, no propone medidas y no recurre de manera autónoma. Queda atado al ritmo de la fiscalía. En esta causa, el fiscal Eduardo Taiano es el único que impulsa la acción penal, porque el juez además rechazó a legisladores opositores como acusadores particulares. La vía civil por daños y el reporte ante la Unidad de Información Financiera (UIF) siguen abiertos y no dependen de esa admisión.</p>\n<h2>El expediente y lo que viene</h2>\n<p>La investigación gira alrededor del lanzamiento del token, el 14 de febrero de 2025, y de su difusión por el presidente Javier Milei en la red X. La cotización trepó de centavos a casi cinco dólares y se derrumbó enseguida. Entre los imputados figuran el trader Mauricio Gaspar Novelli y Hayden Mark Davis.</p>\n<p>La decisión de Casación va a funcionar como referencia en los próximos reclamos por criptoestafas. Si se confirma el criterio actual, la legitimación de la víctima quedará atada a un estándar de prueba alto y exigido en forma temprana. No conviene esperar ese fallo para ordenar la documentación de los clientes. Quien opera con criptoactivos hoy debería conservar, desde el primer movimiento, todo lo que mañana necesitaría para acreditar que la billetera es suya.</p>",
+  "faq": [
+   {
+    "p": "¿Qué tiene que probar un inversor para ser querellante en una causa por criptoestafa?",
+    "r": "Necesita acreditar dos cosas. Primero, la titularidad de la billetera desde la que operó, algo difícil cuando no hubo verificación de identidad. Segundo, un engaño concreto que lo indujo a comprar, y no solamente la pérdida por la caída del precio. La Sala I de la Cámara Federal aplicó ese estándar en la causa $LIBRA."
+   },
+   {
+    "p": "¿Sirve un acta notarial para acreditar la titularidad de una billetera virtual?",
+    "r": "Ayuda, pero no siempre alcanza. En la causa $LIBRA un inversor acompañó actas notariales sobre su acceso a billeteras Phantom y Lemon y el tribunal igual lo apartó. El acta prueba el acceso en un momento dado. Conviene combinarla con extractos de un proveedor que aplique verificación de identidad y con los identificadores de cada transacción."
+   },
+   {
+    "p": "¿Qué pasa con una causa penal si ningún particular es admitido como querellante?",
+    "r": "La acción penal queda exclusivamente en manos del Ministerio Público Fiscal. En el expediente por $LIBRA la impulsa el fiscal Eduardo Taiano. Sin querella admitida, el damnificado no controla la prueba, no propone medidas de investigación y no recurre por sí mismo. Le queda el reclamo patrimonial por la vía civil, que corre por separado."
+   }
+  ],
+  "entidades": [
+   "$LIBRA",
+   "Cámara Federal de Casación Penal",
+   "Sala I de la Cámara Federal porteña",
+   "Marcelo Martínez de Giorgi",
+   "Pablo Bertuzzi",
+   "Mariano Llorens",
+   "Eduardo Taiano",
+   "Juan Grabois",
+   "Nicolás Oszust",
+   "Martín Romeo",
+   "Mauricio Gaspar Novelli",
+   "Hayden Mark Davis",
+   "Javier Milei",
+   "Infobae",
+   "Unidad de Información Financiera (UIF)"
+  ],
+  "keywords": [
+   "querellante criptoestafa",
+   "caso LIBRA casación",
+   "damnificados LIBRA querella",
+   "prueba titularidad billetera cripto",
+   "estafa con tokens Argentina",
+   "legitimación víctima cripto"
+  ],
+  "palabras": 764
+ },
+ {
+  "id": "argentina-adhiere-al-carf-arca-recibira-datos-de-cripto-en-e",
+  "titulo": "Argentina adhiere al CARF y ARCA verá las cripto del cliente en el exterior",
+  "bajada": "El país se comprometió ante la OCDE a intercambiar datos fiscales de criptoactivos a más tardar en septiembre de 2029. La cuenta en un exchange del exterior deja de ser invisible.",
+  "meta_description": "Argentina adhirió al CARF de la OCDE y ARCA recibirá datos de criptoactivos del exterior desde 2029: qué se informa y qué conviene revisar con el cliente.",
+  "sumario": [
+   "Argentina se comprometió ante la OCDE a aplicar el CARF e iniciar el intercambio automático de datos cripto a más tardar en septiembre de 2029.",
+   "Se informan nombre, domicilio, residencia fiscal, número de identificación tributaria y montos de compras, ventas y transferencias por tipo de criptoactivo.",
+   "No se crea un impuesto nuevo, pero ARCA podrá contrastar esos datos contra las declaraciones juradas presentadas por el contribuyente."
+  ],
+  "cuerpo_html": "<p>Argentina se comprometió ante la Organización para la Cooperación y el Desarrollo Económicos a implementar el Marco de Reporte sobre Criptoactivos, conocido por su sigla en inglés CARF, e iniciar el intercambio automático de información fiscal a más tardar en septiembre de 2029. El anuncio se conoció el 15 de septiembre de 2026. Cambia una premisa que muchos clientes todavía dan por cierta: que una cuenta abierta en una plataforma del exterior queda fuera del alcance del fisco argentino.</p>\n<p>Como resumió iProUP al informar la novedad, ARCA va a recibir información sobre operaciones con criptomonedas realizadas en el exterior. No es una nueva obligación de pago. Es una nueva fuente de datos, y en materia tributaria eso suele pesar más.</p>\n<h2>Qué es el CARF y qué se informa</h2>\n<p>El CARF es el estándar que la OCDE desarrolló con respaldo del G20 para extender al sector cripto la lógica que ya rige para las cuentas bancarias. Esa lógica es la del Common Reporting Standard, el CRS, vigente desde 2014, que permitió a las administraciones tributarias cruzar saldos y rentas de residentes en el exterior sin necesidad de pedidos caso por caso.</p>\n<p>La información que viaja incluye nombre, domicilio, jurisdicción de residencia fiscal y número de identificación tributaria del titular. A eso se suman los montos de compras, ventas y transferencias, discriminados por tipo de criptoactivo. Es decir que la autoridad fiscal no recibe solo un saldo. Recibe el movimiento.</p>\n<p>Los sujetos obligados a reportar son las plataformas de intercambio, los intermediarios y los operadores que facilitan compras, ventas o canjes de criptoactivos por cuenta de clientes. Según el Foro Global sobre Transparencia Fiscal, ya son 77 las jurisdicciones que asumieron compromisos para aplicar el estándar entre 2027 y 2029. Argentina quedó en el tramo final de ese calendario.</p>\n<h2>Impacto en la práctica profesional</h2>\n<p>El plazo largo es una trampa. Septiembre de 2029 parece lejos, pero los períodos fiscales que hoy se están declarando van a seguir abiertos y podrán contrastarse contra la información que llegue. El trabajo empieza ahora.</p>\n<p>Lo primero es hacer un inventario por cliente. Qué plataformas usa, en qué jurisdicción están constituidas, qué cuentas tiene abiertas y desde cuándo. Muchos contribuyentes no recuerdan cuentas abiertas hace años con montos chicos, y esas también se informan. Lo segundo es revisar las declaraciones juradas de los períodos no prescriptos y detectar diferencias entre lo declarado y lo que efectivamente se movió.</p>\n<p>La conversación con el cliente conviene tenerla en estos términos. El CARF no crea un tributo. Lo que hace es eliminar la asimetría de información en la que se apoyaba la omisión. Declarar bien de ahora en adelante y corregir hacia atrás, cuando haya herramientas para hacerlo, es más barato que discutir una determinación de oficio con datos aportados por una administración extranjera.</p>\n<p>Hay dos advertencias adicionales que vale la pena poner por escrito. Mover fondos a autocustodia después de que ocurrió el hecho imponible no borra ese hecho, y además el marco alcanza a determinados proveedores de billeteras según los servicios que prestan. Y el intercambio de información fiscal no reemplaza ni excluye los reportes de operaciones sospechosas ante la Unidad de Información Financiera (UIF), que corren por una vía distinta y con otra finalidad.</p>\n<h2>Cómo ordenar la carpeta del cliente</h2>\n<p>Para el abogado que asesora patrimonios con exposición cripto, hay un trabajo concreto de documentación que conviene encarar en los próximos meses.</p>\n<ul>\n<li>Listado completo de cuentas y billeteras, con jurisdicción del proveedor y fecha de apertura.</li>\n<li>Historial de operaciones exportado desde cada plataforma, guardado fuera de ella, porque un exchange puede cerrar o restringir el acceso.</li>\n<li>Respaldo del origen de los fondos con los que se compró, que es la pregunta que sigue después de la fiscal.</li>\n<li>Cotejo entre ese historial y las declaraciones presentadas, con un informe que deje asentadas las diferencias y su tratamiento.</li>\n</ul>\n<p>La adhesión al CARF ordena el horizonte. El pseudoanonimato que caracterizó a la etapa anterior deja de ser una estrategia fiscal viable y pasa a ser, apenas, una característica técnica de la red. El cliente que llegue a 2029 con su situación regularizada solo va a recibir información redundante. El que no, va a recibir una inspección con papeles de respaldo que no controla.</p>",
+  "faq": [
+   {
+    "p": "¿Qué es el CARF de la OCDE y desde cuándo rige para Argentina?",
+    "r": "El CARF es el Marco de Reporte sobre Criptoactivos que la OCDE desarrolló con respaldo del G20 para el intercambio automático de información fiscal sobre operaciones con criptoactivos. Argentina se comprometió a implementarlo e iniciar el intercambio a más tardar en septiembre de 2029. Ya son 77 las jurisdicciones con compromisos asumidos para el período 2027 a 2029."
+   },
+   {
+    "p": "¿Qué datos de una cuenta cripto en el exterior va a recibir ARCA?",
+    "r": "Recibirá el nombre del titular, su domicilio, la jurisdicción de residencia fiscal y el número de identificación tributaria. También los montos de compras, ventas y transferencias, discriminados por tipo de criptoactivo. Los obligados a reportar son las plataformas de intercambio, los intermediarios y los operadores que facilitan esas operaciones por cuenta de clientes."
+   },
+   {
+    "p": "¿El CARF crea un impuesto nuevo sobre las criptomonedas?",
+    "r": "No. El CARF es un estándar de intercambio de información, no una norma tributaria de fondo. No modifica alícuotas ni crea un gravamen. Lo que cambia es que la administración tributaria va a poder contrastar las operaciones del contribuyente en el exterior contra sus declaraciones juradas, algo que antes requería pedidos puntuales a otro Estado."
+   }
+  ],
+  "entidades": [
+   "CARF",
+   "OCDE",
+   "ARCA",
+   "G20",
+   "Common Reporting Standard (CRS)",
+   "Foro Global sobre Transparencia Fiscal",
+   "iProUP",
+   "Unidad de Información Financiera (UIF)"
+  ],
+  "keywords": [
+   "CARF Argentina",
+   "ARCA criptomonedas exterior",
+   "intercambio automático información cripto",
+   "declarar cripto ARCA",
+   "CARF OCDE criptoactivos",
+   "impuestos criptomonedas Argentina"
+  ],
+  "palabras": 703
+ },
+ {
+  "id": "la-cnv-fijo-una-matriz-de-compatibilidad-que-alcanza-a-los-p",
+  "titulo": "La CNV puso en vigencia una matriz de compatibilidades que alcanza a los PSAV",
+  "bajada": "La Resolución General 1165/2026 ordena qué actividades puede acumular cada sujeto registrado. Alcanza a agentes, mercados, cámaras compensadoras, plataformas de financiamiento colectivo y PSAV.",
+  "meta_description": "La RG 1165/2026 de la CNV puso en vigencia la matriz de compatibilidades para agentes, mercados, PSAV, plataformas de financiamiento colectivo y cámaras.",
+  "sumario": [
+   "La Resolución General 1165/2026 de la CNV incorpora una matriz que identifica qué actividades pueden desarrollarse en forma simultánea por cada sujeto registrado.",
+   "Alcanza a agentes, mercados, cámaras compensadoras, plataformas de financiamiento colectivo y proveedores de servicios de activos virtuales registrados ante el organismo.",
+   "Habilita a los agentes depositarios centrales de valores negociables a inscribirse como fiduciarios financieros, con segregación funcional y exigencias patrimoniales sumadas."
+  ],
+  "cuerpo_html": "<p>La Comisión Nacional de Valores publicó en el Boletín Oficial del 7 de septiembre la Resolución General 1165/2026, que pone en vigencia una matriz de compatibilidades entre sujetos registrados. La norma responde una pregunta que hasta ahora se contestaba leyendo títulos sueltos del cuerpo normativo: qué actividades puede acumular en simultáneo cada figura del mercado de capitales. Para quien estructura un proveedor de servicios de activos virtuales que quiere sumar otros servicios regulados, es la pieza que faltaba.</p>\n<h2>Qué dice la resolución</h2>\n<p>La resolución fue firmada el 2 de septiembre de 2026, tramitó bajo el expediente EX-2026-79449505-APN-GAYM#CNV y entró en vigencia el día siguiente al de su publicación. Modifica los títulos I, VIII y XVI de las NORMAS de la CNV, texto ordenado 2013 y modificatorias.</p>\n<p>La estructura es breve y conviene tenerla a mano. El artículo 1 incorpora la definición de matriz de compatibilidades. El artículo 2 sustituye el régimen de registros compatibles de los agentes depositarios centrales de valores negociables, con inscripción automática como agentes de custodia, registro y pago y la posibilidad de solicitar su inscripción como fiduciarios financieros. El artículo 3 fija el patrimonio neto mínimo del ADCVN en UVA 25.500.000, con incrementos según las actividades que sume. El artículo 4 establece la contrapartida líquida en el 20 por ciento del patrimonio neto mínimo. Los artículos 5 y 6 incorporan la sección que crea la herramienta y el anexo II donde vive la matriz propiamente dicha.</p>\n<p>El alcance es el dato que más interesa al sector cripto. Según la propia CNV, la matriz aplica a las distintas categorías de agentes, a las plataformas de financiamiento colectivo, a los proveedores de servicios de activos virtuales, a los mercados y a las cámaras compensadoras. El presidente del organismo, Roberto E. Silva, la presentó como una herramienta para dar \"mayor claridad, previsibilidad y transparencia\" y reducir la complejidad regulatoria.</p>\n<p>Un punto central para no sobreleer la norma: la matriz sistematiza, no innova. El propio texto aclara que no crea categorías nuevas ni modifica la naturaleza de las existentes, y que no altera requisitos ni obligaciones ya vigentes. Es ordenamiento regulatorio, en línea con la política de mejora normativa del decreto 891/2017 que citan los considerandos.</p>\n<h2>Qué significa para la práctica profesional</h2>\n<p>Si asesora a un PSAV, a una plataforma de financiamiento colectivo o a un agente registrado, el primer trabajo es de verificación. Hay que tomar el registro actual del cliente, contrastarlo contra el anexo II y confirmar que cada actividad que hoy presta figura como compatible. La matriz sirve tanto para habilitar un plan de expansión como para detectar que una combinación armada hace dos años quedó expuesta.</p>\n<p>El segundo trabajo es de números. Cuando un sujeto acumula registros, las exigencias patrimoniales y de liquidez se suman según la combinación. El caso resuelto en la resolución lo muestra con claridad: el ADCVN que además se inscriba como fiduciario financiero debe cumplir el patrimonio neto mínimo de su categoría más la exigencia completa de la segunda, y la contrapartida líquida se calcula como la sumatoria de ambos mínimos. Antes de prometerle a un cliente que puede sumar una licencia, conviene correr el cálculo.</p>\n<p>El tercero es organizativo. La norma exige segregación funcional y administrativa entre categorías, y una estructura acorde al volumen de negocios. Eso se traduce en documentos concretos: organigrama, manual de funciones, políticas de conflictos de interés y separación de personal y sistemas. Un dictamen que diga que la combinación es compatible pero no describa cómo se separan las funciones sirve poco ante una supervisión.</p>\n<p>Al cliente hay que advertirle dos cosas. Que la compatibilidad no es una autorización automática, porque cada inscripción mantiene su propio trámite y su propia conformidad previa. Y que sumar registros ante la CNV arrastra obligaciones que exceden al organismo, en particular las de sujeto obligado ante la Unidad de Información Financiera (UIF), que se multiplican con cada actividad nueva.</p>\n<h2>Qué revisar esta semana</h2>\n<p>Para el estudio que atiende clientes del ecosistema, la tarea es acotada y concreta. Descargar el anexo II de la resolución, armar una planilla con los registros vigentes de cada cliente y marcar tres columnas: compatible, incompatible y a verificar. Sobre la tercera columna se consulta al organismo antes de avanzar.</p>\n<p>La matriz no cambia el negocio de nadie de un día para el otro. Cambia algo más silencioso, que es el costo de averiguar si un proyecto es viable. Hasta ahora esa respuesta salía de cruzar títulos y opiniones. Desde el 8 de septiembre sale de un anexo. Conviene incorporarlo al flujo de trabajo antes de que un cliente pregunte.</p>",
+  "faq": [
+   {
+    "p": "¿Qué es la matriz de compatibilidades de la CNV?",
+    "r": "Es una herramienta de sistematización normativa incorporada por la Resolución General 1165/2026 de la Comisión Nacional de Valores. Identifica qué actividades pueden desarrollarse en forma simultánea por cada sujeto registrado y qué requisitos patrimoniales y de liquidez corresponden a cada combinación. No crea categorías nuevas ni modifica la naturaleza de las existentes."
+   },
+   {
+    "p": "¿La RG 1165/2026 alcanza a los proveedores de servicios de activos virtuales?",
+    "r": "Sí. Según la propia Comisión Nacional de Valores, la matriz aplica a las distintas categorías de agentes, a las plataformas de financiamiento colectivo, a los proveedores de servicios de activos virtuales, a los mercados y a las cámaras compensadoras. Permite verificar qué otros registros puede acumular un PSAV sin incurrir en una incompatibilidad."
+   },
+   {
+    "p": "¿Desde cuándo rige la Resolución General 1165/2026 de la CNV?",
+    "r": "Fue firmada el 2 de septiembre de 2026 y publicada en el Boletín Oficial el 7 de septiembre. Su artículo 7 fija la vigencia a partir del día siguiente al de la publicación, es decir el 8 de septiembre de 2026. Modifica los títulos I, VIII y XVI de las NORMAS de la CNV, texto ordenado 2013."
+   }
+  ],
+  "entidades": [
+   "Comisión Nacional de Valores (CNV)",
+   "Resolución General 1165/2026",
+   "Roberto E. Silva",
+   "Boletín Oficial de la República Argentina",
+   "PSAV",
+   "Plataformas de Financiamiento Colectivo",
+   "Decreto 891/2017",
+   "Unidad de Información Financiera (UIF)"
+  ],
+  "keywords": [
+   "RG 1165/2026 CNV",
+   "matriz de compatibilidades CNV",
+   "PSAV Argentina registro",
+   "proveedores de servicios de activos virtuales",
+   "CNV normas agentes registrados",
+   "exchange regulado Argentina"
+  ],
+  "palabras": 763
+ },
+ {
+  "id": "el-senado-de-eeuu-hundio-la-clarity-act-y-la-regulacion-crip",
+  "titulo": "El Senado de EE.UU. hundió la Clarity Act y la SEC queda al mando",
+  "bajada": "La votación terminó 49 a 50 y el proyecto de estructura de mercado quedó sin ley hasta después de las elecciones. La clasificación de un token vuelve a depender de reglas administrativas.",
+  "meta_description": "El Senado de EE.UU. rechazó la Clarity Act por 49 a 50: sin ley de estructura de mercado, la SEC y la CFTC definen cómo se clasifica cada criptoactivo.",
+  "sumario": [
+   "El Senado estadounidense rechazó el 15 de septiembre la Digital Asset Market Clarity Act por 49 votos a 50, lejos de los 60 necesarios.",
+   "El proyecto repartía competencias entre agencias y daba a la CFTC autoridad sobre los mercados spot de criptoactivos.",
+   "Sin ley, la SEC avanza con reglamentación propia que su propio presidente admite que carece de durabilidad sin respaldo legislativo."
+  ],
+  "cuerpo_html": "<p>El Senado de los Estados Unidos rechazó el martes 15 de septiembre la Digital Asset Market Clarity Act, el proyecto que iba a fijar por ley cómo se regulan los criptoactivos en ese país. La votación terminó 49 a 50 y quedó muy lejos de los 60 votos que necesitaba para avanzar. Para el abogado argentino que asesora a clientes con fondos o negocios en plataformas estadounidenses, el resultado tiene una consecuencia práctica inmediata: la calificación legal de un token va a seguir dependiendo de decisiones administrativas y de fallos, no de un texto legal estable.</p>\n<h2>Qué se cayó en el recinto</h2>\n<p>El proyecto, conocido como Clarity Act, definía cómo el Estado federal trata a los distintos tipos de criptoactivos y proyectos basados en blockchain. Repartía competencias entre las agencias y le otorgaba a la Commodity Futures Trading Commission autoridad nueva sobre los mercados spot, un terreno que hoy queda en zona gris entre reguladores.</p>\n<p>La derrota no fue partidaria en el sentido clásico. Según informó CoinDesk, varios senadores republicanos votaron en contra, lo que explica que el proyecto ni siquiera alcanzara mayoría simple. La senadora Cynthia Lummis, principal negociadora de la iniciativa, hizo el último pedido de voto afirmativo en el recinto y planteó la discusión en términos de liderazgo económico. No alcanzó.</p>\n<p>El contraste con el ciclo anterior es marcado. En 2025 el sector había conseguido la sanción de la GENIUS Act, la ley de stablecoins, que fue su única victoria legislativa de envergadura. La estructura de mercado, que es la pieza más grande y más disputada, queda ahora fuera de agenda.</p>\n<h2>Quién regula mientras tanto</h2>\n<p>La respuesta es la de siempre: la Securities and Exchange Commission y la Commodity Futures Trading Commission, cada una con su propia reglamentación. La SEC viene impulsando un régimen para la captación de fondos con criptoactivos que bautizó Reg Crypto.</p>\n<p>El problema lo admitió el propio presidente del organismo, Paul Atkins, al señalar que esas reglas carecen de durabilidad sin respaldo legislativo. La observación es la que cualquier abogado haría: una norma administrativa se deroga con otra norma administrativa. La estabilidad que el sector reclama no llega por resolución.</p>\n<p>El calendario político tampoco ayuda. Las elecciones son el 3 de noviembre de 2026 y el nuevo Congreso asume en enero de 2027. Los comités de acción política de la industria, encabezados por Fairshake, van a reordenar sus apoyos antes de la votación. Si el resultado electoral desplaza la agenda hacia investigaciones en lugar de legislación sectorial, el proyecto puede quedar varado más de un año.</p>\n<h2>Qué mirar en la práctica profesional</h2>\n<p>Lo primero es revisar los contratos que los clientes tienen con plataformas estadounidenses. Hay que leer con detenimiento las cláusulas de ley aplicable y jurisdicción, y sobre todo las de cambio regulatorio, que suelen habilitar a la plataforma a suspender servicios, deslistar activos o congelar retiros si una agencia modifica su criterio. Esa cláusula deja de ser boilerplate cuando el marco es inestable.</p>\n<p>Lo segundo es la advertencia al cliente. Un token que hoy se opera con normalidad puede ser tratado mañana como valor negociable por decisión administrativa, y eso cambia todo: el régimen de oferta, las obligaciones de registro del emisor y el mapa de responsabilidad. Quien tenga posiciones concentradas en un activo con perfil dudoso debería conocer ese riesgo por escrito.</p>\n<p>Lo tercero es no importar conclusiones. La discusión estadounidense no define el encuadre argentino. Acá la referencia es la Comisión Nacional de Valores, con su registro de proveedores de servicios de activos virtuales, y las obligaciones como sujeto obligado ante la Unidad de Información Financiera (UIF). Un cliente que lea que en Estados Unidos no hay ley puede concluir que acá tampoco hay reglas. Es exactamente al revés.</p>\n<p>Para el estudio que asesora emisores o exchanges con exposición a ese mercado, la recomendación es acotada. Revisar los supuestos regulatorios sobre los que se armó la estructura, anotar cuáles dependían de la sanción de la Clarity Act y reconstruir el plan sin ese supuesto. La incertidumbre se administra con cláusulas de salida, con custodia definida y con documentación del criterio adoptado. Lo que no se puede es seguir esperando una ley que, por ahora, no llegó.</p>",
+  "faq": [
+   {
+    "p": "¿Qué era la Clarity Act y por qué fracasó en el Senado de Estados Unidos?",
+    "r": "La Digital Asset Market Clarity Act era el proyecto de estructura de mercado que definía el tratamiento legal de los distintos criptoactivos y repartía competencias entre agencias federales. El 15 de septiembre de 2026 obtuvo 49 votos contra 50, sin alcanzar los 60 necesarios para avanzar. Varios senadores republicanos votaron en contra."
+   },
+   {
+    "p": "¿Quién regula los criptoactivos en Estados Unidos si no hay ley de estructura de mercado?",
+    "r": "Siguen haciéndolo la Securities and Exchange Commission y la Commodity Futures Trading Commission mediante reglamentación propia. La SEC impulsa un régimen para la captación de fondos llamado Reg Crypto. Su presidente, Paul Atkins, reconoció que esas normas no tienen durabilidad sin respaldo legislativo, porque una regla administrativa puede ser modificada por otra."
+   },
+   {
+    "p": "¿La falta de ley en Estados Unidos afecta la regulación cripto en Argentina?",
+    "r": "No de manera directa. En Argentina el marco lo fija la Comisión Nacional de Valores, con su registro de proveedores de servicios de activos virtuales, y se complementa con las obligaciones ante la Unidad de Información Financiera. El impacto es indirecto: alcanza a clientes con fondos, contratos o emisiones vinculadas a plataformas estadounidenses."
+   }
+  ],
+  "entidades": [
+   "Digital Asset Market Clarity Act",
+   "Senado de los Estados Unidos",
+   "Cynthia Lummis",
+   "Securities and Exchange Commission (SEC)",
+   "Commodity Futures Trading Commission (CFTC)",
+   "Paul Atkins",
+   "Fairshake",
+   "GENIUS Act",
+   "CoinDesk",
+   "Comisión Nacional de Valores (CNV)",
+   "Unidad de Información Financiera (UIF)"
+  ],
+  "keywords": [
+   "Clarity Act Senado",
+   "regulación cripto Estados Unidos",
+   "SEC criptoactivos",
+   "CFTC mercados spot",
+   "estructura de mercado cripto",
+   "Reg Crypto SEC"
+  ],
+  "palabras": 697
+ },
+ {
+  "id": "caso-libra-el-juez-rechazo-a-frade-y-ferraro-como-querellant",
+  "titulo": "Caso $LIBRA: el juez apartó a Frade y Ferraro como querellantes",
+  "bajada": "Martínez de Giorgi resolvió que ser legislador no acredita el interés directo y personal que exige la ley. La causa queda impulsada únicamente por el fiscal Eduardo Taiano.",
+  "meta_description": "El juez Martínez de Giorgi rechazó a los diputados Frade y Ferraro como querellantes en la causa $LIBRA: qué interés directo exige la ley para ser parte.",
+  "sumario": [
+   "El juez federal Martínez de Giorgi rechazó el 10 de septiembre a los diputados Mónica Frade y Maximiliano Ferraro como parte querellante.",
+   "Sostuvo que la condición de legislador no habilita por sí sola y que el interés debe ser directo, inmediato y personal.",
+   "Con los inversores también apartados por la Cámara Federal, la acción penal queda exclusivamente en manos de la fiscalía."
+  ],
+  "cuerpo_html": "<p>El juez federal Marcelo Martínez de Giorgi rechazó el 10 de septiembre que los diputados Mónica Frade y Maximiliano Ferraro, de la Coalición Cívica ARI, se constituyan como parte querellante en la causa que investiga el presunto fraude con la criptomoneda $LIBRA. La resolución deja a la investigación sin acusadores particulares y consolida un criterio que excede a este expediente: la representación política no genera, por sí misma, legitimación para querellar.</p>\n<h2>El argumento del juez</h2>\n<p>El eje de la decisión es la exigencia de un interés calificado. Para el magistrado, según informó La Nación, \"la condición de legislador, por sí sola, no los habilita a constituirse como parte querellante\". El estándar que aplicó es el clásico: el pretenso querellante tiene que acreditar un interés directo, inmediato y personal derivado del hecho investigado. Una vinculación genérica con la materia no alcanza.</p>\n<p>Los diputados habían sostenido que el caso afectaba el ejercicio de sus funciones parlamentarias. El juez descartó ese planteo con un argumento sencillo y difícil de rebatir: esa afectación, si existiera, \"no los diferencian de cualquier otro integrante del Congreso\". Es decir que el agravio invocado era compartido por los 257 diputados, y por eso no era personal de ninguno.</p>\n<p>La decisión tampoco depende de haber sido denunciante. Haber puesto en marcha el expediente le da al denunciante un rol procesal acotado, que no equivale al de parte. Son dos calidades distintas y el fallo las separa.</p>\n<h2>La causa queda en manos de la fiscalía</h2>\n<p>El rechazo a los legisladores se suma al que ya habían recibido los inversores damnificados. La Sala I de la Cámara Federal confirmó el 4 de septiembre la exclusión de Juan Patricio Marchetto, Alan Vega, Braian Emanuel Quintero, Matías Alejandro Paris y Martín Romeo, varios de ellos patrocinados por el diputado Juan Grabois. Ese grupo recurrió después ante la Cámara Federal de Casación Penal, en un planteo que corre por carril propio.</p>\n<p>El resultado es que hoy solo la fiscalía impulsa la investigación. El fiscal Eduardo Taiano había imputado al presidente Javier Milei el 22 de febrero de 2025 por abuso de autoridad, tráfico de influencias, estafa, cohecho y negociaciones incompatibles con la función pública. Sin querellantes, no hay quien pueda recurrir de manera autónoma un eventual archivo o una desestimación, ni quien controle en paralelo la producción de la prueba.</p>\n<h2>Qué se lleva el abogado a su práctica</h2>\n<p>La resolución es material útil para cualquier presentación de querella, sobre todo en causas de interés público donde el reclamo llega de organizaciones, funcionarios o representantes.</p>\n<p>Al armar el escrito, el interés hay que describirlo con hechos y no con calidades. No sirve invocar el cargo, la militancia ni la representación de un colectivo. Hay que explicar qué daño concreto sufrió esa persona en particular, cómo se produjo y con qué prueba se acredita. Si el agravio que se describe es compartido por todos los que tienen la misma condición, el planteo va a caer por genérico.</p>\n<p>Con el cliente conviene tener la conversación temprano y sin adornos. Ser denunciante no es ser querellante. Ser afectado por una política pública no habilita a acusar. Y quedar afuera como parte tiene un costo real: se pierde el control de la prueba, la facultad de proponer medidas y la posibilidad de recurrir en forma independiente. Todo queda sujeto a la decisión del Ministerio Público Fiscal.</p>\n<p>Cuando la legitimación es dudosa, hay alternativas que conviene evaluar antes de insistir. La acción civil por daños tiene reglas de legitimación propias y más amplias. Las denuncias administrativas ante organismos de control y ante la Unidad de Información Financiera (UIF) tampoco requieren ser parte en el expediente penal. Y si el objetivo es de control institucional, el Congreso cuenta con herramientas propias que no pasan por el tribunal.</p>\n<p>El expediente por $LIBRA va a seguir dando definiciones sobre quién puede acusar en casos de criptoactivos. Por ahora, el mapa quedó claro: ni la representación política ni la pérdida patrimonial alcanzan sin una prueba concreta del daño personal. Quien prepare una querella en este terreno debería empezar por ahí y no por el relato del caso.</p>",
+  "faq": [
+   {
+    "p": "¿Un legislador puede ser querellante en una causa penal por su condición de tal?",
+    "r": "No. El juez Martínez de Giorgi resolvió que la condición de legislador no habilita por sí sola a constituirse como parte querellante. Se exige acreditar un interés directo, inmediato y personal derivado del hecho investigado. Si el agravio invocado es común a todos los integrantes del Congreso, no es personal y el planteo se rechaza."
+   },
+   {
+    "p": "¿Ser denunciante alcanza para ser parte querellante?",
+    "r": "No son la misma calidad. El denunciante pone en conocimiento del tribunal un hecho y cumple un rol procesal acotado. El querellante es parte, controla la prueba, propone medidas y recurre por sí mismo. Para ser admitido como querellante hay que acreditar un interés directo y personal en el hecho, algo que la denuncia por sí sola no demuestra."
+   },
+   {
+    "p": "¿Quién impulsa hoy la causa $LIBRA?",
+    "r": "Exclusivamente el Ministerio Público Fiscal, a través del fiscal Eduardo Taiano, que imputó al presidente Javier Milei el 22 de febrero de 2025 por abuso de autoridad, tráfico de influencias, estafa, cohecho y negociaciones incompatibles con la función pública. Tanto los legisladores como los inversores damnificados fueron apartados como acusadores particulares."
+   }
+  ],
+  "entidades": [
+   "$LIBRA",
+   "Marcelo Martínez de Giorgi",
+   "Mónica Frade",
+   "Maximiliano Ferraro",
+   "Coalición Cívica ARI",
+   "Eduardo Taiano",
+   "Javier Milei",
+   "Juan Grabois",
+   "Cámara Federal de Casación Penal",
+   "La Nación",
+   "Unidad de Información Financiera (UIF)"
+  ],
+  "keywords": [
+   "querellante caso LIBRA",
+   "Frade Ferraro querella",
+   "Martínez de Giorgi LIBRA",
+   "interés directo y personal querella",
+   "legitimación querellante penal",
+   "causa LIBRA Milei"
+  ],
+  "palabras": 683
+ },
+ {
+  "id": "el-ministerio-publico-fiscal-capacito-a-fiscales-en-rastreo-",
+  "titulo": "El Ministerio Público Fiscal entrenó a sus fiscales para incautar cripto",
+  "bajada": "El curso cubrió análisis de carteras digitales, marco legal y medidas cautelares sobre fondos. Anticipa más pedidos de embargo y decomiso de criptoactivos en causas de lavado y estafa.",
+  "meta_description": "El Ministerio Público Fiscal capacitó a fiscales en rastreo e incautación de criptoactivos: qué anticipa para embargos y decomisos en las causas penales.",
+  "sumario": [
+   "El Ministerio Público Fiscal dictó en agosto y septiembre una capacitación sobre análisis, rastreo, detección e incautación de activos virtuales.",
+   "El programa cubrió análisis patrimonial de carteras digitales, marco legal nacional e internacional y aplicación de medidas cautelares sobre fondos.",
+   "La señal para el litigante es clara: aumentará la frecuencia de pedidos de embargo y decomiso sobre criptoactivos."
+  ],
+  "cuerpo_html": "<p>El Ministerio Público Fiscal capacitó a sus fiscales, funcionarios y empleados en rastreo, detección e incautación de criptoactivos. Los encuentros se hicieron el 19 de agosto y el 2 de septiembre de 2026 por videoconferencia. La noticia parece de agenda interna, pero conviene leerla como un indicador: cuando un organismo entrena de manera sistemática a su personal en una herramienta, esa herramienta empieza a aparecer en los expedientes.</p>\n<h2>Qué se enseñó</h2>\n<p>El programa se llamó \"Activos virtuales: Análisis financiero, rastreo, detección e incautación\" y estuvo a cargo de la abogada Carmen Chena, especializada en prevención de lavado de activos. Según publicó CriptoNoticias, el temario abarcó el cambio de paradigma en la recuperación de activos, el análisis patrimonial y financiero de carteras digitales, el ecosistema de criptomonedas, el marco legal nacional e internacional y las distintas formas de aplicar medidas cautelares sobre los fondos. Cerró con análisis de casos prácticos.</p>\n<p>La combinación de contenidos es reveladora. No se trató de una introducción conceptual sobre qué es una blockchain. El eje estuvo puesto en la etapa ejecutiva: identificar el activo, seguirlo entre billeteras y, sobre todo, poder alcanzarlo con una medida judicial. Esa última parte es la que históricamente frenaba las investigaciones.</p>\n<p>La Justicia argentina ya tiene antecedentes en ese terreno. En diciembre de 2024 se ordenó el congelamiento de 3 millones de USDT en el marco de una investigación, y en 2022 se requirió a una plataforma de intercambio la restitución de bitcoin a víctimas de un robo. Lo que faltaba no era la posibilidad jurídica sino la capacidad técnica distribuida entre fiscalías.</p>\n<h2>Impacto en la práctica profesional</h2>\n<p>Para quien ejerce la defensa, el cambio es concreto. Hay que prepararse para pedidos de información y medidas cautelares dirigidos a proveedores de servicios de activos virtuales, y para que esos pedidos lleguen con un nivel de precisión mayor que el de años anteriores. Discutir que la medida es técnicamente imposible ya no va a funcionar. La discusión se corre al ámbito donde corresponde: proporcionalidad, alcance, identificación correcta del activo y respeto de la garantía de propiedad sobre fondos de terceros alojados en la misma plataforma.</p>\n<p>Una advertencia práctica sobre los bloqueos. Cuando la medida recae sobre saldos en un exchange, suele afectar la cuenta completa y no solo el monto vinculado a la investigación. Si el cliente opera con fondos propios y de terceros en una misma cuenta, la exposición es mayor a la que imagina. Vale la pena revisar esa separación antes de que la orden llegue.</p>\n<p>Para quien asesora a empresas del sector, el trabajo es anterior. Conviene tener escrito un protocolo de respuesta a requerimientos judiciales: quién recibe el oficio, en qué plazo se contesta, qué información se entrega, cómo se documenta el bloqueo y cómo se notifica al cliente afectado. Un protocolo improvisado en 48 horas genera responsabilidad propia. Y conviene revisar la consistencia entre lo que se responde al juzgado y lo que se reporta a la Unidad de Información Financiera (UIF), porque las contradicciones entre ambos canales se pagan caro.</p>\n<p>Para quien representa víctimas, la lectura es optimista. Un fiscal formado en trazabilidad puede pedir el congelamiento temprano, que es la única ventana real de recupero. En estafas con criptoactivos, la plata se mueve en horas. La denuncia que llega a la semana siguiente, con la billetera de destino identificada y el pedido de bloqueo ya redactado, tiene chances. La que llega en un mes, casi ninguna.</p>\n<h2>Qué conviene ordenar ahora</h2>\n<p>La recomendación para el estudio es simple y se resume en tres movimientos. Incorporar al escrito de denuncia los datos técnicos mínimos, que son los identificadores de las transacciones, las direcciones de destino y la plataforma involucrada. Pedir la medida cautelar en el mismo acto y no después. Y conservar la prueba del movimiento de fondos antes de que la plataforma restrinja el acceso a la cuenta del cliente.</p>\n<p>La capacitación del Ministerio Público Fiscal no cambia una norma, pero cambia una expectativa. Lo que hasta hace poco era una pericia excepcional se va a volver rutina. El abogado que litiga en causas de lavado, estafa o defraudación debería asumir que del otro lado ya hay alguien que sabe seguir la plata en la cadena, y preparar su estrategia en consecuencia.</p>",
+  "faq": [
+   {
+    "p": "¿Puede un juez argentino ordenar el congelamiento de criptomonedas?",
+    "r": "Sí, y ya existen antecedentes. En diciembre de 2024 la Justicia ordenó el congelamiento de 3 millones de USDT en una investigación, y en 2022 requirió a una plataforma de intercambio la restitución de bitcoin a víctimas de un robo. La medida es más efectiva cuando los fondos están alojados en un proveedor identificable que pueda ejecutarla."
+   },
+   {
+    "p": "¿Qué datos hay que aportar en una denuncia por estafa con criptomonedas?",
+    "r": "Conviene incluir los identificadores de las transacciones, las direcciones de origen y de destino, la plataforma utilizada, las fechas y horas de cada movimiento y los comprobantes del proveedor. Cuanto más precisa sea esa información, más rápido puede pedirse una medida cautelar. En estafas con criptoactivos, el recupero depende de la velocidad."
+   },
+   {
+    "p": "¿Qué debe hacer un exchange que recibe un oficio judicial de bloqueo?",
+    "r": "Necesita un protocolo escrito previo: quién recibe el requerimiento, en qué plazo responde, qué información entrega, cómo documenta el bloqueo y cómo notifica al cliente. También debe verificar la consistencia entre lo informado al juzgado y lo reportado a la Unidad de Información Financiera. Improvisar la respuesta genera responsabilidad propia para la empresa."
+   }
+  ],
+  "entidades": [
+   "Ministerio Público Fiscal",
+   "Carmen Chena",
+   "CriptoNoticias",
+   "Unidad de Información Financiera (UIF)",
+   "USDT",
+   "bitcoin"
+  ],
+  "keywords": [
+   "incautación de criptomonedas",
+   "rastreo de criptoactivos",
+   "embargo criptomonedas Argentina",
+   "lavado de activos cripto",
+   "congelamiento USDT justicia",
+   "medidas cautelares activos virtuales"
+  ],
+  "palabras": 706
+ }
+]

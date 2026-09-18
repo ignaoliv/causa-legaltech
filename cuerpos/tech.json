@@ -1,0 +1,236 @@
+[
+ {
+  "id": "magnar-cierra-una-serie-a-de-us-8-millones-y-apunta-a-50-000",
+  "titulo": "Magnar levanta US$ 8 millones y Beccar Varela entra como inversor",
+  "bajada": "La legaltech de IA jurídica cerró su Serie A liderada por 6 Degrees Capital y suma a un gran estudio argentino como accionista. Apunta a 50.000 abogados en la región para 2027.",
+  "meta_description": "Magnar cerró una Serie A de US$ 8 millones con Beccar Varela como inversor. Qué cambia para los estudios argentinos que usan IA jurídica y qué revisar.",
+  "sumario": [
+   "Magnar cerró una Serie A de US$ 8 millones liderada por 6 Degrees Capital, con fondos de México y Chile acompañando la operación.",
+   "Beccar Varela entró como inversor estratégico y se suma a Carey, de Chile, que ya había puesto capital en la legaltech.",
+   "La plataforma tiene cerca de 30.000 abogados usuarios en siete países y proyecta llegar a 50.000 durante 2027."
+  ],
+  "cuerpo_html": "<p>La legaltech Magnar cerró una ronda Serie A de US$ 8 millones y aceleró su desembarco en la Argentina. El dato que le importa al estudio local no es la cifra. Es que Beccar Varela, uno de los grandes estudios del país, entró como inversor estratégico. Cuando un estudio deja de ser solo cliente de su proveedor de software y pasa a ser accionista, la discusión sobre inteligencia artificial jurídica cambia de plano.</p><h2>Quién puso la plata</h2><p>La ronda la lideró <strong>6 Degrees Capital</strong>. Acompañaron Hi Ventures y Nascent Ventures, de México, y Fen Ventures y Platanus Ventures, de Chile. Thomas Olszewski, de 6 Degrees Capital, se incorpora al directorio. Al capital financiero se suman dos estudios de la región: Carey, de Chile, que ya había invertido antes, y Beccar Varela, que entra ahora. La operación fue informada por Norte en Línea.</p><p>Magnar tiene poco más de un año de vida. Su fundador y CEO es Andrés Arellano. La plataforma lee, revisa y redacta documentos legales. El argumento comercial es de tiempo: promete que un due diligence de cientos de páginas pase de semanas a horas.</p><p>Hoy opera en Chile, Perú, Ecuador, Costa Rica, Colombia, Uruguay y la Argentina. Reúne cerca de 30.000 abogados usuarios. Con la Serie A anunció su ingreso a Brasil y México en septiembre de 2026 y fijó una meta de 50.000 abogados para 2027. No es una expansión de nicho. Es una carrera por volumen.</p><h2>Qué cambia en el mercado local</h2><p>La Argentina pasa a ser plaza disputada. Hasta acá, el abogado que quería usar IA elegía entre un chatbot de uso general y alguna herramienta armada afuera, sin normativa local. Un asistente entrenado con derecho de la región compite en otro terreno: el del contenido jurídico propio.</p><p>El respaldo de un estudio grande acelera la adopción. Los equipos legales de empresas suelen mirar qué usan sus asesores externos. Si un estudio de primera línea integra la herramienta en su flujo de trabajo, el resto del mercado lo va a tomar como referencia de calidad, con razón o sin ella.</p><p>Hay un efecto de precios. Con dos rondas de capital de riesgo compitiendo por los mismos abogados, los planes para estudios chicos y para el profesional que trabaja solo se vuelven más accesibles. Eso es bueno. También significa que el diferencial de productividad entre un estudio que adopta y uno que no adopta se va a notar en los honorarios que puede cotizar.</p><h2>Qué revisar antes de subir un expediente</h2><p>Acá empieza la parte incómoda. Toda herramienta de IA jurídica funciona cargando documentos, y esos documentos son de los clientes. El secreto profesional no se suspende porque el archivo viaje a una nube.</p><p>Antes de habilitar la plataforma en el estudio conviene ordenar cinco puntos. Primero, el contrato con el proveedor: quién es responsable del tratamiento, dónde se alojan los datos y qué pasa con la información cuando se termina la suscripción. Segundo, si los documentos cargados se usan para entrenar modelos. Esa cláusula suele estar en la letra chica y admite opción de exclusión. Tercero, el cumplimiento de la <strong>ley 25.326</strong> de protección de datos personales, con sus deberes de seguridad y de confidencialidad. Cuarto, una política interna escrita que diga qué se puede cargar y qué no, sobre todo en causas penales, de familia o con datos sensibles. Quinto, un registro de quién usó la herramienta y para qué, porque ante un reclamo de mala praxis esa trazabilidad es la defensa.</p><p>Conviene además avisarle al cliente. Muchos convenios de honorarios ya incluyen una cláusula sobre uso de herramientas tecnológicas y tratamiento de la información del caso. Si el estudio no la tiene, este es el momento de incorporarla. Es más barato explicarlo al inicio que discutirlo después de un incidente.</p><p>Y queda la regla que ninguna ronda de inversión modifica: la responsabilidad por lo que se presenta en un expediente es del abogado que firma. La herramienta redacta, sugiere y resume. No verifica citas ni responde ante el juez. Los tribunales de varias jurisdicciones ya sancionaron a letrados por escritos con jurisprudencia inexistente, y ninguna de esas defensas prosperó invocando al software.</p><p>Lo práctico para esta semana es sencillo. Pedí el contrato marco del proveedor que estés evaluando y leelo con la misma atención con la que revisarías un contrato de un cliente. Definí por escrito qué categorías de documentos pueden cargarse. Y probá la herramienta con un expediente terminado antes de usarla en uno vivo. La curva de aprendizaje conviene pagarla cuando no hay plazo corriendo.</p>",
+  "faq": [
+   {
+    "p": "¿Puedo cargar documentos de un cliente en una herramienta de IA jurídica sin violar el secreto profesional?",
+    "r": "Sí, siempre que el proveedor garantice confidencialidad por contrato, no use esos documentos para entrenar modelos y cumpla la ley 25.326. Conviene informarlo al cliente en el convenio de honorarios y dejar por escrito qué categorías de información se pueden cargar. En causas con datos sensibles, lo prudente es no subir el documento completo."
+   },
+   {
+    "p": "¿Quién responde si una herramienta de IA genera una cita jurisprudencial falsa en un escrito?",
+    "r": "Responde el abogado que firma la presentación. El deber de verificar cada cita es personal e indelegable, y los tribunales no aceptaron la falla del software como excusa. La consecuencia puede ir desde el rechazo del escrito hasta multas por temeridad o mala fe procesal y sanciones disciplinarias del colegio."
+   },
+   {
+    "p": "¿Qué cláusulas hay que negociar en un contrato con un proveedor de software legal con IA?",
+    "r": "Cinco son clave: titularidad y confidencialidad de los documentos cargados, exclusión expresa del uso de esos datos para entrenamiento, ubicación de los servidores, devolución y borrado de la información al terminar la suscripción, y notificación de incidentes de seguridad en un plazo determinado. Sumá un régimen de responsabilidad por filtraciones."
+   }
+  ],
+  "entidades": [
+   "Magnar",
+   "Beccar Varela",
+   "6 Degrees Capital",
+   "Hi Ventures",
+   "Nascent Ventures",
+   "Fen Ventures",
+   "Platanus Ventures",
+   "Carey",
+   "Andrés Arellano",
+   "Thomas Olszewski",
+   "Norte en Línea",
+   "ley 25.326"
+  ],
+  "keywords": [
+   "legaltech Argentina",
+   "IA jurídica",
+   "Magnar",
+   "Beccar Varela inversión",
+   "software para estudios jurídicos",
+   "secreto profesional inteligencia artificial",
+   "ley 25.326 datos personales"
+  ],
+  "palabras": 755
+ },
+ {
+  "id": "moron-valida-notificar-la-demanda-al-domicilio-electronico-d",
+  "titulo": "Morón valida notificar la demanda al domicilio electrónico del abogado",
+  "bajada": "La Sala II admitió el traslado por vía electrónica al letrado de la contraria pese a que no intervenía en la causa. El domicilio electrónico registrado empieza a rendir más allá del expediente propio.",
+  "meta_description": "La Cámara de Morón validó notificar el traslado de demanda al domicilio electrónico del abogado contrario. Qué dice el fallo y qué cambia en la práctica.",
+  "sumario": [
+   "La Sala II de la Cámara Civil y Comercial de Morón convalidó notificar el traslado de demanda al domicilio electrónico del abogado de la demandada.",
+   "El tribunal aplicó el artículo 135 inciso 1 del CPCC bonaerense junto con la ley 15.230 y el Acuerdo 3989 de la Suprema Corte provincial.",
+   "La decisión, firmada por Moro y Quadri el 7 de septiembre de 2026, no tuvo disidencia y llega tras fracasar las notificaciones al domicilio real."
+  ],
+  "cuerpo_html": "<p>La Sala II de la Cámara de Apelación en lo Civil y Comercial de Morón convalidó notificar el traslado de la demanda en el domicilio electrónico del abogado de la parte demandada, aunque ese letrado no intervenía en la causa. La decisión importa porque toca el acto procesal más protegido del expediente. El traslado de demanda abre el plazo para contestar y habilita, si no se contesta, la rebeldía. Que ese acto pueda practicarse por correo electrónico a un tercero profesional es un salto que conviene mirar de cerca.</p><h2>El caso y lo que resolvió el tribunal</h2><p>La causa es <strong>Queijeiro Fabián Eduardo c/ Mana Gabriela Alejandra s/ daños y perjuicios extracontractual</strong>. El fallo lleva fecha 7 de septiembre de 2026 y las firmas de Laura Andrea Moro y Gabriel Hernán Quadri. No hubo disidencia.</p><p>El punto de partida fue el fracaso repetido de las notificaciones en el domicilio real de la demandada. El actor pidió entonces que el traslado se practicara al domicilio electrónico del abogado que la asistía en otros litigios vigentes. El tribunal lo aceptó.</p><p>El razonamiento tiene dos patas. La primera es normativa. El <strong>artículo 135 inciso 1 del Código Procesal Civil y Comercial</strong> bonaerense regula la notificación del traslado de demanda en el domicilio del demandado. La <strong>ley 15.230</strong> incorporó el uso de domicilios electrónicos para notificaciones y actos procesales. El <strong>Acuerdo 3989</strong> de la Suprema Corte bonaerense creó el Registro de Domicilios Electrónicos y contempla notificaciones dirigidas a abogados que ya intervinieron. La Cámara leyó las tres piezas en conjunto, no por separado.</p><p>La segunda pata es fáctica. El tribunal presumió, con certeza razonable, que un aviso enviado al abogado que lleva varios pleitos activos de la demandada iba a llegar a conocimiento de ella. Según reconstruyó Diario Judicial, la Cámara sostuvo que las reglas procesales deben interpretarse atendiendo a la evolución del sistema de comunicaciones judiciales, y vinculó el criterio con la tutela judicial efectiva y la exigencia de resolver en plazos razonables.</p><h2>Qué cambia en la práctica del estudio</h2><p>Para el actor, se abre una salida en los casos que se empantanan en la etapa de notificación. Antes de pedir edictos, con su costo y su demora, ahora hay un camino intermedio que un tribunal bonaerense ya convalidó. Conviene documentar bien el fracaso previo. La decisión no autoriza saltear el domicilio real: lo habilita cuando ese intento ya se agotó y consta en el expediente.</p><p>Para el abogado que recibe la notificación, el impacto es más incómodo. Tu casilla del Registro de Domicilios Electrónicos deja de ser un canal exclusivo de tus causas propias. Puede entrar por ahí una demanda nueva contra un cliente al que asistís en otro pleito. Tres consecuencias concretas.</p><p>Primero, revisá la casilla todos los días hábiles y no solo cuando esperás una providencia. Una notificación que ingresa sin aviso previo y se pasa de plazo es un escenario de responsabilidad profesional directa.</p><p>Segundo, actualizá el protocolo interno de recepción. La persona que revisa las notificaciones tiene que saber que ahora puede llegar un traslado de demanda de una causa que no figura en el sistema del estudio. Ese caso necesita un circuito propio: alerta inmediata al socio a cargo y contacto con el cliente el mismo día.</p><p>Tercero, revisá los alcances del poder y del convenio con cada cliente. Si te notifican por una causa que no aceptaste, corresponde presentarse a aclarar la situación en lugar de ignorar la comunicación. El silencio ante una notificación electrónica es un terreno resbaladizo.</p><h2>Los límites del criterio</h2><p>Conviene no exagerar el alcance. Es un fallo de una sala de una cámara departamental de la provincia de Buenos Aires. No es doctrina obligatoria y otras salas pueden resolver distinto. El eje sigue siendo el derecho de defensa, y un tribunal más estricto puede exigir prueba más contundente de que la demandada tomó conocimiento efectivo.</p><p>La agenda práctica es corta. Si litigás en la provincia y tenés una causa trabada en notificaciones, tenés un antecedente para invocar. Si estás del otro lado, revisá hoy quién mira la casilla electrónica del estudio y con qué frecuencia. El domicilio electrónico dejó de ser un buzón pasivo. Ahora es una puerta de entrada.</p>",
+  "faq": [
+   {
+    "p": "¿Se puede notificar el traslado de demanda al domicilio electrónico del abogado de la contraparte?",
+    "r": "La Sala II de la Cámara Civil y Comercial de Morón lo admitió en septiembre de 2026, cuando fracasaron las notificaciones al domicilio real y el letrado asistía a la demandada en otros pleitos vigentes. No es doctrina obligatoria: es un criterio de una sala departamental bonaerense que otras salas pueden no seguir."
+   },
+   {
+    "p": "¿Qué normas regulan el domicilio electrónico en la provincia de Buenos Aires?",
+    "r": "La ley 15.230 incorporó el domicilio electrónico para notificaciones y actos procesales. El Acuerdo 3989 de la Suprema Corte bonaerense creó el Registro de Domicilios Electrónicos y fija cómo se practican las notificaciones dirigidas a abogados. El artículo 135 inciso 1 del CPCC provincial sigue regulando el traslado de demanda."
+   },
+   {
+    "p": "¿Con qué frecuencia tiene que revisar un abogado su domicilio electrónico judicial?",
+    "r": "Todos los días hábiles. Los plazos corren desde que la notificación queda disponible en la casilla, no desde que el letrado la lee. Con criterios como el de Morón puede ingresar incluso el traslado de una demanda de una causa que el estudio todavía no registró, así que conviene un protocolo interno de revisión diaria."
+   }
+  ],
+  "entidades": [
+   "Cámara de Apelación en lo Civil y Comercial de Morón",
+   "Laura Andrea Moro",
+   "Gabriel Hernán Quadri",
+   "Suprema Corte de Justicia de Buenos Aires",
+   "Diario Judicial",
+   "ley 15.230",
+   "Acuerdo 3989",
+   "artículo 135 inciso 1 CPCC",
+   "Queijeiro c/ Mana"
+  ],
+  "keywords": [
+   "notificación domicilio electrónico",
+   "traslado de demanda electrónico",
+   "ley 15.230",
+   "Acuerdo 3989 SCBA",
+   "Cámara de Morón fallo",
+   "artículo 135 CPCC Buenos Aires",
+   "notificaciones judiciales electrónicas"
+  ],
+  "palabras": 699
+ },
+ {
+  "id": "el-gobierno-prepara-un-soc-nacional-cert-ar-ya-supero-los-70",
+  "titulo": "El SOC nacional llega en 2027 y el CERT.ar ya pasó los 700 incidentes",
+  "bajada": "El centro de operaciones de seguridad recién arrancaría a principios de 2027, mientras la región acumula 18,5 millones de ataques por año. Para un estudio, la señal es concreta.",
+  "meta_description": "El CERT.ar superó los 700 incidentes en 2026 y el SOC nacional recién llega en 2027. Qué debe hacer un estudio jurídico para proteger datos de clientes.",
+  "sumario": [
+   "El CERT.ar superó los 700 incidentes registrados en 2026, frente a un rango previo de 200 a 400 casos anuales.",
+   "El Gobierno proyecta poner en marcha un centro de operaciones de seguridad a comienzos de 2027, junto con un sistema de alerta temprana.",
+   "América Latina acumula unos 18,5 millones de ciberataques al año y solo 7 de 32 países tienen marco regulatorio para servicios esenciales."
+  ],
+  "cuerpo_html": "<p>El Gobierno prepara un centro nacional de operaciones de seguridad informática que recién estaría operativo a comienzos de 2027. Mientras tanto, el CERT.ar ya superó los 700 incidentes registrados en lo que va de 2026. El salto es fuerte: en períodos anteriores el organismo manejaba entre 200 y 400 casos por año. Para un estudio jurídico la lectura es directa. La capacidad estatal de respuesta todavía se está construyendo, y la protección de los datos de tus clientes depende hoy de vos.</p><h2>Los números detrás del anuncio</h2><p>El plan que reconstruyó Infobae tiene tres piezas. Un centro de operaciones de seguridad, conocido como SOC, previsto para principios de 2027. Una plataforma de simulación llamada Cyber Arena, para recrear ataques en entornos realistas. Y un sistema de alerta temprana que coordine avisos de amenazas. Se suma capacitación en dos niveles: para empleados en general y para especialistas y desarrolladores.</p><p>El contexto regional explica la urgencia. América Latina concentra alrededor de 18,5 millones de ciberataques al año. Solo 7 de 32 países de la región tienen marco regulatorio para proteger servicios esenciales. Apenas 20 cuentan con equipos de respuesta a incidentes de seguridad informática constituidos.</p><h2>El antecedente que encendió la alarma</h2><p>El caso testigo es Costa Rica. El 17 de abril de 2022 el grupo Conti atacó el Ministerio de Hacienda y dejó fuera de servicio las plataformas tributaria y aduanera. El impacto económico se calculó en 125 millones de dólares en las primeras 48 horas. El rescate exigido fue de 20 millones. El 8 de mayo el presidente declaró la emergencia nacional. El 31 de mayo, con el sistema todavía golpeado, el grupo Hive atacó la Caja Costarricense de Seguro Social.</p><p>El desenlace llegó después. Hive fue desarticulado en enero de 2023 por Europol junto con autoridades de Alemania, Países Bajos y Estados Unidos. Washington ofreció 10 millones de dólares por información sobre los líderes de Conti. En 2023, más cerca, el ataque al proveedor IFX Networks afectó a 78 entidades públicas y a más de 760 empresas privadas de la región.</p><p>Ese último dato es el que más debería preocupar en un estudio. El ataque no fue a cada víctima. Fue a un proveedor. Todos los que dependían de él cayeron juntos.</p><h2>Por qué un estudio jurídico es un blanco</h2><p>Un estudio mediano concentra información que en el mercado ilegal vale mucho: contratos no públicos, estrategias de litigio, datos patrimoniales, historias clínicas en causas de mala praxis, información de menores en causas de familia. Y casi siempre con menos defensas que un banco.</p><p>El marco legal no es ambiguo. La <strong>ley 25.326</strong> de protección de datos personales impone el deber de adoptar medidas técnicas y organizativas que garanticen la seguridad de los datos, y un deber de confidencialidad que subsiste aun después de terminada la relación. A eso se suma el secreto profesional y la responsabilidad civil frente al cliente cuyo expediente se filtró. Una brecha no es solo un problema informático. Es un expediente disciplinario y una demanda esperando.</p><p>Hay cinco medidas que un estudio puede resolver esta semana sin contratar a nadie.</p><ul><li>Activar segundo factor de autenticación en el correo, en el sistema de gestión y en los portales judiciales. Es la medida de mayor impacto y costo cero.</li><li>Verificar que exista una copia de respaldo fuera de línea y probar una restauración real. Un backup que nunca se restauró no es un backup.</li><li>Cifrar las notebooks y limitar el uso de pendrives con documentación de clientes.</li><li>Revisar quién sigue teniendo acceso al sistema después de irse del estudio. Las cuentas huérfanas son la puerta más usada.</li><li>Escribir un protocolo de una carilla que diga a quién se llama, en qué orden, si mañana el sistema aparece cifrado.</li></ul><p>Sumá una revisión contractual. Si tercerizás la gestión del expediente, la nube o la facturación, ese proveedor maneja datos de tus clientes. El contrato debería obligarlo a notificar incidentes en un plazo cierto y a devolver o borrar la información al terminar el servicio. Como mostró el caso IFX Networks, tu riesgo real es el de tu proveedor más débil.</p><p>El SOC nacional va a ayudar cuando exista. No va a recuperar los expedientes de un estudio que no tenía copia de respaldo. Entre hoy y 2027 hay bastante tiempo para que la diferencia la haga la prevención propia.</p>",
+  "faq": [
+   {
+    "p": "¿Qué obligaciones tiene un estudio jurídico si sufre una filtración de datos de clientes?",
+    "r": "La ley 25.326 impone el deber de garantizar la seguridad de los datos y de mantener confidencialidad, aun después de terminada la relación con el cliente. Frente a una brecha corresponde contener el incidente, documentarlo, informar a los afectados y evaluar la denuncia penal. Además queda expuesta la responsabilidad civil y disciplinaria del abogado."
+   },
+   {
+    "p": "¿Qué es el CERT.ar y cuándo conviene reportarle un incidente?",
+    "r": "Es el equipo nacional de respuesta a incidentes de seguridad informática. Registró más de 700 casos en 2026, cuando antes manejaba entre 200 y 400 por año. Conviene reportar ataques de ransomware, accesos no autorizados a sistemas y filtraciones de bases de datos, tanto para recibir asistencia técnica como para dejar constancia del incidente."
+   },
+   {
+    "p": "¿Cómo protejo la información de mis clientes si contrato software legal en la nube?",
+    "r": "Exigí por contrato confidencialidad, ubicación identificada de los servidores, notificación de incidentes en plazo cierto y borrado o devolución de la información al terminar el servicio. Activá segundo factor de autenticación, mantené una copia de respaldo fuera de línea y revisá periódicamente qué usuarios conservan acceso al sistema."
+   }
+  ],
+  "entidades": [
+   "CERT.ar",
+   "Infobae",
+   "Conti",
+   "Hive",
+   "Europol",
+   "IFX Networks",
+   "Caja Costarricense de Seguro Social",
+   "Ministerio de Hacienda de Costa Rica",
+   "Cyber Arena",
+   "ley 25.326"
+  ],
+  "keywords": [
+   "ciberseguridad estudios jurídicos",
+   "CERT.ar incidentes",
+   "SOC nacional Argentina",
+   "ransomware Argentina",
+   "ley 25.326 seguridad de datos",
+   "filtración datos clientes abogados",
+   "ciberataques América Latina"
+  ],
+  "palabras": 719
+ },
+ {
+  "id": "el-bcra-obliga-a-bancos-y-fintech-a-armar-un-programa-antifr",
+  "titulo": "El BCRA exige un programa antifraude documentado a bancos y fintech",
+  "bajada": "La Comunicación A 8471 incorpora la Sección 6.5 sobre gestión del riesgo de fraude. Rige desde el 1 de diciembre para las entidades financieras y en etapas para los proveedores de pago hasta 2027.",
+  "meta_description": "La Comunicación A 8471 del BCRA obliga a bancos, PSPCP y PSP a tener un programa antifraude documentado. Fechas de vigencia y qué revisar en cada cliente.",
+  "sumario": [
+   "La Comunicación A 8471 del BCRA incorpora la Sección 6.5 sobre gestión del riesgo de fraude a los lineamientos de gestión de riesgos.",
+   "Las entidades financieras deben cumplir desde el 1 de diciembre de 2026, los PSPCP en cuatro etapas y los demás PSP desde enero de 2027.",
+   "Exige programa documentado, función responsable, base centralizada de incidentes, capacitación y reportes trimestrales al Directorio."
+  ],
+  "cuerpo_html": "<p>El Banco Central emitió el 27 de agosto de 2026 la <strong>Comunicación A 8471</strong>, que obliga a bancos, billeteras y proveedores de servicios de pago a tener un programa antifraude documentado. No es una recomendación de buenas prácticas. Es una exigencia normativa con fechas de vigencia, roles designados y reportes periódicos al Directorio. Para el abogado que asesora a una entidad financiera o a una fintech, el calendario ya arrancó.</p><h2>Qué exige la Sección 6.5</h2><p>La norma incorpora una nueva Sección 6.5, titulada gestión del riesgo de fraude, al texto ordenado sobre lineamientos para la gestión de riesgos en las entidades financieras. Hasta ahora ese cuerpo regulaba el riesgo operacional en general y no tenía disposiciones específicas sobre fraude. Ahora las tiene, y cubren fraude interno y externo.</p><p>Las obligaciones centrales para las entidades financieras son seis. Un programa antifraude documentado que coordine a las áreas de cumplimiento, legales, ciberseguridad y prevención de lavado. Procedimientos de detección con soluciones tecnológicas, canales de denuncia y protocolos de respuesta ante incidentes. La designación de una función de gestión del riesgo de fraude, con un responsable identificable. Una base de datos centralizada de incidentes. Capacitación al personal. Y revisión anual del programa, con reportes trimestrales al Directorio que incluyan indicadores clave y medidas correctivas.</p><p>Ese último punto es el que suele subestimarse. Un reporte trimestral al Directorio con indicadores convierte al fraude en materia de deber de diligencia de los directores. Deja rastro escrito de qué sabía el órgano de administración y cuándo lo supo.</p><h2>El calendario, en etapas</h2><p>La norma escalona el cumplimiento según el tipo de sujeto obligado.</p><ul><li><strong>Entidades financieras:</strong> vigencia plena el 1 de diciembre de 2026.</li><li><strong>PSPCP, es decir proveedores de servicios de pago que ofrecen cuentas de pago:</strong> implementación progresiva en cuatro etapas, entre septiembre de 2026 y septiembre de 2027.</li><li><strong>Demás PSP registrados ante el BCRA:</strong> 1 de enero de 2027.</li></ul><p>Las cuatro etapas de los PSPCP tienen contenido propio. La primera, de septiembre a diciembre de 2026, exige establecer el marco, definir roles y estrategias antifraude e identificar riesgos de manera preliminar. La segunda, de enero a mayo de 2027, pide documentar los procesos y procedimientos de identificación, evaluación y mitigación de riesgos. La tercera, de junio a agosto de 2027, requiere una autoevaluación y un informe final con participación de auditor externo. La cuarta, desde septiembre de 2027, marca la vigencia plena.</p><p>Para los demás PSP el paquete es más acotado: función responsable de la gestión del fraude, autoevaluación de riesgo, plan de mitigación y cumplimiento de las exigencias de gestión de tecnología y seguridad de la información. La síntesis de la norma fue publicada por Abogados.com.ar.</p><h2>La tarea del abogado del sector</h2><p>Si asesorás a un sujeto alcanzado, hay trabajo concreto y con fecha.</p><p>Empezá por el encuadre. Determiná con precisión si tu cliente es entidad financiera, PSPCP o PSP simple, porque de eso depende el calendario y el nivel de exigencia. Una billetera que también opera cuentas de pago puede quedar en una categoría más gravosa de la que asume.</p><p>Seguí por los documentos societarios. El programa antifraude necesita aprobación del órgano de administración y una designación formal del responsable de la función. Eso implica acta de directorio, definición de reporte y una política escrita. Sin ese papel, el programa no existe a los efectos de una inspección.</p><p>Revisá los contratos con terceros. Procesadores de pagos, proveedores de sistemas antifraude y servicios de verificación de identidad quedan dentro del perímetro del programa. Los contratos deberían prever obligaciones de notificación de incidentes, auditoría y entrega de información al supervisor.</p><p>Cuidá la base de datos de incidentes. Va a contener datos personales de clientes y, en muchos casos, datos de personas sospechadas de fraude. El tratamiento cae bajo la <strong>ley 25.326</strong>, con sus reglas de finalidad, exactitud, plazo de conservación y derecho de acceso. Una base antifraude mal diseñada resuelve un problema regulatorio y crea otro.</p><p>Por último, coordiná con prevención de lavado. La norma exige articulación explícita entre el programa antifraude y el área de PLAFT, y en muchas estructuras esas dos áreas trabajan sin hablarse. Alinear matrices y canales de denuncia ahora evita reprocesos en la autoevaluación.</p><p>La agenda inmediata para diciembre es corta: encuadre del cliente, acta de designación, política escrita y revisión de contratos con proveedores. El resto se construye sobre esa base.</p>",
+  "faq": [
+   {
+    "p": "¿A quiénes alcanza la Comunicación A 8471 del BCRA?",
+    "r": "Alcanza a las entidades financieras, a los proveedores de servicios de pago que ofrecen cuentas de pago, conocidos como PSPCP, y a los demás proveedores de servicios de pago registrados ante el Banco Central. Cada categoría tiene distinto nivel de exigencia y distinto cronograma de implementación, por lo que el encuadre correcto del cliente es el primer paso."
+   },
+   {
+    "p": "¿Desde cuándo rige la obligación de tener un programa antifraude?",
+    "r": "Para las entidades financieras, desde el 1 de diciembre de 2026. Los PSPCP cumplen en cuatro etapas progresivas entre septiembre de 2026 y septiembre de 2027, con vigencia plena desde esa última fecha. Los demás proveedores de servicios de pago registrados ante el BCRA deben cumplir a partir del 1 de enero de 2027."
+   },
+   {
+    "p": "¿Qué tiene que contener el programa antifraude que exige la Sección 6.5?",
+    "r": "Un documento aprobado por el órgano de administración que coordine cumplimiento, legales, ciberseguridad y prevención de lavado, con procedimientos de detección tecnológica, canales de denuncia y protocolos de incidentes. Además exige designar una función responsable, llevar una base centralizada de incidentes, capacitar al personal, revisarlo anualmente e informar al Directorio cada trimestre."
+   }
+  ],
+  "entidades": [
+   "Banco Central de la República Argentina",
+   "Comunicación A 8471",
+   "PSPCP",
+   "PSP",
+   "Abogados.com.ar",
+   "ley 25.326"
+  ],
+  "keywords": [
+   "Comunicación A 8471",
+   "programa antifraude BCRA",
+   "gestión del riesgo de fraude",
+   "PSPCP proveedores de pago",
+   "compliance fintech Argentina",
+   "riesgo operacional entidades financieras",
+   "BCRA fraude 2026"
+  ],
+  "palabras": 724
+ },
+ {
+  "id": "el-enacom-posterga-a-diciembre-el-nuevo-regimen-de-homologac",
+  "titulo": "El ENACOM postergó a diciembre el nuevo régimen de homologación",
+  "bajada": "La Resolución 843/2026 corre al 1 de diciembre la vigencia del nuevo Reglamento del RAMATEL. El organismo admitió que no estaban dadas las condiciones para aplicarlo.",
+  "meta_description": "La Resolución 843/2026 del ENACOM postergó al 1 de diciembre el nuevo Reglamento del RAMATEL. Qué implica para importadores y qué revisar en los contratos.",
+  "sumario": [
+   "La Resolución 843/2026 del ENACOM corrió del 1 de septiembre al 1 de diciembre de 2026 la vigencia del nuevo Reglamento del RAMATEL.",
+   "El organismo admitió en los considerandos que no estaban dadas las condiciones indispensables para ejecutar correctamente el nuevo régimen.",
+   "El COPITEC mantiene una acción de nulidad en la Justicia Federal contra la Resolución 57/2026, que aprobó ese reglamento."
+  ],
+  "cuerpo_html": "<p>El ENACOM postergó tres meses la entrada en vigencia del nuevo régimen de homologación de equipos de telecomunicaciones. La <strong>Resolución 843/2026</strong>, publicada el 28 de agosto de 2026, corrió la fecha del 1 de septiembre al 1 de diciembre de 2026. El motivo lo dio el propio organismo en los considerandos: no estaban dadas, según su texto, las condiciones indispensables para la correcta ejecución del nuevo esquema. Para quien asesora importadores de celulares, routers o equipos de radiofrecuencia, la prórroga cambia el calendario y abre una ventana de planificación.</p><h2>Qué quedó postergado</h2><p>Lo que se posterga es el nuevo Reglamento del RAMATEL, el Registro de Actividades y Materiales de Telecomunicaciones, aprobado por la <strong>Resolución 57/2026</strong> del ENACOM. Ese reglamento reorganiza el procedimiento de homologación de equipos y traslada buena parte de la certificación técnica a organismos privados reconocidos, en reemplazo del esquema anterior.</p><p>Con la prórroga, el régimen previo de homologación sigue rigiendo hasta el 1 de diciembre de 2026. Los trámites en curso continúan bajo las reglas con las que se iniciaron. Lo que se movió es la fecha de corte, no el contenido del nuevo reglamento.</p><h2>El frente judicial que sigue abierto</h2><p>La prórroga no ocurrió en el vacío. El COPITEC, el consejo profesional que agrupa a ingenieros en telecomunicaciones, mantiene una acción judicial de nulidad contra la Resolución 57/2026 en la Justicia Federal.</p><p>El detalle temporal es llamativo y lo remarcó el propio COPITEC. Cuatro días antes de la prórroga, el 24 de agosto, abogados del ENACOM habían sostenido ante la Justicia Federal que la resolución era válida y que podía implementarse el 1 de septiembre. La resolución del 28 de agosto reconoce lo contrario. Esa contradicción entre lo afirmado en sede judicial y lo admitido en los considerandos es material útil para la parte actora.</p><p>Los cuestionamientos del consejo profesional son cuatro: que el sistema no estaba maduro, que se dictó sin análisis de impacto, que no hubo consulta al sector y que faltaba preparación institucional. La prórroga refuerza al menos el primero y el cuarto.</p><p>Vale la aclaración procesal. Una prórroga no sanea un vicio de origen ni convierte en abstracta la acción de nulidad. Si el planteo apunta a defectos en el procedimiento de dictado, correr la fecha de vigencia no los repara.</p><h2>Qué revisar si asesorás importadores</h2><p>Hay tareas concretas para estas semanas.</p><ul><li><strong>Revisá las cláusulas de plazo en contratos de importación.</strong> Muchos acuerdos firmados a mediados de año asumieron que el nuevo régimen arrancaba el 1 de septiembre. Si un contrato ata una obligación de entrega o un precio a la certificación bajo el nuevo esquema, la prórroga puede alterar la ecuación económica y conviene renegociar o documentar el cambio.</li><li><strong>Ordená la trazabilidad de los trámites en curso.</strong> Dejá constancia por escrito de la fecha de inicio de cada homologación y del régimen aplicable. Ante un cambio de reglas, esa documentación es la defensa frente a un rechazo posterior.</li><li><strong>Anticipá la transición de diciembre.</strong> El nuevo esquema apoya la certificación en organismos privados reconocidos. Si el cliente va a necesitarlos, conviene identificar hoy quiénes están habilitados y qué documentación técnica exigen, en lugar de descubrirlo en la primera semana de vigencia.</li><li><strong>Seguí el expediente judicial.</strong> Si prospera la acción de nulidad, el escenario regulatorio vuelve a cambiar. Un cliente con inversión comprometida necesita saber que ese riesgo existe, y ese aviso debe quedar por escrito en el dictamen.</li><li><strong>Descontá la posibilidad de una nueva prórroga.</strong> Es la segunda vez que el organismo reconoce falta de condiciones. La planificación prudente contempla los dos escenarios y no apuesta a uno solo.</li></ul><p>Queda una dimensión más amplia. La homologación de equipos determina qué dispositivos pueden venderse legalmente en el país y con qué condiciones de seguridad y compatibilidad. Los cambios de régimen en el medio de operaciones en curso generan litigios de responsabilidad contractual entre importadores, distribuidores y retailers. Ese es el frente que conviene cubrir antes de diciembre, no después.</p><p>El consejo operativo es simple. Armá una planilla con los trámites abiertos de cada cliente, su fecha de inicio, el régimen bajo el que corren y la fecha estimada de resolución. Si alguno cae después del 1 de diciembre, tratalo desde ahora como caso de transición.</p>",
+  "faq": [
+   {
+    "p": "¿Desde cuándo rige el nuevo Reglamento del RAMATEL del ENACOM?",
+    "r": "Desde el 1 de diciembre de 2026. La Resolución 843/2026 corrió la fecha original, que era el 1 de septiembre de 2026, y el organismo fundó la prórroga en que no estaban dadas las condiciones indispensables para su correcta ejecución. Hasta esa fecha continúa aplicándose el régimen de homologación anterior."
+   },
+   {
+    "p": "¿Qué pasa con los trámites de homologación iniciados antes de la prórroga?",
+    "r": "Los trámites en curso continúan bajo el régimen vigente al momento de su inicio, que se extiende hasta el 1 de diciembre de 2026. Conviene documentar por escrito la fecha de presentación de cada expediente y la normativa aplicable, porque esa constancia es la principal defensa si más adelante se cuestiona el encuadre del trámite."
+   },
+   {
+    "p": "¿La prórroga del ENACOM afecta el juicio de nulidad contra la Resolución 57/2026?",
+    "r": "No la deja sin objeto. El COPITEC mantiene una acción de nulidad en la Justicia Federal, y una prórroga de la vigencia no subsana eventuales vicios en el procedimiento de dictado de la norma. Además, el organismo había sostenido en sede judicial que la resolución era aplicable días antes de admitir que no estaba listo."
+   }
+  ],
+  "entidades": [
+   "ENACOM",
+   "COPITEC",
+   "RAMATEL",
+   "Resolución 843/2026",
+   "Resolución 57/2026",
+   "Justicia Federal",
+   "Boletín Oficial"
+  ],
+  "keywords": [
+   "Resolución 843/2026 ENACOM",
+   "homologación de equipos ENACOM",
+   "RAMATEL reglamento",
+   "Resolución 57/2026",
+   "importación de equipos de telecomunicaciones",
+   "certificación de equipos Argentina",
+   "COPITEC nulidad"
+  ],
+  "palabras": 703
+ }
+]

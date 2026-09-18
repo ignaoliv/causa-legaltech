@@ -1,0 +1,297 @@
+[
+ {
+  "id": "la-procuracion-fija-reglas-obligatorias-para-usar-ia-en-fisc",
+  "titulo": "La Procuración fijó reglas obligatorias de IA para todas las fiscalías federales",
+  "bajada": "La Resolución PGN 64/2026 prohíbe cargar causas en trámite en chatbots abiertos y exige supervisión humana en cada etapa. Es el estándar que los tribunales van a esperar también del litigante.",
+  "meta_description": "Resolución PGN 64/2026: el MPF prohíbe subir causas en trámite a ChatGPT y exige control humano. Qué implica para los abogados que litigan en Argentina.",
+  "sumario": [
+   "El procurador general interino Eduardo Casal aprobó lineamientos de cumplimiento obligatorio para usar, diseñar y desarrollar herramientas de inteligencia artificial en el Ministerio Público Fiscal.",
+   "La norma prohíbe de manera transitoria volcar información reservada, actuaciones en trámite o datos sensibles en sistemas de acceso público como ChatGPT, Gemini o Copilot.",
+   "Ninguna decisión judicial o administrativa puede fundarse solo en la respuesta de un sistema automatizado: exige control humano significativo y auditoría interna posterior."
+  ],
+  "cuerpo_html": "<p>El Ministerio Público Fiscal de la Nación ya tiene reglas escritas para usar inteligencia artificial. El procurador general interino Eduardo Casal aprobó la Resolución PGN 64/2026, que fija lineamientos institucionales de cumplimiento obligatorio para el uso, el diseño, el desarrollo y la adquisición de herramientas de IA dentro del organismo. La noticia, difundida por Diario Judicial, excede el mundo de las fiscalías. Es el primer estándar formal y detallado que un actor central del sistema de justicia argentino pone por escrito sobre cómo se trabaja con esta tecnología en un expediente real.</p><h2>Qué prohíbe y qué exige la resolución</h2><p>El núcleo de la norma es una prohibición concreta. De manera transitoria, y hasta que se definan reglas específicas caso por caso, queda vedado ingresar información reservada, actuaciones de causas en trámite o datos personales y sensibles en sistemas de acceso público. La resolución nombra el tipo de herramienta: los chatbots abiertos, como ChatGPT, Gemini o Copilot. No es una recomendación de buenas prácticas. Es una regla de cumplimiento obligatorio para fiscales, funcionarios y áreas con funciones de planificación, control de gestión o auditoría.</p><p>La segunda regla dura es igual de clara. Ninguna decisión judicial o administrativa puede basarse únicamente en la respuesta de un sistema automatizado. La resolución exige supervisión humana en todas las etapas y lo que llama control humano significativo. La IA queda posicionada como insumo de trabajo, nunca como fundamento autónomo de un acto.</p><p>A eso se suma una arquitectura de control. Antes de incorporar una herramienta, el organismo debe pasarla por un circuito interno de evaluación de riesgos y de factibilidad técnica y jurídica. Después, la Unidad de Auditoría Interna revisa el uso. La implementación queda en manos del Programa de Inteligencia Artificial del MPF, creado por la Resolución PGN 14/2025, junto con la Dirección General de Desarrollo Organizacional y Nuevas Tecnologías.</p><p>Hay un componente de formación que conviene mirar de cerca. La Dirección General de Capacitación y Escuela del MPF, con la Secretaría de Coordinación Institucional, debe montar un programa permanente de formación práctica y aplicada en IA. Los contenidos son bien concretos: competencias operativas, formulación de prompts, validación de resultados y mitigación de sesgos. El marco se elaboró a partir de una encuesta institucional publicada en agosto de 2026 sobre conocimiento, uso y percepciones del personal.</p><h2>Qué cambia para el abogado que litiga en Argentina</h2><p>Una resolución de la Procuración no obliga al abogado particular. Pero fija el piso con el que la contraparte pública va a trabajar, y ese piso se vuelve la vara implícita de todo el proceso. Si el fiscal tiene prohibido cargar una causa en trámite en un chatbot abierto, el letrado que lo hace queda en una posición incómoda para explicarlo ante un juez.</p><p>El primer punto es de confidencialidad, y en la práctica argentina ya tenía anclaje normativo antes de esta resolución. Volcar datos de un cliente en una plataforma pública compromete el secreto profesional, que el artículo 156 del Código Penal protege con pena. También activa la Ley 25.326 de Protección de Datos Personales cuando hay datos sensibles de por medio, con la agravante de que muchas de esas plataformas alojan y procesan la información fuera del país. Conviene revisar hoy tres cosas: qué herramienta usa cada integrante del estudio, si esa herramienta entrena con los datos cargados y si existe alguna cláusula de confidencialidad firmada con el cliente que ya se esté incumpliendo.</p><p>El segundo punto es la verificación. La regla de que ninguna decisión se funda solo en una salida automatizada se traduce, del lado del litigante, en el deber de chequear cada cita antes de firmar. En el proceso civil eso no es una cortesía. El artículo 34 inciso 5 d) del Código Procesal Civil y Comercial de la Nación manda a los jueces a prevenir y sancionar todo acto contrario al deber de lealtad, probidad y buena fe, y el artículo 45 habilita la multa por temeridad o malicia. Presentar jurisprudencia inventada entra sin esfuerzo en esa categoría.</p><h2>Una señal de hacia dónde va la regulación local</h2><p>La Resolución PGN 64/2026 no prohíbe la IA. Hace lo contrario: la institucionaliza, le pone control y la acompaña con capacitación obligatoria. Ese es el mensaje regulatorio relevante. El debate argentino dejó atrás la pregunta de si se puede usar y pasó a la de cómo se documenta el uso.</p><p>Para un estudio, la conclusión práctica es corta. Escribí un protocolo interno propio, aunque sea de una carilla. Definí qué herramientas están habilitadas, qué información nunca se carga y quién firma la verificación final de citas y datos. Guardá el registro. El día que un juez pregunte cómo se elaboró un escrito, tener esa respuesta por escrito va a valer mucho más que una explicación improvisada en la audiencia.</p>",
+  "faq": [
+   {
+    "p": "¿La Resolución PGN 64/2026 se aplica a los abogados particulares?",
+    "r": "No. Obliga solo a integrantes y áreas del Ministerio Público Fiscal de la Nación. Sin embargo funciona como estándar de referencia: fija el criterio de diligencia que la contraparte pública aplica y que los tribunales tienden a tomar como vara al evaluar la conducta de un litigante que usó inteligencia artificial en un escrito."
+   },
+   {
+    "p": "¿Puedo subir un expediente a ChatGPT si soy abogado en Argentina?",
+    "r": "Es una práctica riesgosa. Compromete el secreto profesional que protege el artículo 156 del Código Penal y puede activar la Ley 25.326 de Protección de Datos Personales si hay datos sensibles. Además muchas plataformas procesan la información en el exterior. Lo prudente es trabajar con documentos anonimizados o con herramientas contratadas que no entrenen con tus datos."
+   },
+   {
+    "p": "¿Qué sanción puede recibir un abogado que cita jurisprudencia inventada por IA?",
+    "r": "En el proceso civil federal el artículo 45 del Código Procesal Civil y Comercial de la Nación habilita multas por temeridad o malicia, y el artículo 34 inciso 5 d) obliga al juez a sancionar actos contrarios a la lealtad y la buena fe. A eso se suma la responsabilidad disciplinaria ante el colegio y el eventual reclamo del cliente."
+   }
+  ],
+  "entidades": [
+   "Resolución PGN 64/2026",
+   "Ministerio Público Fiscal de la Nación",
+   "Eduardo Casal",
+   "Resolución PGN 14/2025",
+   "Programa de Inteligencia Artificial del MPF",
+   "Unidad de Auditoría Interna",
+   "Dirección General de Capacitación y Escuela del MPF",
+   "Dirección General de Desarrollo Organizacional y Nuevas Tecnologías",
+   "Secretaría de Coordinación Institucional",
+   "ChatGPT",
+   "Gemini",
+   "Copilot",
+   "Ley 25.326 de Protección de Datos Personales",
+   "Código Procesal Civil y Comercial de la Nación",
+   "Diario Judicial"
+  ],
+  "keywords": [
+   "Resolución PGN 64/2026",
+   "inteligencia artificial Ministerio Público Fiscal",
+   "uso de IA en el Poder Judicial argentino",
+   "abogados ChatGPT datos confidenciales",
+   "regulación IA justicia Argentina",
+   "protocolo IA estudio jurídico",
+   "Eduardo Casal inteligencia artificial"
+  ],
+  "palabras": 793
+ },
+ {
+  "id": "harvey-levanta-usd-550-millones-y-ya-vale-usd-15-500-millone",
+  "titulo": "Harvey levantó USD 550 millones y quedó valuada en USD 15.500 millones",
+  "bajada": "La legaltech cerró la ronda con Diffusion y Lightspeed y compró Guardrails AI, una plataforma de seguridad para agentes. El 80% de los estudios del Am Law 100 ya la usa.",
+  "meta_description": "Harvey IA legal levantó USD 550 millones a una valuación de USD 15.500 millones y compró Guardrails AI. Qué significa el dato para los estudios argentinos.",
+  "sumario": [
+   "Harvey cerró el 9 de septiembre una ronda de USD 550 millones co-liderada por Diffusion y Lightspeed, con una valuación de USD 15.500 millones.",
+   "En simultáneo compró Guardrails AI, plataforma de seguridad y confiabilidad para agentes de IA fundada en San Francisco. Es su cuarta adquisición del año.",
+   "El 80% de los estudios del ranking Am Law 100 y cinco de las empresas del Fortune 10 ya trabajan con la herramienta."
+  ],
+  "cuerpo_html": "<p>Harvey, la empresa de inteligencia artificial para abogados, anunció el 9 de septiembre una ronda de USD 550 millones que la deja valuada en USD 15.500 millones. El mismo día informó la compra de Guardrails AI, una plataforma de seguridad para agentes de IA. El dato relevante no es el monto sino la velocidad: en marzo de 2026 la compañía había levantado USD 200 millones a una valuación de USD 11.000 millones. En menos de seis meses sumó USD 4.500 millones de valor. El capital está apostando a que el software de IA jurídica se convierta en infraestructura del trabajo legal, no en un accesorio.</p><h2>Quién puso la plata y qué compró Harvey</h2><p>Según informó Artificial Lawyer, la ronda fue co-liderada por Diffusion y Lightspeed Venture Partners. Entraron como inversores nuevos Sapphire Ventures y Whale Rock. Acompañaron los que ya estaban: Sequoia, Kleiner Perkins, a16z, Coatue, Conviction, GIC, Goldman Sachs Alternatives, WNDR y el inversor individual Elad Gil. Es una lista que mezcla capital de riesgo puro con dinero institucional, algo que suele indicar que el negocio dejó atrás la etapa experimental.</p><p>La adquisición es más interesante que la ronda. Guardrails AI es una empresa de San Francisco fundada por Shreya Rajpal y Zayd Simjee. Creó el primer sistema de guardrails de código abierto para IA: herramientas que detectan cuándo un agente se desvía del comportamiento esperado y permiten gestionar ese riesgo en tiempo real. Es la cuarta compra de Harvey en 2026 y los términos no se difundieron.</p><p>La lógica detrás de esa compra dice mucho sobre el estado del mercado. Harvey no salió a comprar más capacidad de redacción ni un buscador de jurisprudencia. Salió a comprar control de errores. Cuando un sistema empieza a ejecutar tareas de manera autónoma dentro de un flujo de trabajo legal, el problema deja de ser la calidad del texto y pasa a ser la trazabilidad de lo que hizo. Los fundadores Winston Weinberg y Gabe Pereyra enmarcaron el anuncio en la aceleración de la ventaja competitiva que las empresas pueden obtener con IA.</p><p>Los números de adopción explican el apetito de los fondos. El 80% de los estudios del ranking Am Law 100, que agrupa a los cien despachos más facturadores de Estados Unidos, usa Harvey. Cinco de las diez compañías del Fortune 10 la utilizan en sus equipos legales internos. Reportes del sector ubican su facturación recurrente anual por encima de los USD 400 millones.</p><h2>Qué mirar desde un estudio argentino</h2><p>Harvey no vende en Argentina a precio argentino y su producto está entrenado sobre derecho anglosajón. La tentación de leer esta noticia como algo ajeno es fuerte. Sería un error, por tres razones bien concretas.</p><p>La primera es la presión del cliente corporativo. Si el equipo legal interno de una multinacional trabaja con este tipo de herramientas, va a esperar los mismos tiempos de respuesta de su estudio externo en Buenos Aires. La discusión de honorarios por hora frente a trabajo asistido por IA ya está pasando en las mesas de negociación de los clientes grandes. Conviene tener la postura armada antes de que la planteen ellos.</p><p>La segunda es la seguridad de los datos. Cualquier herramienta de este tipo implica procesar documentación de clientes en servidores del exterior. Eso activa el régimen de transferencia internacional de datos de la Ley 25.326 de Protección de Datos Personales y puede chocar con cláusulas de confidencialidad ya firmadas. Antes de contratar, revisá tres puntos del contrato del proveedor: si entrena modelos con tus documentos, dónde se alojan y cuánto tiempo los retiene. Si no podés responder esas tres preguntas por escrito, no estás en condiciones de cargar material de un cliente.</p><p>La tercera es la competencia local. El dinero que hoy va a Harvey también está llegando a legaltechs que sí entrenan con normativa argentina, como Magnar, que acaba de desembarcar en el país. Para un estudio mediano, la alternativa realista no es contratar la plataforma de USD 15.500 millones sino elegir bien entre los productos regionales que están saliendo al mercado con precios accesibles.</p><h2>El cierre práctico</h2><p>La lección operativa de esta noticia está en la compra de Guardrails AI, no en el cheque. El mercado que más sabe de IA jurídica acaba de pagar por una capa de verificación y control. Traducido a la escala de un estudio argentino: la herramienta importa menos que el proceso de revisión que le ponés alrededor. Definí quién chequea las citas, dejá registro de esa revisión y no delegues la firma. Esa es la única parte del negocio que ninguna ronda de inversión te va a resolver.</p>",
+  "faq": [
+   {
+    "p": "¿Qué es Harvey y para qué lo usan los estudios jurídicos?",
+    "r": "Harvey es una plataforma de inteligencia artificial diseñada para trabajo legal. Se usa principalmente para redacción de documentos, investigación jurídica, revisión de contratos y análisis de grandes volúmenes de información en due diligence y litigios. Está adoptada por el 80% de los estudios del ranking Am Law 100 de Estados Unidos y por equipos legales internos de grandes corporaciones."
+   },
+   {
+    "p": "¿Puede un estudio argentino contratar Harvey?",
+    "r": "Comercialmente es posible, pero hay dos limitaciones. El producto está entrenado sobre derecho anglosajón, con lo cual su utilidad para litigio local es acotada. Y el precio está en dólares, pensado para estudios grandes. Para práctica argentina suelen resultar más adecuadas las legaltechs regionales entrenadas con normativa nacional."
+   },
+   {
+    "p": "¿Qué hay que revisar en el contrato de una herramienta de IA legal?",
+    "r": "Tres cosas como mínimo. Si el proveedor entrena sus modelos con los documentos que cargás, dónde se alojan físicamente esos datos y por cuánto tiempo los retiene. En Argentina la transferencia de datos al exterior queda alcanzada por la Ley 25.326 de Protección de Datos Personales, y el secreto profesional sigue siendo responsabilidad del abogado."
+   }
+  ],
+  "entidades": [
+   "Harvey",
+   "Guardrails AI",
+   "Diffusion",
+   "Lightspeed Venture Partners",
+   "Sapphire Ventures",
+   "Whale Rock",
+   "Sequoia",
+   "Kleiner Perkins",
+   "a16z",
+   "Coatue",
+   "Goldman Sachs Alternatives",
+   "Shreya Rajpal",
+   "Zayd Simjee",
+   "Winston Weinberg",
+   "Gabe Pereyra",
+   "Am Law 100",
+   "Fortune 10",
+   "Magnar",
+   "Ley 25.326 de Protección de Datos Personales",
+   "Artificial Lawyer"
+  ],
+  "keywords": [
+   "Harvey IA legal",
+   "inteligencia artificial para abogados",
+   "legaltech inversión 2026",
+   "Guardrails AI",
+   "software jurídico con IA",
+   "IA en estudios jurídicos Argentina",
+   "valuación Harvey"
+  ],
+  "palabras": 764
+ },
+ {
+  "id": "suspendido-y-multado-con-usd-5-000-por-presentar-un-recurso-",
+  "titulo": "Multa de USD 5.000 y veto ante la Corte por citar testigos que inventó ChatGPT",
+  "bajada": "La Corte Suprema de Nuevo México sancionó por desacato a un abogado que presentó un recurso con cuatro testigos inexistentes. Le prohibió litigar ante el tribunal y lo derivó al órgano disciplinario.",
+  "meta_description": "Un abogado fue multado con USD 5.000 por citar testigos inventados por ChatGPT en un recurso. Qué riesgo corre en Argentina el letrado que no verifica citas.",
+  "sumario": [
+   "La Corte Suprema de Nuevo México halló en desacato al abogado Stephen Aarons y lo multó con USD 5.000 por un recurso con datos fabricados.",
+   "El escrito incluía cuatro testigos inexistentes, testimonio falso atribuido a testigos reales y precedentes tergiversados, generados por ChatGPT sin verificación previa.",
+   "El tribunal le prohibió presentarse ante esa Corte mientras dure la investigación disciplinaria, eliminó los escritos y designó a la defensoría pública."
+  ],
+  "cuerpo_html": "<p>Un abogado de Santa Fe presentó ante la Corte Suprema de Nuevo México un recurso que citaba declaraciones de testigos que nunca existieron. Los había generado ChatGPT. El tribunal lo declaró en desacato, le impuso una multa de USD 5.000, le prohibió presentarse ante esa Corte mientras dure la investigación disciplinaria y lo apartó de la causa. El caso, que en Argentina difundió Infobae, tiene una particularidad que lo distingue de los antecedentes conocidos: acá la invención no se limitó a citas de jurisprudencia. Alcanzó la prueba testimonial de un juicio penal.</p><h2>Qué hizo el abogado y qué resolvió el tribunal</h2><p>El letrado sancionado es Stephen Aarons. Llevaba la apelación de Oscar Renee Sandoval, condenado a prisión perpetua por el homicidio de la madre de sus hijos. Aarons admitió que usó ChatGPT para resumir las actuaciones del juicio y que no verificó el resultado antes de firmar el escrito.</p><p>Lo que llegó al expediente fue una pieza con cuatro testigos completamente inventados, testimonio falso atribuido a testigos que sí habían declarado y autoridades legales tergiversadas. No se trataba de una cita mal transcripta. Era un relato paralelo del juicio, construido por un modelo de lenguaje que rellenó los huecos con lo que le pareció verosímil.</p><p>La respuesta del tribunal fue en varios niveles. Además de la multa y del desacato, los jueces señalaron que Aarons mostró falta de arrepentimiento y falta de preocupación por su cliente. Ese punto es central. Lo que agravó la sanción no fue solo el error técnico sino la actitud posterior. El tribunal eliminó los escritos presentados, designó a la defensoría pública para que retome la apelación, que sigue pendiente, y derivó el caso al órgano disciplinario de la matrícula. Ahí la sanción puede escalar hasta la exclusión del ejercicio profesional.</p><p>Vale detenerse en la víctima real del episodio. El cliente es una persona condenada a perpetua cuya única vía de revisión quedó contaminada por un escrito fabricado. Perdió meses y quedó con un expediente que hubo que rehacer desde cero.</p><h2>El deber de verificar en la práctica argentina</h2><p>La reacción inicial ante estos casos suele ser que en Argentina no pasaría. Pasa. Y el marco para sancionarlo ya existe, sin necesidad de ninguna ley nueva de inteligencia artificial.</p><p>En el proceso civil federal, el artículo 34 inciso 5 d) del Código Procesal Civil y Comercial de la Nación obliga al juez a prevenir y sancionar todo acto contrario al deber de lealtad, probidad y buena fe. El artículo 45 habilita la multa por conducta temeraria o maliciosa. El artículo 35 le da al tribunal facultades disciplinarias frente a los litigantes. Un escrito con jurisprudencia inexistente encaja en cualquiera de las tres puertas. A eso se suma la vía colegial: el Código de Ética del Colegio Público de Abogados de la Capital Federal impone deberes de diligencia y de lealtad procesal que no admiten la excusa de la herramienta.</p><p>Hay un tercer frente, el más caro. La responsabilidad civil frente al propio cliente. Si un recurso se pierde o se rehace por citas fabricadas, el perjuicio es imputable al abogado, no al proveedor del software. El seguro de mala praxis tampoco es un refugio automático cuando la conducta fue negligente y evitable.</p><p>La prevención es barata y concreta. Primero, ninguna cita se incorpora a un escrito sin abrir la fuente original y leer el párrafo pertinente. Un modelo de lenguaje no consulta una base de datos: predice texto plausible. Que una cita luzca bien formateada no significa nada. Segundo, los hechos de la causa nunca se resumen con IA a partir de material que no está cargado y verificado. El resumen de una audiencia es exactamente el terreno donde el sistema inventa. Tercero, si en el estudio hay juniors o pasantes, la revisión final de citas tiene que estar asignada a una persona con nombre y apellido. Cuarto, dejá registro de esa verificación. El día que un juez pregunte, la diferencia entre una multa y una advertencia puede estar en poder mostrar el proceso.</p><h2>Lo que conviene hacer esta semana</h2><p>Hay una regla que resume todo el caso. La firma sigue siendo personal e indelegable. Quien firma responde por cada afirmación del escrito, sin importar quién o qué la redactó.</p><p>Si en tu estudio ya se usa IA, escribí hoy una regla de una línea y comunicala: ninguna cita de jurisprudencia, doctrina o prueba se presenta sin haber abierto la fuente. Es el control más simple y el que evita el 100% de estos casos. La tecnología es útil para ordenar ideas y agilizar borradores. Para afirmar que alguien declaró algo ante un tribunal, no sirve.</p>",
+  "faq": [
+   {
+    "p": "¿Qué pasa si un abogado presenta jurisprudencia inventada por IA en Argentina?",
+    "r": "Puede recibir una multa judicial por temeridad o malicia bajo el artículo 45 del Código Procesal Civil y Comercial de la Nación, y una sanción disciplinaria del colegio por violar el deber de diligencia. A eso se suma la responsabilidad civil frente al cliente si el escrito se cae o hay que rehacerlo, y el daño reputacional ante el tribunal."
+   },
+   {
+    "p": "¿Por qué ChatGPT inventa citas de fallos y testimonios?",
+    "r": "Porque un modelo de lenguaje no consulta una base de datos jurídica: predice cuál es la secuencia de texto más probable. Si no tiene el fallo cargado, genera uno que parece real, con carátula, tribunal y fecha verosímiles. El formato correcto no garantiza que la fuente exista. Por eso toda cita debe verificarse contra el texto original."
+   },
+   {
+    "p": "¿Cómo usar inteligencia artificial en un escrito judicial sin riesgo?",
+    "r": "Usala para ordenar argumentos, estructurar un borrador o resumir documentos que vos mismo cargaste y verificaste. Nunca le pidas que aporte jurisprudencia de memoria ni que reconstruya hechos de la causa. Toda cita se chequea abriendo la fuente original, y conviene dejar registro escrito de quién hizo esa verificación antes de la firma."
+   }
+  ],
+  "entidades": [
+   "Corte Suprema de Nuevo México",
+   "Stephen Aarons",
+   "Oscar Renee Sandoval",
+   "ChatGPT",
+   "Código Procesal Civil y Comercial de la Nación",
+   "Colegio Público de Abogados de la Capital Federal",
+   "Infobae"
+  ],
+  "keywords": [
+   "abogado multado ChatGPT",
+   "citas falsas inteligencia artificial tribunal",
+   "alucinaciones IA jurisprudencia",
+   "sanción abogado uso de IA",
+   "verificar citas judiciales IA",
+   "temeridad y malicia art. 45 CPCCN",
+   "responsabilidad profesional abogado IA"
+  ],
+  "palabras": 770
+ },
+ {
+  "id": "el-colegio-de-abogados-de-mendoza-estrena-un-buscador-de-fal",
+  "titulo": "El Colegio de Mendoza estrenó un buscador de jurisprudencia con IA para matriculados",
+  "bajada": "La plataforma responde en lenguaje natural sobre fallos civiles y laborales provinciales desde 2024. Está anclada en sentencias reales para reducir el riesgo de alucinaciones.",
+  "meta_description": "El Colegio de Abogados de Mendoza lanzó un buscador de jurisprudencia con IA para matriculados: fueros civil y laboral, fallos desde 2024, consulta natural.",
+  "sumario": [
+   "El Colegio de Abogados de la Primera Circunscripción de Mendoza presentó el 15 de septiembre una plataforma de búsqueda de jurisprudencia con inteligencia artificial.",
+   "Cubre los fueros civil y laboral de todas las instancias y circunscripciones provinciales, con fallos indexados desde 2024 y consultas en lenguaje natural.",
+   "El sistema responde anclado en sentencias reales para reducir alucinaciones y está disponible para matriculados con la cuota al día."
+  ],
+  "cuerpo_html": "<p>El Colegio de Abogados y Procuradores de la Primera Circunscripción Judicial de Mendoza presentó el 15 de septiembre una plataforma de búsqueda de jurisprudencia asistida por inteligencia artificial para sus matriculados. La herramienta permite consultar en lenguaje natural, sin operadores booleanos ni sintaxis especial, sobre fallos civiles y laborales de la provincia. Es una de las primeras iniciativas de este tipo impulsadas por un colegio profesional argentino y marca un camino distinto al de la contratación individual de software extranjero.</p><h2>Cómo funciona la plataforma</h2><p>Según informó el diario Los Andes, el desarrollo estuvo a cargo del ingeniero Álvaro Amengual. El sistema trabaja con una red neuronal sobre un corpus de fallos preseleccionados y actualizados, e indexa sentencias desde 2024 en adelante. Cubre los fueros civil y laboral en todas las instancias judiciales y circunscripciones de la provincia. La incorporación del fuero penal está prevista para etapas posteriores.</p><p>La diferencia técnica con un chatbot genérico está en el diseño. La plataforma no responde desde la memoria del modelo sino que recupera sentencias reales de su base y construye la respuesta sobre esos documentos. Es lo que en la industria se conoce como generación aumentada por recuperación. El efecto práctico es directo: reduce de manera significativa el riesgo de que el sistema invente un fallo que no existe, que es exactamente el problema que viene generando sanciones a abogados en Estados Unidos y en España.</p><p>La promesa de la herramienta es identificar, ordenar, explicar y contextualizar jurisprudencia en segundos. Alejandra Lanci, presidenta del Directorio del Colegio, planteó el objetivo en términos de tiempo profesional y dijo que la idea es que los abogados tengan “más tiempo para pensar”, potenciando el criterio propio en lugar de reemplazarlo.</p><p>El acceso está reservado a profesionales matriculados con la cuota al día. También puede usarse desde computadoras habilitadas en la sede del Colegio y en las sedes de los Tribunales Civiles y Laborales.</p><h2>Qué significa esto para tu práctica diaria</h2><p>Hay tres razones por las que este lanzamiento le importa a un abogado que litiga, incluso si trabaja fuera de Mendoza.</p><p>La primera es el modelo de provisión. Una herramienta pagada por la matrícula colectiva cambia la ecuación económica para el profesional individual y para el estudio chico, que hoy queda afuera de las suscripciones en dólares. Si tu colegio no tiene algo parecido, es un reclamo concreto y razonable para llevar a la comisión directiva. El precedente mendocino le saca al planteo el carácter de idea abstracta.</p><p>La segunda es el diseño anclado en fuentes. Es el criterio que conviene exigir a cualquier proveedor. Cuando evalúes una herramienta de jurisprudencia, hacé una prueba simple: pedile tres fallos sobre un tema que conozcas bien y verificá los tres contra el texto original. Si la herramienta no te muestra el documento de respaldo y solo te devuelve un resumen, no es apta para trabajo judicial. La cita anclada no es un lujo técnico, es la condición para poder firmar.</p><p>La tercera es el límite temporal, y conviene tenerlo presente para no llevarse una sorpresa. La base arranca en 2024. Para una línea jurisprudencial consolidada, con precedentes de la década pasada, la herramienta no alcanza. Sirve para ver tendencia reciente de un tribunal, para detectar cómo viene fallando una sala determinada y para ganar tiempo en el primer barrido. No reemplaza la búsqueda completa cuando el caso exige mostrar la evolución de un criterio.</p><p>Queda un punto que no es menor y que la herramienta no resuelve sola. El deber de verificación sigue siendo del abogado que firma. Que el sistema esté anclado en sentencias reales baja mucho el riesgo, pero no elimina el error de interpretación: un fallo puede existir y aun así no decir lo que el resumen automático sugiere. Abrir el texto completo antes de citarlo sigue siendo obligatorio.</p><h2>El cierre práctico</h2><p>La novedad de fondo no es tecnológica. Es institucional. Un colegio profesional argentino decidió que el acceso a jurisprudencia con IA es un servicio de la matrícula y no un gasto individual. Ese encuadre determina quién queda adentro y quién queda afuera de la próxima década del ejercicio profesional.</p><p>Si sos matriculado en Mendoza, entrá y probala esta semana con un caso propio que ya tengas resuelto. Es la mejor manera de calibrar qué tan confiable es antes de apoyarte en ella para un escrito que importa. Si no lo sos, seguí el resultado: si funciona, va a ser el argumento que otros colegios necesitan para replicarlo.</p>",
+  "faq": [
+   {
+    "p": "¿Quién puede usar el buscador de jurisprudencia con IA del Colegio de Abogados de Mendoza?",
+    "r": "Está disponible para los profesionales matriculados en el Colegio de Abogados y Procuradores de la Primera Circunscripción Judicial de Mendoza que tengan la cuota al día. También puede utilizarse desde computadoras habilitadas en la sede del Colegio y en las sedes de los Tribunales Civiles y Laborales de la provincia."
+   },
+   {
+    "p": "¿Qué fallos cubre la plataforma de jurisprudencia de Mendoza?",
+    "r": "Cubre los fueros civil y laboral de todas las instancias judiciales y circunscripciones de la provincia, con sentencias indexadas desde 2024 en adelante. La incorporación del fuero penal está planificada para etapas posteriores. Para líneas jurisprudenciales anteriores a 2024 sigue siendo necesaria una búsqueda tradicional complementaria."
+   },
+   {
+    "p": "¿Una herramienta de IA anclada en fallos reales puede igual equivocarse?",
+    "r": "Sí. El anclaje en sentencias reales reduce mucho el riesgo de que invente un fallo inexistente, pero no elimina el error de interpretación. Un precedente puede existir y aun así no sostener lo que el resumen automático sugiere. Por eso conviene abrir siempre el texto completo del fallo antes de citarlo en un escrito."
+   }
+  ],
+  "entidades": [
+   "Colegio de Abogados y Procuradores de la Primera Circunscripción Judicial de Mendoza",
+   "Álvaro Amengual",
+   "Alejandra Lanci",
+   "Los Andes",
+   "Tribunales Civiles y Laborales de Mendoza"
+  ],
+  "keywords": [
+   "buscador de jurisprudencia con IA",
+   "Colegio de Abogados de Mendoza IA",
+   "jurisprudencia civil y laboral Mendoza",
+   "inteligencia artificial para abogados Argentina",
+   "búsqueda de fallos en lenguaje natural",
+   "legaltech colegios profesionales",
+   "evitar alucinaciones IA jurídica"
+  ],
+  "palabras": 744
+ },
+ {
+  "id": "oviedo-abre-un-expediente-de-multa-a-un-abogado-por-citas-de",
+  "titulo": "Oviedo abre pieza separada para multar a un abogado por citas de IA sin verificar",
+  "bajada": "La Audiencia Provincial comprobó en el CENDOJ que las cuatro sentencias invocadas no trataban el delito discutido. Activó el art. 247.3 LEC, con multas de hasta 6.000 euros.",
+  "meta_description": "La Audiencia Provincial de Oviedo abrió expediente sancionador por citas de IA sin verificar: art. 247.3 LEC y multa de hasta 6.000 euros por mala fe.",
+  "sumario": [
+   "La Audiencia Provincial de Oviedo detectó que las cuatro sentencias invocadas en un recurso no trataban el delito que el escrito defendía.",
+   "El tribunal verificó las citas en el CENDOJ y abrió pieza separada bajo el artículo 247.3 LEC, con cinco días para alegar.",
+   "La multa por mala fe procesal va de 180 a 6.000 euros y el caso puede derivar en actuaciones ante el colegio profesional."
+  ],
+  "cuerpo_html": "<p>La Sección Tercera de la Audiencia Provincial de Oviedo abrió un expediente sancionador contra un abogado que presentó un recurso con cuatro sentencias citadas que no decían lo que el escrito afirmaba. El tribunal las verificó una por una en el CENDOJ, el Centro de Documentación Judicial del Poder Judicial español, y comprobó que ninguna trataba el delito en discusión. La resolución, del 17 de julio de 2026 y difundida por Confilegal, activó el artículo 247.3 de la Ley de Enjuiciamiento Civil. La multa puede llegar a 6.000 euros. El dato relevante para Argentina es que el control lo hizo el propio tribunal, de oficio, con una base pública de sentencias.</p><h2>Qué detectó el tribunal</h2><p>La resolución corresponde a la sentencia 311/2026, dictada en el recurso de apelación 1083/2026. Integraron la Sala Javier Domínguez Begega como presidente, Francisco Javier Rodríguez Santocildes como ponente y Pilar de Lara Cifuentes.</p><p>El recurso defendía una posición sobre el delito de quebrantamiento y respaldaba su argumento con cuatro sentencias. Al revisarlas en el CENDOJ, los jueces encontraron que ninguna se refería a esa figura. Dos, de Audiencias Provinciales asturianas, trataban falso testimonio y resistencia. Las otras dos, del Tribunal Supremo, versaban sobre hurto y sobre delito contra la salud pública.</p><p>Es una variante del problema que conviene distinguir bien. Acá los fallos existían. No eran carátulas inventadas. Lo que estaba fabricado era la conexión entre esos precedentes y el argumento jurídico. Un modelo de lenguaje produjo una atribución de contenido que no se sostenía, y nadie la chequeó antes de presentar el escrito.</p><p>La Sala fue contundente sobre la conducta. Señaló que la falta de verificación “no se adecúa a lo que debe ser un actuar diligente y respetuoso con los principios deontológicos”. No sancionó de inmediato: abrió una pieza separada y le dio al letrado cinco días para formular alegaciones, como exige el artículo 247.3 de la Ley de Enjuiciamiento Civil. El rango de la multa va de 180 a 6.000 euros.</p><h2>Por qué esto puede pasar acá mañana</h2><p>El mecanismo que usó la Audiencia de Oviedo existe en Argentina. Verificar una cita contra una base pública de jurisprudencia lleva minutos, y cualquier juzgado puede hacerlo. Está el Sistema Argentino de Información Jurídica, están las bases de la Corte Suprema de Justicia de la Nación y de los superiores tribunales provinciales. La barrera nunca fue técnica. Era que a nadie se le ocurría dudar de una cita.</p><p>Eso ya cambió. Con la Resolución PGN 64/2026 fijando reglas de uso de IA para el Ministerio Público Fiscal y con casos sancionados en Estados Unidos y ahora en España, la desconfianza dejó de ser excepcional. El escrito que cita un fallo que no dice lo que se le atribuye tiene hoy muchas más chances de ser revisado que hace un año.</p><p>El marco sancionatorio local tampoco necesita reforma. El artículo 34 inciso 5 d) del Código Procesal Civil y Comercial de la Nación manda a los jueces a prevenir y sancionar los actos contrarios al deber de lealtad, probidad y buena fe. El artículo 45 habilita la multa por temeridad o malicia. El artículo 35 otorga facultades disciplinarias frente a las partes. Y el Código de Ética del Colegio Público de Abogados de la Capital Federal impone un deber de diligencia que no se suspende por usar una herramienta nueva.</p><p>La prevención concreta, para aplicar desde hoy, tiene tres pasos. Uno: de cada fallo que citás, leé el párrafo exacto que sostiene tu argumento, no el resumen ni el sumario. Dos: guardá el enlace o el PDF junto al borrador del escrito, para poder mostrarlo si te lo piden. Tres: prestá atención especial a las citas que encajan demasiado bien. Cuando un precedente parece escrito a medida de tu caso, es el momento de verificar con más cuidado, no con menos.</p><h2>El cierre práctico</h2><p>Hay una distinción que este caso deja clara y que vale incorporar al vocabulario del estudio. No alcanza con confirmar que el fallo existe. Hay que confirmar que dice lo que vos decís que dice. Un buscador con IA puede darte una carátula real y una atribución de contenido inventada, y el error es igual de grave.</p><p>Si en tu estudio hay alguien preparando escritos con asistencia de IA, la regla es una sola y no admite matices: quien firma leyó las fuentes. La delegación de la redacción es legítima. La de la verificación, no.</p>",
+  "faq": [
+   {
+    "p": "¿Qué es el artículo 247 de la LEC y cuándo se aplica?",
+    "r": "Es la norma española que impone a las partes respetar las reglas de la buena fe procesal. Su apartado 3 permite al tribunal multar de 180 a 6.000 euros a quien las vulnere, previa audiencia del afectado. Se lo está aplicando a escritos con citas de jurisprudencia generadas por inteligencia artificial y presentadas sin verificación."
+   },
+   {
+    "p": "¿Cómo verifico rápido si una cita de jurisprudencia es real?",
+    "r": "Buscá la carátula o el número de expediente en una base oficial y abrí el texto completo. En Argentina podés usar el Sistema Argentino de Información Jurídica y las bases de la Corte Suprema y de los superiores tribunales provinciales. No alcanza con confirmar que el fallo existe: hay que leer el párrafo que sostiene tu argumento."
+   },
+   {
+    "p": "¿Puede un juez argentino sancionar de oficio una cita falsa en un escrito?",
+    "r": "Sí. El artículo 34 inciso 5 d) del Código Procesal Civil y Comercial de la Nación le impone prevenir y sancionar los actos contrarios al deber de lealtad, probidad y buena fe. El artículo 45 habilita multas por temeridad o malicia y el artículo 35 le da facultades disciplinarias. Además puede remitir antecedentes al colegio profesional."
+   }
+  ],
+  "entidades": [
+   "Audiencia Provincial de Oviedo",
+   "Sección Tercera",
+   "sentencia 311/2026",
+   "artículo 247.3 de la Ley de Enjuiciamiento Civil",
+   "CENDOJ",
+   "Javier Domínguez Begega",
+   "Francisco Javier Rodríguez Santocildes",
+   "Pilar de Lara Cifuentes",
+   "Tribunal Supremo de España",
+   "Resolución PGN 64/2026",
+   "Código Procesal Civil y Comercial de la Nación",
+   "Sistema Argentino de Información Jurídica",
+   "Confilegal"
+  ],
+  "keywords": [
+   "citas de IA sin verificar sanción",
+   "art. 247 LEC mala fe procesal",
+   "Audiencia Provincial de Oviedo inteligencia artificial",
+   "jurisprudencia inventada por IA",
+   "multa abogado citas falsas",
+   "verificar fallos CENDOJ",
+   "deber de diligencia abogado IA"
+  ],
+  "palabras": 734
+ },
+ {
+  "id": "uno-de-cada-siete-abogados-de-grandes-estudios-ya-depende-de",
+  "titulo": "Uno de cada siete abogados de grandes estudios dice que ya depende de la IA",
+  "bajada": "Una encuesta de LexisNexis a 543 profesionales muestra que el 94% usa IA y que el 34% la abre todos los días. La preocupación por datos inventados trepó al 83%.",
+  "meta_description": "Encuesta LexisNexis 2026: el 94% de los abogados usa IA, el 15% de grandes estudios se declara dependiente y el 83% teme datos inventados. Qué implica.",
+  "sumario": [
+   "El informe de LexisNexis sobre 543 profesionales legales británicos muestra que el 94% ya usa inteligencia artificial y el 34% la utiliza todos los días.",
+   "Uno de cada diez se declara dependiente de la IA, cifra que sube al 15% en grandes estudios y al 13% entre abogados in-house.",
+   "La preocupación por información inexacta o fabricada saltó del 57% en 2024 al 83% actual, y el 81% prefiere IA anclada en fuentes jurídicas."
+  ],
+  "cuerpo_html": "<p>El 15% de los abogados de grandes estudios dice que ya no puede hacer su trabajo sin inteligencia artificial. El dato surge de una encuesta de LexisNexis a 543 profesionales legales del Reino Unido, difundida el 2 de septiembre y reportada por Artificial Lawyer bajo el nombre “The AI-Dependent Lawyer”. No es una proyección sobre el futuro del ejercicio profesional. Es una descripción de cómo se trabaja hoy en la práctica de alto volumen, y anticipa con bastante precisión lo que va a discutirse en el mercado argentino en los próximos dos años.</p><h2>Los números de la encuesta</h2><p>La adopción dejó de ser un tema de vanguardia. El 94% de los encuestados usa inteligencia artificial para trabajo legal. El 74% la usa al menos una vez por semana y el 34% la abre todos los días. Ese piso de uso cotidiano es lo que convierte a la herramienta en infraestructura y no en experimento.</p><p>La dependencia es el hallazgo que da título al informe. Uno de cada diez profesionales se declara dependiente de la IA para hacer su trabajo. La proporción sube al 15% en los grandes estudios y al 13% entre los abogados internos de empresa. Es decir: uno de cada siete abogados de firmas grandes considera que, sin la herramienta, no llega.</p><p>Los usos están concentrados y son bien reconocibles. La investigación jurídica encabeza con el 69%. Le sigue el resumen de documentos con el 62%. La redacción y la revisión de documentos empatan en 53%. Son, todas, tareas de volumen con producto verificable, que es exactamente donde la tecnología rinde.</p><p>El contrapunto está en la preocupación. El 83% teme que se use información inexacta o fabricada, un salto fuerte desde el 57% que registraba la misma encuesta a comienzos de 2024. El 53% teme la fuga de datos confidenciales y el 52% la dependencia excesiva del propio equipo. Además, el 77% cree que la IA está llevando a clientes y al público a malinterpretar el derecho, algo que cualquiera que atendió una consulta con un diagnóstico armado por chatbot reconoce de inmediato.</p><p>Hay un número que conviene subrayar porque define una preferencia de mercado. El 81% se siente más cómodo usando IA cuando está anclada en fuentes jurídicas verificables, contra el 72% de enero de 2026 y el 70% de un año antes. La demanda profesional no es por respuestas más fluidas. Es por respuestas que se puedan chequear.</p><h2>Cómo leer esto desde un estudio argentino</h2><p>La encuesta es británica y el mercado es distinto, pero las conclusiones operativas se trasladan casi sin ajuste.</p><p>Primero, la dependencia sin protocolo es un riesgo concreto. Si en tu estudio hay gente que usa IA todos los días y no existe una regla escrita, el estudio ya tiene exposición y no lo sabe. La pregunta a hacer esta semana es simple: qué herramientas se están usando, con qué documentos y quién verifica el resultado. Es probable que las respuestas te sorprendan.</p><p>Segundo, la preferencia por el anclaje en fuentes es la guía de compra. Cuando evalúes un proveedor, exigí que cada afirmación venga con el documento de respaldo abierto y consultable. Es el criterio que ya aplican las iniciativas locales serias, como el buscador de jurisprudencia que acaba de lanzar el Colegio de Abogados de Mendoza.</p><p>Tercero, el dato del 53% sobre fuga de información conecta con el marco normativo argentino. El secreto profesional está protegido por el artículo 156 del Código Penal y el tratamiento de datos personales por la Ley 25.326. Cargar documentación de un cliente en una plataforma pública no es solo una mala práctica de seguridad: puede ser un incumplimiento. El estándar público ya está fijado, además, por la Resolución PGN 64/2026, que le prohíbe al Ministerio Público Fiscal volcar causas en trámite en chatbots abiertos.</p><p>Cuarto, el 77% sobre malinterpretación del derecho tiene una lectura comercial. Los clientes están llegando con una respuesta previa armada por un chatbot. Conviene preparar cómo se desactiva eso en la primera reunión, sin confrontación y con fuentes a mano.</p><h2>El cierre práctico</h2><p>La brecha que importa ya no está entre quienes usan IA y quienes no. Está entre quienes la usan con un proceso de verificación documentado y quienes la usan sin él. Los primeros ganan tiempo. Los segundos acumulan un riesgo que aparece de golpe, en el peor escrito.</p><p>Armá una regla mínima de tres líneas para tu estudio: qué herramientas están habilitadas, qué información nunca se carga y quién firma la verificación de citas. Es media hora de trabajo. Es lo que separa la productividad del problema.</p>",
+  "faq": [
+   {
+    "p": "¿Cuántos abogados usan inteligencia artificial en su trabajo?",
+    "r": "Según la encuesta de LexisNexis a 543 profesionales legales del Reino Unido publicada en septiembre de 2026, el 94% usa inteligencia artificial para trabajo legal, el 74% al menos una vez por semana y el 34% todos los días. Uno de cada diez se declara directamente dependiente de la herramienta para hacer su trabajo."
+   },
+   {
+    "p": "¿Para qué usan los abogados la inteligencia artificial?",
+    "r": "Los usos principales son investigación jurídica, con el 69% de menciones, resumen de documentos con el 62%, y redacción y revisión de documentos con el 53% cada una. Son tareas de alto volumen y producto verificable. El uso cae fuerte cuando se trata de decisiones estratégicas o de afirmaciones sobre hechos de la causa."
+   },
+   {
+    "p": "¿Qué es una IA anclada en fuentes jurídicas y por qué conviene?",
+    "r": "Es un sistema que no responde desde la memoria del modelo sino que recupera documentos reales de una base y construye la respuesta sobre ellos, mostrando el respaldo. Reduce mucho el riesgo de citas inventadas. El 81% de los abogados encuestados por LexisNexis dice sentirse más cómodo cuando la herramienta funciona así."
+   }
+  ],
+  "entidades": [
+   "LexisNexis",
+   "The AI-Dependent Lawyer",
+   "Artificial Lawyer",
+   "Colegio de Abogados de Mendoza",
+   "Resolución PGN 64/2026",
+   "Ley 25.326 de Protección de Datos Personales",
+   "Código Penal argentino"
+  ],
+  "keywords": [
+   "encuesta LexisNexis abogados IA",
+   "adopción de inteligencia artificial en abogacía",
+   "abogados dependientes de la IA",
+   "usos de IA en estudios jurídicos",
+   "alucinaciones IA preocupación abogados",
+   "IA anclada en fuentes jurídicas",
+   "productividad legal inteligencia artificial"
+  ],
+  "palabras": 760
+ }
+]

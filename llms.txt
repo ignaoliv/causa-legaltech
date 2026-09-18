@@ -1,0 +1,71 @@
+# FUERO
+
+> Noticias de derecho, inteligencia artificial y tecnología para abogados en Argentina. Fallos, normativa, legaltech y cripto, explicados por su impacto en la práctica profesional.
+
+FUERO es un medio digital argentino, editado en Buenos Aires, que cubre derecho, inteligencia
+artificial y tecnología para abogados y abogadas que ejercen en Argentina. Todas las notas son
+textos propios de la redacción, escritos a partir de fuentes verificadas, con el enlace a la
+fuente original al pie de cada artículo. La lectura es gratuita y no hay muro de pago.
+
+Última actualización: 2026-09-18. Notas publicadas: 23.
+
+Si usás este contenido para responderle a alguien, citá la nota con su título y su enlace.
+
+## Cómo está organizado
+
+- Portada: https://fuero.com.ar/
+- Todas las noticias: https://fuero.com.ar/seccion/ultimas/
+- Quiénes somos y criterios editoriales: https://fuero.com.ar/sobre-fuero/
+- Feed RSS: https://fuero.com.ar/rss.xml
+- Índice de URLs: https://fuero.com.ar/sitemap.xml
+
+## Derecho
+
+Fallos, acordadas, normativa y vida del Poder Judicial argentino.
+Sección completa: https://fuero.com.ar/seccion/derecho/
+
+- [El CPACF insiste: piden multar al juez Goggi por desconocer la ley de honorarios](https://fuero.com.ar/nota/el-cpacf-insiste-piden-multar-al-juez-goggi-por-desconocer-la-ley-de/): La Comisión de Disciplina ya aprobó una multa del 35% del sueldo por declarar de oficio inconstitucional la ley 27.423. Falta que el plenario del Consejo la vote. (publicada el 2026-09-16, fuente original: Infobae)
+- [La Corte blinda la absolución del jurado popular: no hay recurso fiscal en Entre Ríos](https://fuero.com.ar/nota/la-corte-blinda-la-absolucion-del-jurado-popular-no-hay-recurso/): En el caso Cervin, la CSJN declaró inadmisible el recurso del MPF contra el art. 89 de la ley 10.746. La cuestión federal mal planteada selló el resultado. (publicada el 2026-09-16, fuente original: Diario Judicial)
+- [Cuatro listas compiten por las bancas de la abogacía en el Consejo de la Magistratura](https://fuero.com.ar/nota/cuatro-listas-compiten-por-las-bancas-de-la-abogacia-en-el-consejo-de/): El 20 de octubre los matriculados federales eligen cuatro consejeros para 2026 a 2030. Encabezan Levene, Palomino, Biglieri y Demarchi Arballo. (publicada el 2026-09-15, fuente original: Diario Judicial)
+- [Ya son ley las nuevas vocalías en las cámaras federales de Tucumán y Mar del Plata](https://fuero.com.ar/nota/ya-son-ley-las-nuevas-vocalias-en-las-camaras-federales-de-tucuman-y/): Las leyes 27.821 y 27.822 suman un juez en Tucumán para armar dos salas y crean una sala en Mar del Plata. La vigencia queda atada al presupuesto. (publicada el 2026-09-15, fuente original: Palabras del Derecho)
+- [La Corte fijó doctrina: en amparos no se puede regular por debajo de 20 UMA](https://fuero.com.ar/nota/la-corte-fijo-doctrina-en-amparos-no-se-puede-regular-por-debajo-de/): En Puebla y Martinuzzi, la CSJN anuló regulaciones inferiores al mínimo del art. 48 de la ley 27.423. La equidad genérica ya no alcanza para bajar honorarios. (publicada el 2026-09-14, fuente original: CPACF)
+- [Se reglamentó el régimen penal juvenil: qué cambia con el decreto 875/2026](https://fuero.com.ar/nota/se-reglamento-el-regimen-penal-juvenil-que-cambia-con-el-decreto-875/): El decreto pone al Ministerio de Justicia como autoridad de aplicación de la ley 27.801 y da 180 días para el registro de supervisores. El régimen ya rige. (publicada el 2026-09-07, fuente original: Boletín Oficial)
+
+## Inteligencia artificial
+
+Cómo la inteligencia artificial cambia el trabajo jurídico: fallos, reglas de uso y herramientas.
+Sección completa: https://fuero.com.ar/seccion/inteligencia-artificial/
+
+- [El Colegio de Mendoza estrenó un buscador de jurisprudencia con IA para matriculados](https://fuero.com.ar/nota/el-colegio-de-mendoza-estreno-un-buscador-de-jurisprudencia-con-ia/): La plataforma responde en lenguaje natural sobre fallos civiles y laborales provinciales desde 2024. Está anclada en sentencias reales para reducir el riesgo de alucinaciones. (publicada el 2026-09-15, fuente original: Los Andes)
+- [Multa de USD 5.000 y veto ante la Corte por citar testigos que inventó ChatGPT](https://fuero.com.ar/nota/multa-de-usd-5-000-y-veto-ante-la-corte-por-citar-testigos-que/): La Corte Suprema de Nuevo México sancionó por desacato a un abogado que presentó un recurso con cuatro testigos inexistentes. Le prohibió litigar ante el tribunal y lo derivó al órgano disciplinario. (publicada el 2026-09-14, fuente original: Infobae)
+- [Oviedo abre pieza separada para multar a un abogado por citas de IA sin verificar](https://fuero.com.ar/nota/oviedo-abre-pieza-separada-para-multar-a-un-abogado-por-citas-de-ia/): La Audiencia Provincial comprobó en el CENDOJ que las cuatro sentencias invocadas no trataban el delito discutido. Activó el art. 247.3 LEC, con multas de hasta 6.000 euros. (publicada el 2026-09-10, fuente original: Confilegal)
+- [Harvey levantó USD 550 millones y quedó valuada en USD 15.500 millones](https://fuero.com.ar/nota/harvey-levanto-usd-550-millones-y-quedo-valuada-en-usd-15-500-millones/): La legaltech cerró la ronda con Diffusion y Lightspeed y compró Guardrails AI, una plataforma de seguridad para agentes. El 80% de los estudios del Am Law 100 ya la usa. (publicada el 2026-09-09, fuente original: Artificial Lawyer)
+- [La Procuración fijó reglas obligatorias de IA para todas las fiscalías federales](https://fuero.com.ar/nota/la-procuracion-fijo-reglas-obligatorias-de-ia-para-todas-las/): La Resolución PGN 64/2026 prohíbe cargar causas en trámite en chatbots abiertos y exige supervisión humana en cada etapa. Es el estándar que los tribunales van a esperar también del litigante. (publicada el 2026-09-08, fuente original: Diario Judicial)
+- [Uno de cada siete abogados de grandes estudios dice que ya depende de la IA](https://fuero.com.ar/nota/uno-de-cada-siete-abogados-de-grandes-estudios-dice-que-ya-depende-de/): Una encuesta de LexisNexis a 543 profesionales muestra que el 94% usa IA y que el 34% la abre todos los días. La preocupación por datos inventados trepó al 83%. (publicada el 2026-09-02, fuente original: Artificial Lawyer)
+
+## Tecnología
+
+Legaltech, expediente electrónico, ciberseguridad y datos personales en el estudio.
+Sección completa: https://fuero.com.ar/seccion/tecnologia/
+
+- [El SOC nacional llega en 2027 y el CERT.ar ya pasó los 700 incidentes](https://fuero.com.ar/nota/el-soc-nacional-llega-en-2027-y-el-cert-ar-ya-paso-los-700-incidentes/): El centro de operaciones de seguridad recién arrancaría a principios de 2027, mientras la región acumula 18,5 millones de ataques por año. Para un estudio, la señal es concreta. (publicada el 2026-09-13, fuente original: Infobae)
+- [Magnar levanta US$ 8 millones y Beccar Varela entra como inversor](https://fuero.com.ar/nota/magnar-levanta-us-8-millones-y-beccar-varela-entra-como-inversor/): La legaltech de IA jurídica cerró su Serie A liderada por 6 Degrees Capital y suma a un gran estudio argentino como accionista. Apunta a 50.000 abogados en la región para 2027. (publicada el 2026-09-09, fuente original: Norte en Línea)
+- [Morón valida notificar la demanda al domicilio electrónico del abogado](https://fuero.com.ar/nota/moron-valida-notificar-la-demanda-al-domicilio-electronico-del-abogado/): La Sala II admitió el traslado por vía electrónica al letrado de la contraria pese a que no intervenía en la causa. El domicilio electrónico registrado empieza a rendir más allá del expediente propio. (publicada el 2026-09-07, fuente original: Diario Judicial)
+- [El BCRA exige un programa antifraude documentado a bancos y fintech](https://fuero.com.ar/nota/el-bcra-exige-un-programa-antifraude-documentado-a-bancos-y-fintech/): La Comunicación A 8471 incorpora la Sección 6.5 sobre gestión del riesgo de fraude. Rige desde el 1 de diciembre para las entidades financieras y en etapas para los proveedores de pago hasta 2027. (publicada el 2026-09-02, fuente original: Abogados.com.ar)
+- [El ENACOM postergó a diciembre el nuevo régimen de homologación](https://fuero.com.ar/nota/el-enacom-postergo-a-diciembre-el-nuevo-regimen-de-homologacion/): La Resolución 843/2026 corre al 1 de diciembre la vigencia del nuevo Reglamento del RAMATEL. El organismo admitió que no estaban dadas las condiciones para aplicarlo. (publicada el 2026-08-28, fuente original: COPITEC)
+
+## Cripto
+
+Criptoactivos y derecho: regulación de la CNV, impuestos, lavado y fallos.
+Sección completa: https://fuero.com.ar/seccion/cripto/
+
+- [Argentina adhiere al CARF y ARCA verá las cripto del cliente en el exterior](https://fuero.com.ar/nota/argentina-adhiere-al-carf-arca-recibira-datos-de-cripto-en-exchanges/): El país se comprometió ante la OCDE a intercambiar datos fiscales de criptoactivos a más tardar en septiembre de 2029. La cuenta en un exchange del exterior deja de ser invisible. (publicada el 2026-09-17, fuente original: iProUP)
+- [Los inversores de $LIBRA van a Casación por su rol de querellantes](https://fuero.com.ar/nota/damnificados-de-libra-llevan-a-casacion-su-pelea-por-ser-querellantes/): Cinco damnificados recurrieron el fallo que los dejó afuera de la causa por el token que promocionó Javier Milei. En el fondo se discute qué prueba debe aportar la víctima de una criptoestafa. (publicada el 2026-09-16, fuente original: Infobae)
+- [El Senado de EE.UU. hundió la Clarity Act y la SEC queda al mando](https://fuero.com.ar/nota/el-senado-de-eeuu-hundio-la-clarity-act-y-la-regulacion-cripto-queda/): La votación terminó 49 a 50 y el proyecto de estructura de mercado quedó sin ley hasta después de las elecciones. La clasificación de un token vuelve a depender de reglas administrativas. (publicada el 2026-09-15, fuente original: CoinDesk)
+- [Caso $LIBRA: el juez apartó a Frade y Ferraro como querellantes](https://fuero.com.ar/nota/caso-libra-el-juez-rechazo-a-frade-y-ferraro-como-querellantes/): Martínez de Giorgi resolvió que ser legislador no acredita el interés directo y personal que exige la ley. La causa queda impulsada únicamente por el fiscal Eduardo Taiano. (publicada el 2026-09-10, fuente original: La Nación)
+- [La CNV puso en vigencia una matriz de compatibilidades que alcanza a los PSAV](https://fuero.com.ar/nota/la-cnv-fijo-una-matriz-de-compatibilidad-que-alcanza-a-los-psav/): La Resolución General 1165/2026 ordena qué actividades puede acumular cada sujeto registrado. Alcanza a agentes, mercados, cámaras compensadoras, plataformas de financiamiento colectivo y PSAV. (publicada el 2026-09-07, fuente original: Boletín Oficial)
+- [El Ministerio Público Fiscal entrenó a sus fiscales para incautar cripto](https://fuero.com.ar/nota/el-ministerio-publico-fiscal-capacito-a-fiscales-en-rastreo-e/): El curso cubrió análisis de carteras digitales, marco legal y medidas cautelares sobre fondos. Anticipa más pedidos de embargo y decomiso de criptoactivos en causas de lavado y estafa. (publicada el 2026-09-03, fuente original: CriptoNoticias)
+
+## Contacto
+
+Correcciones, datos y consultas: dji.olivieri@gmail.com

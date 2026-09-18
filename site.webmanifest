@@ -1,0 +1,22 @@
+{
+ "name": "FUERO",
+ "short_name": "FUERO",
+ "description": "Noticias de derecho, inteligencia artificial y tecnología para abogados en Argentina. Fallos, normativa, legaltech y cripto, explicados por su impacto en la práctica profesional.",
+ "start_url": "/",
+ "display": "browser",
+ "background_color": "#ffffff",
+ "theme_color": "#121212",
+ "lang": "es-AR",
+ "icons": [
+  {
+   "src": "/og/favicon-192.png",
+   "sizes": "192x192",
+   "type": "image/png"
+  },
+  {
+   "src": "/og/favicon-512.png",
+   "sizes": "512x512",
+   "type": "image/png"
+  }
+ ]
+}

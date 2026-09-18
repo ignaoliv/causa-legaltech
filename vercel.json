@@ -1,24 +1,39 @@
 {
+  "trailingSlash": true,
   "redirects": [
+    { "source": "/historia.html", "destination": "/donna/historia.html", "permanent": true },
+    { "source": "/legaltech-argentina.html", "destination": "/donna/legaltech-argentina.html", "permanent": true },
+    { "source": "/prd-fuero-legaltech.html", "destination": "/donna/prd-fuero-legaltech.html", "permanent": true },
+    { "source": "/fuero-artifacts.html", "destination": "/donna/fuero-artifacts.html", "permanent": true }
+  ],
+  "headers": [
     {
-      "source": "/historia.html",
-      "destination": "/donna/historia.html",
-      "permanent": true
+      "source": "/img/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
     },
     {
-      "source": "/legaltech-argentina.html",
-      "destination": "/donna/legaltech-argentina.html",
-      "permanent": true
+      "source": "/og/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
     },
     {
-      "source": "/prd-fuero-legaltech.html",
-      "destination": "/donna/prd-fuero-legaltech.html",
-      "permanent": true
+      "source": "/assets/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=604800" }]
     },
     {
-      "source": "/fuero-artifacts.html",
-      "destination": "/donna/fuero-artifacts.html",
-      "permanent": true
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" }
+      ]
+    },
+    {
+      "source": "/llms.txt",
+      "headers": [{ "key": "Content-Type", "value": "text/plain; charset=utf-8" }]
+    },
+    {
+      "source": "/rss.xml",
+      "headers": [{ "key": "Content-Type", "value": "application/rss+xml; charset=utf-8" }]
     }
   ]
 }
