@@ -5,7 +5,7 @@
 body{background:var(--fondo);color:var(--tinta);font-family:var(--serif);
 -webkit-font-smoothing:antialiased;line-height:1.5}
 a{color:inherit;text-decoration:none}
-img{max-width:100%;display:block}
+img{max-width:100%;height:auto;display:block}
 .cinta{height:4px;background:var(--tinta)}
 .barra{border-bottom:1px solid var(--regla);padding:14px 0;margin-bottom:34px}
 .barra-in,.envoltorio{max-width:760px;margin:0 auto;padding:0 22px}
@@ -70,6 +70,7 @@ text-transform:uppercase;color:var(--vivo);display:block;margin-bottom:5px}
 padding-bottom:26px}
 .item:last-child{border-bottom:none}
 .item img{width:200px;height:133px;object-fit:cover;border:1px solid var(--regla)}
+.item a{display:block}
 .item h2{font-family:var(--serif);font-size:23px;font-weight:600;line-height:1.2;margin-bottom:8px}
 .item p{font-size:16px;color:var(--gris);line-height:1.45;margin-bottom:9px}
 .item .pie{font-family:var(--sans);font-size:11.5px;color:var(--gris-tenue);display:flex;gap:13px}
