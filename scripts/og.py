@@ -8,6 +8,7 @@ import html
 import json
 import os
 import subprocess
+from PIL import Image
 import sys
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -61,7 +62,8 @@ def main():
         slug = n.get("slug")
         if not slug:
             continue
-        destino = os.path.join(RAIZ, "og", f"nota-{slug}.png")
+        destino = os.path.join(RAIZ, "og", f"nota-{slug}.jpg")
+        crudo = destino + ".png"
         if os.path.exists(destino) and not todas:
             continue
         titulo = cuerpos.get(n["id"], {}).get("titulo", n["titulo"])
@@ -78,10 +80,12 @@ def main():
         open(tmp_html, "w", encoding="utf-8").write(pagina)
         subprocess.run([CHROME, "--headless=new", "--disable-gpu", "--hide-scrollbars",
                         "--allow-file-access-from-files", "--virtual-time-budget=5000",
-                        f"--screenshot={destino}", "--window-size=1200,630",
+                        f"--screenshot={crudo}", "--window-size=1200,630",
                         f"file://{tmp_html}"],
                        capture_output=True, timeout=90)
-        if os.path.exists(destino):
+        if os.path.exists(crudo):
+            Image.open(crudo).convert("RGB").save(destino, "JPEG", quality=84, optimize=True)
+            os.remove(crudo)
             hechas += 1
             print("og  ", slug)
         else:

@@ -492,7 +492,7 @@ def render_nota(n, notas, hoy):
 </main>"""
 
     url = SITIO + n["url_nota"]
-    og_nota = f"/og/nota-{n['slug']}.png"
+    og_nota = f"/og/nota-{n['slug']}.jpg"
     tiene_og = os.path.exists(os.path.join(RAIZ, og_nota.lstrip("/")))
     social = og_nota if tiene_og else (n.get("imagen") or "/og/fuero.png")
     imagen = (SITIO + n["imagen"]) if n.get("imagen") else SITIO + "/og/fuero.png"
