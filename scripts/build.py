@@ -222,6 +222,10 @@ def head(titulo, descripcion, url, imagen=None, tipo="website", extra="", notici
     if not imagen.startswith("http"):
         imagen = SITIO + imagen
     social = titulo_social or titulo
+    # los previews sociales cortan cerca de los 125 caracteres en el celular
+    desc_social = descripcion
+    if len(desc_social) > 125:
+        desc_social = desc_social[:122].rsplit(" ", 1)[0] + "…"
     metas = f"""<title>{e(titulo)}</title>
 <meta name="description" content="{e(descripcion)}">
 <link rel="canonical" href="{e(url)}">
@@ -230,7 +234,7 @@ def head(titulo, descripcion, url, imagen=None, tipo="website", extra="", notici
 <meta property="og:site_name" content="{MARCA}">
 <meta property="og:locale" content="es_AR">
 <meta property="og:title" content="{e(social)}">
-<meta property="og:description" content="{e(descripcion)}">
+<meta property="og:description" content="{e(desc_social)}">
 <meta property="og:url" content="{e(url)}">
 <meta property="og:image" content="{e(imagen)}">
 <meta property="og:image:width" content="{medidas[0]}">
@@ -238,7 +242,7 @@ def head(titulo, descripcion, url, imagen=None, tipo="website", extra="", notici
 <meta property="og:image:alt" content="{e(social)}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{e(social)}">
-<meta name="twitter:description" content="{e(descripcion)}">
+<meta name="twitter:description" content="{e(desc_social)}">
 <meta name="twitter:image" content="{e(imagen)}">
 <meta name="theme-color" content="#121212">
 <link rel="icon" href="/favicon.ico" sizes="any">
