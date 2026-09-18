@@ -202,7 +202,7 @@ img{display:block;max-width:100%}
 
 /* columna C: lo último */
 .ultimo-caja{border-top:3px solid var(--tinta);padding-top:12px}
-.ultimo-caja > h4{
+.ultimo-caja > h2{
   font-family:var(--sans);font-size:12px;font-weight:800;
   letter-spacing:.05em;text-transform:uppercase;margin-bottom:12px;
   display:flex;align-items:center;gap:7px;
@@ -398,7 +398,7 @@ img{display:block;max-width:100%}
 }
 .panel.abierto{transform:translateX(0)}
 .panel-cab{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--tinta);padding-bottom:12px;margin-bottom:16px}
-.panel-cab h4{font-family:var(--sans);font-size:14px;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
+.panel-cab h2{font-family:var(--sans);font-size:14px;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
 .panel-cab button{font-family:var(--sans);font-size:12px;color:var(--gris-claro)}
 .panel li{list-style:none;padding:13px 0;border-bottom:1px solid var(--regla);font-family:var(--serif);font-size:17px;font-weight:500;line-height:1.22}
 .panel li em{display:block;font-family:var(--sans);font-size:10.5px;font-style:normal;color:var(--gris-tenue);margin-top:5px}
@@ -606,7 +606,7 @@ table.tabla tbody tr:hover td{background:var(--crema)}
     <aside class="col-c">
       <div class="pegado">
         <div class="ultimo-caja">
-          <h4><span class="punto"></span>Lo último</h4>
+          <h2><span class="punto"></span>Lo último</h2>
           <ul id="ultimas"><!--FUERO:ultimas--></ul>
           <a href="/seccion/ultimas/" class="ver-todo">Ver toda la cobertura →</a>
         </div>        </div>
@@ -710,13 +710,13 @@ table.tabla tbody tr:hover td{background:var(--crema)}
 
 <!-- ============ PANEL GUARDADAS ============ -->
 <div class="velo" id="velo"></div>
-<aside class="panel" id="panel" role="dialog" aria-label="Notas guardadas">
+<div class="panel" id="panel" role="dialog" aria-modal="true" aria-label="Notas guardadas">
   <div class="panel-cab">
-    <h4>Guardadas</h4>
+    <h2>Guardadas</h2>
     <button id="cerrarPanel">Cerrar ✕</button>
   </div>
   <div id="contenidoPanel"></div>
-</aside>
+</div>
 
 <script>
 /* ---------------- BASE ---------------- */
