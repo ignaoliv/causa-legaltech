@@ -217,11 +217,11 @@ img{display:block;max-width:100%}
 /* notas de columna B */
 .nota-col{padding-bottom:18px;margin-bottom:18px;border-bottom:1px solid var(--regla)}
 .nota-col:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
-.nota-col h3{
+.nota-col h2{
   font-family:var(--serif);font-weight:600;font-size:22px;
   line-height:1.14;letter-spacing:-.01em;margin-bottom:8px;
 }
-.nota-col h3 a:hover{color:var(--gris)}
+.nota-col h2 a:hover{color:var(--gris)}
 .nota-col p{font-size:15.5px;color:var(--gris);line-height:1.42;margin-bottom:9px}
 
 /* columna C: lo último */
@@ -405,7 +405,7 @@ img{display:block;max-width:100%}
 .pie{border-top:1px solid var(--tinta);margin-top:40px;padding:30px 0 90px}
 .pie-wordmark{font-family:var(--serif);font-weight:700;font-size:26px;letter-spacing:.14em;margin-bottom:22px}
 .pie-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px}
-.pie h5{font-family:var(--sans);font-size:11.5px;font-weight:700;margin-bottom:11px}
+.pie h3{font-family:var(--sans);font-size:11.5px;font-weight:700;margin-bottom:11px}
 .pie li{list-style:none;font-family:var(--sans);font-size:12px;color:var(--gris-claro);line-height:2.1}
 .pie a:hover{text-decoration:underline}
 .pie-legal{
@@ -615,6 +615,7 @@ table.tabla tbody tr:hover td{background:var(--crema)}
 </header>
 
 <div class="contenedor">
+<main>
 
   <!-- ============ PORTADA ============ -->
   <section class="portada" id="portada">
@@ -637,19 +638,19 @@ table.tabla tbody tr:hover td{background:var(--crema)}
     <div class="col-b" id="colB"><article class="nota-col">
         <div class="figura"><div class="foto "><img src="/img/damnificados-de-libra-llevan-a-casacion-su-pelea-por-ser-que.jpg?v=07e15bc0" alt="Los inversores de $LIBRA van a Casación por su rol de querellantes" loading="lazy" width="1200" height="630"></div></div>
         <span class="kicker">Fallos</span>
-        <h3><a href="/nota/damnificados-de-libra-llevan-a-casacion-su-pelea-por-ser-querellantes/">Los inversores de $LIBRA van a Casación por su rol de querellantes</a></h3>
+        <h2><a href="/nota/damnificados-de-libra-llevan-a-casacion-su-pelea-por-ser-querellantes/">Los inversores de $LIBRA van a Casación por su rol de querellantes</a></h2>
         <p>Cinco damnificados recurrieron el fallo que los dejó afuera de la causa por el token que promocionó Javier Milei. En el fondo se discute qué prueba debe aportar la víctima de una criptoestafa.</p>
         <div class="credito"><span>vía Infobae</span><span>4 min</span><span>Hace 2 días</span></div>
       </article><article class="nota-col">
         
         <span class="kicker">Legaltech</span>
-        <h3><a href="/nota/magnar-levanta-us-8-millones-y-beccar-varela-entra-como-inversor/">Magnar levanta US$ 8 millones y Beccar Varela entra como inversor</a></h3>
+        <h2><a href="/nota/magnar-levanta-us-8-millones-y-beccar-varela-entra-como-inversor/">Magnar levanta US$ 8 millones y Beccar Varela entra como inversor</a></h2>
         <p>La legaltech de IA jurídica cerró su Serie A liderada por 6 Degrees Capital y suma a un gran estudio argentino como accionista. Apunta a 50.000 abogados en la región para 2027.</p>
         <div class="credito"><span>vía Norte en Línea</span><span>4 min</span><span>9 sep</span></div>
       </article><article class="nota-col">
         
         <span class="kicker">Regulación</span>
-        <h3><a href="/nota/la-procuracion-fijo-reglas-obligatorias-de-ia-para-todas-las/">La Procuración fijó reglas obligatorias de IA para todas las fiscalías federales</a></h3>
+        <h2><a href="/nota/la-procuracion-fijo-reglas-obligatorias-de-ia-para-todas-las/">La Procuración fijó reglas obligatorias de IA para todas las fiscalías federales</a></h2>
         <p>La Resolución PGN 64/2026 prohíbe cargar causas en trámite en chatbots abiertos y exige supervisión humana en cada etapa. Es el estándar que los tribunales van a esperar también del litigante.</p>
         <div class="credito"><span>vía Diario Judicial</span><span>4 min</span><span>8 sep</span></div>
       </article></div>
@@ -945,11 +946,13 @@ table.tabla tbody tr:hover td{background:var(--crema)}
 
 
   <!-- ============ PIE ============ -->
+</main>
+
   <footer class="pie">
     <div class="pie-wordmark"><a href="/">FUERO</a></div>
     <div class="pie-grid">
       <div>
-        <h5>Secciones</h5>
+        <h3>Secciones</h3>
         <ul>
           <li><a href="/seccion/derecho/">Derecho</a></li>
           <li><a href="/seccion/inteligencia-artificial/">Inteligencia artificial</a></li>
@@ -959,7 +962,7 @@ table.tabla tbody tr:hover td{background:var(--crema)}
         </ul>
       </div>
       <div>
-        <h5>Seguir a FUERO</h5>
+        <h3>Seguir a FUERO</h3>
         <ul>
           <li><a href="#boletin">Boletín por correo</a></li>
           <li><a href="/rss.xml">Feed RSS</a></li>
@@ -967,7 +970,7 @@ table.tabla tbody tr:hover td{background:var(--crema)}
         </ul>
       </div>
       <div>
-        <h5>El medio</h5>
+        <h3>El medio</h3>
         <ul>
           <li><a href="/sobre-fuero/">Quiénes somos</a></li>
           <li><a href="/sobre-fuero/#criterios">Cómo elegimos qué publicar</a></li>
@@ -976,7 +979,7 @@ table.tabla tbody tr:hover td{background:var(--crema)}
         </ul>
       </div>
       <div>
-        <h5>Anunciantes</h5>
+        <h3>Anunciantes</h3>
         <ul>
           <li><a href="/sobre-fuero/#contacto">Anunciar en FUERO</a></li>
         </ul>

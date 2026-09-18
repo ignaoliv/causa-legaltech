@@ -239,7 +239,7 @@ def bloque_portada(notas, hoy):
     col_b = "".join(f"""<article class="nota-col">
         {'<div class="figura">' + figura(n) + '</div>' if i == 0 else ''}
         <span class="kicker">{e(n['kicker'])}</span>
-        <h3><a href="{n['url_nota']}">{e(n['titulo'])}</a></h3>
+        <h2><a href="{n['url_nota']}">{e(n['titulo'])}</a></h2>
         <p>{e(n['bajada'])}</p>
         <div class="credito"><span>{e(n['fuente'])}</span><span>{n['min']} min</span><span>{relativa(n['fecha'], hoy)}</span></div>
       </article>""" for i, n in enumerate(secundarias))
