@@ -544,10 +544,13 @@ def render_nota(n, notas, hoy):
             {"@type": "Question", "name": f["p"],
              "acceptedAnswer": {"@type": "Answer", "text": f["r"]}} for f in n["faq"]]})
     extra = jsonld({"@context": "https://schema.org", "@graph": grafo})
+    # Google corta cerca de los 60 caracteres: con titulares largos, la marca sobra
+    # porque ya la muestra debajo del resultado a partir del dominio
     titulo_head = f"{n['titulo']} | {MARCA}"
-    if len(titulo_head) > 68:
-        corte = n["titulo"][:59].rsplit(" ", 1)[0]
-        titulo_head = f"{corte}… | {MARCA}"
+    if len(titulo_head) > 60:
+        titulo_head = n["titulo"]
+    if len(titulo_head) > 70:
+        titulo_head = titulo_head[:67].rsplit(" ", 1)[0] + "…"
     return cascara(titulo_head, n.get("meta_description") or n["bajada"], url, cuerpo,
                    imagen=social, tipo="article", extra=extra, noticia=n,
                    titulo_social=n["titulo"])
