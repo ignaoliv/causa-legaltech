@@ -26,17 +26,27 @@ LEMA = "Derecho, IA y tecnología"
 DESC_SITIO = ("Noticias de derecho, inteligencia artificial y tecnología para abogados "
               "en Argentina. Fallos, normativa, legaltech y cripto, explicados por su "
               "impacto en la práctica profesional.")
+META_PORTADA = ("Noticias de derecho, IA y tecnología para abogados en Argentina. Fallos, "
+                "normativa, legaltech y cripto, con foco en la práctica diaria.")
 ART = timezone(timedelta(hours=-3))
 
 SECCIONES = {
     "derecho": ("Derecho", "derecho",
-                "Fallos, acordadas, normativa y vida del Poder Judicial argentino."),
+                "Fallos, acordadas, normativa y vida del Poder Judicial argentino.",
+                "Fallos de la Corte, acordadas, honorarios y normativa del Boletín Oficial, "
+                "explicados por su efecto en la práctica del abogado."),
     "ia": ("Inteligencia artificial", "inteligencia-artificial",
-           "Cómo la inteligencia artificial cambia el trabajo jurídico: fallos, reglas de uso y herramientas."),
+           "Cómo la inteligencia artificial cambia el trabajo jurídico: fallos, reglas de uso y herramientas.",
+           "IA y derecho en Argentina: sanciones por citas inventadas, reglas de uso en la "
+           "Justicia y herramientas para estudios jurídicos."),
     "tech": ("Tecnología", "tecnologia",
-             "Legaltech, expediente electrónico, ciberseguridad y datos personales en el estudio."),
+             "Legaltech, expediente electrónico, ciberseguridad y datos personales en el estudio.",
+             "Legaltech, notificaciones electrónicas, ciberseguridad y datos personales: la "
+             "tecnología que cambia el día a día de un estudio."),
     "cripto": ("Cripto", "cripto",
-               "Criptoactivos y derecho: regulación de la CNV, impuestos, lavado y fallos."),
+               "Criptoactivos y derecho: regulación de la CNV, impuestos, lavado y fallos.",
+               "Criptoactivos y derecho argentino: registro de PSAV en la CNV, impuestos de "
+               "ARCA, prevención de lavado y fallos del caso LIBRA."),
 }
 MESES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio",
          "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
@@ -302,8 +312,8 @@ def render_portada(plantilla, notas, hoy):
                           ensure_ascii=False)
     s = plantilla
     s = s.replace("<!--FUERO:head-->", head(
-        f"{MARCA}, noticias de derecho, IA y tecnología para abogados en Argentina",
-        DESC_SITIO, SITIO + "/", extra=grafo))
+        f"{MARCA}, noticias de derecho, IA y tecnología para abogados",
+        META_PORTADA, SITIO + "/", extra=grafo))
     s = s.replace("<!--FUERO:fecha-->", f"{DIAS[hoy.weekday()]} {hoy.day} de {MESES[hoy.month - 1]} de {hoy.year}")
     s = s.replace("<!--FUERO:colA-->", col_a)
     s = s.replace("<!--FUERO:colB-->", col_b)
@@ -531,8 +541,9 @@ def render_nota(n, notas, hoy):
              "acceptedAnswer": {"@type": "Answer", "text": f["r"]}} for f in n["faq"]]})
     extra = jsonld({"@context": "https://schema.org", "@graph": grafo})
     titulo_head = f"{n['titulo']} | {MARCA}"
-    if len(titulo_head) > 70:
-        titulo_head = f"{n['titulo'][:62]}… | {MARCA}"
+    if len(titulo_head) > 68:
+        corte = n["titulo"][:59].rsplit(" ", 1)[0]
+        titulo_head = f"{corte}… | {MARCA}"
     return cascara(titulo_head, n.get("meta_description") or n["bajada"], url, cuerpo,
                    imagen=social, tipo="article", extra=extra, noticia=n,
                    titulo_social=n["titulo"])
@@ -544,10 +555,12 @@ def render_seccion(clave, notas, hoy):
         intro = ("Todo lo que publicó FUERO, de lo más nuevo a lo más viejo. "
                  "Derecho, inteligencia artificial, tecnología y cripto, con el foco puesto "
                  "en qué le cambia el trabajo a un abogado en Argentina.")
+        meta = ("Últimas noticias de derecho, IA, tecnología y cripto para abogados en "
+                "Argentina, ordenadas de la más nueva a la más vieja.")
         lista = notas
         h1 = "Últimas noticias"
     else:
-        titulo, slug, intro = SECCIONES[clave]
+        titulo, slug, intro, meta = SECCIONES[clave]
         lista = [n for n in notas if n["tema"] == clave]
         h1 = titulo
 
@@ -578,7 +591,7 @@ def render_seccion(clave, notas, hoy):
         "@type": "BreadcrumbList", "itemListElement": [
             {"@type": "ListItem", "position": 1, "name": "Portada", "item": SITIO + "/"},
             {"@type": "ListItem", "position": 2, "name": h1, "item": url}]}]
-    return slug, cascara(f"{h1} para abogados en Argentina | {MARCA}", intro, url, cuerpo,
+    return slug, cascara(f"{h1} para abogados en Argentina | {MARCA}", meta, url, cuerpo,
                          extra=jsonld({"@context": "https://schema.org", "@graph": grafo}))
 
 
@@ -702,7 +715,7 @@ Sitemap: {SITIO}/sitemap-noticias.xml
 
 def render_llms(notas, hoy):
     por_seccion = ""
-    for clave, (titulo, slug, desc) in SECCIONES.items():
+    for clave, (titulo, slug, desc, _meta) in SECCIONES.items():
         lista = [n for n in notas if n["tema"] == clave]
         if not lista:
             continue
