@@ -11,6 +11,7 @@ Lee noticias.json (metadatos) y cuerpos/*.json (artículos reescritos) y produce
 Todo el contenido va en el HTML, sin depender de JavaScript, para que lo lean
 tanto Google como los crawlers de los asistentes de IA.
 """
+import hashlib
 import html
 import json
 import os
@@ -103,11 +104,30 @@ def escribir(ruta, contenido):
     return destino
 
 
+_VERSIONES = {}
+
+
+def versionar(ruta_web):
+    """Agrega ?v=<hash> a una ruta estática: el archivo se cachea un año, pero si
+    su contenido cambia la URL cambia y el navegador vuelve a pedirlo."""
+    if not ruta_web or ruta_web.startswith("http"):
+        return ruta_web
+    if ruta_web not in _VERSIONES:
+        ruta = os.path.join(RAIZ, ruta_web.lstrip("/"))
+        try:
+            with open(ruta, "rb") as fh:
+                h = hashlib.sha1(fh.read()).hexdigest()[:8]
+            _VERSIONES[ruta_web] = f"{ruta_web}?v={h}"
+        except OSError:
+            _VERSIONES[ruta_web] = ruta_web
+    return _VERSIONES[ruta_web]
+
+
 def medir(ruta_web):
     """Devuelve (ancho, alto) reales de una imagen del sitio."""
     if not ruta_web:
         return (1200, 630)
-    ruta = os.path.join(RAIZ, ruta_web.lstrip("/"))
+    ruta = os.path.join(RAIZ, ruta_web.split("?")[0].lstrip("/"))
     try:
         with Image.open(ruta) as im:
             return im.size
@@ -168,7 +188,7 @@ def cargar():
 def figura(n, clase=""):
     if n.get("imagen"):
         an, al = medir(n["imagen"])
-        return (f'<div class="foto {clase}"><img src="{e(n["imagen"])}" '
+        return (f'<div class="foto {clase}"><img src="{e(versionar(n["imagen"]))}" '
                 f'alt="{e(n["titulo"])}" loading="lazy" width="{an}" height="{al}"></div>')
     return '<div class="marco"><strong>FUERO</strong></div>'
 
@@ -233,7 +253,7 @@ def bloque_portada(notas, hoy):
 # ---------------------------------------------------------------- head
 def head(titulo, descripcion, url, imagen=None, tipo="website", extra="", noticia=None,
          titulo_social=None, medidas=(1200, 630)):
-    imagen = imagen or "/og/fuero.png"
+    imagen = imagen or versionar("/og/fuero.png")
     if not imagen.startswith("http"):
         imagen = SITIO + imagen
     social = titulo_social or titulo
@@ -480,7 +500,7 @@ def render_nota(n, notas, hoy):
         credito = f"Foto: {e(n['credito_imagen'])}" if n.get("credito_imagen") else ""
         pie = f"{e(n.get('epigrafe',''))} {credito}".strip()
         an, al = medir(n["imagen"])
-        fig = (f'<figure><img src="{e(n["imagen"])}" alt="{e(n["titulo"])}" '
+        fig = (f'<figure><img src="{e(versionar(n["imagen"]))}" alt="{e(n["titulo"])}" '
                f'width="{an}" height="{al}" fetchpriority="high">'
                + (f"<figcaption>{pie}</figcaption>" if pie else "") + "</figure>")
     faq = ""
@@ -525,8 +545,8 @@ def render_nota(n, notas, hoy):
     url = SITIO + n["url_nota"]
     og_nota = f"/og/nota-{n['slug']}.jpg"
     tiene_og = os.path.exists(os.path.join(RAIZ, og_nota.lstrip("/")))
-    social = og_nota if tiene_og else (n.get("imagen") or "/og/fuero.png")
-    imagen = (SITIO + n["imagen"]) if n.get("imagen") else SITIO + "/og/fuero.png"
+    social = versionar(og_nota if tiene_og else (n.get("imagen") or "/og/fuero.png"))
+    imagen = SITIO + versionar(n.get("imagen") or "/og/fuero.png")
     articulo = {
         "@type": "NewsArticle",
         "@id": url + "#articulo",
@@ -589,7 +609,7 @@ def render_seccion(clave, notas, hoy):
         h1 = titulo
 
     items = "".join(f"""<article class="item">
-      {'<a href="' + n['url_nota'] + '"><img src="' + e(n['imagen']) + '" alt="' + e(n['titulo']) + '" loading="lazy"></a>' if n.get('imagen') else '<div></div>'}
+      {'<a href="' + n['url_nota'] + '"><img src="' + e(versionar(n['imagen'])) + '" alt="' + e(n['titulo']) + '" loading="lazy"></a>' if n.get('imagen') else '<div></div>'}
       <div>
         <span class="kicker">{e(n['kicker'])}</span>
         <h2><a href="{n['url_nota']}">{e(n['titulo'])}</a></h2>
