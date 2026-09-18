@@ -1,5 +1,5 @@
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--fondo:#fff;--tinta:#121212;--gris:#363636;--gris-claro:#5a5a5a;--gris-tenue:#8b8b8b;
+:root{--fondo:#fff;--tinta:#121212;--gris:#363636;--gris-claro:#5a5a5a;--gris-tenue:#6e6e6e;
 --regla:#e2e2e2;--crema:#f7f7f5;--vivo:#d0021b;
 --serif:'Newsreader',Georgia,serif;--sans:'Libre Franklin',-apple-system,sans-serif}
 body{background:var(--fondo);color:var(--tinta);font-family:var(--serif);

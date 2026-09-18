@@ -17,6 +17,8 @@ import os
 import re
 import shutil
 import unicodedata
+
+from PIL import Image
 from datetime import datetime, timezone, timedelta
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -101,6 +103,18 @@ def escribir(ruta, contenido):
     return destino
 
 
+def medir(ruta_web):
+    """Devuelve (ancho, alto) reales de una imagen del sitio."""
+    if not ruta_web:
+        return (1200, 630)
+    ruta = os.path.join(RAIZ, ruta_web.lstrip("/"))
+    try:
+        with Image.open(ruta) as im:
+            return im.size
+    except Exception:
+        return (1200, 630)
+
+
 def jsonld(obj):
     return ('<script type="application/ld+json">'
             + json.dumps(obj, ensure_ascii=False, separators=(",", ":"))
@@ -153,8 +167,9 @@ def cargar():
 # ---------------------------------------------------------------- bloques
 def figura(n, clase=""):
     if n.get("imagen"):
+        an, al = medir(n["imagen"])
         return (f'<div class="foto {clase}"><img src="{e(n["imagen"])}" '
-                f'alt="{e(n["titulo"])}" loading="lazy" width="1200" height="675"></div>')
+                f'alt="{e(n["titulo"])}" loading="lazy" width="{an}" height="{al}"></div>')
     return '<div class="marco"><strong>FUERO</strong></div>'
 
 
@@ -329,7 +344,7 @@ def render_portada(plantilla, notas, hoy):
 
 CSS_PAGINA = """
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--fondo:#fff;--tinta:#121212;--gris:#363636;--gris-claro:#5a5a5a;--gris-tenue:#8b8b8b;
+:root{--fondo:#fff;--tinta:#121212;--gris:#363636;--gris-claro:#5a5a5a;--gris-tenue:#6e6e6e;
 --regla:#e2e2e2;--crema:#f7f7f5;--vivo:#d0021b;
 --serif:'Newsreader',Georgia,serif;--sans:'Libre Franklin',-apple-system,sans-serif}
 body{background:var(--fondo);color:var(--tinta);font-family:var(--serif);
@@ -464,7 +479,9 @@ def render_nota(n, notas, hoy):
     if n.get("imagen"):
         credito = f"Foto: {e(n['credito_imagen'])}" if n.get("credito_imagen") else ""
         pie = f"{e(n.get('epigrafe',''))} {credito}".strip()
-        fig = (f'<figure><img src="{e(n["imagen"])}" alt="{e(n["titulo"])}" width="1200" height="675">'
+        an, al = medir(n["imagen"])
+        fig = (f'<figure><img src="{e(n["imagen"])}" alt="{e(n["titulo"])}" '
+               f'width="{an}" height="{al}" fetchpriority="high">'
                + (f"<figcaption>{pie}</figcaption>" if pie else "") + "</figure>")
     faq = ""
     if n.get("faq"):
@@ -572,7 +589,7 @@ def render_seccion(clave, notas, hoy):
         h1 = titulo
 
     items = "".join(f"""<article class="item">
-      {'<a href="' + n['url_nota'] + '"><img src="' + e(n['imagen']) + '" alt="' + e(n['titulo']) + '" loading="lazy" width="200" height="133"></a>' if n.get('imagen') else '<div></div>'}
+      {'<a href="' + n['url_nota'] + '"><img src="' + e(n['imagen']) + '" alt="' + e(n['titulo']) + '" loading="lazy"></a>' if n.get('imagen') else '<div></div>'}
       <div>
         <span class="kicker">{e(n['kicker'])}</span>
         <h2><a href="{n['url_nota']}">{e(n['titulo'])}</a></h2>
